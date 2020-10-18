@@ -1,57 +1,65 @@
-# YOUR PRODUCT/TEAM NAME
-> _Note:_ This document is meant to evolve throughout the planning phase of your project.   That is, it makes sense for you commit regularly to this file while working on the project (especially edits/additions/deletions to the _Highlights_ section). Most importantly, it is a reflection of all the planning you work you've done in the first iteration. 
-> **This document will serve as a master plan between your team, your partner and your TA.**
+# Lady Ballers Camp - Team 13
 
 ## Product Details
 
 #### Q1: What are you planning to build?
 
- > Short (1 - 2 min' read)
- * Start with a single sentence, high-level description of the product.
- * Be clear - Describe the problem you are solving in simple terms.
- * Be concrete. For example:
-    * What are you planning to build? Is it a website, mobile app,
-   browser extension, command-line app, etc.?      
-    * When describing the problem/need, give concrete examples of common use cases.
-    * Assume your the reader knows nothing about the problem domain and provide the necessary context. 
- * Focus on *what* your product does, and avoid discussing *how* you're going to implement it.      
-   For example: This is not the time or the place to talk about which programming language and/or framework you are planning to use.
- * **Feel free (and very much encouraged) to include useful diagrams, mock-ups and/or links**.
+A mobile app (iOS & Android) with 4 pages:
+1) Education: articles provided by LBC displayed, to empower users about their rights
+2) Take Action: resources for users to connect with their elected officials (contact info, email templates, etc.)
+3) Reporting: provides closest location for mental health centers, police stations, etc (with map)
+4) User Stories: users can submit and view personal experience stories (Facebook-like interface)
+
+Essentially this app is meant for LBC users to get access to articles, resources, other users’ stories, and empowerment to take action. In our case as developers, this is primarily a CMS delivery app, paired with posting, commenting, etc.
 
 
 #### Q2: Who are your target users?
 
-  > Short (1 - 2 min' read max)
- * Be specific (e.g. a 'a third-year university student studying Computer Science' and not 'a student')
- * **Feel free (but not obligated) to use personas.         
-   You can create your personas as part of this Markdown file, or add a link to an external site (for example, [Xtensio](https://xtensio.com/user-persona/)).**
+BIPOC youth (Black, Indigenous, People of Colour)
+- Primarily marginalized girls age 6-16
+- Will also be accessed by more users as LBC rebrands this app to be for LBC Youth, i.e. to work for members that are outside of its girl-camps.
+
 
 #### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
 
-> Short (1 - 2 min' read max)
- * We want you to "connect the dots" for us - Why does your product (as described in your answer to Q1) fits the needs of your users (as described in your answer to Q2)?
- * Explain the benefits of your product explicitly & clearly. For example:
-    * Save users time (how much?)
-    * Allow users to discover new information (which information? And, why couldn't they discover it before?)
-    * Provide users with more accurate and/or informative data (what kind of data? Why is it useful to them?)
-    * Does this application exist in another form? If so, how does your differ and provide value to the users?
-    * How does this align with your partner's organization's values/mission/mandate?
+This app will empower racialized youth and students and equip them with the resources they need to deal with microaggressions at school, work and anywhere else they go. They will have the knowledge and understanding to feel confident in any situation. They will know how to handle oppressive people and situations so that they can continue being the best version of themselves. 
+
+This application is meant for accessibility of resources, which are catered specifically to this community of members. The catered content, created by LBC, will be directed towards its members. Furthermore, this community will be able to create posts and stories about their personal experiences, which will be important for building community within LBC.
+
 
 #### Q4: How will you build it?
 
-> Short (1-2 min' read max)
- * What is the technology stack? Specify any and all languages, frameworks, libraries, PaaS products or tools. 
- * How will you deploy the application?
- * Describe the architecture - what are the high level components or patterns you will use? Diagrams are useful here. 
- * Will you be using third party applications or APIs? If so, what are they?
- * What is your testing strategy?
+Frontend 
+- React Native application
+- Redux Toolkit for state management
+- Native Base
+
+Backend
+- Python
+- FastAPI
+
+Database
+- PostgresSQL
+
+CI/CD
+- Github Actions
+
+Testing
+- Jest
+- PyTest
+
+Deployment
+- Google Cloud Platform
+
+Architecture
+
+<p align="center">
+  <img src="">
+</p>
+
 
 #### Q5: What are the user stories that make up the MVP?
 
- * At least 5 user stories concerning the main features of the application - note that this can broken down further
- * You must follow proper user story format (as taught in lecture) ```As a <user of the app>, I want to <do something in the app> in order to <accomplish some goal>```
- * If you have a partner, these must be reviewed and accepted by them
- * The user stories should be written in Github and each one must have clear acceptance criteria.
 
 ----
 
@@ -59,62 +67,226 @@
 
 #### Q6: What are the roles & responsibilities on the team?
 
-Describe the different roles on the team and the responsibilities associated with each role. 
- * Roles should reflect the structure of your team and be appropriate for your project. Not necessarily one role to one team member.
+Roles:
 
-List each team member and:
- * A description of their role(s) and responsibilities including the components they'll work on and non-software related work
- * 3 technical strengths and weaknesses each (e.g. languages, frameworks, libraries, development methodologies, etc.)
+##### Designated Partner Contacts
+- Patrick and Mohammad:
+  - In charge of contact and communication with LBC. This entails setting up meetings and keeping the partner up to date with team progress. All messages and correspondence will have both Mo and Patrick CC’d.
+
+##### Sprint Planners/Scrum Masters
+- Frontend: Patrick
+- Backend: Mohammad
+
+They will assign and prioritize tasks, usually in the form of user stories for the team members to work on.
+
+##### Frontend:
+Patrick:
+  * Strengths:
+    * JavaScript and TypeScript
+    * ReactJS is their bloodline when it comes to programming for web development
+    * Redux for state management is something they are somewhat comfortable
+    * Can use Material UI for lean development
+
+  * Weaknesses:
+   * Not great at backend development
+   * Needs help with connecting front-end to backend
+   * Cannot, for the life of him, set up servers and hosting
+   * Cannot set up most things like middleware and CI/CD tools
+	
+Nate:
+ * Strengths: 
+   * Python, C
+   * Android development,
+   * Light React / React Native experience
+
+ * Weaknesses:
+   * No experience working with databases
+   * Little knowledge of Node.js
+   * New to JavaScript 
+	
+Arun
+ * Strengths: 
+   * Most experience with Android Dev
+   * Light experience with local react projects and material ui
+   * PostgreSQL knowledge
+
+ * Weaknesses:
+   * No practical experience with REST 
+   * No practical experience with HTTP 
+   * No deployment or CI/CD experience
+Danny:
+* Strengths: 
+  * Python, Java, C
+  * Databases (PostgreSQL, I’m currently learning mongoDB)
+  * Data structures (but please don’t ask me how to code an AVL tree yet, I haven’t figured it out yet)
+  * Design, and any kind of creative decisions (e.g. making UML diagrams, CRC cards, making ER database diagrams for DB design, etc.)
+  * Refactoring code
+  * Writing clear prose and documentation (things like short answer questions, preconditions and postconditions)
+* Weaknesses:
+  * Rusty on how each SOLID design principle and design pattern works
+  * Rusty on advanced git commands such as git reset, git rebase, and git status, I’m more comfortable with basics ones like git add, git commit, and git push
+  * New to writing basic unit tests, integration tests, UI tests
+  * New to web development (HTML, CSS, JS)
+  * New to frontend (React, Angular, Vue)
+  * New to backend (Django, Flask, Node.js)
+  * New to CI/CD (Heroku, AWS, CircleCI, TravisCI)
+ 
+##### Backend:
+Henry:
+* Strengths: 
+  * Javascript / Node, Python backend
+  * SQL, MongoDB
+  * Android Dev
+* Weaknesses: 
+  * Front end frameworks
+  * UI designs
+  * CI/CD tool familiarity
+  
+Sophie:
+* Strengths: 
+  * Python, C#, Java
+  * Good understanding of REST api
+  * Experience with PostgreSQL and MongoDB
+* Weaknesses:  
+  * New to front end 
+  * New to JS
+  * Not much full stack dev
+  
+Mohammad:
+* Strengths:
+  * Python/Nodejs for backend dev.
+  * ReactJs with Sass for frontend dev + UI Designer
+  * CI/CD using both AWS and GCP infrastructure.
+* Weaknesses:
+  * Mobile Development
+  * Testing UI
+  * SEO and website visibility in general
 
 #### Q7: What operational events will you have as a team?
 
-Describe meetings (and other events) you are planning to have. 
- * When and where? Recurring or ad hoc? In-person or online?
- * What's the purpose of each meeting?
- * Other events could be coding sessions, code reviews, quick weekly sync meeting online, etc.
- * You must have at least 2 meetings with your project partner (if you have one) before D1 is due. Describe them here:
-   * What did you discuss during the meetings?
-   * What were the outcomes of each meeting?
-   * You must provide meeting minutes.
-   * You must have a regular meeting schedule established by the second meeting.  
+##### Partner Meetings:
+
+Meeting 1
+* Wednesday Oct 14
+  * introduced our team
+  * their introduction of the members of the team, their vision, and what they’re looking for
+  * dove into their ideas as deeply as possible to get a good list of requirements, features, and what MUST be in the MVP
+  * showed them a mock-design based off of our intuition from before the meeting. Discussed what was good and what wasn’t
+  * Discussed how we’re going to deliver content, and make it easy for them to actually create content
+  * Discussed hosting, databases
+  * Discussed how we’re going to deploy app to app stores
+  * Discussed pricing and costs of everything
+
+Meeting 2
+* Friday Oct 16
+  * Discussed latest findings on which CMS to use, ended up choosing Sanity
+  * Found deals for hosting as a non-profit
+  * Decided on hosting with GCP
+  * Found out that deploying on app stores is free for nonprofits
+
+##### Regular Meetings:
+
+* Sundays 12-4pm: Coding sessions, where members can easily ask each other questions and help each other out. Online (Zoom). 
+
+* Meeting times for other things such as meeting with partner: Mondays 5-6pm, Wednesdays any time after 5pm, Fridays after 5pm. Meetings are to plan out development, check up on how members are doing and what they are working on, etc. Online (Zoom)
+
 
 #### Q8: What artifacts will you use to self-organize?
 
-List/describe the artifacts you will produce in order to organize your team.       
+* Discord
+  * Sharing relevant links
+  * Channels for live collaboration during designated work periods
+* Facebook Messenger
+  * Planning meetings and quick discussions 
+* Google Calendar
+  * Meeting scheduling and reminders
+* JIRA
+  * Task management, product backlog
+  * Creating stories, epics, etc.
+  * Sprints used for task prioritization
 
- * Artifacts can be To-Do lists, Task boards, schedule(s), meeting minutes, etc.
- * We want to understand:
-   * How do you keep track of what needs to get done?
-   * How do you prioritize tasks?
-   * How do tasks get assigned to team members?
-   * How do you determine the status of work from inception to completion?
+Tasks are first split into frontend and backend tasks, then each team member will be assigned a unique page in which they will complete work on creating the required functionality. If a task load is too much to handle for one engineer, they can request help from other team members.
+
+Engineers will update the progress of their features under development on JIRA
+
 
 #### Q9: What are the rules regarding how your team works?
 
-Describe your team's working culture.
+We agree to work synchronously at least once a week, so that we can gradually complete project milestones. Outside of team meetings, we expect everyone to work asynchronously on separate branches and merge branches after a feature is complete. Please update us of any progress you make, milestones you’ve completed, or any issues you encounter -- this will be done through messages and updates in a specific Discord text channel built for this, where we will tag the other members whose work this affects. Communication can also be done through the team messenger group chat.
 
-**Communications:**
- * What is the expected frequency? What methods/channels are appropriate? 
- * If you have a partner project, what is your process (in detail) for communicating with your partner?
+Group meetings exist to check in on one another and hold each other accountable on tasks we assign to you. You are expected to attend meetings, or provide a strong reason for missing a meeting (e.g. studying for a midterm or exam, finishing an assignment from another course, fulfilling work, personal, or family obligations, etc.). Meetings will continue if and only if at least 3 members can make it to the meaning.
 
-**Meetings:**
- * How are people held accountable for attending meetings, completing action items? Is there a moderator or process?
+##### Conflict Scenarios:
 
-**Conflict Resolution:**
- * List at least three team scenarios/conflicts you discussed in lecture and how you decided you will resolve them. Indecisions? Non-responsive team members? Any other scenarios you can think of?
+* TypeScript vs JavaScript:
+  * After much discussion about both aspects of the languages, pros and cons, we decided to use JavaScript for the frontend, and Python for the backend, as a result of weighing the options. We saw that using JavaScript will be quicker for us and result in more lean development, but agreed that this may result in problems down the road in typing-related aspects.
 
+* Non-responsive team members:
+  * If anyone goes AWOL/ghosts the team (i.e. doesn’t respond to team messages for more than 48 hours and doesn’t notify other team members first), we will first attempt to contact them by any means possible -- Facebook, Discord, text, phone, or even in-person (obeying social distancing orders of course). If they still don’t respond, we will report them to Adam (our project TA) and the CSC301 professors that they have ghosted us and decide how to move forward with the project. (maybe the offending person gets a warning, faces a penalty, or gets removed from the team?)
+
+* Indecisions:
+  * You should try to resolve any indecisions on your own first by weighing the pros and cons of each scenario, and then discussing among your subgroup (i.e. frontend group or backend group). If the situation needs to be expanded in scope, we will first bring it up to our specific subgroup  (i.e. frontend or backend teammates), and then escalate to the whole team if needed. 
+  If a situation arises where there is complete disagreement, all parties will present their arguments and merit before voting on an appropriate decision. We will also look at alternative outcomes that may arise through discussion with other team members, as a compromise for the parties involved.
+
+##### Programming Style Conventions:
+
+It is our team’s goal to make sure that our code stays well-organized, readable, and clear -- making it easier to spot bugs. Agreeing on a reasonable set of programming conventions helps us spend less time arguing over trivial style differences, and more time working on the project:
+
+To maintain code readability:
+* Use proper indentation (even though it’s optional for Java-like languages)
+* Use adequate whitespace in expressions (e.g. x = 5 vs. x=5 vs. x    =    5)
+* Use meaningful, accurate variable names.
+* Avoid convoluted expressions (e.g. i++ + ++i;)
+* No two statements on the same line (e.g. wakeUp(); brewCoffee(); on the same line)
+* No one-line if-statements or one-line loops allowed (e.g. for (int i = 0; i < n; i++) j++; or if (hoursOfSleep < 6) return false;)
+
+For your own peace of mind…
+* 2 spaces/tabs not 4.
+* Curly spaces on the same line, as opposed to on separate lines. This doesn’t affect readability much, and all else equal it saves a little bit of space. (https://softwareengineering.stackexchange.com/questions/2715/should-curly-braces-appear-on-their-own-line)
+* Use camelCase for Java-like languages, pothole_case for Python-like languages.
+
+To maintain code cleanliness:
+* Use helper functions wherever possible to keep code modular, and avoid repeating code (Yeah, I’m looking at you, people who write 100-line functions, and copypasta programmers).
+* Proper docstrings for non-trivial methods.
+* Avoid excessive nested loops or nested if-statements. Consider using a guard clause to flatten a nested if-statement: (https://medium.com/@scadge/if-statements-design-guard-clauses-might-be-all-you-need-67219a1a981a) 
+* Use comments sparingly. Comments should only explain why your code does what it does, rather than remind the reader what it does and how the code does it. Any method you use whose behaviour can be found in its documentation doesn’t deserve a comment!
+
+##### DESIGN BEFORE CODE
+
+To minimize the amount of technical debt we accrue, we agree to prioritize sound design over implementation. We will likely use some combination of Test Driven Development (TDD) and Behavioral Driven Development (BDD) to establish our design. Our design portion consists of:
+
+* establishing clear user stories and use cases,
+* establishing clear specifications,
+* brainstorming potential software design using UML diagrams and potential database designs using ER diagrams,
+* brainstorming preliminary test cases, making use of test stubs, test doubles, etc. (Think back to the Robert Martin article in the unittesting lecture: https://blog.cleancoder.com/uncle-bob/2014/05/14/TheLittleMocker.html)
+
+In past group projects, we’ve found it frustrating to debug code because we didn’t think through the structure or misunderstood the specifications. 
+
+If we’re pressed for time, Patrick or Mo can email Adam for an extension on behalf of our team.
+
+Whatever you do, do not push any code to GitHub before settling on an excellent design!
+
+##### CODE REVIEWS
+
+We don’t always write perfect code the first time, but we also don’t want our code to degrade over time and let bugs slowly creep into our code. CI frameworks only catch compilation errors, but we must catch code smells and poor code design ourselves. Our “fail fast” approach to handling commits will give us a better chance of finding potential code smells early before they cause more trouble later on. 
+
+We should only push code if and only if:
+* Our code passes all CI tests (what CI are we using?)
+* The team head and two other group mates verify that our code is clear + easy to read, our commits are reasonably sized, and our code follows at least one design principle. We can flag people for making too large commits and ask you to decompose your commits, suggest ways you can refactor your code, or suggest relevant design patterns/SOLID principles to use.
+
+##### OUR CODING WORKFLOW 
+We agree to follow this workflow as closely as possible to make the software development process as smooth as possible:
+* Keep commits small and atomic. Avoid large commits, since accepting large commits increases the chances of a severe mistake that can only be fixed by git reverting a large portion of your work. This is not fun for the whole team! An atomic commit should meaningfully improve on previous commits (e.g. “added login buttons” or “refactored login using the factory pattern” rather than “added a comment”).
+* Use the debugger for debugging or logging as opposed to writing print statement confetti.
+* Don’t get too attached to your code! Be open to allowing your code to evolve.
+* It’s best to code when you’re most alert. You’ll be more productive that way since you’ll write better code more quickly.
 
 
 ----
 ### Highlights
 
-Specify 3 - 5 key decisions and/or insights that came up during your meetings
-and/or collaborative process.
-
- * Short (5 min' read max)
- * Decisions can be related to the product and/or the team process.
-    * Mention which alternatives you were considering.
-    * Present the arguments for each alternative.
-    * Explain why the option you decided on makes the most sense for your team/product/users.
- * Essentially, we want to understand how (and why) you ended up with your current product and process plan.
- * This section is useful for important information regarding your decision making process that may not necessarily fit in other sections. 
+1) For our content management system we were considering using either Sanity or Contentful, but Contentful is starting to be viewed as outdated, and Sanity would be more simplistic for LBC content writers to use.  Furthermore as developers the Sanity API looks much more attractive and easy to integrate with the rest of our backend services. 
+2) In the first meeting, we discussed our budget for the app. LBC wanted both an iOS as well as an Android app. Since LBC is a non-profit organization, we decided to prioritize tech with lower prices/free as we already had some basic fees for publishing the app. 
+3) We discussed the different non-profit programs for deployment of mobile apps driving costs from $99/year +$25 to $25 given that Apple provides free service for nonprofits.
+4) For deployment we were considering both Google Cloud Platform and Amazon Web Services. AWS has a nonprofit program that they have ran out for this quarter. So we argued that we can use GCP services at lower cost potentially driving them to zero, and then make the switch at the beginning of next year. 
+5) We detailed that the app will be packaged in a way that it will be infrastructure independent to facilitate switching from one Cloud provider to another. 
