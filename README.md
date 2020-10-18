@@ -8,6 +8,8 @@
 
 > The mobile app for ladyballers.org
 
+This is going to be the frontend repo.
+
 ### ✨ [Demo](example.com)
 
 ## Install
@@ -27,4 +29,3 @@ npm run tests
 Give a ⭐️ if this project helped you!
 
 ***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
