@@ -60,6 +60,29 @@ Architecture
 
 #### Q5: What are the user stories that make up the MVP?
 
+Epics:
+1) As a user, I want to find local mental health centers in order to get mental health support. 
+2) As a user, I want to write to my government officials in order to inform them on issues of racism in my community.
+3) As a user, I want to share my own experiences and view the experiences of others like me in order to connect with similar people in my community. 
+4) As a user, I want to be informed on how to deal with microaggressions and oppression in order to stand up for myself and fight back against racism. 
+5) As a user, I want to find articles in order to inform myself on my rights. 
+
+These are just some of our epics. For a better reference of user stories, look at these, which are actually in our JIRA.
+
+1) As a user, I need to be able to log in, so that I have access to the application
+ - Acceptance Criteria: Working login
+2) As a user, I need to be able to create an account, so that I have access to the application
+ - Acceptance Criteria: Account creation screens, can create an account and then log in
+Blocked by: Story 1
+3) As a user, I want to be able to create a post, so that I can share my message with other users
+ - Acceptance Criteria: Working post functionality, can type up a post as a user which gets saved in back-end, can be retrieved for displaying
+4) As a user, I want to be able to upload photos and videos with my post, so that I can share better content with other users
+ - Acceptance Criteria: Able to add photos to posts, photos are stored, and able to be retrieved
+Blocked by: Story 3
+5) As LBC, I want to be able to deploy content to the app, so the users can see good resources
+ - Acceptance Criteria: Sanity is put to use, content can be pulled from Sanity
+6) As a user, I want to be able to see other users' posts, so that I can learn from their experiences
+ - Acceptance Criteria: posts are pulled from backend, displayed on front-end for user in facebook-style manner
 
 ----
 
