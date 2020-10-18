@@ -56,7 +56,9 @@ Architecture
 <p align="center">
   <img src="">
 </p>
-
+```
+![diagram](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/tree/master/deliverable-1/diagram.png?raw=true)
+```
 
 #### Q5: What are the user stories that make up the MVP?
 
@@ -116,6 +118,7 @@ Patrick:
    * Cannot, for the life of him, set up servers and hosting
    * Cannot set up most things like middleware and CI/CD tools
 	
+
 Nate:
  * Strengths: 
    * Python, C
@@ -127,6 +130,7 @@ Nate:
    * Little knowledge of Node.js
    * New to JavaScript 
 	
+
 Arun
  * Strengths: 
    * Most experience with Android Dev
@@ -153,7 +157,7 @@ Danny:
   * New to frontend (React, Angular, Vue)
   * New to backend (Django, Flask, Node.js)
   * New to CI/CD (Heroku, AWS, CircleCI, TravisCI)
- 
+
 ##### Backend:
 Henry:
 * Strengths: 
@@ -165,6 +169,7 @@ Henry:
   * UI designs
   * CI/CD tool familiarity
   
+
 Sophie:
 * Strengths: 
   * Python, C#, Java
@@ -175,6 +180,7 @@ Sophie:
   * New to JS
   * Not much full stack dev
   
+
 Mohammad:
 * Strengths:
   * Python/Nodejs for backend dev.
@@ -303,7 +309,6 @@ We agree to follow this workflow as closely as possible to make the software dev
 * Use the debugger for debugging or logging as opposed to writing print statement confetti.
 * Don’t get too attached to your code! Be open to allowing your code to evolve.
 * It’s best to code when you’re most alert. You’ll be more productive that way since you’ll write better code more quickly.
-
 
 ----
 ### Highlights
