@@ -53,10 +53,6 @@ Deployment
 
 Architecture
 
-<p align="center">
-  <img src="">
-</p>
-
 ![diagram](https://user-images.githubusercontent.com/21181457/96378031-72284200-1157-11eb-9039-1190390b7b92.png)
 
 #### Q5: What are the user stories that make up the MVP?
