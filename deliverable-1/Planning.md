@@ -108,10 +108,10 @@ Patrick:
     * Can use Material UI for lean development
 
   * Weaknesses:
-   * Not great at backend development
-   * Needs help with connecting front-end to backend
-   * Cannot, for the life of him, set up servers and hosting
-   * Cannot set up most things like middleware and CI/CD tools
+   	* Not great at backend development
+ 	* Needs help with connecting front-end to backend
+	* Cannot, for the life of him, set up servers and hosting
+	* Cannot set up most things like middleware and CI/CD tools
 	
 
 Nate:
@@ -192,10 +192,10 @@ Mohammad:
 
 Meeting 1
 * Wednesday Oct 14
-  * introduced our team
-  * their introduction of the members of the team, their vision, and what they’re looking for
-  * dove into their ideas as deeply as possible to get a good list of requirements, features, and what MUST be in the MVP
-  * showed them a mock-design based off of our intuition from before the meeting. Discussed what was good and what wasn’t
+  * Introduced our team
+  * Their introduction of the members of the team, their vision, and what they are looking for
+  * Dove into their ideas as deeply as possible to get a good list of requirements, features, and what MUST be in the MVP
+  * Showed them a mock-design based off of our intuition from before the meeting. Discussed what was good and what wasn’t
   * Discussed how we’re going to deliver content, and make it easy for them to actually create content
   * Discussed hosting, databases
   * Discussed how we’re going to deploy app to app stores
