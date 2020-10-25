@@ -12,6 +12,10 @@ This is going to be the frontend repo.
 
 ### ✨ [Demo](example.com)
 
+### Git Commit Standards
+
+http://karma-runner.github.io/0.10/dev/git-commit-msg.html
+
 ## Install
 
 ```sh
@@ -28,4 +32,4 @@ npm run tests
 
 Give a ⭐️ if this project helped you!
 
-***
+---
