@@ -23,5 +23,8 @@ module.exports = {
     'react',
   ],
   rules: {
+    indent: ['error', 2],
+    'no-multi-spaces': ['error'],
+    'react/style-prop-object': ['off'],
   },
 };
