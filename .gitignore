@@ -1,10 +1,12 @@
 # PyCharm
 .idea
-/.idea/
 
 # VSCode
 .vscode
 nohup.out
+
+# ignore DS_Store files from mac
+.DS_Store
 
 # ignore all node modules
 **/node_modules
@@ -13,5 +15,5 @@ node_modules
 # ignore builds
 /build
 
-# ignore DS_Store files from mac
-.DS_Store
+# ignore expo files
+.expo
