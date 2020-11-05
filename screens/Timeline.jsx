@@ -10,6 +10,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import theme from '../theme/theme';
+import TimelinePost from './Timeline-Components/TimelinePost'
 
 const Timeline = (props) => (
   <Container>
@@ -24,7 +25,7 @@ const Timeline = (props) => (
         <Text style={theme.header}>Timeline!</Text>
       </Header>
       <Content style={{ flex: 1 }}>
-        <View style={{ flexGrow: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <View style={{ flexGrow: 1, alignItems: 'center', flexDirection: "row" }}>
           <Button>
             <Text
               onPress={() => {
@@ -34,7 +35,15 @@ const Timeline = (props) => (
               Click Me!
             </Text>
           </Button>
-        </View>
+          <Button style={{alignSelf:"flex-end", marginLeft: 'auto'}}>
+            <Text>
+              New Post
+            </Text>
+          </Button>
+        </View> 
+        <TimelinePost></TimelinePost>
+        <TimelinePost></TimelinePost>
+        <TimelinePost></TimelinePost>
       </Content>
     </ScrollView>
   </Container>

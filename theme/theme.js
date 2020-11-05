@@ -42,6 +42,7 @@ export default theme = StyleSheet.create({
   header: {
     fontSize: 20,
     fontWeight: '400',
+    color: "white",
   },
   spaceItem: {
     margin: 20,
