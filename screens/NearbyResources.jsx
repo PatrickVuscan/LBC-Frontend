@@ -6,7 +6,7 @@ import {
   Text,
 } from 'native-base';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import theme from '../theme/theme';
 
@@ -215,7 +215,5 @@ const NearbyResources = props => (
     </ScrollView>
   </Container>
 );
-
-const styles = StyleSheet.create({});
 
 export default NearbyResources;
