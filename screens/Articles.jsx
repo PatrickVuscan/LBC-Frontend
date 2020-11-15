@@ -30,17 +30,19 @@ const Articles = (props) => (
             {"\n"}
           </Text>
           <Text>
-            For non-emergency hate crimes, report the Non-Emergency Line at 905-453-3311.
-            {"\n"}
-            or file a hate crime report here:
-            {"\n"}
-            https://www.peelpolice.ca/en/report-it/make-a-report-online.aspx
+            For an emergency, call 9-1-1.
             {"\n"}
           </Text>
           <Text>
-            To learn more about hate crimes, call the Hate-Motivated Crime Hotline at 905-456-5905
+            To report a non-emergency hate crime, call the Non-Emergency Line at 905-453-3311,
+            or file a hate crime report here at https://www.peelpolice.ca/en/report-it/make-a-report-online.aspx.
             {"\n"}
-            or visit the Hate Crime Unit site here: https://www.peelpolice.ca/en/report-it/hate-motivated-and-bias-motivated-crime.aspx
+          </Text>
+          <Text>
+            If you have questions or concerns about a hate crime, call the Hate-Motivated Crime
+            Hotline at 905-456-5905, or visit the Hate Crime Unit site here:
+            https://www.peelpolice.ca/en/report-it/hate-motivated-and-bias-motivated-crime.aspx
+            to learn more.
             {"\n"}
           </Text>
           <Button>
@@ -67,13 +69,13 @@ const Articles = (props) => (
             {"\n"}
           </Text>
           <Text>
-            For non-emergency hate crimes, report them to the Non-Emergency Line at 808-2222.
+            To report a non-emergency hate crime, call the Non-Emergency Line at 808-2222.
             {"\n"}
           </Text>
           <Text>
-            To learn more about hate crimes, call the Hate Crime Unit at 416-808-3500
-            {"\n"}
-            or visit the Hate Crime Unit site here: http://www.torontopolice.on.ca/crimeprevention/hatecrime.php
+            If you have questions or concerns about a hate crime, call the Hate
+            Crime Unit at 416-808-3500 or visit on the Hate Crime Unit site here:
+            http://www.torontopolice.on.ca/crimeprevention/hatecrime.php to learn more.
             {"\n"}
           </Text>
           <Button>
@@ -100,13 +102,12 @@ const Articles = (props) => (
             {"\n"}
           </Text>
           <Text>
-            For non-emergency hate crimes, report them to the Non-Emergency Line at 1-866-876-5423.
+            To report a non-emergency hate crime, call the Non-Emergency Line at 1-866-876-5423.
             {"\n"}
           </Text>
           <Text>
-            To learn more about hate crimes, call the Hate Crime Hotline at 1-877-354-4283
-            {"\n"}
-            or email the Hate Crime Unit site here at hatecrime@yrp.ca.
+            If you have questions or concerns about a hate crime, call the Hate Crime
+            Hotline at 1-877-354-4283, or email the Hate Crime Unit at hatecrime@yrp.ca.
             {"\n"}
           </Text>
           <Button>
@@ -133,7 +134,7 @@ const Articles = (props) => (
             {"\n"}
           </Text>
           <Text>
-            For non-emergency hate crimes, report them to the Non-Emergency Line at 905-453-3311.
+            To report a non-emergency hate crime, call the Non-Emergency Line at 905-453-3311.
             {"\n"}
           </Text>
           <Button>
@@ -160,13 +161,42 @@ const Articles = (props) => (
             {"\n"}
           </Text>
           <Text>
-            For non-emergency hate crimes, report them to the Non-Emergency Line at 905-453-3311.
-            {"\n"}
-            or to the Hate Crime Unit at 905-546-5678.
+            To report a non-emergency hate crime, call the Non-Emergency Line at 905-546-4925 or
+            call the Hate Crime Unit at 905-546-5678.
             {"\n"}
           </Text>
           <Text>
-            To learn more about hate crimes, call the Anti-Racism/Diversity Liaison at 905-546-4910.
+            If you have questions or concerns about a hate crime, call the Anti-Racism/Diversity 
+            Liaison at 905-546-4910.
+            {"\n"}
+          </Text>
+          <Button>
+            <Text
+              onPress={() => {
+                props.navigation.navigate('Resources');
+              }}
+            >
+              Click Me!
+            </Text>
+          </Button>
+          <Text>
+            {"\n"}
+          </Text>
+        </View>
+
+        <View style={{ flexGrow: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Text>
+            Ottawa Police Service
+            {"\n"}
+          </Text>
+          <Text>
+            For an emergency, call 9-1-1.
+            {"\n"}
+          </Text>
+          <Text>
+            To report a non-emergency hate crime, call the Non-Emergency Line at 613-236-1222
+            ext. 7300, the Hate Crime Section at 613-236-1222 ext. 5015, or file a report at
+            the Hate Crime Unit site here: https://www.ottawapolice.ca/en/contact-us/Online-Reporting.aspx
             {"\n"}
           </Text>
           <Button>
