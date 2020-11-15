@@ -11,7 +11,7 @@ import { StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import theme from '../theme/theme';
 
-const Timeline = (props) => (
+const Timeline = props => (
   <Container>
     <ScrollView
       automaticallyAdjustContentInsets
