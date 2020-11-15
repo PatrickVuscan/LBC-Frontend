@@ -1,4 +1,3 @@
-// @ts-check
 import {
   Button,
   Container,
@@ -11,7 +10,7 @@ import { StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import theme from '../theme/theme';
 
-const NearbyResources = (props) => (
+const NearbyResources = props => (
   <Container>
     <ScrollView
       automaticallyAdjustContentInsets
