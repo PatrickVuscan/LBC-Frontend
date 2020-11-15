@@ -28,8 +28,9 @@ module.exports = {
     'import-newlines',
   ],
   rules: {
+    'arrow-parens': ['error', 'as-needed'],
     indent: ['error', 2],
-    quotes: ['off'],
+    quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: true }],
     'import/extensions': [
       'error',
       'ignorePackages',
@@ -42,9 +43,9 @@ module.exports = {
     ],
     'consistent-return': ['off'],
     'no-multi-spaces': ['error'],
-    'react/style-prop-object': ['off'],
     'no-console': 'off',
     'no-use-before-define': 'off',
+    'no-param-reassign': ['error', { props: true, ignorePropertyModificationsFor: ['state'] }],
     'object-property-newline': ['error', {
       allowAllPropertiesOnSameLine: true,
     }],
@@ -54,6 +55,7 @@ module.exports = {
     'no-unused-vars': ['warn', {
       vars: 'local', args: 'after-used', ignoreRestSiblings: true, caughtErrors: 'none',
     }],
+    'react/style-prop-object': ['off'],
     'react/prop-types': ['off'],
     'react/jsx-filename-extension': ['warn', { extensions: ['.jsx', '.tsx'] }],
     'react/destructuring-assignment': ['off'],
