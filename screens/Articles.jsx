@@ -67,7 +67,7 @@ const Articles = (props) => (
             {"\n"}
           </Text>
           <Text>
-            For non-emergency hate crimes, report the Non-Emergency Line at 808-2222.
+            For non-emergency hate crimes, report them to the Non-Emergency Line at 808-2222.
             {"\n"}
           </Text>
           <Text>
@@ -100,13 +100,52 @@ const Articles = (props) => (
             {"\n"}
           </Text>
           <Text>
-            For non-emergency hate crimes, report the Non-Emergency Line at 1-866-876-5423.
+            For non-emergency hate crimes, report them to the Non-Emergency Line at 1-866-876-5423.
             {"\n"}
           </Text>
           <Text>
             To learn more about hate crimes, call the Hate Crime Hotline at 1-877-354-4283
             {"\n"}
             or email the Hate Crime Unit site here at hatecrime@yrp.ca.
+            {"\n"}
+          </Text>
+          <Button>
+            <Text
+              onPress={() => {
+                props.navigation.navigate('Resources');
+              }}
+            >
+              Click Me!
+            </Text>
+          </Button>
+          <Text>
+            {"\n"}
+          </Text>
+        </View>
+
+        <View style={{ flexGrow: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Text>
+            Durham Region Police Service
+            {"\n"}
+          </Text>
+          <Text>
+            For an emergency, call 9-1-1.
+            {"\n"}
+          </Text>
+          <Text>
+            For non-emergency hate crimes, report them to the Non-Emergency Line at 905-453-3311.
+            {"\n"}
+          </Text>
+          <Button>
+            <Text
+              onPress={() => {
+                props.navigation.navigate('Resources');
+              }}
+            >
+              Click Me!
+            </Text>
+          </Button>
+          <Text>
             {"\n"}
           </Text>
         </View>
