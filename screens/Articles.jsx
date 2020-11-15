@@ -149,6 +149,39 @@ const Articles = (props) => (
             {"\n"}
           </Text>
         </View>
+
+        <View style={{ flexGrow: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Text>
+            Hamilton Police Service
+            {"\n"}
+          </Text>
+          <Text>
+            For an emergency, call 9-1-1.
+            {"\n"}
+          </Text>
+          <Text>
+            For non-emergency hate crimes, report them to the Non-Emergency Line at 905-453-3311.
+            {"\n"}
+            or to the Hate Crime Unit at 905-546-5678.
+            {"\n"}
+          </Text>
+          <Text>
+            To learn more about hate crimes, call the Anti-Racism/Diversity Liaison at 905-546-4910.
+            {"\n"}
+          </Text>
+          <Button>
+            <Text
+              onPress={() => {
+                props.navigation.navigate('Resources');
+              }}
+            >
+              Click Me!
+            </Text>
+          </Button>
+          <Text>
+            {"\n"}
+          </Text>
+        </View>
       </Content>
     </ScrollView>
   </Container>
