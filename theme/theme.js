@@ -47,5 +47,19 @@ export default theme = StyleSheet.create({
   spaceItem: {
     margin: 20,
   },
+  footer: {
+    elevation: 3,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 0.2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
+    height: 54,
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    padding: 5, 
+    marginBottom: 5, 
+  },
   verticalCenter: { alignItems: 'center' },
 });

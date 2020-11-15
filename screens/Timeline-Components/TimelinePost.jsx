@@ -21,7 +21,6 @@ export default class TimelinePost extends React.Component {
   }
 
   render() {
-
     return(
       <Container style={styles.postContainer}>
         <Header >

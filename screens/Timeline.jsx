@@ -7,10 +7,14 @@ import {
   Text,
 } from 'native-base';
 import React from 'react';
+import { render } from 'react-dom';
 import { StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import theme from '../theme/theme';
-import TimelinePost from './Timeline-Components/TimelinePost'
+import TimelinePost from './Timeline-Components/TimelinePost';
+import CreatePost from './Timeline-Components/CreatePost'; 
+
+
 
 const Timeline = (props) => (
   <Container>
