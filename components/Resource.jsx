@@ -34,8 +34,8 @@ const Resource = props => {
           key="ResourceBody"
         >
           <Body>
-            {textArray && textArray.map(block => (
-              <Text>
+            {textArray && textArray.map((block, index) => (
+              <Text key={index}>
                 {block}
                 {'\n'}
               </Text>
