@@ -1,12 +1,15 @@
 import {
+  Body,
   Button,
+  Card,
+  CardItem,
   Container,
   Content,
   Header,
   Text,
+  View,
 } from 'native-base';
 import React from 'react';
-import { View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import theme from '../theme/theme';
 
@@ -15,24 +18,48 @@ const Resource = props => {
   return (
     <View
       style={{
-        flexGrow: 1, alignItems: 'center', justifyContent: 'center', marginBottom: 50,
+        alignItems: 'stretch',
+        marginHorizontal: 10,
+        marginVertical: 25,
       }}
     >
-      <Text>
-        {name}
-        {'\n'}
-      </Text>
-      {textArray && textArray.map(block => (
-        <Text>
-          {block}
-          {'\n'}
-        </Text>
-      ))}
-      <Button>
-        <Text onPress={onPress}>
-          Click Me!
-        </Text>
-      </Button>
+      <Card>
+        <CardItem
+          header
+          bordered
+          key="ResourceTitle"
+        >
+          <Text>
+            {name}
+          </Text>
+        </CardItem>
+
+        <CardItem
+          bordered
+          key="ResourceBody"
+        >
+          <Body>
+            {textArray && textArray.map(block => (
+              <Text>
+                {block}
+                {'\n'}
+              </Text>
+            ))}
+          </Body>
+        </CardItem>
+
+        <CardItem
+          footer
+          key="ResourceButton"
+        >
+          <Button>
+            <Text onPress={onPress}>
+              Click Me!
+            </Text>
+          </Button>
+        </CardItem>
+
+      </Card>
     </View>
   );
 };
@@ -47,7 +74,9 @@ const NearbyResources = props => (
       }}
     >
       <Header style={theme.verticalCenter}>
-        <Text style={theme.header}>Resources</Text>
+        <Body>
+          <Text style={theme.header}>Resources</Text>
+        </Body>
       </Header>
       <Content style={{ flex: 1 }}>
         <Resource
