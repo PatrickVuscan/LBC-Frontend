@@ -8,6 +8,7 @@ import { Spinner, View } from 'native-base';
 import React from 'react';
 import Articles from './screens/Articles';
 import CTA from './screens/CTA';
+import Login from './screens/Login'
 import NearbyResources from './screens/NearbyResources';
 import Timeline from './screens/Timeline';
 import store from './state/store';
@@ -50,37 +51,7 @@ export default class App extends React.Component {
     }
 
     return (
-      <StoreProvider store={store}>
-        <NavigationContainer>
-          <Tab.Navigator
-            initialRouteName="Timeline"
-            tabBarOptions={{
-              activeTintColor: 'tomato',
-              inactiveTintColor: 'gray',
-              tabStyle: {
-                justifyContent: 'center',
-              },
-            }}
-          >
-            <Tab.Screen
-              name="Timeline"
-              component={Timeline}
-            />
-            <Tab.Screen
-              name="Articles"
-              component={Articles}
-            />
-            <Tab.Screen
-              name="CTA"
-              component={CTA}
-            />
-            <Tab.Screen
-              name="Resources"
-              component={NearbyResources}
-            />
-          </Tab.Navigator>
-        </NavigationContainer>
-      </StoreProvider>
+      <Login/>
     );
   }
 }
