@@ -1,68 +1,14 @@
 import {
   Body,
-  Button,
-  Card,
-  CardItem,
   Container,
   Content,
   Header,
   Text,
-  View,
 } from 'native-base';
 import React from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
+import Resource from '../components/Resource';
 import theme from '../theme/theme';
-
-const Resource = props => {
-  const { name, textArray, onPress } = props;
-  return (
-    <View
-      style={{
-        alignItems: 'stretch',
-        marginHorizontal: 10,
-        marginVertical: 25,
-      }}
-    >
-      <Card>
-        <CardItem
-          header
-          bordered
-          key="ResourceTitle"
-        >
-          <Text>
-            {name}
-          </Text>
-        </CardItem>
-
-        <CardItem
-          bordered
-          key="ResourceBody"
-        >
-          <Body>
-            {textArray && textArray.map(block => (
-              <Text>
-                {block}
-                {'\n'}
-              </Text>
-            ))}
-          </Body>
-        </CardItem>
-
-        <CardItem
-          footer
-          key="ResourceButton"
-        >
-          <Button>
-            <Text onPress={onPress}>
-              Click Me!
-            </Text>
-          </Button>
-        </CardItem>
-
-      </Card>
-    </View>
-  );
-};
 
 const NearbyResources = props => (
   <Container>
