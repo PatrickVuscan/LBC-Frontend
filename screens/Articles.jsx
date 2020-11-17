@@ -1,14 +1,39 @@
-import { useStoreActions, useStoreState } from 'easy-peasy';
+// @ts-check
+import { useQuery } from '@apollo/client';
 import {
-  Button, Container, Content, Header, Text, View,
+  Container, Content, Header, Text, View,
 } from 'native-base';
 import React from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
+import { QUERY_POST } from '../api/queries/post';
 import theme from '../theme/theme';
+import Article from '../components/Article';
 
 const Articles = () => {
-  const demoValue = useStoreState(state => state.session.demoValue);
-  const increaseDemoValue = useStoreActions(actions => actions.increaseDemoValue);
+  const { data, loading, error } = useQuery(QUERY_POST('c4e56596-4d7a-4e1f-9157-c4383484f52f'));
+
+  console.log(loading, data);
+
+  if (loading) {
+    return (
+      <View>
+        <Text>Loading</Text>
+      </View>
+    );
+  }
+
+  if (error) {
+    return (
+      <View>
+        <Text>
+          Error
+          {error}
+        </Text>
+      </View>
+    );
+  }
+
+  const { Post } = data;
 
   return (
     <Container>
@@ -27,19 +52,7 @@ const Articles = () => {
           contentContainerStyle={{ flex: 1 }}
         >
           <View style={{ alignItems: 'center' }}>
-            <Button
-              style={{ alignSelf: 'center' }}
-              onPress={() => {
-                increaseDemoValue();
-              }}
-            >
-              <Text>
-                Click Me To Test State!
-              </Text>
-            </Button>
-            <Text>
-              { demoValue }
-            </Text>
+            <Article article={Post} />
           </View>
         </Content>
       </ScrollView>

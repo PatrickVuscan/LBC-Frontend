@@ -1,4 +1,5 @@
 /* eslint-disable global-require */
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
@@ -13,6 +14,11 @@ import Timeline from './screens/Timeline';
 import store from './state/store';
 
 const Tab = createBottomTabNavigator();
+
+const client = new ApolloClient({
+  uri: 'https://6ujtdngl.api.sanity.io/v1/graphql/staging/default',
+  cache: new InMemoryCache(),
+});
 
 export default class App extends React.Component {
   constructor(props) {
@@ -50,37 +56,39 @@ export default class App extends React.Component {
     }
 
     return (
-      <StoreProvider store={store}>
-        <NavigationContainer>
-          <Tab.Navigator
-            initialRouteName="Timeline"
-            tabBarOptions={{
-              activeTintColor: 'tomato',
-              inactiveTintColor: 'gray',
-              tabStyle: {
-                justifyContent: 'center',
-              },
-            }}
-          >
-            <Tab.Screen
-              name="Timeline"
-              component={Timeline}
-            />
-            <Tab.Screen
-              name="Articles"
-              component={Articles}
-            />
-            <Tab.Screen
-              name="CTA"
-              component={CTA}
-            />
-            <Tab.Screen
-              name="Resources"
-              component={NearbyResources}
-            />
-          </Tab.Navigator>
-        </NavigationContainer>
-      </StoreProvider>
+      <ApolloProvider client={client}>
+        <StoreProvider store={store}>
+          <NavigationContainer>
+            <Tab.Navigator
+              initialRouteName="Timeline"
+              tabBarOptions={{
+                activeTintColor: 'tomato',
+                inactiveTintColor: 'gray',
+                tabStyle: {
+                  justifyContent: 'center',
+                },
+              }}
+            >
+              <Tab.Screen
+                name="Timeline"
+                component={Timeline}
+              />
+              <Tab.Screen
+                name="Articles"
+                component={Articles}
+              />
+              <Tab.Screen
+                name="CTA"
+                component={CTA}
+              />
+              <Tab.Screen
+                name="Resources"
+                component={NearbyResources}
+              />
+            </Tab.Navigator>
+          </NavigationContainer>
+        </StoreProvider>
+      </ApolloProvider>
     );
   }
 }
