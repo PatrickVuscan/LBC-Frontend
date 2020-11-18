@@ -23,7 +23,7 @@ import { color } from 'react-native-reanimated';
         return (
             <Container>
                 <Header style={{alignItems:"center"}}>
-                    <Button transparent style={{alignSelf: "flex-start", alignSelf: "center", float: "left"}}>
+                    <Button onPress={() => this.props.newPost(false)} transparent style={{alignSelf: "flex-start", alignSelf: "center", float: "left"}}>
                         <Icon name="close" style = {{flexDirection: "row", float:"left"}}></Icon>
                     </Button>
                     <Text style={{color:"white", fontSize: 20, marginLeft:"auto", marginRight: 20}}>Write up your new post!</Text>
