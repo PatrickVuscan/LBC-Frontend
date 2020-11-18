@@ -9,7 +9,6 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'airbnb',
-    'plugin:jsx-a11y/recommended',
   ],
   globals: {
     Atomics: 'readonly',
@@ -27,23 +26,39 @@ module.exports = {
     'react-hooks',
     'import',
     'import-newlines',
-    'jsx-a11y',
   ],
   rules: {
+    'arrow-parens': ['error', 'as-needed'],
     indent: ['error', 2],
-    'import-newlines/enforce': ['error', {
-      items: 3,
-      'max-len': 100,
-      semi: false,
-    }],
+    quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: true }],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
+    'consistent-return': ['off'],
     'no-multi-spaces': ['error'],
-    'react/style-prop-object': ['off'],
     'no-console': 'off',
     'no-use-before-define': 'off',
+    'no-param-reassign': ['error', { props: true, ignorePropertyModificationsFor: ['state'] }],
     'object-property-newline': ['error', {
       allowAllPropertiesOnSameLine: true,
     }],
+    'no-nested-ternary': ['warn'],
+    'lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }],
+    'no-unused-expressions': ['error', { allowTernary: true, allowShortCircuit: true }],
+    'no-unused-vars': ['warn', {
+      vars: 'local', args: 'after-used', ignoreRestSiblings: true, caughtErrors: 'none',
+    }],
+    'react/style-prop-object': ['off'],
     'react/prop-types': ['off'],
+    'react/jsx-filename-extension': ['warn', { extensions: ['.jsx', '.tsx'] }],
+    'react/destructuring-assignment': ['off'],
     'react/jsx-fragments': ['error', 'syntax'],
     'react/jsx-first-prop-new-line': ['error', 'multiline'],
     'react/jsx-closing-tag-location': ['error'],
@@ -53,6 +68,7 @@ module.exports = {
     'react/jsx-one-expression-per-line': ['error', {
       allow: 'literal',
     }],
+    'react/jsx-curly-brace-presence': ['off'],
     'react/jsx-tag-spacing': ['error', {
       closingSlash: 'never',
       beforeSelfClosing: 'always',

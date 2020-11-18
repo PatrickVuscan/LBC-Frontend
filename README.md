@@ -1,20 +1,15 @@
-<h1 align="center">Welcome to team-project-13-lady-ballers-camp 👋</h1>
-<p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000" />
-  <a href="api.com" target="_blank">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
-  </a>
-</p>
+# Welcome to team-project-13-lady-ballers-camp 👋
+
+![Version](https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000)
+![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)
 
 > The mobile app for ladyballers.org
 
-This is going to be the frontend repo.
+## ✨ [Demo](example.com)
 
-### ✨ [Demo](example.com)
+## Git Commit Standards
 
-### Git Commit Standards
-
-http://karma-runner.github.io/0.10/dev/git-commit-msg.html
+[Documentation on Git Commit Standards](http://karma-runner.github.io/0.10/dev/git-commit-msg.html)
 
 ## Install
 
@@ -27,9 +22,3 @@ npm install
 ```sh
 npm run tests
 ```
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
----
