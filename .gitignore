@@ -3,6 +3,7 @@
 
 # VSCode
 .vscode
+/.vscode
 nohup.out
 
 # Coverage from Running npm test
@@ -20,3 +21,5 @@ node_modules
 
 # ignore expo files
 .expo
+/.expo
+

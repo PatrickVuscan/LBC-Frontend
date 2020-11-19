@@ -35,6 +35,7 @@ const Resource = props => {
         >
           <Body>
             {textArray && textArray.map((block, index) => (
+              // eslint-disable-next-line react/no-array-index-key
               <Text key={index}>
                 {block}
                 {'\n'}
