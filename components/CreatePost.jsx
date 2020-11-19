@@ -13,6 +13,7 @@ export default class CreatePost extends React.Component {
     super(props);
     this.state = {
       postText: '',
+      anonColor: "#4286f4"
     };
     this.changeAnonColor = this.changeAnonColor.bind(this);
     this.savePost = this.savePost.bind(this);
@@ -20,12 +21,22 @@ export default class CreatePost extends React.Component {
   }
 
   changeAnonColor() {
+    if(this.state.anonColor === "#4286f4") {
+      this.setState({anonColor: "#008000"});
+    }
+    else {
+      this.setState({anonColor: "#4286f4"});
+    }
   }
 
   savePost() {
+    let anonymous = false; 
+    if(this.state.anonColor === "#008000") {
+      anonymous = true; 
+    }
     const newPostContent = {
       text: this.state.postText,
-      anon: false,
+      anon: anonymous,
       user: 'user',
     };
 
@@ -92,15 +103,16 @@ export default class CreatePost extends React.Component {
           <Button
             rounded
             style={{
-              color: '#4286f4', height: 40, width: 135, justifyContent: 'center',
+              backgroundColor: this.state.anonColor, height: 40, width: 135, justifyContent: 'center',
             }}
+            onPress={this.changeAnonColor}
           >
             <Text style={{ color: 'white' }}>Anonymous</Text>
           </Button>
           <Button
             rounded
             style={{
-              color: '#4286f4', height: 40, width: 94, marginLeft: 'auto', justifyContent: 'center',
+              backgroundColor: '#4286f4', height: 40, width: 94, marginLeft: 'auto', justifyContent: 'center',
             }}
             onPress={this.savePost}
           >

@@ -10,12 +10,16 @@ export default props => {
   if (props.post.user === 'user') {
     headerColor = 'green';
   }
+  let displayedUser = props.post.user; 
+  if(props.post.anon) {
+    displayedUser = "Anonymous"; 
+  }
   return (
     <Container style={styles.postContainer}>
       <Header style={{ backgroundColor: headerColor }}>
         <Left>
           <Text style={{ color: 'white' }}>
-            {props.post.user}
+            {displayedUser}
           </Text>
         </Left>
         <Right>
