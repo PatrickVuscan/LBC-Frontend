@@ -5,6 +5,9 @@
 .vscode
 nohup.out
 
+# Coverage from Running npm test
+coverage
+
 # ignore DS_Store files from mac
 .DS_Store
 
