@@ -17,6 +17,33 @@ import { color } from 'react-native-reanimated';
   export default class CreatePost extends React.Component {
     constructor(props) {
         super(props); 
+        this.state = {
+            postText: "",
+        }
+        this.handleInputChange = this.handleInputChange.bind(this);
+    }
+
+    changeAnonColor = () => {
+
+    }
+
+    savePost = () => {
+        let newPostContent = {
+            text: this.state.postText, 
+            anon: false,
+            user: "user"
+        }
+
+        let a = this.props.posts; 
+        a.unshift(newPostContent);
+        this.props.setAllPosts(a); 
+
+        this.props.newPost(false);
+
+    }
+
+    handleInputChange = (input) => {
+        this.setState({postText: input});
     }
 
     render() {
@@ -48,6 +75,7 @@ import { color } from 'react-native-reanimated';
                     }}
                     multiline
                     placeholder="What's happening?"
+                    onChangeText={this.handleInputChange}
                     />
                 </View>
                 <View style={theme.footer}>
@@ -60,10 +88,12 @@ import { color } from 'react-native-reanimated';
                     <Button
                     rounded
                     style={{ color: "#4286f4", height: 40, width: 94, marginLeft: 'auto', justifyContent: "center"}}
+                    onPress ={this.savePost}
                     >
                         <Text style={{ color: "white", textAlign: "center"}}>Post</Text>
                     </Button>
                 </View>
+                
                 
 
             </Container>

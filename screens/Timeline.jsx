@@ -15,14 +15,24 @@ import TimelinePost from './Timeline-Components/TimelinePost';
 import CreatePost from './Timeline-Components/CreatePost'; 
 
 
+let exampleUser = {
+  text: "This is an example post. I am posting stuff right now! Wow!",
+  user: "Anonymous",
+  anon: true, 
+
+}
+
 
 const Timeline = function (props){
   let [newPostScreen, setNewPostScreen] = useState(false);  
+  let [allPosts, setAllPosts] = useState([]); 
+
+  
 
   if (newPostScreen === true) {
     return (
       <Container>
-        <CreatePost newPost = {setNewPostScreen}></CreatePost>
+        <CreatePost newPost = {setNewPostScreen} posts = {allPosts} setAllPosts = {setAllPosts}></CreatePost>
       </Container>
     );
   }
@@ -56,9 +66,13 @@ const Timeline = function (props){
                 </Text>
               </Button>
             </View> 
-            <TimelinePost></TimelinePost>
-            <TimelinePost></TimelinePost>
-            <TimelinePost></TimelinePost>
+            {allPosts.map((item, index) => (
+                                    <TimelinePost post={item} key={index}  ></TimelinePost>
+                                ))}
+            <View>
+              <TimelinePost post={exampleUser}></TimelinePost>
+              <TimelinePost post={exampleUser}></TimelinePost>
+            </View>
           </Content>
         </ScrollView>
       </Container>

@@ -21,18 +21,22 @@ export default class TimelinePost extends React.Component {
   }
 
   render() {
+    let headerColor = '#3D6DCC';
+    if (this.props.post.user == 'user') {
+        headerColor = 'green'; 
+    }
     return(
       <Container style={styles.postContainer}>
-        <Header >
+        <Header style={{backgroundColor: headerColor}}>
           <Left>
-            <Text style = {{color: "white"}}>Anonymous</Text>
+            <Text style = {{color: "white"}}>{this.props.post.user}</Text>
           </Left>
           <Right>
             <Text style ={{color: "white"}}>Title of Post</Text>
           </Right>
         </Header>
         <Content contentContainerStyle={{justifyContent: 'space-between'}} style={{backgroundColor: "white"}}>
-          <Text style={{marginTop: 10, fontSize: 18, color: "#555"}}>This is an example post. I am posting stuff right now! Wow!</Text>
+        <Text style={{marginTop: 10, fontSize: 18, color: "#555"}}>{this.props.post.text}</Text>
         </Content>
         <View style={{ padding: 0, flexDirection: "row", alignItems: "flex-end"}}>
             <Button transparent>
