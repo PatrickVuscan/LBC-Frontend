@@ -53,7 +53,7 @@ const Login = (props) => {
                     console.log(`username: ${usernameValue}, password: ${passwordValue}`) //! For testing only
 
                      //! All of this code will be replaced when backend is connected
-                    if(usernameValue in props.userBase && props.userBase[usernameValue].password === passwordValue){
+                    if(usernameValue in props.userBase && props.userBase[usernameValue] === passwordValue){
                         console.log("Success!") 
                         updateCredValue(true)
                         props.logIn()
@@ -73,7 +73,14 @@ const Login = (props) => {
                 bordered 
                 style={styles.button}
                 onPress={() => {
-                    console.log("CHANGE TO CREATE ACCOUNT PAGE")
+                    if(usernameValue in props.userBase){
+                        console.log("User already exists")
+                    }
+                    else{
+                        props.userBase[usernameValue] = passwordValue
+                        console.log("User added")
+                        props.logIn()
+                    }
                 }}
             >
                 <Text style={styles.buttonText}>

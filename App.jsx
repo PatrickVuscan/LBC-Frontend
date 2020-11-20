@@ -14,7 +14,7 @@ import Timeline from './screens/Timeline';
 import store from './state/store';
 
 const Tab = createBottomTabNavigator();
-const userBase = {"user": {password: "user", name: "Mr. User"}} //! This is for frontend mock login only
+const userBase = {"user": "user"} //! This is for frontend mock login only
 
 export default class App extends React.Component {
   constructor(props) {
