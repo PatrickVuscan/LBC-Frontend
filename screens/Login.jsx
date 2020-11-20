@@ -4,7 +4,7 @@ import { Button, Grid, Container, Footer, FooterTab, Text, Input, Content, Item 
 import theme from '../theme/theme';
 
 const {screenHeight, screenWidth} = Dimensions.get('window')
-const lbcLogo = require('../assets/lbc_logo.png')
+const lbcLogo = require('../assets/lbc_logo_w_ball_gradient.png')
 
 const Login = (props) => {
   const [usernameValue, onChangeUsername] = React.useState()
@@ -14,7 +14,7 @@ const Login = (props) => {
     <Container style={{height: screenHeight, width: screenWidth, backgroundColor: "#a379b3"}}> 
         <Content style={{alignSelf: "center"}}>
             <Image
-                style={{alignSelf: "center", marginTop: 130, height: 210, width: 200, marginBottom: 10}}
+                style={{alignSelf: "center", marginTop: 130, height: 210, width: 210, marginBottom: 10}}
                 source={lbcLogo}
             />
 
@@ -45,7 +45,7 @@ const Login = (props) => {
 
             
             <Button 
-                dark
+                light
                 bordered 
                 style={styles.button}
                 onPress={() => {
@@ -53,20 +53,20 @@ const Login = (props) => {
                     props.logIn()
                 }}
             >
-                <Text>
+                <Text style={styles.buttonText}>
                     Login
                 </Text>
             </Button>
 
             <Button 
-                dark
+                light
                 bordered 
                 style={styles.button}
                 onPress={() => {
                     console.log("CHANGE TO CREATE ACCOUNT PAGE")
                 }}
             >
-                <Text>
+                <Text style={styles.buttonText}>
                     Create Account
                 </Text>
             </Button>
@@ -85,6 +85,10 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         alignSelf: "center",
         justifyContent: "center"
+    },
+
+    "buttonText": {
+        color: '#FFFFFF'
     },
 
     "textInput": {
