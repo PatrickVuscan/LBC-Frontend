@@ -41,11 +41,13 @@ const CreateAccount = () => {
     )
   }
   
-  const styles = StyleSheet.create({
-      "button": {
-          
-      }
-  });
+const styles = StyleSheet.create({
+    "signUpButton": { 
+        width: 200, 
+        height: 50,
+        margin: 10,
+    }
+});
   
   export default CreateAccount;
   
