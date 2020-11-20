@@ -7,8 +7,18 @@ import { StyleSheet, View } from 'react-native';
 
 export default props => {
   let headerColor = '#3D6DCC';
+  let closingButton;
   if (props.post.user === 'user') {
     headerColor = 'green';
+    closingButton = <Button 
+                      transparent
+                      style={{ flexDirection: 'row', marginLeft: 'auto' }}
+                      onPress={() => props.deletePost(props.post)}>
+                      <Icon
+                        name="close"
+                        style={{ alignItems: 'center' }}
+                      />
+                    </Button>
   }
   let displayedUser = props.post.user; 
   if(props.post.anon) {
@@ -41,6 +51,7 @@ export default props => {
             style={{ flexDirection: 'row' }}
           />
         </Button>
+        {closingButton}
         <Button
           transparent
           style={{ flexDirection: 'row', marginLeft: 'auto' }}

@@ -24,6 +24,16 @@ const Timeline = props => {
   const [newPostScreen, setNewPostScreen] = useState(false);
   const [allPosts, setAllPosts] = useState([]);
 
+  function deletePostFromAllPosts(post) {
+    let newPostsList = []; 
+    for(let p of allPosts) {
+      if(p !== post) {
+        newPostsList.push(p); 
+      }
+    }
+    setAllPosts(newPostsList); 
+
+  }
   if (newPostScreen === true) {
     return (
       <Container>
@@ -74,11 +84,12 @@ const Timeline = props => {
               // Temp disable until dynamic content
               // eslint-disable-next-line react/no-array-index-key
               key={index}
+              deletePost = {deletePostFromAllPosts}
             />
           ))}
           <View>
-            <TimelinePost post={exampleUser} />
-            <TimelinePost post={exampleUser} />
+            <TimelinePost post={exampleUser} deletePost = {deletePostFromAllPosts}/>
+            <TimelinePost post={exampleUser} deletePost = {deletePostFromAllPosts}/>
           </View>
         </Content>
       </ScrollView>
