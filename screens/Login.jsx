@@ -9,6 +9,7 @@ const lbcLogo = require('../assets/lbc_logo_w_ball_gradient.png')
 const Login = (props) => {
   const [usernameValue, onChangeUsername] = React.useState()
   const [passwordValue, onChangePassword] = React.useState()
+  const [goodCredentials, updateCredValue] = React.useState()
 
   return(
     <Container style={{height: screenHeight, width: screenWidth, backgroundColor: "#a379b3"}}> 
@@ -49,8 +50,17 @@ const Login = (props) => {
                 bordered 
                 style={styles.button}
                 onPress={() => {
-                    console.log(`username: ${usernameValue}, password: ${passwordValue}`)
-                    props.logIn()
+                    console.log(`username: ${usernameValue}, password: ${passwordValue}`) //! For testing only
+
+                     //! All of this code will be replaced when backend is connected
+                    if(usernameValue in props.userBase && props.userBase[usernameValue].password === passwordValue){
+                        console.log("Success!") 
+                        updateCredValue(true)
+                        props.logIn()
+                    }else{
+                        updateCredValue(false)
+                        console.log("nah b")
+                    }
                 }}
             >
                 <Text style={styles.buttonText}>

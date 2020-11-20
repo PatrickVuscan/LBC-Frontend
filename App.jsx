@@ -14,6 +14,7 @@ import Timeline from './screens/Timeline';
 import store from './state/store';
 
 const Tab = createBottomTabNavigator();
+const userBase = {"user": {password: "user", name: "Mr. User"}} //! This is for frontend mock login only
 
 export default class App extends React.Component {
   constructor(props) {
@@ -58,7 +59,7 @@ export default class App extends React.Component {
 
     if(!loggedIn){
       return (
-        <Login logIn={this.logIn}/>
+        <Login logIn={this.logIn} userBase={userBase}/>
       );
     }
     else{
