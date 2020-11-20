@@ -20,6 +20,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       isReady: false,
+      loggedIn: false
     };
   }
 
@@ -40,8 +41,13 @@ export default class App extends React.Component {
     this.setState({ isReady: true });
   }
 
+  logIn = () => {
+    this.setState({ loggedIn: true })
+  }
+
   render() {
     const { isReady } = this.state;
+    const { loggedIn } = this.state;
     if (!isReady) {
       return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -50,8 +56,45 @@ export default class App extends React.Component {
       );
     }
 
-    return (
-      <Login/>
-    );
+    if(!loggedIn){
+      return (
+        <Login logIn={this.logIn}/>
+      );
+    }
+    else{
+      return (
+        <StoreProvider store={store}>
+          <NavigationContainer>
+            <Tab.Navigator
+              initialRouteName="Timeline"
+              tabBarOptions={{
+                activeTintColor: 'tomato',
+                inactiveTintColor: 'gray',
+                tabStyle: {
+                  justifyContent: 'center',
+                },
+              }}
+            >
+              <Tab.Screen
+                name="Timeline"
+                component={Timeline}
+              />
+              <Tab.Screen
+                name="Articles"
+                component={Articles}
+              />
+              <Tab.Screen
+                name="CTA"
+                component={CTA}
+              />
+              <Tab.Screen
+                name="Resources"
+                component={NearbyResources}
+              />
+            </Tab.Navigator>
+          </NavigationContainer>
+        </StoreProvider>
+      );
+    }
   }
 }

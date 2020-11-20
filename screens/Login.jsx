@@ -6,7 +6,7 @@ import theme from '../theme/theme';
 const {screenHeight, screenWidth} = Dimensions.get('window')
 const lbcLogo = require('../assets/lbc_logo.png')
 
-const Login = () => {
+const Login = (props) => {
   const [usernameValue, onChangeUsername] = React.useState()
   const [passwordValue, onChangePassword] = React.useState()
 
@@ -45,11 +45,12 @@ const Login = () => {
 
             
             <Button 
-                light
+                dark
                 bordered 
                 style={styles.button}
                 onPress={() => {
                     console.log(`username: ${usernameValue}, password: ${passwordValue}`)
+                    props.logIn()
                 }}
             >
                 <Text>
@@ -58,7 +59,7 @@ const Login = () => {
             </Button>
 
             <Button 
-                light
+                dark
                 bordered 
                 style={styles.button}
                 onPress={() => {
@@ -76,10 +77,11 @@ const Login = () => {
 
 const styles = StyleSheet.create({
     "button": { 
-        backgroundColor: "#e3ceeb", 
+        //#e3ceeb
+        backgroundColor: "#7E54C6", 
         width: 300, 
         height: 50,
-        borderRadius: 5,
+        borderRadius: 10,
         marginBottom: 20,
         alignSelf: "center",
         justifyContent: "center"
@@ -87,7 +89,7 @@ const styles = StyleSheet.create({
 
     "textInput": {
         //opacity: 0.2,
-        borderRadius: 5,
+        borderRadius: 10,
         //#b99dc4
         backgroundColor: "#b99dc4", 
         marginBottom: 15, 
