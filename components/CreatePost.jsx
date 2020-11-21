@@ -38,6 +38,7 @@ export default class CreatePost extends React.Component {
       text: this.state.postText,
       anon: anonymous,
       user: 'user',
+      comments: [], 
     };
 
     const a = this.props.posts;

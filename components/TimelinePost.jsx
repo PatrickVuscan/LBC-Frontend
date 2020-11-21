@@ -45,7 +45,13 @@ export default props => {
         </Text>
       </Content>
       <View style={{ padding: 0, flexDirection: 'row', alignItems: 'flex-end' }}>
-        <Button transparent>
+        <Button 
+          transparent
+          onPress ={() => {
+            props.setCurrViewedPost(props.post);
+            props.setViewPost(true);
+          }}
+        >
           <Icon
             name="ios-chatboxes"
             style={{ flexDirection: 'row' }}
