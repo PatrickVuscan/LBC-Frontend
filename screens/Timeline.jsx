@@ -2,17 +2,13 @@
 import {
   Button,
   Container,
-  Content,
-  Header,
   Text,
 } from 'native-base';
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
 import CreatePost from '../components/CreatePost';
 import ScreenBase from '../components/ScreenBase';
 import TimelinePost from '../components/TimelinePost';
-import theme from '../theme/theme';
 
 const exampleUser = {
   text: 'This is an example post. I am posting stuff right now! Wow!',
