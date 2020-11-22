@@ -7,8 +7,8 @@ const {screenHeight, screenWidth} = Dimensions.get('window')
 const lbcLogo = require('../assets/lbc_logo_w_ball_gradient.png')
 
 const Login = (props) => {
-  const [usernameValue, onChangeUsername] = React.useState()
-  const [passwordValue, onChangePassword] = React.useState()
+  const [usernameValue, onChangeUsername] = React.useState("")
+  const [passwordValue, onChangePassword] = React.useState("")
   const [goodCredentials, updateCredValue] = React.useState()
 
   return(
@@ -81,7 +81,7 @@ const Login = (props) => {
                         console.log("User added")
                         props.logIn()
                     }
-                }}
+                }}  
             >
                 <Text style={styles.buttonText}>
                     Create Account
