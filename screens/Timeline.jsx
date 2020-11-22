@@ -62,7 +62,7 @@ const Timeline = props => {
 
   return (
     <ScreenBase header="Timeline">
-      <View style={{ flexGrow: 1, alignItems: 'center', flexDirection: 'row' }}>
+      <View style={{ alignItems: 'center', flexDirection: 'row' }}>
         <Button>
           <Text
             onPress={() => {
