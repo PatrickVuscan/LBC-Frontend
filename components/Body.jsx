@@ -17,17 +17,17 @@ const Body = ({ bodyRaw }) => {
   };
 
   const spanRenderer = (span, links) => {
-    let link;
+    let url;
     const style = [styles.body];
 
     span.marks.forEach(v => {
-      if (v === 'link') {
-        link = v;
-        style.push(styles.link);
-      } else if (v === 'em') {
+      if (v === 'em') {
         style.push(styles.italics);
       } else if (v === 'strong') {
         style.push(styles.bold);
+      } else if (links[v]) {
+        url = links[v].url;
+        style.push(styles.link);
       }
     });
 
@@ -35,7 +35,7 @@ const Body = ({ bodyRaw }) => {
       <Text
         key={span._key}
         style={style}
-        onPress={link ? () => { return Linking.openURL(links[link]); } : null}
+        onPress={url ? () => { return Linking.openURL(url); } : null}
       >
         {span.text}
       </Text>
@@ -51,18 +51,17 @@ const Body = ({ bodyRaw }) => {
       links[v._key] = { type: v._type, url: v.href };
     });
 
-    if (block._type === 'block') {
-      children.forEach(v => {
-        if (v._type === 'span') {
-          components.push(spanRenderer(v, links));
-        } else {
-          console.log(`encountered another type of block: ${v._type}`);
-        }
-      });
+    children.forEach(v => {
+      if (v._type === 'span') {
+        components.push(spanRenderer(v, links));
+      } else {
+        // This is an error, shouldn't happen. If you see this popup, copy and paste the string,
+        // and show it to Patrick
+        console.log(`encountered type other than span in blockRenderer, type: ${v._type}`);
+      }
+    });
 
-      return components;
-    }
-    console.log(`encountered non block type: ${block._type}`);
+    return components;
   };
 
   const blocksRenderer = blocks => {
@@ -81,6 +80,10 @@ const Body = ({ bodyRaw }) => {
         allComponents.push(
           figureRenderer(b),
         );
+      } else {
+        // This is an error, shouldn't happen. If you see this popup, copy and paste the string,
+        // and show it to Patrick
+        console.log(`encountered non block or figure in blocksRenderer, type: ${b._type}`);
       }
     });
 
@@ -107,7 +110,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   link: {
-    fontSize: 20,
     color: 'blue',
   },
   block: {
