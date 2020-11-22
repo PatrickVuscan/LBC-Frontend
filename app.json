@@ -17,10 +17,17 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "backgroundColor": "#730073"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "userInterfaceStyle": "dark",
+    "primaryColor": "#730073",
+    "backgroundColor": "#730073",
+    "android": {
+      "backgroundColor": "#730073"
     }
   }
 }

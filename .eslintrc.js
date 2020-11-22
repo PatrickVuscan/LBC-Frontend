@@ -1,5 +1,6 @@
 module.exports = {
   root: true,
+  parser: 'babel-eslint',
   env: {
     browser: true,
     es6: true,
@@ -20,6 +21,7 @@ module.exports = {
     },
     ecmaVersion: 11,
     sourceType: 'module',
+    allowImportExportEverywhere: false,
   },
   plugins: [
     'react',
@@ -29,6 +31,7 @@ module.exports = {
   ],
   rules: {
     'arrow-parens': ['error', 'as-needed'],
+    'arrow-body-style': ['error', 'always'],
     indent: ['error', 2],
     quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: true }],
     'import/extensions': [
@@ -55,6 +58,7 @@ module.exports = {
     'no-unused-vars': ['warn', {
       vars: 'local', args: 'after-used', ignoreRestSiblings: true, caughtErrors: 'none',
     }],
+    'no-underscore-dangle': ['off'],
     'react/style-prop-object': ['off'],
     'react/prop-types': ['off'],
     'react/jsx-filename-extension': ['warn', { extensions: ['.jsx', '.tsx'] }],
@@ -68,6 +72,7 @@ module.exports = {
     'react/jsx-one-expression-per-line': ['error', {
       allow: 'literal',
     }],
+    'react/jsx-props-no-spreading': ['off'],
     'react/jsx-curly-brace-presence': ['off'],
     'react/jsx-tag-spacing': ['error', {
       closingSlash: 'never',

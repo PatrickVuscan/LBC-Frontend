@@ -1,49 +1,32 @@
-import { useStoreActions, useStoreState } from 'easy-peasy';
-import {
-  Button, Container, Content, Header, Text, View,
-} from 'native-base';
+// @ts-check
+import { useQuery } from '@apollo/client';
+import { Spinner, View } from 'native-base';
 import React from 'react';
-import { ScrollView } from 'react-native-gesture-handler';
-import theme from '../theme/theme';
+import { QUERY_ARTICLE } from '../api/queries/article';
+import Article from '../components/Article';
+import ErrorMessage from '../components/ErrorMessage';
+import ScreenBase from '../components/ScreenBase';
 
 const Articles = () => {
-  const demoValue = useStoreState(state => state.session.demoValue);
-  const increaseDemoValue = useStoreActions(actions => actions.increaseDemoValue);
+  const { data, loading, error } = useQuery(QUERY_ARTICLE('948a898b-cd29-4f9f-9019-798700873173'));
 
   return (
-    <Container>
-      <ScrollView
-        automaticallyAdjustContentInsets
-        contentContainerStyle={{
-          flexGrow: 1,
-          justifyContent: 'space-between',
-        }}
-      >
-        <Header style={theme.verticalCenter}>
-          <Text style={theme.header}>Articles</Text>
-        </Header>
-        <Content
-          padder
-          contentContainerStyle={{ flex: 1 }}
-        >
-          <View style={{ alignItems: 'center' }}>
-            <Button
-              style={{ alignSelf: 'center' }}
-              onPress={() => {
-                increaseDemoValue();
-              }}
-            >
-              <Text>
-                Click Me To Test State!
-              </Text>
-            </Button>
-            <Text>
-              { demoValue }
-            </Text>
-          </View>
-        </Content>
-      </ScrollView>
-    </Container>
+    <ScreenBase
+      header="Articles"
+      padder
+    >
+      <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+        {loading && (
+          <Spinner color="purple" />
+        )}
+        {error && (
+          <ErrorMessage error={error} />
+        )}
+        {!loading && !error && (
+          <Article article={data.Article} />
+        )}
+      </View>
+    </ScreenBase>
   );
 };
 
