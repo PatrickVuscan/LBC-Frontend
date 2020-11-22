@@ -13,20 +13,32 @@ export default class CreatePost extends React.Component {
     super(props);
     this.state = {
       postText: '',
+      anonColor: '#4286f4',
     };
     this.changeAnonColor = this.changeAnonColor.bind(this);
     this.savePost = this.savePost.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
+  // eslint-disable-next-line react/sort-comp
   changeAnonColor() {
+    if (this.state.anonColor === '#4286f4') {
+      this.setState({ anonColor: '#008000' });
+    } else {
+      this.setState({ anonColor: '#4286f4' });
+    }
   }
 
   savePost() {
+    let anonymous = false;
+    if (this.state.anonColor === '#008000') {
+      anonymous = true;
+    }
     const newPostContent = {
       text: this.state.postText,
-      anon: false,
+      anon: anonymous,
       user: 'user',
+      comments: [],
     };
 
     const a = this.props.posts;
@@ -45,7 +57,7 @@ export default class CreatePost extends React.Component {
       <Container>
         <Header style={{ alignItems: 'center' }}>
           <Button
-            onPress={() => this.props.newPost(false)}
+            onPress={() => { return this.props.newPost(false); }}
             transparent
             // There are currently two alignSelfs here. Please choose which one you meant to have.
             // For now I believe the second one is the one used, so I left that one in.
@@ -92,15 +104,16 @@ export default class CreatePost extends React.Component {
           <Button
             rounded
             style={{
-              color: '#4286f4', height: 40, width: 135, justifyContent: 'center',
+              backgroundColor: this.state.anonColor, height: 40, width: 135, justifyContent: 'center',
             }}
+            onPress={this.changeAnonColor}
           >
             <Text style={{ color: 'white' }}>Anonymous</Text>
           </Button>
           <Button
             rounded
             style={{
-              color: '#4286f4', height: 40, width: 94, marginLeft: 'auto', justifyContent: 'center',
+              backgroundColor: '#4286f4', height: 40, width: 94, marginLeft: 'auto', justifyContent: 'center',
             }}
             onPress={this.savePost}
           >

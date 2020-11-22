@@ -9,17 +9,33 @@ import { View } from 'react-native';
 import CreatePost from '../components/CreatePost';
 import ScreenBase from '../components/ScreenBase';
 import TimelinePost from '../components/TimelinePost';
+import ViewPost from '../components/ViewPost';
 
 const exampleUser = {
   text: 'This is an example post. I am posting stuff right now! Wow!',
   user: 'Anonymous',
   anon: true,
+  comments: [],
 
 };
 
 const Timeline = props => {
   const [newPostScreen, setNewPostScreen] = useState(false);
   const [allPosts, setAllPosts] = useState([]);
+  const [viewPost, setViewPost] = useState(false);
+  const [currViewedPost, setCurrViewedPost] = useState({});
+
+  function deletePostFromAllPosts(post) {
+    const newPostsList = [...allPosts];
+
+    newPostsList.forEach((p, index) => {
+      if (p === post) {
+        newPostsList.splice(index, 1);
+      }
+    });
+
+    setAllPosts(newPostsList);
+  }
 
   if (newPostScreen === true) {
     return (
@@ -28,6 +44,17 @@ const Timeline = props => {
           newPost={setNewPostScreen}
           posts={allPosts}
           setAllPosts={setAllPosts}
+        />
+      </Container>
+    );
+  }
+
+  if (viewPost) {
+    return (
+      <Container>
+        <ViewPost
+          setViewPost={setViewPost}
+          post={currViewedPost}
         />
       </Container>
     );
@@ -61,12 +88,25 @@ const Timeline = props => {
             // Temp disable until dynamic content
             // eslint-disable-next-line react/no-array-index-key
             key={index}
+            deletePost={deletePostFromAllPosts}
+            setViewPost={setViewPost}
+            setCurrViewedPost={setCurrViewedPost}
           />
         );
       })}
       <View>
-        <TimelinePost post={exampleUser} />
-        <TimelinePost post={exampleUser} />
+        <TimelinePost
+          post={exampleUser}
+          deletePost={deletePostFromAllPosts}
+          setViewPost={setViewPost}
+          setCurrViewedPost={setCurrViewedPost}
+        />
+        <TimelinePost
+          post={exampleUser}
+          deletePost={deletePostFromAllPosts}
+          setViewPost={setViewPost}
+          setCurrViewedPost={setCurrViewedPost}
+        />
       </View>
     </ScreenBase>
   );
