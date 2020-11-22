@@ -1,165 +1,64 @@
 // @ts-check
-import { gql } from '@apollo/client';
+import groq from 'groq';
+
+const QUERY_ARTICLES_FULL = (limit = 0, offset = 0) => {
+  return groq`
+  *[_type=="article"] {
+  _id,
+  title,
+  subtitle,
+  publishedAt,
+  featured,
+  "authorName": author->name,
+  "authorImageURL": author->image.asset->url,
+  "mainImageCaption": mainImage.caption,
+  "mainImageAlt": mainImage.alt,
+  "mainImageURL": mainImage.asset->url,
+  body,
+  "categories": categories[]->{
+    "categoryName": name,
+    "categoryID": _id
+  },
+  "slug": slug.current
+}`;
+};
 
 const QUERY_ARTICLES = (limit = 0, offset = 0) => {
-  return gql`
-query {
-  allArticle(
-    where:{
-      _: {is_draft:false}
-    },
-    limit: ${limit},
-    offset: ${offset}
-  ) {
-    _id,
-    title,
-    subtitle,
-    featured,
-    author {
-      name,
-      image {
-        asset {
-          url
-        }
-      }
-    },
-    slugContainer: slug {
-      slug: current
-    },
-    publishedAt,
-    mainImage {
-      caption,
-      alt,
-      asset {
-        url
-      }
-    }
-  }
-}
-`;
-};
-//     author {
-//       name,
-//       slugContainer: slug {
-//         slug: current
-//       },
-//       image {
-//         asset {
-//           url
-//         }
-//       }
-//     },
-
-// const extractArticlesInfo = article => {
-//   const {
-//     title,
-//     subtitle,
-//     author: {
-//       name: authorName,
-//       image: {
-//         asset: {
-//           url: authorImageURL,
-//         },
-//       },
-//     },
-//     mainImage: {
-//       caption: mainImageCaption,
-//       alt: mainImageAlt,
-//       asset: {
-//         url: mainImageURL,
-//       },
-//     },
-//     slugContainer: { slug },
-//     bodyRaw,
-//   } = article;
-
-//   return {
-//     title,
-//     subtitle,
-//     authorName,
-//     authorImageURL,
-//     mainImageCaption,
-//     mainImageAlt,
-//     mainImageURL,
-//     slug,
-//     bodyRaw,
-//   };
-// };
-
-const QUERY_ARTICLE = articleID => {
-  return gql`
-query {
-  Article(id: "${articleID}") {
-    _id,
-    title,
-    subtitle,
-    featured,
-    author {
-      name,
-      image {
-        asset {
-          url
-        }
-      }
-    },
-    slugContainer: slug {
-      slug: current
-    },
-    publishedAt,
-    mainImage {
-      caption,
-      alt,
-      asset {
-        url
-      }
-    },
-    bodyRaw
-  }
-}
-`;
+  return groq`
+  *[_type=="article"] {
+  _id,
+  title,
+  publishedAt,
+  featured,
+  "authorName": author->name,
+  "mainImageURL": mainImage.asset->url,
+  "categories": categories[]->{
+    "categoryName": name,
+    "categoryID": _id
+  },
+  "slug": slug.current
+}`;
 };
 
-const extractArticleInfo = article => {
+const extractProperties = article => {
   const {
     title,
     subtitle,
-    author: {
-      name: authorName,
-      image: {
-        asset: {
-          url: authorImageURL,
-        },
-      },
-    },
-    mainImage: {
-      caption: mainImageCaption,
-      alt: mainImageAlt,
-      asset: {
-        url: mainImageURL,
-      },
-    },
-    slugContainer: { slug },
-    bodyRaw,
-    publishedAt: publishDate,
-  } = article;
-
-  return {
-    title,
-    subtitle,
+    publishedAt,
+    featured,
     authorName,
     authorImageURL,
-    mainImageCaption,
     mainImageAlt,
+    mainImageCaption,
     mainImageURL,
+    body,
+    categories,
     slug,
-    bodyRaw,
-    publishDate,
-  };
+  } = article;
 };
 
 export {
-  // extractArticlesInfo,
-  extractArticleInfo,
+  extractProperties,
+  QUERY_ARTICLES_FULL,
   QUERY_ARTICLES,
-  QUERY_ARTICLE,
 };
