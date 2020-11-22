@@ -58,6 +58,7 @@ module.exports = {
     'no-unused-vars': ['warn', {
       vars: 'local', args: 'after-used', ignoreRestSiblings: true, caughtErrors: 'none',
     }],
+    'no-underscore-dangle': ['off'],
     'react/style-prop-object': ['off'],
     'react/prop-types': ['off'],
     'react/jsx-filename-extension': ['warn', { extensions: ['.jsx', '.tsx'] }],

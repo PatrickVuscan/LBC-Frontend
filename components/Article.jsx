@@ -1,8 +1,9 @@
 // @ts-check
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { extractArticleInfo } from '../api/queries/article';
-import DynamicImage from './DynamicImage';
+import Body from './Body';
+import CaptionedImage from './CaptionedImage';
 import Header from './Header';
 
 const Article = ({ article }) => {
@@ -28,19 +29,12 @@ const Article = ({ article }) => {
         authorImageURL={authorImageURL}
         date={publishDate}
       />
-      <DynamicImage url={mainImageURL} />
-      <Text>
-        {mainImageCaption}
-      </Text>
-      <Text>
-        {mainImageAlt}
-      </Text>
-      <Text>
-        {slug}
-      </Text>
-      <Text>
-        {JSON.stringify(bodyRaw)}
-      </Text>
+      <CaptionedImage
+        caption={mainImageCaption}
+        alt={mainImageAlt}
+        url={mainImageURL}
+      />
+      <Body bodyRaw={bodyRaw} />
     </View>
   );
 };
@@ -50,12 +44,12 @@ const styles = StyleSheet.create({
     flex: 1,
     flexGrow: 1,
   },
-  container: {
-    margin: 10,
-    backgroundColor: '#eee',
-    flexGrow: 1,
-    flex: 1,
-  },
+  // container: {
+  //   margin: 10,
+  //   backgroundColor: '#eee',
+  //   flexGrow: 1,
+  //   flex: 1,
+  // },
   bodyText: {
     fontSize: 30,
   },

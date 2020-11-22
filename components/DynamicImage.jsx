@@ -3,7 +3,7 @@ import {
   Image, StyleSheet, Dimensions,
 } from 'react-native';
 
-const DynamicImage = ({ url }) => {
+const DynamicImage = ({ url, alt }) => {
   const [dimensions, setDimensions] = useState({});
 
   useEffect(() => {
@@ -23,6 +23,7 @@ const DynamicImage = ({ url }) => {
         width: dimensions.width,
         height: dimensions.height,
       }}
+      accessibilityLabel={alt}
     />
   );
 };

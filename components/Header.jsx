@@ -8,8 +8,8 @@ const Header = ({
   title, subtitle, authorName, authorImageURL, date,
 }) => {
   return (
-    <View style={styles.background}>
-      <View style={styles.header}>
+    <View style={styles.outerContainer}>
+      <View style={styles.innerContainer}>
         <Title title={title} />
         <Subtitle subtitle={subtitle} />
         <MiniAuthor
@@ -23,17 +23,14 @@ const Header = ({
 };
 
 const styles = StyleSheet.create({
-  header: {
-    margin: 15,
-    flexGrow: 1,
-    flex: 1,
+  //
+  innerContainer: {
+    marginHorizontal: 25,
+    marginVertical: 15,
   },
-  background: {
-    flexGrow: 1,
-    flex: 1,
-    marginTop: -10,
-    marginLeft: -10,
-    marginRight: -10,
+  // Used for providing background color
+  outerContainer: {
+    margin: -10,
     backgroundColor: '#2A0053',
   },
 });

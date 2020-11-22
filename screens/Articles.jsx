@@ -11,7 +11,7 @@ import Article from '../components/Article';
 import ErrorMessage from '../components/ErrorMessage';
 
 const Articles = () => {
-  const { data, loading, error } = useQuery(QUERY_ARTICLE('c4e56596-4d7a-4e1f-9157-c4383484f52f'));
+  const { data, loading, error } = useQuery(QUERY_ARTICLE('948a898b-cd29-4f9f-9019-798700873173'));
 
   return (
     <Container>
