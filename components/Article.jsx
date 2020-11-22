@@ -1,4 +1,3 @@
-// @ts-check
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { extractArticleInfo } from '../api/queries/article';

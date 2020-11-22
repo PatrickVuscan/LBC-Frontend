@@ -1,9 +1,8 @@
-/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 
 export default {
-  name: 'category',
-  title: 'Category',
+  name: 'articleCategory',
+  title: 'Article Category',
   type: 'document',
   fields: [
     {

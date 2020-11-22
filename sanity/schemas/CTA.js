@@ -1,6 +1,6 @@
 export default {
-  name: 'post',
-  title: 'Post',
+  name: 'cta',
+  title: 'Call To Action',
   type: 'document',
   initialValue: {
     featured: false,
@@ -23,7 +23,7 @@ export default {
       description: 'Unique Article ID',
       type: 'slug',
       options: {
-        source: 'title',
+        source: doc => `${doc.publishedAt.slice(0, 10)}-${doc.title}`,
         maxLength: 96,
       },
     },
@@ -42,7 +42,7 @@ export default {
       name: 'categories',
       title: 'Categories',
       type: 'array',
-      of: [{ type: 'reference', to: { type: 'category' } }],
+      of: [{ type: 'reference', to: { type: 'ctaCategory' } }],
     },
     {
       name: 'publishedAt',

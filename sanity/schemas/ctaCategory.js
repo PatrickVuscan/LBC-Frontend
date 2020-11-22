@@ -1,8 +1,8 @@
 import React from 'react';
 
 export default {
-  name: 'resourceCategory',
-  title: 'Resource Category',
+  name: 'ctaCategory',
+  title: 'Call To Action Category',
   type: 'document',
   fields: [
     {
@@ -22,10 +22,9 @@ export default {
     },
     prepare({ title }) {
       const EMOJIS = {
-        Police: '🚓',
-        'Police Services': '🚓',
+        'Combatting Racism': '✊',
         'Mental Health': '🧠',
-        default: 'ℹ️',
+        default: '✊',
       };
       return {
         title,

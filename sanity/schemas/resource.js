@@ -23,7 +23,7 @@ export default {
       description: 'Unique Resource ID',
       type: 'slug',
       options: {
-        source: 'name',
+        source: doc => `${new Date().toISOString().slice(0, 10)}-${doc.name}`,
         maxLength: 96,
       },
     },
