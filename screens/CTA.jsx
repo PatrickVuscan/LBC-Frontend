@@ -1,11 +1,23 @@
+// @ts-check
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { Text, View } from 'native-base';
+import ScreenBase from '../components/ScreenBase';
 
-const CTA = () => (
-  <View>
-    <Text />
-  </View>
-);
+const CTA = () => {
+  return (
+    <ScreenBase
+      header="Call To Action!"
+      padder
+    >
+      <View>
+        <Text>
+          Working!
+        </Text>
+      </View>
+    </ScreenBase>
+  );
+};
 
 const styles = StyleSheet.create({});
 

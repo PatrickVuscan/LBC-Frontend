@@ -14,8 +14,7 @@ const Resource = props => {
     <View
       style={{
         alignItems: 'stretch',
-        marginHorizontal: 10,
-        marginVertical: 25,
+        marginVertical: 15,
       }}
     >
       <Card>
@@ -34,13 +33,15 @@ const Resource = props => {
           key="ResourceBody"
         >
           <Body>
-            {textArray && textArray.map((block, index) => (
+            {textArray && textArray.map((block, index) => {
+              return (
               // eslint-disable-next-line react/no-array-index-key
-              <Text key={index}>
-                {block}
-                {'\n'}
-              </Text>
-            ))}
+                <Text key={index}>
+                  {block}
+                  {'\n'}
+                </Text>
+              );
+            })}
           </Body>
         </CardItem>
 
