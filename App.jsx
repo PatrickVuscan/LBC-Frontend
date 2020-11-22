@@ -7,6 +7,7 @@ import { StoreProvider } from 'easy-peasy';
 import * as Font from 'expo-font';
 import { Spinner, View } from 'native-base';
 import React from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Articles from './screens/Articles';
 import CTA from './screens/CTA';
 import NearbyResources from './screens/NearbyResources';
@@ -58,35 +59,39 @@ export default class App extends React.Component {
     return (
       <ApolloProvider client={client}>
         <StoreProvider store={store}>
-          <NavigationContainer>
-            <Tab.Navigator
-              initialRouteName="Timeline"
-              tabBarOptions={{
-                activeTintColor: 'tomato',
-                inactiveTintColor: 'gray',
-                tabStyle: {
-                  justifyContent: 'center',
-                },
-              }}
-            >
-              <Tab.Screen
-                name="Timeline"
-                component={Timeline}
-              />
-              <Tab.Screen
-                name="Articles"
-                component={Articles}
-              />
-              <Tab.Screen
-                name="CTA"
-                component={CTA}
-              />
-              <Tab.Screen
-                name="Resources"
-                component={NearbyResources}
-              />
-            </Tab.Navigator>
-          </NavigationContainer>
+          <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
+            <NavigationContainer>
+              <Tab.Navigator
+                initialRouteName="Timeline"
+                tabBarOptions={{
+                  activeTintColor: 'white',
+                  inactiveTintColor: '#B0AFB0',
+                  tabStyle: {
+                    justifyContent: 'center',
+                  },
+                  activeBackgroundColor: 'purple',
+                  inactiveBackgroundColor: 'black',
+                }}
+              >
+                <Tab.Screen
+                  name="Timeline"
+                  component={Timeline}
+                />
+                <Tab.Screen
+                  name="Articles"
+                  component={Articles}
+                />
+                <Tab.Screen
+                  name="CTA"
+                  component={CTA}
+                />
+                <Tab.Screen
+                  name="Resources"
+                  component={NearbyResources}
+                />
+              </Tab.Navigator>
+            </NavigationContainer>
+          </SafeAreaView>
         </StoreProvider>
       </ApolloProvider>
     );
