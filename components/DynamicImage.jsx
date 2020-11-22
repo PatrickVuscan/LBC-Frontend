@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import {
-  Image, StyleSheet, Dimensions,
-} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Dimensions, Image } from 'react-native';
 
 const DynamicImage = ({ url, alt }) => {
   const [dimensions, setDimensions] = useState({});
@@ -27,7 +25,5 @@ const DynamicImage = ({ url, alt }) => {
     />
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default DynamicImage;
