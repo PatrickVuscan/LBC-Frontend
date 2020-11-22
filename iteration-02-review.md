@@ -23,21 +23,15 @@ ii) We informed each other every time we finish a new feature, made an improveme
 - Other team members could give each other feedback on our commits.
 - After every new complete feature, everyone else reflected on their current progress, and suggested more productive work strategies they could try.
 
-iii) We remember to submit pull requests before merging to the master branch.
-- We wanted to practice submitting pull requests for our future internship or research position.
-- We had an easily time learning how to submit pull requests, and consistently submit more pull requests.
-- Errors were easily caught through reviews and this prevented bugs being introduced into the master branch.
-- Allowed team members to be up to date on the progress each member has made in regards to the code.
-
-iv) We set up a GitHub Actions CI and a small test suite early.
+iii) We set up a GitHub Actions CI and a small test suite early.
 - This prevented us from committing code that fails to compile.
 - Streamlined our process of having to run tests manually each time we commit changes.
 
-v) Though we had separate repositories between the frontend and the backend, we made progress announcements general.
+iv) Though we had separate repositories between the frontend and the backend, we made progress announcements general.
 - This allowed the frontend and the backend to keep in touch about each others' progress and plan out how the two parts will connect
 - Topics to discuss in all-member meetings were often determined by these general announcements.
 
-vi) We shared resources that helped simplify our project.
+v) We shared resources that helped simplify our project.
 - This helped other members of the team to become knowledgeable about the technology that each other was using. 
 - Reduces development and research time for other members.
 - Working with and reviewing each others' code doesn't require having to learn how their imported technologies work.
@@ -55,6 +49,7 @@ they didn't have an assignment due soon.
 iii) We create a branch rule for master that required the approval of at least 1 team member before anyone can merge to master.
 -  While ideally no one should ever commit code that has not been previously peer reviewed, enforcing this pull request rule on GitHub (in Settings > Branches) turned out to be too strict.
 - If the majority of teammates are not available, pull requests may take a long time to process, thus slowing down our entire team. In the worst case, two pull requests took about 18 hours to process.
+- However, we still encourage our team to submit pull requests before merging to master because it is good practice for a future internship or research position.
 
 
 #### 3. List any **process-related** (i.e. team organization and how you work) changes you are planning to make (if there are any).
@@ -66,7 +61,7 @@ then collabroate closely with one another.
 - e.g. If Arun is working on the login page and Henry is working on user authorization and authentification, then
 they can stay in close contact with one another to avoid any last-minute frontend-backend integration surprises.
 
-2) Instead of requiring consistent work submission, meet a deadline
+ii) Instead of requiring consistent work submission, meet a deadline
 - Since all of us had different assignment and midterm schedules we decided to work on our own terms, but finish the required tasks that each of us were responsible for before an agreed deadline. 
 
 ## Product - Review
