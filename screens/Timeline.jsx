@@ -18,27 +18,28 @@ const exampleUser = {
   text: 'This is an example post. I am posting stuff right now! Wow!',
   user: 'Anonymous',
   anon: true,
-  comments: [], 
+  comments: [],
 
 };
 
 const Timeline = props => {
   const [newPostScreen, setNewPostScreen] = useState(false);
   const [allPosts, setAllPosts] = useState([]);
-  const [viewPost, setViewPost] = useState(false); 
+  const [viewPost, setViewPost] = useState(false);
   const [currViewedPost, setCurrViewedPost] = useState({});
 
   function deletePostFromAllPosts(post) {
-    let newPostsList = []; 
-    for(let p of allPosts) {
-      if(p !== post) {
-        newPostsList.push(p); 
-      }
-    }
-    setAllPosts(newPostsList); 
+    const newPostsList = [...allPosts];
 
+    newPostsList.forEach((p, index) => {
+      if (p === post) {
+        newPostsList.splice(index, 1);
+      }
+    });
+
+    setAllPosts(newPostsList);
   }
-  
+
   if (newPostScreen === true) {
     return (
       <Container>
@@ -51,12 +52,12 @@ const Timeline = props => {
     );
   }
 
-  if(viewPost) {
+  if (viewPost) {
     return (
       <Container>
         <ViewPost
           setViewPost={setViewPost}
-          post = {currViewedPost}
+          post={currViewedPost}
         />
       </Container>
     );
@@ -100,14 +101,24 @@ const Timeline = props => {
               // Temp disable until dynamic content
               // eslint-disable-next-line react/no-array-index-key
               key={index}
-              deletePost = {deletePostFromAllPosts}
+              deletePost={deletePostFromAllPosts}
               setViewPost={setViewPost}
-              setCurrViewedPost ={setCurrViewedPost}
+              setCurrViewedPost={setCurrViewedPost}
             />
           ))}
           <View>
-            <TimelinePost post={exampleUser} deletePost = {deletePostFromAllPosts} setViewPost={setViewPost} setCurrViewedPost ={setCurrViewedPost}/>
-            <TimelinePost post={exampleUser} deletePost = {deletePostFromAllPosts} setViewPost={setViewPost} setCurrViewedPost ={setCurrViewedPost}/>
+            <TimelinePost
+              post={exampleUser}
+              deletePost={deletePostFromAllPosts}
+              setViewPost={setViewPost}
+              setCurrViewedPost={setCurrViewedPost}
+            />
+            <TimelinePost
+              post={exampleUser}
+              deletePost={deletePostFromAllPosts}
+              setViewPost={setViewPost}
+              setCurrViewedPost={setCurrViewedPost}
+            />
           </View>
         </Content>
       </ScrollView>

@@ -13,32 +13,32 @@ export default class CreatePost extends React.Component {
     super(props);
     this.state = {
       postText: '',
-      anonColor: "#4286f4"
+      anonColor: '#4286f4',
     };
     this.changeAnonColor = this.changeAnonColor.bind(this);
     this.savePost = this.savePost.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
+  // eslint-disable-next-line react/sort-comp
   changeAnonColor() {
-    if(this.state.anonColor === "#4286f4") {
-      this.setState({anonColor: "#008000"});
-    }
-    else {
-      this.setState({anonColor: "#4286f4"});
+    if (this.state.anonColor === '#4286f4') {
+      this.setState({ anonColor: '#008000' });
+    } else {
+      this.setState({ anonColor: '#4286f4' });
     }
   }
 
   savePost() {
-    let anonymous = false; 
-    if(this.state.anonColor === "#008000") {
-      anonymous = true; 
+    let anonymous = false;
+    if (this.state.anonColor === '#008000') {
+      anonymous = true;
     }
     const newPostContent = {
       text: this.state.postText,
       anon: anonymous,
       user: 'user',
-      comments: [], 
+      comments: [],
     };
 
     const a = this.props.posts;
