@@ -14,7 +14,7 @@ export default props => {
       <Button
         transparent
         style={{ flexDirection: 'row', marginLeft: 'auto' }}
-        onPress={() => props.deletePost(props.post)}
+        onPress={() => { return props.deletePost(props.post); }}
       >
         <Icon
           name="close"

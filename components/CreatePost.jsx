@@ -57,7 +57,7 @@ export default class CreatePost extends React.Component {
       <Container>
         <Header style={{ alignItems: 'center' }}>
           <Button
-            onPress={() => this.props.newPost(false)}
+            onPress={() => { return this.props.newPost(false); }}
             transparent
             // There are currently two alignSelfs here. Please choose which one you meant to have.
             // For now I believe the second one is the one used, so I left that one in.

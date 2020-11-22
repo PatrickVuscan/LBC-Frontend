@@ -16,7 +16,7 @@ const ViewPost = ({ post, post: { text, user, anon }, setViewPost }) => {
   const [comments, setComments] = useState(post.comments);
 
   function addComment() {
-    setComments(state => ([...state, ['user', commentInput]]));
+    setComments(state => { return ([...state, ['user', commentInput]]); });
     const a = comments;
     a.push(['user', commentInput]);
     // eslint-disable-next-line no-param-reassign
@@ -32,7 +32,7 @@ const ViewPost = ({ post, post: { text, user, anon }, setViewPost }) => {
       <ScrollView>
         <Header style={{ alignItems: 'center' }}>
           <Button
-            onPress={() => setViewPost(false)}
+            onPress={() => { return setViewPost(false); }}
             transparent
             style={{ alignSelf: 'center', float: 'left' }}
           >
@@ -92,20 +92,22 @@ const ViewPost = ({ post, post: { text, user, anon }, setViewPost }) => {
           </Button>
         </View>
         <View>
-          {comments.map((item, index) => (
-            <View style={{ padding: 14 }}>
-              <Text
-                style={{ fontSize: 18 }}
-                // eslint-disable-next-line react/no-array-index-key
-                key={index}
-              >
-                {item[0]}
-                :
-                {' '}
-                {item[1]}
-              </Text>
-            </View>
-          ))}
+          {comments.map((item, index) => {
+            return (
+              <View style={{ padding: 14 }}>
+                <Text
+                  style={{ fontSize: 18 }}
+                  // eslint-disable-next-line react/no-array-index-key
+                  key={index}
+                >
+                  {item[0]}
+                  :
+                  {' '}
+                  {item[1]}
+                </Text>
+              </View>
+            );
+          })}
         </View>
       </ScrollView>
     </Container>
