@@ -2,6 +2,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { extractArticleInfo } from '../api/queries/article';
+import DynamicImage from './DynamicImage';
 import Header from './Header';
 
 const Article = ({ article }) => {
@@ -27,9 +28,7 @@ const Article = ({ article }) => {
         authorImageURL={authorImageURL}
         date={publishDate}
       />
-      <Text>
-        {mainImageURL}
-      </Text>
+      <DynamicImage url={mainImageURL} />
       <Text>
         {mainImageCaption}
       </Text>
@@ -50,23 +49,12 @@ const styles = StyleSheet.create({
   outerContainer: {
     flex: 1,
     flexGrow: 1,
-    backgroundColor: 'black',
-    color: 'white',
   },
   container: {
     margin: 10,
     backgroundColor: '#eee',
     flexGrow: 1,
     flex: 1,
-  },
-  header: {
-    margin: 10,
-    backgroundColor: '#eee',
-    flexGrow: 1,
-    flex: 1,
-  },
-  subtitleText: {
-    fontSize: 20,
   },
   bodyText: {
     fontSize: 30,
