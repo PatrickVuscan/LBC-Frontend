@@ -18,7 +18,7 @@ const settingsModel = {
   // state.settings, and its definition is based off of state.settings as well.
   // This means that as state.settings is being defined, it needs to already exist for the sake of
   // defining loggedIn. Basically a circular dependency. Sadly no nicer way to handle this :/
-  loggedIn: computed(state => state.settings.user != null),
+  loggedIn: computed(state => { return state.settings.user != null; }),
 
   /* Actions */
   updateUser: action((state, payload) => {

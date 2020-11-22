@@ -1,19 +1,31 @@
-import { action } from 'easy-peasy';
+import { action, thunk } from 'easy-peasy';
 
 const sessionInitialValues = {
   session: {
-    demoValue: 0,
+    token: null,
   },
 };
 
 const sessionModel = {
   session: {
-    demoValue: 0,
+    token: null,
   },
 
   /* Actions */
-  increaseDemoValue: action(state => {
-    state.session.demoValue += 1;
+  setToken: action((state, payload) => {
+    state.session.token = payload;
+  }),
+
+  /* Thunk */
+  login: thunk(async (actions, payload) => {
+    // The call to the API using payload.username, payload.password
+    // ajax or fetch
+    // const fetchRequest = ...fetch()
+    const fetchRequest = 'valid';
+    const fetchReturnValues = { token: '12345' };
+    if (fetchRequest === 'valid') {
+      actions.setToken(fetchReturnValues.token);
+    }
   }),
 };
 
