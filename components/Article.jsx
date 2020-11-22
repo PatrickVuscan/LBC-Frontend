@@ -1,48 +1,22 @@
-import { H1, H2 } from 'native-base';
+// @ts-check
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
-const Header = ({
-  title, subtitle, authorName, authorImageURL,
-}) => (
-  <View style={styles.header}>
-    <Text style={styles.titleText}>
-      {title}
-    </Text>
-    <Text style={styles.subtitleText}>
-      {subtitle}
-    </Text>
-    <Text style={styles.bodyText}>
-      {authorName}
-    </Text>
-    <Text style={styles.bodyText}>
-      {authorImageURL}
-    </Text>
-  </View>
-);
+import { extractArticleInfo } from '../api/queries/article';
+import Header from './Header';
 
 const Article = ({ article }) => {
   const {
     title,
     subtitle,
-    author: {
-      name: authorName,
-      image: {
-        asset: {
-          url: authorImageURL,
-        },
-      },
-    },
-    mainImage: {
-      caption: mainImageCaption,
-      alt: mainImageAlt,
-      asset: {
-        url: mainImageURL,
-      },
-    },
-    slugContainer: { slug },
+    authorName,
+    authorImageURL,
+    mainImageCaption,
+    mainImageAlt,
+    mainImageURL,
+    slug,
     bodyRaw,
-  } = article;
+    publishDate,
+  } = extractArticleInfo(article);
 
   return (
     <View style={styles.outerContainer}>
@@ -51,6 +25,7 @@ const Article = ({ article }) => {
         subtitle={subtitle}
         authorName={authorName}
         authorImageURL={authorImageURL}
+        date={publishDate}
       />
       <Text>
         {mainImageURL}
@@ -75,6 +50,8 @@ const styles = StyleSheet.create({
   outerContainer: {
     flex: 1,
     flexGrow: 1,
+    backgroundColor: 'black',
+    color: 'white',
   },
   container: {
     margin: 10,
@@ -87,10 +64,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#eee',
     flexGrow: 1,
     flex: 1,
-  },
-  titleText: {
-    fontSize: 30,
-    fontWeight: 'bold',
   },
   subtitleText: {
     fontSize: 20,

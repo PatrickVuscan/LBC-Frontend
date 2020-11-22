@@ -1,39 +1,17 @@
 // @ts-check
 import { useQuery } from '@apollo/client';
 import {
-  Container, Content, Header, Text, View,
+  Container, Content, Header, Spinner, Text, View,
 } from 'native-base';
 import React from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
-import { QUERY_POST } from '../api/queries/post';
+import { QUERY_ARTICLE } from '../api/queries/article';
 import theme from '../theme/theme';
 import Article from '../components/Article';
+import ErrorMessage from '../components/ErrorMessage';
 
 const Articles = () => {
-  const { data, loading, error } = useQuery(QUERY_POST('c4e56596-4d7a-4e1f-9157-c4383484f52f'));
-
-  console.log(loading, data);
-
-  if (loading) {
-    return (
-      <View>
-        <Text>Loading</Text>
-      </View>
-    );
-  }
-
-  if (error) {
-    return (
-      <View>
-        <Text>
-          Error
-          {error}
-        </Text>
-      </View>
-    );
-  }
-
-  const { Post } = data;
+  const { data, loading, error } = useQuery(QUERY_ARTICLE('c4e56596-4d7a-4e1f-9157-c4383484f52f'));
 
   return (
     <Container>
@@ -44,15 +22,27 @@ const Articles = () => {
           justifyContent: 'space-between',
         }}
       >
-        <Header style={theme.verticalCenter}>
-          <Text style={theme.header}>Articles</Text>
+        <Header
+          style={theme.appHeader}
+          androidStatusBarColor="#2c3e50"
+          iosBarStyle="light-content"
+        >
+          <Text style={theme.appHeaderText}>Articles</Text>
         </Header>
         <Content
           padder
           contentContainerStyle={{ flex: 1 }}
         >
-          <View style={{ alignItems: 'center' }}>
-            <Article article={Post} />
+          <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+            {loading && (
+              <Spinner color="purple" />
+            )}
+            {error && (
+              <ErrorMessage error={error} />
+            )}
+            {!loading && !error && (
+              <Article article={data.Article} />
+            )}
           </View>
         </Content>
       </ScrollView>
