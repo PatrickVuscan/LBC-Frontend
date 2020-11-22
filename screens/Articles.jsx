@@ -1,14 +1,17 @@
-import { useStoreActions, useStoreState } from 'easy-peasy';
+// @ts-check
+import { useQuery } from '@apollo/client';
 import {
-  Button, Container, Content, Header, Text, View,
+  Container, Content, Header, Spinner, Text, View,
 } from 'native-base';
 import React from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
+import { QUERY_ARTICLE } from '../api/queries/article';
 import theme from '../theme/theme';
+import Article from '../components/Article';
+import ErrorMessage from '../components/ErrorMessage';
 
 const Articles = () => {
-  const demoValue = useStoreState(state => state.session.demoValue);
-  const increaseDemoValue = useStoreActions(actions => actions.increaseDemoValue);
+  const { data, loading, error } = useQuery(QUERY_ARTICLE('948a898b-cd29-4f9f-9019-798700873173'));
 
   return (
     <Container>
@@ -19,27 +22,27 @@ const Articles = () => {
           justifyContent: 'space-between',
         }}
       >
-        <Header style={theme.verticalCenter}>
-          <Text style={theme.header}>Articles</Text>
+        <Header
+          style={theme.appHeader}
+          androidStatusBarColor="#2c3e50"
+          iosBarStyle="light-content"
+        >
+          <Text style={theme.appHeaderText}>Articles</Text>
         </Header>
         <Content
           padder
           contentContainerStyle={{ flex: 1 }}
         >
-          <View style={{ alignItems: 'center' }}>
-            <Button
-              style={{ alignSelf: 'center' }}
-              onPress={() => {
-                increaseDemoValue();
-              }}
-            >
-              <Text>
-                Click Me To Test State!
-              </Text>
-            </Button>
-            <Text>
-              { demoValue }
-            </Text>
+          <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+            {loading && (
+              <Spinner color="purple" />
+            )}
+            {error && (
+              <ErrorMessage error={error} />
+            )}
+            {!loading && !error && (
+              <Article article={data.Article} />
+            )}
           </View>
         </Content>
       </ScrollView>
