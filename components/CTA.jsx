@@ -1,17 +1,17 @@
 import { Spinner } from 'native-base';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { QUERY_ARTICLE } from '../api/queries/article';
+import { QUERY_CTA } from '../api/queries/cta';
 import client from '../sanity/client';
 import Body from './Body';
 import CaptionedImage from './CaptionedImage';
 import ErrorMessage from './ErrorMessage';
 import Header from './Header';
 
-const Article = ({ articleID }) => {
+const CTA = ({ ctaID }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [article, setArticle] = useState({});
+  const [cta, setCta] = useState({});
 
   const {
     title,
@@ -23,21 +23,21 @@ const Article = ({ articleID }) => {
     mainImageCaption,
     mainImageURL,
     body,
-  } = article;
+  } = cta;
 
   useEffect(() => {
     !loading && setLoading(true);
     error && setError(false);
-    client.fetch(QUERY_ARTICLE, { id: articleID })
+    client.fetch(QUERY_CTA, { id: ctaID })
       .then(res => {
         setLoading(false);
-        setArticle(res[0]);
+        setCta(res[0]);
       })
       .catch(e => {
         setError(e);
       });
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [articleID]);
+  }, [ctaID]);
 
   return (
     <View style={styles.outerContainer}>
@@ -84,4 +84,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Article;
+export default CTA;

@@ -1,9 +1,9 @@
 // @ts-check
 import groq from 'groq';
 
-const QUERY_ARTICLES_FULL = (offset = 0, limit = 10) => {
+const QUERY_CTAS_FULL = (offset = 0, limit = 10) => {
   return groq`
-  * [_type=="article"] {
+  * [_type=="cta"] {
   _id,
   title,
   subtitle,
@@ -39,9 +39,9 @@ const QUERY_ARTICLES_FULL = (offset = 0, limit = 10) => {
 } [${offset}...${offset + limit}]`;
 };
 
-const QUERY_ARTICLES = (offset = 0, limit = 10) => {
+const QUERY_CTAS = (offset = 0, limit = 10) => {
   return groq`
-  *[_type=="article"] {
+  *[_type=="cta"] {
   _id,
   title,
   publishedAt,
@@ -56,8 +56,8 @@ const QUERY_ARTICLES = (offset = 0, limit = 10) => {
 } [${offset}...${offset + limit}]`;
 };
 
-const QUERY_ARTICLE = groq`
-  * [_type=="article"] {
+const QUERY_CTA = groq`
+  * [_type=="cta"] {
   _id,
   title,
   subtitle,
@@ -93,7 +93,7 @@ const QUERY_ARTICLE = groq`
 //   },
 //   "slug": slug.current
 
-// const extractProperties = article => {
+// const extractProperties = cta => {
 //   const {
 //     title,
 //     subtitle,
@@ -107,11 +107,11 @@ const QUERY_ARTICLE = groq`
 //     body,
 //     categories,
 //     slug,
-//   } = article;
+//   } = cta;
 // };
 
 export {
-  QUERY_ARTICLES_FULL,
-  QUERY_ARTICLES,
-  QUERY_ARTICLE,
+  QUERY_CTAS_FULL,
+  QUERY_CTAS,
+  QUERY_CTA,
 };

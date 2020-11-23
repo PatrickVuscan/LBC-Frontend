@@ -9,7 +9,7 @@ import { Spinner, View } from 'native-base';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Articles from './screens/Articles';
-import CTA from './screens/CTA';
+import CTAs from './screens/CTAs';
 import Resources from './screens/Resources';
 import Timeline from './screens/Timeline';
 import store from './state/store';
@@ -83,7 +83,7 @@ export default class App extends React.Component {
                 />
                 <Tab.Screen
                   name="CTA"
-                  component={CTA}
+                  component={CTAs}
                 />
                 <Tab.Screen
                   name="Resources"

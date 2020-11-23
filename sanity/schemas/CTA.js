@@ -23,7 +23,7 @@ export default {
       description: 'Unique Article ID',
       type: 'slug',
       options: {
-        source: doc => `${doc.publishedAt.slice(0, 10)}-${doc.title}`,
+        source: doc => { return `${doc.publishedAt.slice(0, 10)}-${doc.title}`; },
         maxLength: 96,
       },
     },

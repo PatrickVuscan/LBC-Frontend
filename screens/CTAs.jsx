@@ -1,21 +1,21 @@
 import { Spinner, View } from 'native-base';
 import React, { useEffect, useState } from 'react';
-import { QUERY_ARTICLES } from '../api/queries/article';
-import Article from '../components/Article';
+import { QUERY_CTAS } from '../api/queries/cta';
+import CTA from '../components/CTA';
 import ErrorMessage from '../components/ErrorMessage';
 import ScreenBase from '../components/ScreenBase';
 import client from '../sanity/client';
 
-const Articles = () => {
+const CTAs = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [articles, setArticles] = useState();
+  const [ctas, setCtas] = useState();
 
   useEffect(() => {
-    client.fetch(QUERY_ARTICLES())
+    client.fetch(QUERY_CTAS())
       .then(res => {
         setLoading(false);
-        setArticles(res);
+        setCtas(res);
       })
       .catch(e => {
         setError(e);
@@ -24,7 +24,7 @@ const Articles = () => {
 
   return (
     <ScreenBase
-      header="Articles"
+      header="Call To Action!"
       padder
     >
       <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
@@ -34,12 +34,12 @@ const Articles = () => {
         {error && (
           <ErrorMessage error={error} />
         )}
-        {!loading && !error && articles && (
-          <Article articleID={articles[0]._id} />
+        {!loading && !error && ctas && (
+          <CTA ctaID={ctas[0]._id} />
         )}
       </View>
     </ScreenBase>
   );
 };
 
-export default Articles;
+export default CTAs;
