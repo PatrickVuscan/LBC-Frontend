@@ -4,77 +4,136 @@ import {
 } from 'react-native';
 import CaptionedImage from './CaptionedImage';
 
-const Body = ({ bodyRaw }) => {
-  const figureRenderer = figure => {
-    return (
-      <CaptionedImage
-        key={figure._key}
-        url={figure.asset.url}
-        alt={figure.alt}
-        caption={figure.caption}
-      />
-    );
-  };
+// This wonderful component renders a simple figure/image, with alt text and a caption
+const figureRenderer = figure => {
+  const {
+    _key: key, alt, caption, url,
+  } = figure;
 
-  const spanRenderer = (span, links) => {
-    let url;
-    const style = [styles.body];
+  return (
+    <CaptionedImage
+      key={key}
+      url={url}
+      alt={alt}
+      caption={caption}
+    />
+  );
+};
 
-    span.marks.forEach(v => {
-      if (v === 'em') {
-        style.push(styles.italics);
-      } else if (v === 'strong') {
-        style.push(styles.bold);
-      } else if (links[v]) {
-        url = links[v].url;
-        style.push(styles.link);
-      }
-    });
+// This wonderful component renders a span element, i.e. text, with all the different
+// stylings applied as needed to it
+const spanRenderer = (span, blockStyle, links, level = undefined, listItem = undefined) => {
+  let url;
+  let bulletText;
+  const style = [styles.body];
+  const {
+    marks, text, _key: key,
+  } = span;
 
-    return (
+  if (blockStyle.toLowerCase() === 'h1') {
+    style.push(styles.H1);
+  } else if (blockStyle.toLowerCase() === 'h2') {
+    style.push(styles.H2);
+  } else if (blockStyle.toLowerCase() === 'h3') {
+    style.push(styles.H3);
+  } else if (blockStyle.toLowerCase() === 'h4') {
+    style.push(styles.H4);
+  } else if (blockStyle.toLowerCase() === 'blockquote') {
+    style.push(styles.quote);
+  }
+
+  marks.forEach(v => {
+    if (v === 'em') {
+      style.push(styles.italics);
+    } else if (v === 'strong') {
+      style.push(styles.bold);
+    } else if (links[v]) {
+      url = links[v].url;
+      style.push(styles.link);
+    }
+  });
+
+  if (level && listItem) {
+    switch (level) {
+    case 1:
+      bulletText = '\u2022\uFE0E';
+      break;
+    case 2:
+      bulletText = '\u25E6\uFE0E';
+      break;
+    case 3:
+      bulletText = '\u2022\uFE0E';
+      break;
+    default:
+      bulletText = '\u25E6\uFE0E';
+    }
+  }
+
+  return (
+    <>
+      {bulletText && (
+        <Text style={styles.bullet}>
+          {`${' '.repeat((level - 1) * 4 + 2)}${bulletText} `}
+        </Text>
+      )}
       <Text
-        key={span._key}
+        key={key}
         style={style}
         onPress={url ? () => { return Linking.openURL(url); } : null}
       >
-        {span.text}
+        {text}
       </Text>
-    );
-  };
+    </>
+  );
+};
 
-  const blockRenderer = block => {
-    const { markDefs, children } = block;
-    const components = [];
-    const links = {};
+// This wonderful hunk of code takes a block from the body array, and loops
+// through the children, rendering the inner spans
+const blockRenderer = block => {
+  const {
+    children, markDefs, style, level, listItem,
+  } = block;
+  const components = [];
+  const links = {};
 
-    markDefs && markDefs.forEach(v => {
-      links[v._key] = { type: v._type, url: v.href };
-    });
+  // Go through markDefs and map each link
+  markDefs && markDefs.forEach(v => {
+    links[v._key] = { type: v._type, url: v.href };
+  });
 
-    children.forEach(v => {
-      if (v._type === 'span') {
-        components.push(spanRenderer(v, links));
-      } else {
-        // This is an error, shouldn't happen. If you see this popup, copy and paste the string,
-        // and show it to Patrick
-        console.log(`encountered type other than span in blockRenderer, type: ${v._type}`);
-      }
-    });
+  children.forEach(v => {
+    if (v._type === 'span') {
+      components.push(spanRenderer(v, style, links, level, listItem));
+    } else {
+      // This is an error, shouldn't happen. If you see this popup, copy and paste the string,
+      // and show it to Patrick
+      console.log(`encountered type other than span in blockRenderer, type: ${v._type}`);
+    }
+  });
 
-    return components;
-  };
+  return components;
+};
 
-  const blocksRenderer = blocks => {
+// This is the actual Body Component, which renders the body of an article or cta, or blahblahblah
+const Body = ({ body }) => {
+  const bodyRenderer = blocks => {
     const allComponents = [];
     blocks.forEach(b => {
       if (b._type === 'block') {
         allComponents.push(
-          <Text
-            key={b._key}
-            style={styles.block}
-          >
-            {blockRenderer(b)}
-          </Text>,
+          b.style.toLowerCase() !== 'blockquote'
+            ? (
+              <Text
+                key={b._key}
+                style={styles.block}
+              >
+                {blockRenderer(b)}
+              </Text>
+            ) : (
+              <View style={styles.quoteContainer}>
+                {blockRenderer(b)}
+              </View>
+            ),
         );
       } else if (b._type === 'figure') {
         allComponents.push(
@@ -83,7 +142,7 @@ const Body = ({ bodyRaw }) => {
       } else {
         // This is an error, shouldn't happen. If you see this popup, copy and paste the string,
         // and show it to Patrick
-        console.log(`encountered non block or figure in blocksRenderer, type: ${b._type}`);
+        console.log(`encountered non block or figure in bodyRenderer, type: ${b._type}`);
       }
     });
 
@@ -92,13 +151,35 @@ const Body = ({ bodyRaw }) => {
 
   return (
     <View style={styles.container}>
-      {bodyRaw && blocksRenderer(bodyRaw)}
+      {body && bodyRenderer(body)}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+  },
+  H1: {
+    fontSize: 40,
+  },
+  H2: {
+    fontSize: 32,
+  },
+  H3: {
+    fontSize: 28,
+  },
+  H4: {
+    fontSize: 24,
+  },
+  quote: {
+    color: '#555',
+    fontStyle: 'italic',
+    padding: 15,
+  },
+  quoteContainer: {
+    backgroundColor: 'lightgray',
+    margin: 10,
+    borderRadius: 10,
   },
   bold: {
     fontWeight: 'bold',
@@ -114,6 +195,9 @@ const styles = StyleSheet.create({
   },
   block: {
     margin: 10,
+  },
+  bullet: {
+    fontSize: 20,
   },
 });
 

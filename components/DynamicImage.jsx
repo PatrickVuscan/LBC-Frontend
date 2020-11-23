@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Dimensions, Image } from 'react-native';
+import { Spinner } from 'native-base';
 
 const DynamicImage = ({ url, alt }) => {
-  const [dimensions, setDimensions] = useState({});
+  const [dimensions, setDimensions] = useState();
 
   useEffect(() => {
     Image.getSize(url, (srcWidth, srcHeight) => {
@@ -15,14 +16,18 @@ const DynamicImage = ({ url, alt }) => {
   }, [url]);
 
   return (
-    <Image
-      source={{ uri: url }}
-      style={{
-        width: dimensions.width,
-        height: dimensions.height,
-      }}
-      accessibilityLabel={alt}
-    />
+    dimensions
+      ? (
+        <Image
+          source={{ uri: url }}
+          style={{
+            width: dimensions.width,
+            height: dimensions.height,
+          }}
+          accessibilityLabel={alt}
+        />
+      )
+      : <Spinner color="purple" />
   );
 };
 

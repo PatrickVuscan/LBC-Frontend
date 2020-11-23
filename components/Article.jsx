@@ -1,39 +1,69 @@
-import React from 'react';
+import { Spinner } from 'native-base';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { extractArticleInfo } from '../api/queries/article';
+import { QUERY_ARTICLE } from '../api/queries/article';
+import client from '../sanity/client';
 import Body from './Body';
 import CaptionedImage from './CaptionedImage';
+import ErrorMessage from './ErrorMessage';
 import Header from './Header';
 
-const Article = ({ article }) => {
+const Article = ({ articleID }) => {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [article, setArticle] = useState({});
+
   const {
     title,
     subtitle,
+    publishedAt,
     authorName,
     authorImageURL,
-    mainImageCaption,
     mainImageAlt,
+    mainImageCaption,
     mainImageURL,
-    slug,
-    bodyRaw,
-    publishDate,
-  } = extractArticleInfo(article);
+    body,
+  } = article;
+
+  useEffect(() => {
+    !loading && setLoading(true);
+    error && setError(false);
+    client.fetch(QUERY_ARTICLE, { id: articleID })
+      .then(res => {
+        setLoading(false);
+        setArticle(res[0]);
+      })
+      .catch(e => {
+        setError(e);
+      });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [articleID]);
 
   return (
     <View style={styles.outerContainer}>
-      <Header
-        title={title}
-        subtitle={subtitle}
-        authorName={authorName}
-        authorImageURL={authorImageURL}
-        date={publishDate}
-      />
-      <CaptionedImage
-        caption={mainImageCaption}
-        alt={mainImageAlt}
-        url={mainImageURL}
-      />
-      <Body bodyRaw={bodyRaw} />
+      {loading && (
+        <Spinner color="purple" />
+      )}
+      {error && (
+        <ErrorMessage error={error} />
+      )}
+      {!loading && !error && (
+        <>
+          <Header
+            title={title}
+            subtitle={subtitle}
+            authorName={authorName}
+            authorImageURL={authorImageURL}
+            date={publishedAt}
+          />
+          <CaptionedImage
+            caption={mainImageCaption}
+            alt={mainImageAlt}
+            url={mainImageURL}
+          />
+          <Body body={body} />
+        </>
+      )}
     </View>
   );
 };
@@ -43,12 +73,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexGrow: 1,
   },
-  // container: {
-  //   margin: 10,
-  //   backgroundColor: '#eee',
-  //   flexGrow: 1,
-  //   flex: 1,
-  // },
   bodyText: {
     fontSize: 30,
   },

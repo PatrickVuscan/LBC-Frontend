@@ -1,14 +1,26 @@
-// @ts-check
-import { useQuery } from '@apollo/client';
 import { Spinner, View } from 'native-base';
-import React from 'react';
-import { QUERY_ARTICLE } from '../api/queries/article';
+import React, { useEffect, useState } from 'react';
+import { QUERY_ARTICLES } from '../api/queries/article';
 import Article from '../components/Article';
 import ErrorMessage from '../components/ErrorMessage';
 import ScreenBase from '../components/ScreenBase';
+import client from '../sanity/client';
 
 const Articles = () => {
-  const { data, loading, error } = useQuery(QUERY_ARTICLE('948a898b-cd29-4f9f-9019-798700873173'));
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [articles, setArticles] = useState();
+
+  useEffect(() => {
+    client.fetch(QUERY_ARTICLES())
+      .then(res => {
+        setLoading(false);
+        setArticles(res);
+      })
+      .catch(e => {
+        setError(e);
+      });
+  }, []);
 
   return (
     <ScreenBase
@@ -22,8 +34,8 @@ const Articles = () => {
         {error && (
           <ErrorMessage error={error} />
         )}
-        {!loading && !error && (
-          <Article article={data.Article} />
+        {!loading && !error && articles && (
+          <Article articleID={articles[0]._id} />
         )}
       </View>
     </ScreenBase>
