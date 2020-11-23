@@ -20,7 +20,8 @@ query {
 }
 `;
 
-const QUERY_AUTHOR = authorID => gql`
+const QUERY_AUTHOR = authorID => {
+  return gql`
 query {
   Author(id: "${authorID}") {
     _id,
@@ -39,5 +40,6 @@ query {
   }
 }
 `;
+};
 
 export { QUERY_AUTHOR, QUERY_ALL_AUTHORS };

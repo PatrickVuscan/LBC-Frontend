@@ -73,15 +73,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexGrow: 1,
   },
-  bodyText: {
-    fontSize: 30,
-  },
-  italic: {
-    fontStyle: 'italic',
-  },
-  bold: {
-    fontWeight: 'bold',
-  },
 });
 
 export default CTA;

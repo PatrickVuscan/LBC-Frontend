@@ -1,28 +1,46 @@
 import {
+  Spinner,
   View,
 } from 'native-base';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { QUERY_RESOURCES } from '../api/queries/resource';
+import ErrorMessage from '../components/ErrorMessage';
 import Resource from '../components/Resource';
 import ScreenBase from '../components/ScreenBase';
+import client from '../sanity/client';
 
-const Resources = props => {
+const Resources = () => {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [resources, setResources] = useState();
+
+  useEffect(() => {
+    client.fetch(QUERY_RESOURCES())
+      .then(res => {
+        setLoading(false);
+        setResources(res);
+      })
+      .catch(e => {
+        setError(e);
+      });
+  }, []);
+
   return (
     <ScreenBase
       header="Resources"
       padder
     >
-      <View style={{ alignItems: 'stretch', justifyContent: 'center', flex: 1 }}>
-        <Resource
-          name="Toronto Police Service"
-          textArray={[
-            'For an emergency, call 9-1-1.',
-            'To report a non-emergency hate crime, call the Non-Emergency Line at 808-2222.',
-            'If you have questions or concerns about a hate crime, call the Hate Crime Unit at 416-808-3500 or visit on the Hate Crime Unit site here: http://www.torontopolice.on.ca/crimeprevention/hatecrime.php to learn more.',
-          ]}
-          onPress={() => { return props.navigation.navigate('Resources'); }}
-        />
-
-        <Resource
+      <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+        {loading && (
+          <Spinner color="purple" />
+        )}
+        {error && (
+          <ErrorMessage error={error} />
+        )}
+        {!loading && !error && resources && (
+          <Resource resourceID={resources[0]._id} />
+        )}
+        {/* <Resource
           name="York Regional Police"
           textArray={[
             'For an emergency, call 9-1-1.',
@@ -58,7 +76,7 @@ const Resources = props => {
             'To report a non-emergency hate crime, call the Non-Emergency Line at 613-236-1222 ext. 7300, the Hate Crime Section at 613-236-1222 ext. 5015, or file a report at the Hate Crime Unit site here: https://www.ottawapolice.ca/en/contact-us/Online-Reporting.aspx',
           ]}
           onPress={() => { return props.navigation.navigate('Resources'); }}
-        />
+        /> */}
       </View>
     </ScreenBase>
   );
