@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions, StyleSheet, Image} from 'react-native';
+import { Dimensions, StyleSheet, Image, Alert} from 'react-native';
 import { Button, Grid, Container, Footer, FooterTab, Text, Input, Content, Item } from 'native-base'
 import theme from '../theme/theme';
 
@@ -9,7 +9,19 @@ const lbcLogo = require('../assets/lbc_logo_w_ball_gradient.png')
 const Login = (props) => {
   const [usernameValue, onChangeUsername] = React.useState("")
   const [passwordValue, onChangePassword] = React.useState("")
-  const [goodCredentials, updateCredValue] = React.useState()
+
+  const createBadAlert = () => {
+    Alert.alert(
+        "Bad Log-In Attempt",
+        "Invalid Credentials",
+        [
+            {
+                text: "OK"
+            }
+        ],
+        {cancelable: false}
+    )
+  }
 
   return(
     <Container style={{height: screenHeight, width: screenWidth, backgroundColor: "#a379b3"}}> 
@@ -54,12 +66,11 @@ const Login = (props) => {
 
                      //! All of this code will be replaced when backend is connected
                     if(usernameValue in props.userBase && props.userBase[usernameValue] === passwordValue){
-                        console.log("Success!") 
-                        updateCredValue(true)
+                        console.log("Successful Login!") 
                         props.logIn()
                     }else{
-                        updateCredValue(false)
-                        console.log("nah b")
+                        createBadAlert()
+                        console.log("Invalid Login!")
                     }
                 }}
             >
