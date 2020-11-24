@@ -1,6 +1,6 @@
 import React from 'react';
-import { Dimensions, StyleSheet, Image, Alert} from 'react-native';
-import { Button, Grid, Container, Footer, FooterTab, Text, Input, Content, Item } from 'native-base'
+import { Dimensions, StyleSheet, Image} from 'react-native';
+import { Button, Container, Text, Input, Content, Item } from 'native-base'
 import theme from '../theme/theme';
 
 const {screenHeight, screenWidth} = Dimensions.get('window')
@@ -10,7 +10,8 @@ const Login = (props) => {
   const [usernameValue, onChangeUsername] = React.useState("")
   const [passwordValue, onChangePassword] = React.useState("")
 
-  const signUp = async () => {
+  const signUp = /*async*/ () => {
+    //TODO Commented out code is for future backend calls
     /*try{
         const res = await fetch(
             "http://10.0.2.2:5000/users/",
@@ -25,8 +26,14 @@ const Login = (props) => {
     catch(err){
         return false
     }*/
-    userBase[usernameValue] = passwordValue
+
+    if(usernameValue in props.userBase){
+        return false
+    }
+
+    props.addUser(usernameValue, passwordValue)
     props.logIn(usernameValue, passwordValue)
+    return true
 }
 
   return(
@@ -71,16 +78,6 @@ const Login = (props) => {
                     if(!props.logIn(usernameValue, passwordValue)){
                         props.createAlert("Bad Log In Attempt", "Invalid Credentials")
                     }
-                    /*console.log(`username: ${usernameValue}, password: ${passwordValue}`) //! For testing only
-
-                     //! All of this code will be replaced when backend is connected
-                    if(usernameValue in props.userBase && props.userBase[usernameValue] === passwordValue){
-                        console.log("Successful Login!") 
-                        props.logIn()
-                    }else{
-                        createAlert("Bad Log In Attempt", "Invalid Credentials")
-                        console.log("Invalid Login!")
-                    }*/
                 }}
             >
                 <Text style={styles.buttonText}>
@@ -98,7 +95,9 @@ const Login = (props) => {
                         props.logIn()
                     }
                     else{
-                        createAlert("Server Response Error", "Something went wrong on our end!")
+                        props.createAlert("Error adding User", "User already exists")
+                        //TODO commented out code is for future backend calls
+                        //props.createAlert("Server Response Error", "Something went wrong on our end!")
                     }
                 }}  
             >

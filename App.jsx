@@ -57,7 +57,12 @@ export default class App extends React.Component {
     )
   }
 
-  logIn = async (username, password) => {
+  addUser = (username, password) => {
+    userBase[username] = password
+  }
+
+  logIn = /*async*/ (username, password) => {
+    //TODO Commented out code is for future backend calls
     /*try{
       const res = await fetch(
         "http://10.0.2.2:5000/users/login",
@@ -67,7 +72,7 @@ export default class App extends React.Component {
         }
       )
       
-      if(res.status == 200){ //TODO needs testing
+      if(res.status == 200){
         token = JSON.parse(res.json())["access_token"] 
         console.log(token) //!for testing only
         
@@ -82,7 +87,9 @@ export default class App extends React.Component {
     }*/
 
     try{
-      return userBase[username] === password
+      const loggedIn = userBase[username] === password
+      this.setState({ loggedIn: loggedIn })
+      return loggedIn
     }
     catch(err){
       return false
@@ -103,7 +110,7 @@ export default class App extends React.Component {
 
     if(!loggedIn){
       return (
-        <Login logIn={this.logIn} createAlert={this.createAlert} userBase={userBase}/>
+        <Login logIn={this.logIn} createAlert={this.createAlert} addUser={this.addUser} userBase={userBase}/>
       );
     }
     else{
