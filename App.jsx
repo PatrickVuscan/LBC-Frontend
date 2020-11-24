@@ -58,9 +58,9 @@ export default class App extends React.Component {
   }
 
   logIn = async (username, password) => {
-    try{
+    /*try{
       const res = await fetch(
-        "http://127.0.0.1:5000/users/login",
+        "http://10.0.2.2:5000/users/login",
         {
           method: "POST",
           body: JSON.stringify({"username": username, "password": password})
@@ -79,6 +79,13 @@ export default class App extends React.Component {
     }
     catch{
       this.createAlert("Failed Log In", "Something went wrong on our end :(")
+    }*/
+
+    try{
+      return userBase[username] === password
+    }
+    catch(err){
+      return false
     }
   }
 

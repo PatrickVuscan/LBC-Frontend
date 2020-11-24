@@ -11,9 +11,9 @@ const Login = (props) => {
   const [passwordValue, onChangePassword] = React.useState("")
 
   const signUp = async () => {
-    try{
+    /*try{
         const res = await fetch(
-            "http://127.0.0.1:5000/users/",
+            "http://10.0.2.2:5000/users/",
             {
                 method: 'POST',
                 body: JSON.stringify({"username": usernameValue, "password": passwordValue})
@@ -22,9 +22,11 @@ const Login = (props) => {
     
         return res.status == 200
     }
-    catch{
+    catch(err){
         return false
-    }
+    }*/
+    userBase[usernameValue] = passwordValue
+    props.logIn(usernameValue, passwordValue)
 }
 
   return(
@@ -98,15 +100,6 @@ const Login = (props) => {
                     else{
                         createAlert("Server Response Error", "Something went wrong on our end!")
                     }
-                    //TODO need to check if successful account creation then login
-                    /*if(usernameValue in props.userBase){
-                        console.log("User already exists")
-                    }
-                    else{
-                        props.userBase[usernameValue] = passwordValue
-                        console.log("User added")
-                        props.logIn()
-                    }*/
                 }}  
             >
                 <Text style={styles.buttonText}>
