@@ -6,7 +6,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 export default props => {
-  let headerColor = '#3D6DCC';
+  let headerColor = 'purple';
   let closingButton;
   if (props.post.user === 'user') {
     headerColor = 'green';
@@ -18,7 +18,7 @@ export default props => {
       >
         <Icon
           name="close"
-          style={{ alignItems: 'center' }}
+          style={{ alignItems: 'center', color: headerColor }}
         />
       </Button>
     );
@@ -36,7 +36,9 @@ export default props => {
           </Text>
         </Left>
         <Right>
-          <Text style={{ color: 'white' }}>Title of Post</Text>
+          <Text style={{ color: 'white' }}>
+            {props.post.title}
+          </Text>
         </Right>
       </Header>
       <Content
@@ -56,8 +58,9 @@ export default props => {
           }}
         >
           <Icon
+            color="purple"
             name="ios-chatboxes"
-            style={{ flexDirection: 'row' }}
+            style={{ flexDirection: 'row', color: headerColor }}
           />
         </Button>
         {closingButton}

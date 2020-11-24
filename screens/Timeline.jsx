@@ -14,6 +14,7 @@ import ViewPost from '../components/ViewPost';
 const exampleUser = {
   text: 'This is an example post. I am posting stuff right now! Wow!',
   user: 'Anonymous',
+  title: "Testing", 
   anon: true,
   comments: [],
 
@@ -22,6 +23,7 @@ const exampleUser = {
 const exampleUser2 = {
   text: "Another example post. I love this app!",
   user: "Steve",
+  title: "How I love this app", 
   anon: false, 
   comments: [], 
 }; 
@@ -71,7 +73,7 @@ const Timeline = props => {
     <ScreenBase header="Timeline">
       <View style={{ alignItems: 'center', flexDirection: 'row' }}>
         <Button
-          style={{ alignSelf: 'flex-end', marginLeft: 'auto' }}
+          style={{ alignSelf: 'flex-end', marginLeft: 'auto', backgroundColor: 'purple' }}
           onPress={() => { return setNewPostScreen(true); }}
         >
           <Text>
