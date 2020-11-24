@@ -12,57 +12,96 @@
 
 ## Process - Reflection
 
+<!-- TODO: Fill in the last demo meeting before the D2 deadline. 
+Ideally this is the time before your team introspective meeting. -->
+<!-- TODO: Though if you do have meeting minutes from your partner meetings, 
+that could be something good to link to from one of the documents! -->
 
-#### 1. List **process-related** (i.e. team organization and how you work) decisions that, in retrospect, turned out to be successful.
+#### 1. Decisions That Turned Out Well 
+<!-- List **process-related** (i.e. team organization and how you work) decisions that, in retrospect, 
+turned out to be successful. -->
+<!-- * 2 - 4 decisions.
+ * Ordered from most to least important.
+ * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
+ * Feel free to refer/link to process artifact(s). -->
 
-i) We agreed to attend a majority of Sunday team meetings, or notify at least 1 team member if we'll be absent from team meetings.
-- Teammates were invested in this project, found each other an approachable source of help, were strongly communciative, and overall enjoyed each other's company.
+i) We agreed to attend a majority of Sunday team meetings, or notified at least 1 team member if we were absent from team meetings.
+- Teammates were invested in this project, found each other an approachable source of help, were strongly communciative about
+feature updates, and overall enjoyed each other's company.
 
-ii) We informed each other every time we finish a new feature, made an improvement, or fixed a bug.
-- This allowed other members to pull their changes, and anticipate future merge conflicts.
-- Other team members could give each other feedback on our commits.
-- After every new complete feature, everyone else reflected on their current progress, and suggested more productive work strategies they could try.
+ii) We informed each other every time we finished a new feature, improved an existing feature, or fixed a bug.
+- Allowed team members to be up to date on the progress each member has made in regards to the code.
+- Other team members could pull their changes and anticipate future merge conflicts.
+- Other team members could give each other useful feedback on our commits.
+- After every new complete feature, we informed the rest of the team of our current progress,
+and the team would exchange successful productive work strategies.
 
-iii) We set up a GitHub Actions CI and a small test suite early.
-- This prevented us from committing code that fails to compile.
-- Streamlined our process of having to run tests manually each time we commit changes.
+iii) We remembered to submit pull requests before merging to the master branch.
+- We wanted to practice submitting pull requests for our future internship or research position.
+- We had an easily time learning how to submit pull requests, and consistently submitted pull requests.
+- The rest of us could eliminate bugs early and fast before they could grow and accumulate in the master branch.
 
-iv) Though we had separate repositories between the frontend and the backend, we made progress announcements general.
-- This allowed the frontend and the backend to keep in touch about each others' progress and plan out how the two parts will connect
-- Topics to discuss in all-member meetings were often determined by these general announcements.
+iv) We set up a GitHub Actions CI and a small test suite early.
+- Using CI prevented us from committing code that failed to compile.
+- We could run tests automatically after each commit, rather than remember to run tests manually.
 
-v) We shared resources that helped simplify our project.
-- This helped other members of the team to become knowledgeable about the technology that each other was using. 
-- Reduces development and research time for other members.
+v) Though we had separate repositories between the frontend and the backend, we made progress announcements general.
+- The frontend and backend could stay up to date about each others' progress and plan out how they will connect
+their corresponding features together.
+- General announcements often guided the discussion for that week's team meetings.
+
+vi) We shared resources that helped simplify our project.
+- Other members of the team could learn more about the technology that they were using.
+- Reduced development and research time for other members.
 - Working with and reviewing each others' code doesn't require having to learn how their imported technologies work.
 
-#### 2. List **process-related** (i.e. team organization and how you work) decisions that, in retrospect, were not as successful as you thought they would be.
+vii) Instead of requiring consistent work submission, we required finishing our assigned tasks a few days before the next team meeting.
+- The first few days after D2 began, we asked everyone to spend as much time as possible working on their assigned features.
+As the D2 deadline approached, we agreed to set more strict deadlines, oftentimes the day of the next team meeting.
+- It was difficult to expect everyone to consistently produce work towards D2 since it's possible for some team members to have multiple
+competing assignment and midterm deadlines. However, we compensated by spending extra time to finish D2 after those deadlines passed.
+Our progress evened out over time.
 
+#### 2. Decisions that did not turn out as well as we hoped
+<!-- List **process-related** (i.e. team organization and how you work) decisions that, in retrospect, 
+were not as successful as you thought they would be. --->
+ <!-- * 2 - 4 decisions.
+ * Ordered from most to least important.
+ * Explain why (i.e. give a supporting argument) you consider a decision to be unsuccessful
+ * Feel free to refer/link to process artifact(s). -->
 
 i) We required bi-weekly meetings with LBC.
 - Although we wanted consistent updates and communication with LBC, this commitment needed to be made on both sides of the communication. Unfortunately, LBC was not able to commit to this meeting schedule.
 
 ii) We required our group to submit work regularly.
-- Team members occasionally had many assignments and midterms occuring at roughly the same time, so they may not be available to work on the project fully unless they have dedicated a large block of time (e.g. at least 2 hours) and
-they didn't have an assignment due soon.
+- Team members occasionally had many assignments and midterms occuring at roughly the same time, so they may not be available to work on the project fully unless they have dedicated a large block of time (e.g. at least 2 hours) and they didn't have an assignment due soon.
 
-iii) We create a branch rule for master that required the approval of at least 1 team member before anyone can merge to master.
--  While ideally no one should ever commit code that has not been previously peer reviewed, enforcing this pull request rule on GitHub (in Settings > Branches) turned out to be too strict.
-- If the majority of teammates are not available, pull requests may take a long time to process, thus slowing down our entire team. In the worst case, two pull requests took about 18 hours to process.
+iii) We created a branch rule for master that required the approval of at least 1 team member before anyone can merge to master.
+-  While ideally no one should ever commit code that has not been previously peer reviewed, enforcing this pull request rule on GitHub (in Settings > Branches) turned out to be too strict. and prevented productive members of the team from merging feature changes to master.
+- If the majority of teammates are not available, pull requests may take a long time to process, thus slowing down our entire team. 
+In the worst case, two major pull requests took about 18 hours for the team leads to process.
 - However, we still encourage our team to submit pull requests before merging to master because it is good practice for a future internship or research position.
 
 
-#### 3. List any **process-related** (i.e. team organization and how you work) changes you are planning to make (if there are any).
- <!-- * Ordered from most to least important.
+#### 3. Planned changes
+<!-- List any **process-related** (i.e. team organization and how you work) changes you are planning to make 
+(if there are any). -->
+<!-- * Ordered from most to least important.
  * Explain why you are making a change. -->
 
 i) We plan on pairing up at least one frontend person with a backend person working on a similar feature, and have
-then collabroate closely with one another.
+them collaborate closely with one another.
 - e.g. If Arun is working on the login page and Henry is working on user authorization and authentification, then
 they can stay in close contact with one another to avoid any last-minute frontend-backend integration surprises.
 
-ii) Instead of requiring consistent work submission, meet a deadline
-- Since all of us had different assignment and midterm schedules we decided to work on our own terms, but finish the required tasks that each of us were responsible for before an agreed deadline. 
+ii) We plan on deploying backend???
+- ???
+
+iii) We want to set up integration and end-to-end tests.
+- ???
+
+iv) 
+- ???
 
 ## Product - Review
 
@@ -72,7 +111,7 @@ ii) Instead of requiring consistent work submission, meet a deadline
  * Did your partner accept the features?
  * Were there change requests?
  * What did you learn from the demo from either a process or product perspective?
- * *This section will be marked very leniently so keep it brief and just make sure the points are addressed* -->
+ * This section will be marked very leniently so keep it brief and just make sure the points are addressed -->
 
  - Email Adam that we won't be able to demo our product to LBC before the D2 deadline.
- - LBC sent us articles for our Sanity page, and the LBC logo, and Arun 
+ - LBC sent us articles for our Sanity page, and the LBC logo, and Arun ... ???
