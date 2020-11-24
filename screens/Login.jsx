@@ -10,18 +10,22 @@ const Login = (props) => {
   const [usernameValue, onChangeUsername] = React.useState("")
   const [passwordValue, onChangePassword] = React.useState("")
 
-  const createBadAlert = () => {
-    Alert.alert(
-        "Bad Log-In Attempt",
-        "Invalid Credentials",
-        [
+  const signUp = async () => {
+    try{
+        const res = await fetch(
+            "http://127.0.0.1:5000/users/",
             {
-                text: "OK"
+                method: 'POST',
+                body: JSON.stringify({"username": usernameValue, "password": passwordValue})
             }
-        ],
-        {cancelable: false}
-    )
-  }
+        )
+    
+        return res.status == 200
+    }
+    catch{
+        return false
+    }
+}
 
   return(
     <Container style={{height: screenHeight, width: screenWidth, backgroundColor: "#a379b3"}}> 
@@ -62,16 +66,19 @@ const Login = (props) => {
                 bordered 
                 style={styles.button}
                 onPress={() => {
-                    console.log(`username: ${usernameValue}, password: ${passwordValue}`) //! For testing only
+                    if(!props.logIn(usernameValue, passwordValue)){
+                        props.createAlert("Bad Log In Attempt", "Invalid Credentials")
+                    }
+                    /*console.log(`username: ${usernameValue}, password: ${passwordValue}`) //! For testing only
 
                      //! All of this code will be replaced when backend is connected
                     if(usernameValue in props.userBase && props.userBase[usernameValue] === passwordValue){
                         console.log("Successful Login!") 
                         props.logIn()
                     }else{
-                        createBadAlert()
+                        createAlert("Bad Log In Attempt", "Invalid Credentials")
                         console.log("Invalid Login!")
-                    }
+                    }*/
                 }}
             >
                 <Text style={styles.buttonText}>
@@ -84,14 +91,22 @@ const Login = (props) => {
                 bordered 
                 style={styles.button}
                 onPress={() => {
-                    if(usernameValue in props.userBase){
+                    if(signUp()){
+                        //Do log in stuff
+                        props.logIn()
+                    }
+                    else{
+                        createAlert("Server Response Error", "Something went wrong on our end!")
+                    }
+                    //TODO need to check if successful account creation then login
+                    /*if(usernameValue in props.userBase){
                         console.log("User already exists")
                     }
                     else{
                         props.userBase[usernameValue] = passwordValue
                         console.log("User added")
                         props.logIn()
-                    }
+                    }*/
                 }}  
             >
                 <Text style={styles.buttonText}>

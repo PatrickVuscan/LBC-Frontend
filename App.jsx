@@ -2,9 +2,10 @@
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
+import { Alert } from 'react-native';
 import { StoreProvider } from 'easy-peasy';
 import * as Font from 'expo-font';
-import { Spinner, View } from 'native-base';
+import { Spinner, View} from 'native-base';
 import React from 'react';
 import Articles from './screens/Articles';
 import CTA from './screens/CTA';
@@ -21,7 +22,8 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       isReady: false,
-      loggedIn: false
+      loggedIn: false,
+      access_token: ""
     };
   }
 
@@ -42,13 +44,48 @@ export default class App extends React.Component {
     this.setState({ isReady: true });
   }
 
-  logIn = () => {
-    this.setState({ loggedIn: true })
+  createAlert = (title, msg) => {
+    Alert.alert(
+        title,
+        msg,
+        [
+            {
+                text: "OK"
+            }
+        ],
+        {cancelable: false}
+    )
+  }
+
+  logIn = async (username, password) => {
+    try{
+      const res = await fetch(
+        "http://127.0.0.1:5000/users/login",
+        {
+          method: "POST",
+          body: JSON.stringify({"username": username, "password": password})
+        }
+      )
+      
+      if(res.status == 200){ //TODO needs testing
+        token = JSON.parse(res.json())["access_token"] 
+        console.log(token) //!for testing only
+        
+        this.setState({ loggedIn: true, access_token: token})
+      }
+      else{
+        this.createAlert("Failed Log In", "Something went wrong on our end :(")
+      }
+    }
+    catch{
+      this.createAlert("Failed Log In", "Something went wrong on our end :(")
+    }
   }
 
   render() {
     const { isReady } = this.state;
     const { loggedIn } = this.state;
+
     if (!isReady) {
       return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -59,7 +96,7 @@ export default class App extends React.Component {
 
     if(!loggedIn){
       return (
-        <Login logIn={this.logIn} userBase={userBase}/>
+        <Login logIn={this.logIn} createAlert={this.createAlert} userBase={userBase}/>
       );
     }
     else{
