@@ -1,4 +1,5 @@
 /* eslint-disable global-require */
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
@@ -7,15 +8,21 @@ import { StoreProvider } from 'easy-peasy';
 import * as Font from 'expo-font';
 import { Spinner, View} from 'native-base';
 import React from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Articles from './screens/Articles';
-import CTA from './screens/CTA';
-import Login from './screens/Login'
-import NearbyResources from './screens/NearbyResources';
+import CTAs from './screens/CTAs';
+import Resources from './screens/Resources';
 import Timeline from './screens/Timeline';
+import Login from './screens/Login'
 import store from './state/store';
 
 const Tab = createBottomTabNavigator();
 const userBase = {"user": "user"} //! This is for frontend mock login only
+
+const client = new ApolloClient({
+  uri: 'https://6ujtdngl.api.sanity.io/v1/graphql/staging/default',
+  cache: new InMemoryCache(),
+});
 
 export default class App extends React.Component {
   constructor(props) {
@@ -115,37 +122,43 @@ export default class App extends React.Component {
     }
     else{
       return (
-        <StoreProvider store={store}>
-          <NavigationContainer>
-            <Tab.Navigator
-              initialRouteName="Timeline"
-              tabBarOptions={{
-                activeTintColor: 'tomato',
-                inactiveTintColor: 'gray',
-                tabStyle: {
-                  justifyContent: 'center',
-                },
-              }}
-            >
-              <Tab.Screen
-                name="Timeline"
-                component={Timeline}
-              />
-              <Tab.Screen
-                name="Articles"
-                component={Articles}
-              />
-              <Tab.Screen
-                name="CTA"
-                component={CTA}
-              />
-              <Tab.Screen
-                name="Resources"
-                component={NearbyResources}
-              />
-            </Tab.Navigator>
-          </NavigationContainer>
-        </StoreProvider>
+        <ApolloProvider client={client}>
+          <StoreProvider store={store}>
+            <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
+              <NavigationContainer>
+                <Tab.Navigator
+                  initialRouteName="Timeline"
+                  tabBarOptions={{
+                    activeTintColor: 'white',
+                    inactiveTintColor: '#B0AFB0',
+                    tabStyle: {
+                      justifyContent: 'center',
+                    },
+                    activeBackgroundColor: 'purple',
+                    inactiveBackgroundColor: 'black',
+                  }}
+                >
+                  <Tab.Screen
+                    name="Timeline"
+                    component={Timeline}
+                  />
+                  <Tab.Screen
+                    name="Articles"
+                    component={Articles}
+                  />
+                  <Tab.Screen
+                    name="CTA"
+                    component={CTAs}
+                  />
+                  <Tab.Screen
+                    name="Resources"
+                    component={Resources}
+                  />
+                </Tab.Navigator>
+              </NavigationContainer>
+            </SafeAreaView>
+          </StoreProvider>
+        </ApolloProvider>
       );
     }
   }

@@ -7,15 +7,32 @@ import { StyleSheet, View } from 'react-native';
 
 export default props => {
   let headerColor = '#3D6DCC';
+  let closingButton;
   if (props.post.user === 'user') {
     headerColor = 'green';
+    closingButton = (
+      <Button
+        transparent
+        style={{ flexDirection: 'row', marginLeft: 'auto' }}
+        onPress={() => { return props.deletePost(props.post); }}
+      >
+        <Icon
+          name="close"
+          style={{ alignItems: 'center' }}
+        />
+      </Button>
+    );
+  }
+  let displayedUser = props.post.user;
+  if (props.post.anon) {
+    displayedUser = 'Anonymous';
   }
   return (
     <Container style={styles.postContainer}>
       <Header style={{ backgroundColor: headerColor }}>
         <Left>
           <Text style={{ color: 'white' }}>
-            {props.post.user}
+            {displayedUser}
           </Text>
         </Left>
         <Right>
@@ -31,12 +48,19 @@ export default props => {
         </Text>
       </Content>
       <View style={{ padding: 0, flexDirection: 'row', alignItems: 'flex-end' }}>
-        <Button transparent>
+        <Button
+          transparent
+          onPress={() => {
+            props.setCurrViewedPost(props.post);
+            props.setViewPost(true);
+          }}
+        >
           <Icon
             name="ios-chatboxes"
             style={{ flexDirection: 'row' }}
           />
         </Button>
+        {closingButton}
         <Button
           transparent
           style={{ flexDirection: 'row', marginLeft: 'auto' }}
