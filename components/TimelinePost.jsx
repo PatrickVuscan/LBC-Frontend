@@ -61,15 +61,6 @@ export default props => {
           />
         </Button>
         {closingButton}
-        <Button
-          transparent
-          style={{ flexDirection: 'row', marginLeft: 'auto' }}
-        >
-          <Icon
-            name="heart"
-            style={{ alignItems: 'center' }}
-          />
-        </Button>
       </View>
     </Container>
   );
