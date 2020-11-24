@@ -100,7 +100,7 @@ ii) We plan on deploying backend???
 iii) We want to set up integration and end-to-end tests.
 - ???
 
-iv) 
+iv) We could update the README.md file as we improved our feature to avoid a last minute README.md write-up marathon.
 - ???
 
 ## Product - Review
