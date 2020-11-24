@@ -100,8 +100,13 @@ ii) We plan on deploying backend???
 iii) We want to set up integration and end-to-end tests.
 - ???
 
-iv) We could update the README.md file as we improved our feature to avoid a last minute README.md write-up marathon.
-- ???
+iv) We could update the README.md file as we improved our features, rather than waiting until the D3 deadline to update it.
+- This will spare our team from having to scramble to assemble a README.md file.
+- It's useful to document the feature while it's still fresh in your mind.
+
+v) We could add more appropriate linter checks.
+- We could add more linter checks, like max statements per line, max nested callbacks, or simplifying boolean expressions.
+- We could also remove any linter checks that flag unreasonable prescriptive style guildelines.
 
 ## Product - Review
 
