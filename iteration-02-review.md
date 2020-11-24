@@ -113,5 +113,7 @@ iv)
  * What did you learn from the demo from either a process or product perspective?
  * This section will be marked very leniently so keep it brief and just make sure the points are addressed -->
 
- - Email Adam that we won't be able to demo our product to LBC before the D2 deadline.
- - LBC sent us articles for our Sanity page, and the LBC logo, and Arun ... ???
+- Since we could not demo our app to LBC before the D2 deadline, we'll have to leave this blank
+for now and update our response after the LBC app demo.
+- LBC sent Patrick a set of articles for our Sanity page, and the LBC logo.
+- Arun proposed a set of redesigned LBC logos.
