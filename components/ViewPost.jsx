@@ -91,12 +91,16 @@ const ViewPost = ({
           <Input
             placeholder="Write a comment"
             onChangeText={handleInputChange}
+            style={{
+              borderBottomColor: '#bbb',
+              borderBottomWidth: 2,
+            }}
           />
           <Button
             onPress={addComment}
-            style={{ backgroundColor: colours.purple }}
+            style={{ backgroundColor: colours.gold }}
           >
-            <Text>Post Comment</Text>
+            <Text style={{ color: colours.purple }}>Post Comment</Text>
           </Button>
         </View>
         <View>

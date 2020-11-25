@@ -130,8 +130,8 @@ export default class App extends React.Component {
             <Tab.Navigator
               initialRouteName="Timeline"
               tabBarOptions={{
-                activeTintColor: colours.gold,
-                inactiveTintColor: colours.gold,
+                activeTintColor: 'white',
+                inactiveTintColor: 'white',
                 tabStyle: {
                   justifyContent: 'center',
                 },

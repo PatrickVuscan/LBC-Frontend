@@ -46,7 +46,11 @@ const Login = props => {
         <Image
           style={
             { 
-              alignSelf: 'center', marginTop: 130, height: 210, width: 210, marginBottom: 10,
+              alignSelf: 'center', 
+              marginTop: 130, 
+              height: 210, 
+              width: 210, 
+              marginBottom: 10,
             }
           }
           source={lbcLogo}
