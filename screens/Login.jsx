@@ -1,5 +1,6 @@
 /* eslint-disable quote-props */
 /* eslint-disable no-trailing-spaces */
+/* eslint-disable react/no-string-refs */
 import React from 'react';
 import { Dimensions, StyleSheet, Image } from 'react-native';
 import {
@@ -12,6 +13,8 @@ const lbcLogo = require('../assets/lbc_logo_w_ball_gradient.png');
 const Login = props => {
   const [usernameValue, onChangeUsername] = React.useState('');
   const [passwordValue, onChangePassword] = React.useState('');
+
+  const passwordInputRef = React.useRef(null);
 
   const signUp = /* async */ () => {
     // TODO Commented out code is for future backend calls
@@ -62,6 +65,12 @@ const Login = props => {
             onChangeText={text => {
               onChangeUsername(text);
             }}
+            onSubmitEditing={() => {
+              if (!props.logIn(usernameValue, passwordValue)) {
+                props.createAlert('Bad Log In Attempt', 'Invalid Credentials');
+              }
+            }}
+            returnKeyType="go"
             style={styles.textInput}
             placeholder="Username"
             placeholderTextColor="#FFFFFF"
@@ -75,6 +84,12 @@ const Login = props => {
             onChangeText={text => {
               onChangePassword(text);
             }}
+            onSubmitEditing={() => {
+              if (!props.logIn(usernameValue, passwordValue)) {
+                props.createAlert('Bad Log In Attempt', 'Invalid Credentials');
+              }
+            }}
+            returnKeyType="go"
             style={styles.textInput}
             placeholder="Password"
             placeholderTextColor="#FFFFFF"

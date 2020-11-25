@@ -110,14 +110,17 @@ const ViewPost = ({
                 }}
               >
                 <Text
+                  style={{ fontSize: 22, color: colours.gold }}
+                  // eslint-disable-next-line react/no-array-index-key
+                >
+                  { item[0] }
+                  :
+                </Text>
+                <Text
                   style={{ fontSize: 18 }}
                   // eslint-disable-next-line react/no-array-index-key
-                  key={`${index}t`}
                 >
-                  {item[0]}
-                  :
-                  {' '}
-                  {item[1]}
+                  { item[1] }
                 </Text>
               </View>
             );
