@@ -12,11 +12,6 @@
 
 ## Process - Reflection
 
-<!-- TODO: Fill in the last demo meeting before the D2 deadline. 
-Ideally this is the time before your team introspective meeting. -->
-<!-- TODO: Though if you do have meeting minutes from your partner meetings, 
-that could be something good to link to from one of the documents! -->
-
 #### 1. Decisions That Turned Out Well 
 <!-- List **process-related** (i.e. team organization and how you work) decisions that, in retrospect, 
 turned out to be successful. -->
@@ -120,8 +115,6 @@ like "a && a" and "b || b".
 - We still haven't met with LBC to demo our app yet before the D2 deadline, so
 we'll update this section after the LBC app demo.
 
-
-
 <!-- TODOs: 
 - LBC sent Patrick a set of articles for our Sanity page, and the LBC logo.
 (TODO: Insert images of articles here)
@@ -133,3 +126,8 @@ we'll update this section after the LBC app demo.
 - TODO: 3. Major decisions LBC wants us to implement.
 - TODO: 4. Reflect on how meetings are going, based on coversations you've had with them.
 -->
+
+<!-- TODO: Fill in the last demo meeting before the D2 deadline. 
+Ideally this is the time before your team introspective meeting. -->
+<!-- TODO: Though if you do have meeting minutes from your partner meetings, 
+that could be something good to link to from one of the documents! -->

@@ -16,7 +16,7 @@ Our git commands obey these coding standards:
 
 Here's the URL to our deployed React Native App: <!-- ## ✨ [Our Demo](example.com) -->
 
-(TODO: Insert deployed react native app here)
+<!-- (TODO: Insert deployed react native app here) -->
 
 ## Install
 
@@ -66,21 +66,21 @@ All tests should pass.
 - If you're a new user, you must first create a new account by tapping the "Create New Account" button
 on the login page before you can log in.
 
-(TODO: Insert picture of create new account page)
+<!-- (TODO: Insert picture of create new account page) -->
 
 - If you have an existing account, you can simply log in by entering your credentials and then tapping
 "Log In." Once you've logged in, you are taken to your timeline.
 
-(TODO: Insert picture of log in page)
+<!-- (TODO: Insert picture of log in page) -->
 
 - If you've forgotten your password, you can reset it by tapping the "Reset Password" button.
 
-(TODO: Insert picture of password reset page)
+<!-- (TODO: Insert picture of password reset page) -->
 
 - You can view timeline posts in the "Timeline" page. In order to create a new post click the "New Post" button. From here you can add a title and content and click the "Post" button to post. If you want to remain anonymous, you can click the "Anonymous" button before you post. 
 - In order to comment on posts, you can click on the comment button on the bottom left of each post. From this screen you can leave a comment with the text box and the "Add Comment" button. 
 
-(TODO: Insert picture of timeline page)
+<!-- (TODO: Insert picture of timeline page) -->
 
 - In order to view articles, you can click on the articles button on the bottom navigator. This applies to resources as well for getting in contact with local officials. 
  
