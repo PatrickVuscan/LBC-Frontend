@@ -28,10 +28,6 @@ const ViewPost = ({
     post.comments = a;
   }
 
-  function handleInputChange(input) {
-    setCommentInput(input);
-  }
-
   return (
     <Container>
       <ScrollView>
@@ -90,7 +86,9 @@ const ViewPost = ({
 
           <Input
             placeholder="Write a comment"
-            onChangeText={handleInputChange}
+            onChangeText={inputVal => {
+              setCommentInput(inputVal);
+            }}
             style={{
               borderBottomColor: '#bbb',
               borderBottomWidth: 2,
