@@ -9,7 +9,7 @@
 
 ## Git Commit Standards
 
-Our git commands obey these coding standards:
+Our git commits obey these coding standards:
 [Documentation on Git Commit Standards](http://karma-runner.github.io/0.10/dev/git-commit-msg.html)
 
 ## Viewing our Deployed React Native App
@@ -28,7 +28,7 @@ npm install
 
 ## Run tests
 
-To run jest with coverage, enter
+To run jest with the ```--coverage``` flag, enter:
 
 ```sh
 npm test
@@ -73,7 +73,7 @@ on the login page before you can log in.
 
 <!-- (TODO: Insert picture of log in page) -->
 
-- If you've forgotten your password, you can reset it by tapping the "Reset Password" button.
+<!-- - If you've forgotten your password, you can reset it by tapping the "Reset Password" button. -->
 
 <!-- (TODO: Insert picture of password reset page) -->
 
@@ -102,7 +102,7 @@ on the login page before you can log in.
  * What deployment tool(s) are you using and how
  * Don't forget to **briefly explain why** you chose this workflow or particular aspects of it! -->
  
- - We had each major feature worked on by one member on their own branch. This was two avoid conflicts and isolate code issues. 
+ - We had each major feature worked on by one member on their own branch. This was to avoid conflicts and isolate code issues. 
  - When a major feature was done, this user would first merge master into their branch in order to check for conflicts and address them. After that, they would create a pull request for their branch to be merged with master. Another developer would review this code for style, syntax, or other errors and then confirm the changes to master if they were ready.
  
  ### Backend
