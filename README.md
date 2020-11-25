@@ -52,6 +52,8 @@ All tests should pass.
 
 - Users can create accounts and log in (and perhaps reset their password)?
 - Users can see a timeline of posts related to social justice.
+- Users can create posts for the timeline with a title, and delete these posts 
+- Users can comment on other people's posts as well as their own 
 - Users can view articles related to social justice.
 - Users can view helpful resources, like URLs, email addresses, and phone numbers of police center websites.
 
@@ -75,9 +77,12 @@ on the login page before you can log in.
 
 (TODO: Insert picture of password reset page)
 
-- You can view timeline posts in the "Timeline" page.
+- You can view timeline posts in the "Timeline" page. In order to create a new post click the "New Post" button. From here you can add a title and content and click the "Post" button to post. If you want to remain anonymous, you can click the "Anonymous" button before you post. 
+- In order to comment on posts, you can click on the comment button on the bottom left of each post. From this screen you can leave a comment with the text box and the "Add Comment" button. 
 
 (TODO: Insert picture of timeline page)
+
+- In order to view articles, you can click on the articles button on the bottom navigator. This applies to resources as well for getting in contact with local officials. 
  
  ## Development requirements
  <!-- * If a developer were to set this up on their machine or a remote server, what are the technical requirements (e.g. OS, libraries, etc.)?
@@ -91,6 +96,9 @@ on the login page before you can log in.
  * Describe your overall deployment process from writing code to viewing a live applicatioon
  * What deployment tool(s) are you using and how
  * Don't forget to **briefly explain why** you chose this workflow or particular aspects of it! -->
+ 
+ - We had each major feature worked on by one member on their own branch. This was two avoid conflicts and isolate code issues. 
+ - When a major feature was done, this user would first merge master into their branch in order to check for conflicts and address them. After that, they would create a pull request for their branch to be merged with master. Another developer would review this code for style, syntax, or other errors and then confirm the changes to master if they were ready. 
 
  ## Licenses 
  <!-- Keep this section as brief as possible. You may read this [Github article](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository) for a start.
