@@ -6,6 +6,7 @@ import { Dimensions, StyleSheet, Image } from 'react-native';
 import {
   Button, Container, Text, Input, Content, Item, 
 } from 'native-base';
+import { colours } from '../theme/theme';
 
 const { screenHeight, screenWidth } = Dimensions.get('window');
 const lbcLogo = require('../assets/lbc_logo_w_ball_gradient.png');
@@ -13,8 +14,6 @@ const lbcLogo = require('../assets/lbc_logo_w_ball_gradient.png');
 const Login = props => {
   const [usernameValue, onChangeUsername] = React.useState('');
   const [passwordValue, onChangePassword] = React.useState('');
-
-  const passwordInputRef = React.useRef(null);
 
   const signUp = /* async */ () => {
     // TODO Commented out code is for future backend calls
@@ -53,7 +52,9 @@ const Login = props => {
               marginTop: 130, 
               height: 210, 
               width: 210, 
-              marginBottom: 10,
+              marginBottom: 20,
+              borderWidth: 2,
+              borderColor: colours.purple,
             }
           }
           source={lbcLogo}
@@ -138,7 +139,7 @@ const Login = props => {
 const styles = StyleSheet.create({
   'button': { 
     // #e3ceeb
-    backgroundColor: '#7E54C6', 
+    backgroundColor: colours.purple, 
     width: 300, 
     height: 50,
     borderRadius: 10,
@@ -155,7 +156,7 @@ const styles = StyleSheet.create({
     // opacity: 0.2,
     borderRadius: 10,
     // #b99dc4
-    backgroundColor: '#fdb927', // #b99dc4
+    backgroundColor: colours.gold, // #b99dc4
     marginBottom: 15, 
     color: '#FFFFFF',
   },
