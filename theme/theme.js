@@ -70,4 +70,6 @@ export default StyleSheet.create({
     marginBottom: 5,
   },
   verticalCenter: { alignItems: 'center' },
+  purple: '#7E54C6',
+  gold: '#fdb927',
 });
