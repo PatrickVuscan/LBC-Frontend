@@ -36,7 +36,7 @@ npm test
 
 All tests should pass. 
 
-(TODO: insert sample screenshot of all passing tests)
+![All Passing Tests](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/README.md/readme_images/all_passing_tests.png)
 
 ## Description 
  <!-- * Provide a high-level description of your application and it's value from an end-user's perspective
