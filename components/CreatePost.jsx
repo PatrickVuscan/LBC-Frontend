@@ -1,4 +1,3 @@
-/* eslint-disable imports/no-duplicates */
 import {
   Button,
   Container,
@@ -69,12 +68,12 @@ export default class CreatePost extends React.Component {
             transparent
             // There are currently two alignSelfs here. Please choose which one you meant to have.
             // For now I believe the second one is the one used, so I left that one in.
-            // style={{ alignSelf: 'flex-start', alignSelf: 'center', float: 'left' }}
-            style={{ alignSelf: 'center', float: 'left' }}
+            // style={{ alignSelf: 'flex-start', alignSelf: 'center' }}
+            style={{ alignSelf: 'center' }}
           >
             <Icon
               name="close"
-              style={{ flexDirection: 'row', float: 'left' }}
+              style={{ flexDirection: 'row' }}
             />
           </Button>
           <Text

@@ -31,7 +31,7 @@ const exampleUser2 = {
   comments: [],
 };
 
-const Timeline = props => {
+const Timeline = () => {
   const [newPostScreen, setNewPostScreen] = useState(false);
   const [allPosts, setAllPosts] = useState([]);
   const [viewPost, setViewPost] = useState(false);
@@ -73,8 +73,9 @@ const Timeline = props => {
   }
 
   return (
-    <ScreenBase header="Timeline">
-      <View style={{ alignItems: 'center', flexDirection: 'row' }}>
+    <ScreenBase
+      header="Timeline"
+      right={(
         <Button
           style={{ alignSelf: 'flex-end', marginLeft: 'auto', backgroundColor: colours.gold }}
           onPress={() => { return setNewPostScreen(true); }}
@@ -83,7 +84,9 @@ const Timeline = props => {
             New Post
           </Text>
         </Button>
-      </View>
+      )}
+    >
+
       {allPosts.map((item, index) => {
         return (
           <TimelinePost

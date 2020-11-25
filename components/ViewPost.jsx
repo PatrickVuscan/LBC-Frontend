@@ -39,11 +39,11 @@ const ViewPost = ({
           <Button
             onPress={() => { return setViewPost(false); }}
             transparent
-            style={{ alignSelf: 'center', float: 'left' }}
+            style={{ alignSelf: 'center' }}
           >
             <Icon
               name="close"
-              style={{ flexDirection: 'row', float: 'left' }}
+              style={{ flexDirection: 'row' }}
             />
           </Button>
           <Text
@@ -107,6 +107,8 @@ const ViewPost = ({
           {comments.map((item, index) => {
             return (
               <View
+                // eslint-disable-next-line react/no-array-index-key
+                key={index}
                 style={{
                   padding: 14,
                   borderBottomColor: '#bbb',
@@ -116,7 +118,7 @@ const ViewPost = ({
                 <Text
                   style={{ fontSize: 18 }}
                   // eslint-disable-next-line react/no-array-index-key
-                  key={index}
+                  key={`${index}t`}
                 >
                   {item[0]}
                   :

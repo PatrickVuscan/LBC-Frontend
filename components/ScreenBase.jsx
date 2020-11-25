@@ -1,12 +1,21 @@
 // @ts-check
 import {
-  Container, Content, Header, Text,
+  Body,
+  Container,
+  Content,
+  Header,
+  Left,
+  Right,
+  Text,
 } from 'native-base';
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { theme } from '../theme/theme';
 
-const ScreenBase = ({ header, children, padder = false }) => {
+const ScreenBase = ({
+  header, children, padder = false, left = undefined, right = undefined,
+}) => {
   return (
     <Container>
       <Header
@@ -14,9 +23,17 @@ const ScreenBase = ({ header, children, padder = false }) => {
         androidStatusBarColor="#2c3e50"
         iosBarStyle="light-content"
       >
-        <Text style={theme.appHeaderText}>
-          {header}
-        </Text>
+        <Left style={styles.flex}>
+          {left}
+        </Left>
+        <Body style={styles.flex}>
+          <Text style={theme.appHeaderText}>
+            {header}
+          </Text>
+        </Body>
+        <Right style={styles.flex}>
+          {right}
+        </Right>
       </Header>
       <ScrollView
         automaticallyAdjustContentInsets
@@ -35,5 +52,11 @@ const ScreenBase = ({ header, children, padder = false }) => {
     </Container>
   );
 };
+
+const styles = StyleSheet.create({
+  flex: {
+    flex: 1,
+  },
+});
 
 export default ScreenBase;
