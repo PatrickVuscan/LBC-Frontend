@@ -1,5 +1,4 @@
 /* eslint-disable global-require */
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
@@ -15,11 +14,6 @@ import Timeline from './screens/Timeline';
 import store from './state/store';
 
 const Tab = createBottomTabNavigator();
-
-const client = new ApolloClient({
-  uri: 'https://6ujtdngl.api.sanity.io/v1/graphql/staging/default',
-  cache: new InMemoryCache(),
-});
 
 export default class App extends React.Component {
   constructor(props) {
@@ -57,43 +51,41 @@ export default class App extends React.Component {
     }
 
     return (
-      <ApolloProvider client={client}>
-        <StoreProvider store={store}>
-          <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
-            <NavigationContainer>
-              <Tab.Navigator
-                initialRouteName="Timeline"
-                tabBarOptions={{
-                  activeTintColor: 'white',
-                  inactiveTintColor: '#B0AFB0',
-                  tabStyle: {
-                    justifyContent: 'center',
-                  },
-                  activeBackgroundColor: 'purple',
-                  inactiveBackgroundColor: 'black',
-                }}
-              >
-                <Tab.Screen
-                  name="Timeline"
-                  component={Timeline}
-                />
-                <Tab.Screen
-                  name="Articles"
-                  component={Articles}
-                />
-                <Tab.Screen
-                  name="CTA"
-                  component={CTAs}
-                />
-                <Tab.Screen
-                  name="Resources"
-                  component={Resources}
-                />
-              </Tab.Navigator>
-            </NavigationContainer>
-          </SafeAreaView>
-        </StoreProvider>
-      </ApolloProvider>
+      <StoreProvider store={store}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
+          <NavigationContainer>
+            <Tab.Navigator
+              initialRouteName="Timeline"
+              tabBarOptions={{
+                activeTintColor: 'white',
+                inactiveTintColor: '#B0AFB0',
+                tabStyle: {
+                  justifyContent: 'center',
+                },
+                activeBackgroundColor: 'purple',
+                inactiveBackgroundColor: 'black',
+              }}
+            >
+              <Tab.Screen
+                name="Timeline"
+                component={Timeline}
+              />
+              <Tab.Screen
+                name="Articles"
+                component={Articles}
+              />
+              <Tab.Screen
+                name="CTA"
+                component={CTAs}
+              />
+              <Tab.Screen
+                name="Resources"
+                component={Resources}
+              />
+            </Tab.Navigator>
+          </NavigationContainer>
+        </SafeAreaView>
+      </StoreProvider>
     );
   }
 }
