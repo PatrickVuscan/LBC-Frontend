@@ -7,8 +7,8 @@
 
 ## Iteration 2 - Review & Retrospect
 
- * When: FILL IN THE DATE WHEN YOU ACTUALLY HAD YOUR REVIEW MEETING
- * Where: PHYSICAL LOCATION AND/OR ONLINE
+ * When: November 24, 2020
+ * Where: Discord
 
 ## Process - Reflection
 
@@ -16,6 +16,11 @@
 Ideally this is the time before your team introspective meeting. -->
 <!-- TODO: Though if you do have meeting minutes from your partner meetings, 
 that could be something good to link to from one of the documents! -->
+
+- TODO: 1. Meeting highlights with LBC.
+- TODO: 2. partner feedback on app
+- TODO: 3. Major decisions LBC wants us to implement.
+- TODO: 4. reflect on how meetings are going, based on coversations you've had with them.
 
 #### 1. Decisions That Turned Out Well 
 <!-- List **process-related** (i.e. team organization and how you work) decisions that, in retrospect, 
@@ -94,15 +99,16 @@ them collaborate closely with one another.
 - e.g. If Arun is working on the login page and Henry is working on user authorization and authentification, then
 they can stay in close contact with one another to avoid any last-minute frontend-backend integration surprises.
 
-ii) We plan on deploying backend???
+ii) We want to set up integration and end-to-end tests after the frontend and backend people have connected their
+features together.
 - ???
 
-iii) We want to set up integration and end-to-end tests.
-- ???
-
-iv) We could update the README.md file as we improved our features, rather than waiting until the D3 deadline to update it.
+iii) We could update the README.md file as we improved our features, rather than waiting until the D3 deadline to update it.
 - This will spare our team from having to scramble to assemble a README.md file.
 - It's useful to document the feature while it's still fresh in your mind.
+
+iv) We plan on deploying backend???
+- ???
 
 v) We could add more appropriate linter checks.
 - We could add more linter checks, like max statements per line, max nested callbacks, or simplifying boolean expressions.
@@ -121,4 +127,7 @@ v) We could add more appropriate linter checks.
 - Since we could not demo our app to LBC before the D2 deadline, we'll have to leave this blank
 for now and update our response after the LBC app demo.
 - LBC sent Patrick a set of articles for our Sanity page, and the LBC logo.
+(TODO: Insert images of articles here)
 - Arun proposed a set of redesigned LBC logos.
+(TODO: Insert LBC original logo)
+(TODO: Insert Arun's proposed LBC logos)
