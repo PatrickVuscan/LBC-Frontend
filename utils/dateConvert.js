@@ -1,3 +1,6 @@
+import 'intl';
+import 'intl/locale-data/jsonp/en';
+
 const isoToLocale = isoDate => {
   const intl = new Intl.DateTimeFormat('default', {
     weekday: 'long',
