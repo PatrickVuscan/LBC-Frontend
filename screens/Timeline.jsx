@@ -11,6 +11,8 @@ import ScreenBase from '../components/ScreenBase';
 import TimelinePost from '../components/TimelinePost';
 import ViewPost from '../components/ViewPost';
 
+// Citation: I used https://startreact.com/themes/twitter-clone-app/ as a reference for styling Timeline components
+
 const exampleUser = {
   text: 'This is an example post. I am posting stuff right now! Wow!',
   user: 'Anonymous',
