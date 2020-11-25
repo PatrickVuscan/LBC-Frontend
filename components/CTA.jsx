@@ -15,6 +15,7 @@ const CTA = ({ ctaID }) => {
   const [cta, setCta] = useState({});
 
   const {
+    _id: id,
     title,
     subtitle,
     publishedAt,
@@ -58,6 +59,7 @@ const CTA = ({ ctaID }) => {
             date={publishedAt}
           />
           <CaptionedImage
+            key={id}
             caption={mainImageCaption}
             alt={mainImageAlt}
             url={mainImageURL}
