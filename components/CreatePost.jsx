@@ -19,7 +19,7 @@ export default class CreatePost extends React.Component {
     this.changeAnonColor = this.changeAnonColor.bind(this);
     this.savePost = this.savePost.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleTitleChange = this.handleTitleChange.bind(this); 
+    this.handleTitleChange = this.handleTitleChange.bind(this);
   }
 
   // eslint-disable-next-line react/sort-comp
@@ -52,7 +52,7 @@ export default class CreatePost extends React.Component {
   }
 
   handleTitleChange(input) {
-    this.setState({ postTitle: input }); 
+    this.setState({ postTitle: input });
   }
 
   handleInputChange(input) {
@@ -98,12 +98,12 @@ export default class CreatePost extends React.Component {
               width: '100%',
               fontSize: 24,
               alignContent: 'flex-start',
-              maxHeight: 50, 
+              maxHeight: 50,
               justifyContent: 'flex-start',
               textAlignVertical: 'top',
               margin: 5,
               borderBottomColor: '#bbb',
-              borderBottomWidth: 2
+              borderBottomWidth: 2,
             }}
             placeholder="Post Title"
             onChangeText={this.handleTitleChange}

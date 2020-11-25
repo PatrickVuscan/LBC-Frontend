@@ -16,6 +16,7 @@ const Resource = ({ resourceID }) => {
   const [resource, setResource] = useState({});
 
   const {
+    _id: id,
     name,
     subname,
     phoneNumber,
@@ -63,6 +64,7 @@ const Resource = ({ resourceID }) => {
             email={email}
           />
           <CaptionedImage
+            key={id}
             caption={mainImageCaption}
             alt={mainImageAlt}
             url={mainImageURL}

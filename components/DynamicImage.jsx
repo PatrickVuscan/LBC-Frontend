@@ -6,7 +6,7 @@ const DynamicImage = ({ url, alt }) => {
   const [dimensions, setDimensions] = useState();
 
   useEffect(() => {
-    Image.getSize(url, (srcWidth, srcHeight) => {
+    url && Image.getSize(url, (srcWidth, srcHeight) => {
       const maxHeight = Dimensions.get('window').height; // or something else
       const maxWidth = Dimensions.get('window').width;
 
