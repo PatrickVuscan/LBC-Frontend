@@ -8,7 +8,7 @@
 ## Iteration 2 - Review & Retrospect
 
  * When: November 24, 2020
- * Where: Discord
+ * Where: Online
 
 ## Process - Reflection
 
@@ -18,9 +18,9 @@ Ideally this is the time before your team introspective meeting. -->
 that could be something good to link to from one of the documents! -->
 
 - TODO: 1. Meeting highlights with LBC.
-- TODO: 2. partner feedback on app
+- TODO: 2. Partner feedback on app
 - TODO: 3. Major decisions LBC wants us to implement.
-- TODO: 4. reflect on how meetings are going, based on coversations you've had with them.
+- TODO: 4. Reflect on how meetings are going, based on coversations you've had with them.
 
 #### 1. Decisions That Turned Out Well 
 <!-- List **process-related** (i.e. team organization and how you work) decisions that, in retrospect, 
@@ -101,17 +101,15 @@ they can stay in close contact with one another to avoid any last-minute fronten
 
 ii) We want to set up integration and end-to-end tests after the frontend and backend people have connected their
 features together.
-- ???
+- So we can be more confident that our app components and pages still work.
 
 iii) We could update the README.md file as we improved our features, rather than waiting until the D3 deadline to update it.
 - This will spare our team from having to scramble to assemble a README.md file.
 - It's useful to document the feature while it's still fresh in your mind.
 
-iv) We plan on deploying backend???
-- ???
-
-v) We could add more appropriate linter checks.
-- We could add more linter checks, like max statements per line, max nested callbacks, or simplifying boolean expressions.
+iv) We could add more appropriate linter checks.
+- We could add more linter checks, like max statements per line, max nested callbacks, or simplifying boolean expressions
+like "a && a" and "b || b".
 - We could also remove any linter checks that flag unreasonable prescriptive style guildelines.
 
 ## Product - Review
@@ -124,8 +122,8 @@ v) We could add more appropriate linter checks.
  * What did you learn from the demo from either a process or product perspective?
  * This section will be marked very leniently so keep it brief and just make sure the points are addressed -->
 
-- Since we could not demo our app to LBC before the D2 deadline, we'll have to leave this blank
-for now and update our response after the LBC app demo.
+- We still haven't met with LBC to demo our app yet before the D2 deadline, so
+we'll update this section after the LBC app demo.
 - LBC sent Patrick a set of articles for our Sanity page, and the LBC logo.
 (TODO: Insert images of articles here)
 - Arun proposed a set of redesigned LBC logos.
