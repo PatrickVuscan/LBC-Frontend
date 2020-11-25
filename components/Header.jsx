@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import MiniAuthor from './MiniAuthor';
 import Subtitle from './Subtitle';
 import Title from './Title';
+import { colours } from '../theme/theme';
 
 const Header = ({
   title, subtitle, authorName, authorImageURL, date,
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
   // Used for providing background color
   outerContainer: {
     margin: -10,
-    backgroundColor: '#2A0053',
+    backgroundColor: colours.purple,
   },
 });
 
