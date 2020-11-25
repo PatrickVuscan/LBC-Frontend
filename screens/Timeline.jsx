@@ -31,11 +31,17 @@ const exampleUser2 = {
   comments: [],
 };
 
-const Timeline = () => {
+const Timeline = props => {
   const [newPostScreen, setNewPostScreen] = useState(false);
   const [allPosts, setAllPosts] = useState([]);
   const [viewPost, setViewPost] = useState(false);
-  const [currViewedPost, setCurrViewedPost] = useState({});
+  const [currViewedPost, setCurrViewedPost] = useState({
+    text: '',
+    user: '',
+    title: '',
+    anon: null,
+    comments: [],
+  });
 
   function deletePostFromAllPosts(post) {
     const newPostsList = [...allPosts];
@@ -48,6 +54,21 @@ const Timeline = () => {
 
     setAllPosts(newPostsList);
   }
+
+  const updateCurrViewedPost = commentValue => {
+    const newComments = currViewedPost.comments;
+    newComments.push(['user', commentValue]);
+
+    const newViewedPost = {
+      text: currViewedPost.text,
+      user: currViewedPost.user,
+      title: currViewedPost.title,
+      anon: currViewedPost.anon,
+      comments: newComments,
+    };
+
+    setCurrViewedPost(newViewedPost);
+  };
 
   if (newPostScreen === true) {
     return (
@@ -67,15 +88,15 @@ const Timeline = () => {
         <ViewPost
           setViewPost={setViewPost}
           post={currViewedPost}
+          updateCurrViewedPost={updateCurrViewedPost}
         />
       </Container>
     );
   }
 
   return (
-    <ScreenBase
-      header="Timeline"
-      right={(
+    <ScreenBase header="Timeline">
+      <View style={{ alignItems: 'center', flexDirection: 'row' }}>
         <Button
           style={{ alignSelf: 'flex-end', marginLeft: 'auto', backgroundColor: colours.gold }}
           onPress={() => { return setNewPostScreen(true); }}
@@ -84,9 +105,7 @@ const Timeline = () => {
             New Post
           </Text>
         </Button>
-      )}
-    >
-
+      </View>
       {allPosts.map((item, index) => {
         return (
           <TimelinePost

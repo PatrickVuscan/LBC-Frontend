@@ -15,18 +15,9 @@ import { colours } from '../theme/theme';
 const ViewPost = ({
   post, post: {
     text, user, anon, title,
-  }, setViewPost,
+  }, setViewPost, updateCurrViewedPost,
 }) => {
   const [commentInput, setCommentInput] = useState('');
-  const [comments, setComments] = useState(post.comments);
-
-  function addComment() {
-    setComments(state => { return ([...state, ['user', commentInput]]); });
-    const a = comments;
-    a.push(['user', commentInput]);
-    // eslint-disable-next-line no-param-reassign
-    post.comments = a;
-  }
 
   return (
     <Container>
@@ -89,20 +80,25 @@ const ViewPost = ({
             onChangeText={inputVal => {
               setCommentInput(inputVal);
             }}
+            onSubmitEditing={() => {
+              updateCurrViewedPost(commentInput);
+            }}
             style={{
               borderBottomColor: '#bbb',
               borderBottomWidth: 2,
             }}
           />
           <Button
-            onPress={addComment}
+            onPress={() => {
+              updateCurrViewedPost(commentInput);
+            }}
             style={{ backgroundColor: colours.gold }}
           >
             <Text style={{ color: colours.purple }}>Post Comment</Text>
           </Button>
         </View>
         <View>
-          {comments.map((item, index) => {
+          {post.comments.map((item, index) => {
             return (
               <View
                 // eslint-disable-next-line react/no-array-index-key
