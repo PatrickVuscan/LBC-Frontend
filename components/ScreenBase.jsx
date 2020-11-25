@@ -4,7 +4,7 @@ import {
 } from 'native-base';
 import React from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
-import theme from '../theme/theme';
+import { theme } from '../theme/theme';
 
 const ScreenBase = ({ header, children, padder = false }) => {
   return (

@@ -40,7 +40,8 @@ const Login = props => {
   };
 
   return (
-    <Container style={{ height: screenHeight, width: screenWidth, backgroundColor: '#a379b3' }}> 
+    // #a379b3
+    <Container style={{ height: screenHeight, width: screenWidth, backgroundColor: '#000000' }}> 
       <Content style={{ alignSelf: 'center' }}>
         <Image
           style={
@@ -135,7 +136,7 @@ const styles = StyleSheet.create({
     // opacity: 0.2,
     borderRadius: 10,
     // #b99dc4
-    backgroundColor: '#b99dc4', 
+    backgroundColor: '#fdb927', // #b99dc4
     marginBottom: 15, 
     color: '#FFFFFF',
   },

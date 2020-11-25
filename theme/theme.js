@@ -1,6 +1,12 @@
+/* eslint-disable object-shorthand */
 import { StyleSheet } from 'react-native';
 
-export default StyleSheet.create({
+const colours = {
+  purple: '#7E54C6',
+  gold: '#fdb927',
+};
+
+const theme = StyleSheet.create({
   appHeader: {
     backgroundColor: 'black',
     alignItems: 'center',
@@ -70,6 +76,6 @@ export default StyleSheet.create({
     marginBottom: 5,
   },
   verticalCenter: { alignItems: 'center' },
-  purple: '#7E54C6',
-  gold: '#fdb927',
 });
+
+export { theme, colours };

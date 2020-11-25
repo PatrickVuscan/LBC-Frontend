@@ -42,7 +42,7 @@ const Article = ({ articleID }) => {
   return (
     <View style={styles.outerContainer}>
       {loading && (
-        <Spinner color="purple" />
+        <Spinner color="#7E54C6" />
       )}
       {error && (
         <ErrorMessage error={error} />

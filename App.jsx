@@ -103,7 +103,7 @@ export default class App extends React.Component {
     if (!isReady) {
       return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Spinner color="purple" />
+          <Spinner color="#7E54C6" />
         </View>
       );
     }
@@ -134,7 +134,7 @@ export default class App extends React.Component {
                 tabStyle: {
                   justifyContent: 'center',
                 },
-                activeBackgroundColor: 'purple',
+                activeBackgroundColor: '#7E54C6',
                 inactiveBackgroundColor: 'black',
               }}
             >

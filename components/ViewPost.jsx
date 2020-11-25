@@ -9,6 +9,7 @@ import {
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+import { colours } from '../theme/theme';
 
 // eslint-disable-next-line no-unused-vars
 const ViewPost = ({
@@ -34,7 +35,7 @@ const ViewPost = ({
   return (
     <Container>
       <ScrollView>
-        <Header style={{ alignItems: 'center', backgroundColor: 'purple' }}>
+        <Header style={{ alignItems: 'center', backgroundColor: colours.purple }}>
           <Button
             onPress={() => { return setViewPost(false); }}
             transparent
@@ -78,7 +79,7 @@ const ViewPost = ({
             {text}
           </Text>
         </View>
-        <Header style={{ backgroundColor: 'purple' }}>
+        <Header style={{ backgroundColor: colours.purple }}>
           <Text
             style={{ color: 'white', fontSize: 19, alignSelf: 'center' }}
           >
@@ -93,7 +94,7 @@ const ViewPost = ({
           />
           <Button
             onPress={addComment}
-            style={{ backgroundColor: 'purple' }}
+            style={{ backgroundColor: colours.purple }}
           >
             <Text>Post Comment</Text>
           </Button>

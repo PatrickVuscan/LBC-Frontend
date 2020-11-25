@@ -1,3 +1,4 @@
+/* eslint-disable imports/no-duplicates */
 import {
   Button,
   Container,
@@ -6,7 +7,7 @@ import {
 } from 'native-base';
 import React from 'react';
 import { View } from 'react-native';
-import theme from '../theme/theme';
+import { colours, theme } from '../theme/theme';
 
 export default class CreatePost extends React.Component {
   constructor(props) {
@@ -14,20 +15,20 @@ export default class CreatePost extends React.Component {
     this.state = {
       postText: '',
       postTitle: 'Post Title',
-      anonColor: 'purple',
+      anonColor: colours.purple,
     };
     this.changeAnonColor = this.changeAnonColor.bind(this);
     this.savePost = this.savePost.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleTitleChange = this.handleTitleChange.bind(this); 
+    this.handleTitleChange = this.handleTitleChange.bind(this);
   }
 
   // eslint-disable-next-line react/sort-comp
   changeAnonColor() {
-    if (this.state.anonColor === 'purple') {
+    if (this.state.anonColor === colours.purple) {
       this.setState({ anonColor: '#008000' });
     } else {
-      this.setState({ anonColor: 'purple' });
+      this.setState({ anonColor: colours.purple });
     }
   }
 
@@ -52,7 +53,7 @@ export default class CreatePost extends React.Component {
   }
 
   handleTitleChange(input) {
-    this.setState({ postTitle: input }); 
+    this.setState({ postTitle: input });
   }
 
   handleInputChange(input) {
@@ -62,7 +63,7 @@ export default class CreatePost extends React.Component {
   render() {
     return (
       <Container>
-        <Header style={{ alignItems: 'center', backgroundColor: 'purple' }}>
+        <Header style={{ alignItems: 'center', backgroundColor: colours.purple }}>
           <Button
             onPress={() => { return this.props.newPost(false); }}
             transparent
@@ -98,12 +99,12 @@ export default class CreatePost extends React.Component {
               width: '100%',
               fontSize: 24,
               alignContent: 'flex-start',
-              maxHeight: 50, 
+              maxHeight: 50,
               justifyContent: 'flex-start',
               textAlignVertical: 'top',
               margin: 5,
               borderBottomColor: '#bbb',
-              borderBottomWidth: 2
+              borderBottomWidth: 2,
             }}
             placeholder="Post Title"
             onChangeText={this.handleTitleChange}
@@ -136,7 +137,7 @@ export default class CreatePost extends React.Component {
           <Button
             rounded
             style={{
-              backgroundColor: 'purple', height: 40, width: 94, marginLeft: 'auto', justifyContent: 'center',
+              backgroundColor: colours.purple, height: 40, width: 94, marginLeft: 'auto', justifyContent: 'center',
             }}
             onPress={this.savePost}
           >

@@ -4,9 +4,10 @@ import {
 } from 'native-base';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { colours } from '../theme/theme';
 
 export default props => {
-  let headerColor = 'purple';
+  let headerColor = colours.purple;
   let closingButton;
   if (props.post.user === 'user') {
     headerColor = 'green';
