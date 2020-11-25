@@ -88,6 +88,11 @@ on the login page before you can log in.
  <!-- * If a developer were to set this up on their machine or a remote server, what are the technical requirements (e.g. OS, libraries, etc.)?
  * Briefly describe instructions for setting up and running the application (think a true README). -->
  
+ ### Backend 
+ 1) Navigate to the target directory
+ 2) ```git clone https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-backend.git```
+ 3) Follow the instructions written in ```setup.md```
+ 
  ## Deployment and Github Workflow
 <!-- Describe your Git / GitHub workflow. Essentially, we want to understand how your team members shares a codebase, avoid conflicts and deploys the application.
 
@@ -98,7 +103,11 @@ on the login page before you can log in.
  * Don't forget to **briefly explain why** you chose this workflow or particular aspects of it! -->
  
  - We had each major feature worked on by one member on their own branch. This was two avoid conflicts and isolate code issues. 
- - When a major feature was done, this user would first merge master into their branch in order to check for conflicts and address them. After that, they would create a pull request for their branch to be merged with master. Another developer would review this code for style, syntax, or other errors and then confirm the changes to master if they were ready. 
+ - When a major feature was done, this user would first merge master into their branch in order to check for conflicts and address them. After that, they would create a pull request for their branch to be merged with master. Another developer would review this code for style, syntax, or other errors and then confirm the changes to master if they were ready.
+ 
+ ### Backend
+ - We have a pre-commit hook that checks for linting errors in the files we commit, so that we are consistent in our code writing style 
+ - As tasks were divided up between the backend team based on functionality, we each used a separate branch for each functionality. Pull-requests were made with the other members as the reviewers. At least one had to review and approve it and then merge it. Merge conflicts were avoided as much as possible by working on separate files, but when they would emerge, we pair programmed to resolve it. 
 
  ## Licenses 
  <!-- Keep this section as brief as possible. You may read this [Github article](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository) for a start.
