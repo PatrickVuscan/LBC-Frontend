@@ -11,7 +11,11 @@ import { StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 
 // eslint-disable-next-line no-unused-vars
-const ViewPost = ({ post, post: { text, user, anon }, setViewPost }) => {
+const ViewPost = ({
+  post, post: {
+    text, user, anon, title,
+  }, setViewPost,
+}) => {
   const [commentInput, setCommentInput] = useState('');
   const [comments, setComments] = useState(post.comments);
 
@@ -30,7 +34,7 @@ const ViewPost = ({ post, post: { text, user, anon }, setViewPost }) => {
   return (
     <Container>
       <ScrollView>
-        <Header style={{ alignItems: 'center' }}>
+        <Header style={{ alignItems: 'center', backgroundColor: 'purple' }}>
           <Button
             onPress={() => { return setViewPost(false); }}
             transparent
@@ -46,7 +50,7 @@ const ViewPost = ({ post, post: { text, user, anon }, setViewPost }) => {
               color: 'white', fontSize: 20, marginLeft: 'auto', marginRight: 20,
             }}
           >
-            Post Title
+            {post.title}
           </Text>
         </Header>
         <View
@@ -74,7 +78,7 @@ const ViewPost = ({ post, post: { text, user, anon }, setViewPost }) => {
             {text}
           </Text>
         </View>
-        <Header>
+        <Header style={{ backgroundColor: 'purple' }}>
           <Text
             style={{ color: 'white', fontSize: 19, alignSelf: 'center' }}
           >
@@ -87,14 +91,23 @@ const ViewPost = ({ post, post: { text, user, anon }, setViewPost }) => {
             placeholder="Write a comment"
             onChangeText={handleInputChange}
           />
-          <Button onPress={addComment}>
+          <Button
+            onPress={addComment}
+            style={{ backgroundColor: 'purple' }}
+          >
             <Text>Post Comment</Text>
           </Button>
         </View>
         <View>
           {comments.map((item, index) => {
             return (
-              <View style={{ padding: 14 }}>
+              <View
+                style={{
+                  padding: 14,
+                  borderBottomColor: '#bbb',
+                  borderBottomWidth: 2,
+                }}
+              >
                 <Text
                   style={{ fontSize: 18 }}
                   // eslint-disable-next-line react/no-array-index-key
