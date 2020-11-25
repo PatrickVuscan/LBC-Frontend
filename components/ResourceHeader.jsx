@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import Subtitle from './Subtitle';
 import Title from './Title';
+import { colours } from '../theme/theme';
 
 const ResourceHeader = ({
   name, subname, email, phoneNumber,
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
   // Used for providing background color
   outerContainer: {
     marginTop: -10,
-    backgroundColor: '#2A0053',
+    backgroundColor: colours.purple,
   },
 });
 
