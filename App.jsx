@@ -110,12 +110,16 @@ export default class App extends React.Component {
 
     if (!loggedIn) {
       return (
-        <Login
-          logIn={this.logIn}
-          createAlert={this.createAlert}
-          addUser={this.addUser}
-          userBase={userBase}
-        />
+        <StoreProvider store={store}>
+          <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
+            <Login
+              logIn={this.logIn}
+              createAlert={this.createAlert}
+              addUser={this.addUser}
+              userBase={userBase}
+            />
+          </SafeAreaView>
+        </StoreProvider>
       );
     }
     return (
