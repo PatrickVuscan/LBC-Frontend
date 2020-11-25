@@ -10,6 +10,7 @@ import CreatePost from '../components/CreatePost';
 import ScreenBase from '../components/ScreenBase';
 import TimelinePost from '../components/TimelinePost';
 import ViewPost from '../components/ViewPost';
+import { colours } from '../theme/theme';
 
 // Citation: I used https://startreact.com/themes/twitter-clone-app/ as a reference for styling Timeline components
 
@@ -75,10 +76,10 @@ const Timeline = props => {
     <ScreenBase header="Timeline">
       <View style={{ alignItems: 'center', flexDirection: 'row' }}>
         <Button
-          style={{ alignSelf: 'flex-end', marginLeft: 'auto', backgroundColor: '#7E54C6' }}
+          style={{ alignSelf: 'flex-end', marginLeft: 'auto', backgroundColor: colours.gold }}
           onPress={() => { return setNewPostScreen(true); }}
         >
-          <Text>
+          <Text style={{ color: colours.purple }}>
             New Post
           </Text>
         </Button>

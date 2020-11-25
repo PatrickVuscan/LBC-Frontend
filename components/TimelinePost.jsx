@@ -32,7 +32,7 @@ export default props => {
     <Container style={styles.postContainer}>
       <Header style={{ backgroundColor: headerColor }}>
         <Left>
-          <Text style={{ color: 'white' }}>
+          <Text style={{ color: colours.gold }}>
             {displayedUser}
           </Text>
         </Left>

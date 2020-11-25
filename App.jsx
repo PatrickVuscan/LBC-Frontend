@@ -8,6 +8,7 @@ import * as Font from 'expo-font';
 import { Spinner, View } from 'native-base';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { colours } from './theme/theme';
 import Articles from './screens/Articles';
 import CTAs from './screens/CTAs';
 import Resources from './screens/Resources';
@@ -103,7 +104,7 @@ export default class App extends React.Component {
     if (!isReady) {
       return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Spinner color="#7E54C6" />
+          <Spinner color={colours.purple} />
         </View>
       );
     }
@@ -129,12 +130,12 @@ export default class App extends React.Component {
             <Tab.Navigator
               initialRouteName="Timeline"
               tabBarOptions={{
-                activeTintColor: 'white',
-                inactiveTintColor: '#B0AFB0',
+                activeTintColor: colours.gold,
+                inactiveTintColor: colours.gold,
                 tabStyle: {
                   justifyContent: 'center',
                 },
-                activeBackgroundColor: '#7E54C6',
+                activeBackgroundColor: colours.purple,
                 inactiveBackgroundColor: 'black',
               }}
             >
