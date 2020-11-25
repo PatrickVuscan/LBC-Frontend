@@ -7,6 +7,7 @@ import Body from './Body';
 import CaptionedImage from './CaptionedImage';
 import ErrorMessage from './ErrorMessage';
 import Header from './Header';
+import { colours } from '../theme/theme';
 
 const CTA = ({ ctaID }) => {
   const [loading, setLoading] = useState(true);
@@ -42,7 +43,7 @@ const CTA = ({ ctaID }) => {
   return (
     <View style={styles.outerContainer}>
       {loading && (
-        <Spinner color="purple" />
+        <Spinner color={colours.purple} />
       )}
       {error && (
         <ErrorMessage error={error} />

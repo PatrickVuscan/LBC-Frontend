@@ -59,7 +59,7 @@ export default props => {
           }}
         >
           <Icon
-            color="purple"
+            color={colours.purple}
             name="ios-chatboxes"
             style={{ flexDirection: 'row', color: headerColor }}
           />

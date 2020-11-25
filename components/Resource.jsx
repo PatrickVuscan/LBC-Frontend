@@ -9,6 +9,7 @@ import Body from './Body';
 import CaptionedImage from './CaptionedImage';
 import ErrorMessage from './ErrorMessage';
 import ResourceHeader from './ResourceHeader';
+import { colours } from '../theme/theme';
 
 const Resource = ({ resourceID }) => {
   const [loading, setLoading] = useState(true);
@@ -49,7 +50,7 @@ const Resource = ({ resourceID }) => {
       style={styles.outerContainer}
     >
       {loading && (
-        <Spinner color="purple" />
+        <Spinner color={colours.purple} />
       )}
       {error && (
         <ErrorMessage error={error} />

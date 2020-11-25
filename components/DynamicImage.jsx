@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Dimensions, Image } from 'react-native';
 import { Spinner } from 'native-base';
+import { colours } from '../theme/theme';
 
 const DynamicImage = ({ url, alt }) => {
   const [dimensions, setDimensions] = useState();
@@ -27,7 +28,7 @@ const DynamicImage = ({ url, alt }) => {
           accessibilityLabel={alt}
         />
       )
-      : <Spinner color="purple" />
+      : <Spinner color={colours.purple} />
   );
 };
 

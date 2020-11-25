@@ -8,6 +8,7 @@ import ErrorMessage from '../components/ErrorMessage';
 import Resource from '../components/Resource';
 import ScreenBase from '../components/ScreenBase';
 import client from '../sanity/client';
+import { colours } from '../theme/theme';
 
 const Resources = () => {
   const [loading, setLoading] = useState(true);
@@ -32,7 +33,7 @@ const Resources = () => {
     >
       <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
         {loading && (
-          <Spinner color="purple" />
+          <Spinner color={colours.purple} />
         )}
         {error && (
           <ErrorMessage error={error} />

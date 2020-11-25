@@ -5,6 +5,7 @@ import Article from '../components/Article';
 import ErrorMessage from '../components/ErrorMessage';
 import ScreenBase from '../components/ScreenBase';
 import client from '../sanity/client';
+import { colours } from '../theme/theme';
 
 const Articles = () => {
   const [loading, setLoading] = useState(true);
@@ -29,7 +30,7 @@ const Articles = () => {
     >
       <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
         {loading && (
-          <Spinner color="purple" />
+          <Spinner color={colours.purple} />
         )}
         {error && (
           <ErrorMessage error={error} />
