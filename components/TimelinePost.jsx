@@ -10,7 +10,7 @@ export default props => {
   let headerColor = colours.purple;
   let closingButton;
   if (props.post.user === 'user') {
-    headerColor = 'green';
+    headerColor = 'black';
     closingButton = (
       <Button
         transparent
