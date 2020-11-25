@@ -9,17 +9,16 @@
     "test": "jest --coverage"
   },
   "dependencies": {
-    "@apollo/client": "^3.2.6",
     "@expo/vector-icons": "^10.2.1",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/bottom-tabs": "^5.10.2",
     "@react-navigation/native": "^5.8.2",
+    "@react-navigation/stack": "^5.12.8",
     "@sanity/client": "^2.0.9",
     "easy-peasy": "^4.0.1",
     "expo": "~39.0.2",
     "expo-font": "^8.3.0",
     "expo-status-bar": "~1.0.2",
-    "graphql": "^15.4.0",
     "groq": "^2.0.9",
     "intl": "^1.2.5",
     "native-base": "^2.13.14",

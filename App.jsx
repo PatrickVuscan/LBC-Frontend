@@ -1,7 +1,4 @@
 /* eslint-disable global-require */
-/* eslint-disable quote-props */
-/* eslint-disable no-trailing-spaces */
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
@@ -19,12 +16,7 @@ import Login from './screens/Login';
 import store from './state/store';
 
 const Tab = createBottomTabNavigator();
-const userBase = { 'user': 'user' }; //! This is for frontend mock login only
-
-const client = new ApolloClient({
-  uri: 'https://6ujtdngl.api.sanity.io/v1/graphql/staging/default',
-  cache: new InMemoryCache(),
-});
+const userBase = { user: 'user' }; //! This is for frontend mock login only
 
 export default class App extends React.Component {
   constructor(props) {
@@ -80,11 +72,11 @@ export default class App extends React.Component {
           body: JSON.stringify({"username": username, "password": password})
         }
       )
-      
+
       if(res.status == 200){
-        token = JSON.parse(res.json())["access_token"] 
+        token = JSON.parse(res.json())["access_token"]
         console.log(token) //!for testing only
-        
+
         this.setState({ loggedIn: true, access_token: token})
       }
       else{
@@ -118,52 +110,54 @@ export default class App extends React.Component {
 
     if (!loggedIn) {
       return (
-        <Login
-          logIn={this.logIn}
-          createAlert={this.createAlert}
-          addUser={this.addUser}
-          userBase={userBase}
-        />
+        <StoreProvider store={store}>
+          <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
+            <Login
+              logIn={this.logIn}
+              createAlert={this.createAlert}
+              addUser={this.addUser}
+              userBase={userBase}
+            />
+          </SafeAreaView>
+        </StoreProvider>
       );
     }
     return (
-      <ApolloProvider client={client}>
-        <StoreProvider store={store}>
-          <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
-            <NavigationContainer>
-              <Tab.Navigator
-                initialRouteName="Timeline"
-                tabBarOptions={{
-                  activeTintColor: 'white',
-                  inactiveTintColor: '#B0AFB0',
-                  tabStyle: {
-                    justifyContent: 'center',
-                  },
-                  activeBackgroundColor: 'purple',
-                  inactiveBackgroundColor: 'black',
-                }}
-              >
-                <Tab.Screen
-                  name="Timeline"
-                  component={Timeline}
-                />
-                <Tab.Screen
-                  name="Articles"
-                  component={Articles}
-                />
-                <Tab.Screen
-                  name="CTA"
-                  component={CTAs}
-                />
-                <Tab.Screen
-                  name="Resources"
-                  component={Resources}
-                />
-              </Tab.Navigator>
-            </NavigationContainer>
-          </SafeAreaView>
-        </StoreProvider>
-      </ApolloProvider>
+      <StoreProvider store={store}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
+          <NavigationContainer>
+            <Tab.Navigator
+              initialRouteName="Timeline"
+              tabBarOptions={{
+                activeTintColor: 'white',
+                inactiveTintColor: '#B0AFB0',
+                tabStyle: {
+                  justifyContent: 'center',
+                },
+                activeBackgroundColor: 'purple',
+                inactiveBackgroundColor: 'black',
+              }}
+            >
+              <Tab.Screen
+                name="Timeline"
+                component={Timeline}
+              />
+              <Tab.Screen
+                name="Articles"
+                component={Articles}
+              />
+              <Tab.Screen
+                name="CTA"
+                component={CTAs}
+              />
+              <Tab.Screen
+                name="Resources"
+                component={Resources}
+              />
+            </Tab.Navigator>
+          </NavigationContainer>
+        </SafeAreaView>
+      </StoreProvider>
     );
   }
 }
