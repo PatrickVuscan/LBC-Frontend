@@ -17,6 +17,7 @@ const ScreenBase = ({
   header, children, padder = false, left = undefined, right = undefined,
 }) => {
   return (
+    // TODO: style={{ backgroundColor: 'black' }}
     <Container>
       <Header
         style={theme.appHeader}
@@ -41,6 +42,7 @@ const ScreenBase = ({
           flexGrow: 1,
           justifyContent: 'space-between',
         }}
+        // endFillColor="black"
       >
         <Content
           padder={padder}

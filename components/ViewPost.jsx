@@ -14,7 +14,10 @@ import { colours } from '../theme/theme';
 // eslint-disable-next-line no-unused-vars
 const ViewPost = ({
   post, post: {
-    text, user, anon, title,
+    text,
+    // user,
+    // anon,
+    // title,
   }, setViewPost, updateCurrViewedPost,
 }) => {
   const [commentInput, setCommentInput] = useState('');

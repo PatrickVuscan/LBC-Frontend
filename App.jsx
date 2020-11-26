@@ -138,6 +138,8 @@ export default class App extends React.Component {
                 activeBackgroundColor: colours.purple,
                 inactiveBackgroundColor: 'black',
               }}
+              // TODO: check
+              sceneContainerStyle={{ backgroundColor: 'black' }}
             >
               <Tab.Screen
                 name="Timeline"

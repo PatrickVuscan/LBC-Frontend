@@ -31,7 +31,7 @@ const exampleUser2 = {
   comments: [],
 };
 
-const Timeline = props => {
+const Timeline = () => {
   const [newPostScreen, setNewPostScreen] = useState(false);
   const [allPosts, setAllPosts] = useState([]);
   const [viewPost, setViewPost] = useState(false);

@@ -60,7 +60,7 @@ const Resource = ({ resourceID }) => {
         <>
           <ResourceHeader
             name={name}
-            subname={subname}
+            subtitle={subname}
             phoneNumber={phoneNumber}
             email={email}
           />
