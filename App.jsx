@@ -109,56 +109,51 @@ export default class App extends React.Component {
       );
     }
 
-    if (!loggedIn) {
-      return (
-        <StoreProvider store={store}>
-          <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
+    return (
+      <StoreProvider store={store}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
+          {!loggedIn ? (
             <Login
               logIn={this.logIn}
               createAlert={this.createAlert}
               addUser={this.addUser}
               userBase={userBase}
             />
-          </SafeAreaView>
-        </StoreProvider>
-      );
-    }
-    return (
-      <StoreProvider store={store}>
-        <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
-          <NavigationContainer>
-            <Tab.Navigator
-              initialRouteName="Timeline"
-              tabBarOptions={{
-                activeTintColor: 'white',
-                inactiveTintColor: 'white',
-                tabStyle: {
-                  justifyContent: 'center',
-                },
-                activeBackgroundColor: colours.purple,
-                inactiveBackgroundColor: 'black',
-              }}
-              // TODO: check
-              sceneContainerStyle={{ backgroundColor: 'black' }}
-            >
-              <Tab.Screen
-                name="Timeline"
-                component={Timeline}
-              />
-              <Tab.Screen
-                name="Articles"
-                component={Articles}
-              />
-              <Tab.Screen
-                name="CTA"
-                component={CTAs}
-              />
-              <Tab.Screen
-                name="Resources"
-                component={Resources}
-              />
-            </Tab.Navigator>
-          </NavigationContainer>
+          ) : (
+            <NavigationContainer>
+              <Tab.Navigator
+                initialRouteName="Timeline"
+                tabBarOptions={{
+                  activeTintColor: 'white',
+                  inactiveTintColor: 'white',
+                  tabStyle: {
+                    justifyContent: 'center',
+                  },
+                  activeBackgroundColor: colours.purple,
+                  inactiveBackgroundColor: 'black',
+                }}
+                // TODO: check
+                sceneContainerStyle={{ backgroundColor: 'black' }}
+              >
+                <Tab.Screen
+                  name="Timeline"
+                  component={Timeline}
+                />
+                <Tab.Screen
+                  name="Articles"
+                  component={Articles}
+                />
+                <Tab.Screen
+                  name="CTA"
+                  component={CTAs}
+                />
+                <Tab.Screen
+                  name="Resources"
+                  component={Resources}
+                />
+              </Tab.Navigator>
+            </NavigationContainer>
+          )}
         </SafeAreaView>
       </StoreProvider>
     );
