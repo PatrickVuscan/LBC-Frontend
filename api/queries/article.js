@@ -44,6 +44,7 @@ const QUERY_ARTICLES = (offset = 0, limit = 10) => {
   *[_type=="article"] {
   _id,
   title,
+  subtitle,
   publishedAt,
   featured,
   "authorName": author->name,

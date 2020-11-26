@@ -14,28 +14,30 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { theme } from '../theme/theme';
 
 const ScreenBase = ({
-  header, children, padder = false, left = undefined, right = undefined,
+  header = 'Default Header', children, padder = false, left = undefined, right = undefined, noHeader = false,
 }) => {
   return (
     // TODO: style={{ backgroundColor: 'black' }}
     <Container>
-      <Header
-        style={theme.appHeader}
-        androidStatusBarColor="#2c3e50"
-        iosBarStyle="light-content"
-      >
-        <Left style={styles.flex}>
-          {left}
-        </Left>
-        <Body style={styles.flex}>
-          <Text style={theme.appHeaderText}>
-            {header}
-          </Text>
-        </Body>
-        <Right style={styles.flex}>
-          {right}
-        </Right>
-      </Header>
+      {!noHeader && (
+        <Header
+          style={theme.appHeader}
+          androidStatusBarColor="#2c3e50"
+          iosBarStyle="light-content"
+        >
+          <Left style={styles.flex}>
+            {left}
+          </Left>
+          <Body style={styles.flex}>
+            <Text style={theme.appHeaderText}>
+              {header}
+            </Text>
+          </Body>
+          <Right style={styles.flex}>
+            {right}
+          </Right>
+        </Header>
+      )}
       <ScrollView
         automaticallyAdjustContentInsets
         contentContainerStyle={{
