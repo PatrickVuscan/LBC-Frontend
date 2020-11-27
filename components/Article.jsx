@@ -1,6 +1,6 @@
 import { Spinner } from 'native-base';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 import { QUERY_ARTICLE } from '../api/queries/article';
 import client from '../sanity/client';
 import Body from './Body';
@@ -8,7 +8,9 @@ import CaptionedImage from './CaptionedImage';
 import ErrorMessage from './ErrorMessage';
 import Header from './Header';
 
-const Article = ({ articleID }) => {
+const Article = ({ route }) => {
+  const { articleID } = route.params;
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [article, setArticle] = useState({});
@@ -40,7 +42,10 @@ const Article = ({ articleID }) => {
   }, [articleID]);
 
   return (
-    <View style={styles.outerContainer}>
+    <ScrollView
+      automaticallyAdjustContentInsets
+      contentContainerStyle={styles.scroll}
+    >
       {loading && (
         <Spinner color="#7E54C6" />
       )}
@@ -64,14 +69,14 @@ const Article = ({ articleID }) => {
           <Body body={body} />
         </>
       )}
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  outerContainer: {
-    flex: 1,
+  scroll: {
     flexGrow: 1,
+    justifyContent: 'space-between',
   },
 });
 

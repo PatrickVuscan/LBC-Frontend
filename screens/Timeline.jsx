@@ -95,8 +95,9 @@ const Timeline = () => {
   }
 
   return (
-    <ScreenBase header="Timeline">
-      <View style={{ alignItems: 'center', flexDirection: 'row' }}>
+    <ScreenBase
+      header="Timeline"
+      right={(
         <Button
           style={{ alignSelf: 'flex-end', marginLeft: 'auto', backgroundColor: colours.gold }}
           onPress={() => { return setNewPostScreen(true); }}
@@ -105,7 +106,8 @@ const Timeline = () => {
             New Post
           </Text>
         </Button>
-      </View>
+      )}
+    >
       {allPosts.map((item, index) => {
         return (
           <TimelinePost
