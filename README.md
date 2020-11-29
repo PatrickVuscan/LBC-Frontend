@@ -107,7 +107,7 @@ on the login page before you can log in.
  - When a major feature was done, this user would first merge master into their branch in order to check for conflicts and address them. After that, they would create a pull request for their branch to be merged with master. Another developer would review this code for style, syntax, or other errors and then confirm the changes to master if they were ready.
  
  ### Backend
-Naming Convention: snake_case
+ - Naming Convention: snake_case
  - We have a pre-commit hook that checks for linting errors in the files we commit, so that we are consistent in our code writing style 
  - As tasks were divided up between the backend team based on functionality, we each used a separate branch for each functionality. Pull-requests were made with the other members as the reviewers. At least one had to review and approve it and then merge it. Merge conflicts were avoided as much as possible by working on separate files, but when they would emerge, we pair programmed to resolve it. 
  - We do not have a deployment process yet
