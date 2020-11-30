@@ -122,10 +122,15 @@ If we have time in Deliverable 3 or 4, we will add buttons in the ```Resources``
  <!-- * If a developer were to set this up on their machine or a remote server, what are the technical requirements (e.g. OS, libraries, etc.)?
  * Briefly describe instructions for setting up and running the application (think a true README). -->
  
+ ### Frontend
+ 1) See ```Install``` section at the top.
+ 2) Enter ```npm run start``` into your terminal to run the app locally.
+ 3) See ```Run tests``` section at the top.
+
  ### Backend 
  1) Navigate to the target directory
- 2) ```git clone https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-backend.git```
- 3) Follow the instructions written in ```setup.md```
+ 2) Enter ```git clone https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-backend.git``` into your terminal.
+ 3) Follow the instructions written in ```setup.md```.
  
  ## Deployment and Github Workflow
 <!-- Describe your Git / GitHub workflow. Essentially, we want to understand how your team members shares a codebase, avoid conflicts and deploys the application.
@@ -146,7 +151,6 @@ If we have time in Deliverable 3 or 4, we will add buttons in the ```Resources``
   - We do not have a deployment process yet
   - We plan on using AWS to deploy our app, and we plan on setting up auto-deployment to trigger upon pushing to master.
   - For now, we're using jest to house a set of simple unittests until we can either add more jest tests or replace the jest testing framework with better ones (e.g. selenimum for integration testing, cypress for end-to-end testing). 
-
 
 Backend-Specific Workflow
  - Naming Convention: snake_case
