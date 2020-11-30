@@ -48,7 +48,7 @@ All tests should pass.
  * Is there any context required to understand **why** the application solves this problem? -->
 
 - Our LBC app attempts to arm BIPOC (Black, Indigenous, and People of Color) youth ages 6 - 16 with resources related to 
-improving their mental health, reporting violence and assault (whether it's an emergency or not), and preventing violence. 
+improving their mental health, as well as reporting and preventing violence and assault (whether it's an emergency or not). 
 LBC empowers girls in marginalized communities to feel safe, strong, independent, and healthy.
 
 ## Key Features
