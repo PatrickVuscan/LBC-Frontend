@@ -14,8 +14,12 @@ Our git commits obey these coding standards:
 
 ## Viewing our Deployed React Native App
 
-Here's the URL to our deployed React Native App: <!-- ## ✨ [Our Demo](example.com) -->
+Since LBC is a non-profit, we are currently in the middle of registering LBC as a non-profit to
+take advantage of non-profit AWS deployment pricing.
+As such, there is currently no URL to our deployed React Native app for Deliverable 2. It may not be
+ready until about a month after the Fall 2020 semester ends.
 
+<!-- ## ✨ Here's the URL to our deployed React Native App:  [Our Demo](example.com) -->
 <!-- (TODO: Insert deployed react native app here) -->
 
 ## Install
@@ -39,11 +43,12 @@ All tests should pass.
 ![All Passing Tests](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/README.md/readme_images/all_passing_tests.png)
 
 ## Description 
- <!-- * Provide a high-level description of your application and it's value from an end-user's perspective
+ <!-- * Provide a high-level description of your application and its value from an end-user's perspective
  * What is the problem you're trying to solve?
  * Is there any context required to understand **why** the application solves this problem? -->
 
-- Our LBC app attempts to arm BIPOC (Black, Indigenous, and People of Color) youth ages 6 - 16 with resources that will allow them to stand up for social justice issues that matter most to them.
+- Our LBC app attempts to arm BIPOC (Black, Indigenous, and People of Color) youth ages 6 - 16 with various empowerment
+and mental health resources that will allow them to feel safe, welcome, and healthy.
 
 ## Key Features
  <!-- * Describe the key features in the application that the user can access.
@@ -51,11 +56,14 @@ All tests should pass.
  * This section will be used to assess the value of the features built. -->
 
 - Users can create accounts and log in (but cannot yet reset their password).
-- Users can see a timeline of posts related to social justice.
-- Users can create posts for the timeline with a title, and delete these posts.
+- Users can read posts written by other LBC users.
+- Users can create posts for the timeline with a title under their username or as an anonymous user, and delete their
+own posts.
 - Users can comment on other people's posts as well as their own.
 - Users can view articles related to social justice.
-- Users can view helpful resources, like URLs, email addresses, and phone numbers of police center websites.
+- Users can report hate crimes that occur at work, school, in private, or in public to authorities with the given contact
+info (e.g. URLs, email addresses, and phone numbers), access mental health resources, read empowerment articles, and stories 
+from other LBC users.
 
 ## Instructions
  <!-- * Clear instructions for how to use the application from the end-user's perspective
@@ -63,36 +71,66 @@ All tests should pass.
  * Provide clear steps for using each feature described above
  * This section is critical to testing your application and must be done carefully and thoughtfully -->
 
-- If you're a new user, you must first create a new account by tapping the "Create New Account" button
-on the login page before you can log in.
+<!-- - If you're a new user, you must first create a new account by tapping the "Create New Account" button
+on the login page before you can log in. -->
 
 <!-- (TODO: Insert picture of create new account page) -->
-
-- If you have an existing account, you can simply log in by entering your credentials and then tapping
-"Log In." Once you've logged in, you are taken to your timeline.
-
-<!-- (TODO: Insert picture of log in page) -->
 
 <!-- - If you've forgotten your password, you can reset it by tapping the "Reset Password" button. -->
 <!-- Just enter in an existing username, and a new password. -->
 
 <!-- (TODO: Insert picture of password reset page) -->
 
-- You can view timeline posts in the "Timeline" page. In order to create a new post click the "New Post" button. From here you can add a title and content and click the "Post" button to post. If you want to remain anonymous, you can click the "Anonymous" button before you post. 
-- In order to comment on posts, you can click on the comment button on the bottom left of each post. From this screen you can leave a comment with the text box and the "Add Comment" button. 
+- If you have an existing account, you can simply log in by entering your credentials and then tapping the 
+```Log In``` button. Once you've logged in, you are taken to the ```Timeline``` page.
 
-<!-- (TODO: Insert picture of timeline page) -->
+For the purposes of deliverable 2, the credentials are:
 
-- In order to view articles, you can click on the articles button on the bottom navigator. This applies to resources as well for getting in contact with local officials. 
+Username: user
+Password: user
+
+In deliverable 2, there is no option to create a new account or reset your password.
+
+![Log In Page](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/README.md/readme_images/login_page.png)
+
+- You can view timeline posts in the ```Timeline``` page, with the most recent post displayed first. In order to create a new post click the ```New Post``` button on the top right of the screen. 
+
+![Timeline Page with No Personal Posts](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/README.md/readme_images/timeline_page_no_personal_posts.png)
+![Timeline Page with Personal Posts](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/README.md/readme_images/timeline_page_with_personal_posts.png)
+
+From there, you can add a title and content and click the ```Post``` button to post. If you want to remain anonymous, you can click the ```Anonymous``` button on the bottom left of the screen before you post.
+
+![Create New Post Page](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/README.md/readme_images/create_new_post.png)
+
+- In order to comment on posts, you can click on the comment icon on the bottom left of each post to add a new comment.
+On the ```Write a New Post!``` page, you can leave a comment with the text box and then click the ```Add Comment``` button to post a comment.
+
+<!-- ![Create New Comment Page]() -->
+
+- In order to view articles, you can click on the ```Article``` button on the bottom navigator. Initially, you'll see a list of article cards, but you can view the full article by clicking on the ```View the Full Article``` button.
+
+![Start of Article Page](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/README.md/readme_images/articles_page.png)
+![Sample Article from Article Page](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/README.md/readme_images/sample_lbc_article.png)
+
+- In order to view resources, you can click on the ```Resources``` button on the bottom navigator. On this page, you can view the contact info of various local officials.
+
+If we have time in Deliverable 3 or 4, we will add buttons in the ```Resources``` page that let you select which resource you want to access -- mental health resource, ability to report emergencies and non-emergencies, whether they occur at school, work, in public, or in private.
+
+![Resources Page](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/README.md/readme_images/resources_page.png)
  
  ## Development requirements
  <!-- * If a developer were to set this up on their machine or a remote server, what are the technical requirements (e.g. OS, libraries, etc.)?
  * Briefly describe instructions for setting up and running the application (think a true README). -->
  
+ ### Frontend
+ 1) See ```Install``` section at the top.
+ 2) Enter ```npm run start``` into your terminal to run the app locally.
+ 3) See ```Run tests``` section at the top.
+
  ### Backend 
  1) Navigate to the target directory
- 2) ```git clone https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-backend.git```
- 3) Follow the instructions written in ```setup.md```
+ 2) Enter ```git clone https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-backend.git``` into your terminal.
+ 3) Follow the instructions written in ```setup.md```.
  
  ## Deployment and Github Workflow
 <!-- Describe your Git / GitHub workflow. Essentially, we want to understand how your team members shares a codebase, avoid conflicts and deploys the application.
@@ -103,14 +141,30 @@ on the login page before you can log in.
  * What deployment tool(s) are you using and how
  * Don't forget to **briefly explain why** you chose this workflow or particular aspects of it! -->
  
- - We had each major feature worked on by one member on their own branch. This was to avoid conflicts and isolate code issues. 
- - When a major feature was done, this user would first merge master into their branch in order to check for conflicts and address them. After that, they would create a pull request for their branch to be merged with master. Another developer would review this code for style, syntax, or other errors and then confirm the changes to master if they were ready.
+ Frontend and Backend Common Workflow
+ - Each teammate works on their assigned feature(s) on their own branch(es), named after the feature we are working on.
+ Although we try our best to work on different files to eliminate merge conflicts, sometimes it's possible that two or more teammates may end up making conflicting changes to the same file. Regardless, working on separate branches helps mitigate 
+ merge conflicts and isolate errors and warnings on their current branch from the master branch.
+ - When a major feature was done, we would first merge master into their branch to ensure our work was up to date
+ with master and address any conflicts that appear via pair programming. Next, we'd submit a pull request to merge all 
+ changes on our current branch to master. Another teammate would review this code for style, syntax, or other errors and then approve the changes before finally allowing us to merge to master.
  
- ### Backend
- - Naming Convention: snake_case
- - We have a pre-commit hook that checks for linting errors in the files we commit, so that we are consistent in our code writing style 
- - As tasks were divided up between the backend team based on functionality, we each used a separate branch for each functionality. Pull-requests were made with the other members as the reviewers. At least one had to review and approve it and then merge it. Merge conflicts were avoided as much as possible by working on separate files, but when they would emerge, we pair programmed to resolve it. 
- - We do not have a deployment process yet
+ Frontend-Specific Workflow
+ - Naming Convetion: camelCase (React Native/Javascript)
+ - We're using ESLint that checks for common linting errors. However, we don't have any branch checks or any CI set up for deliverable 2, since it doesn't make much sense to write tests for UI components; component design is subject to change.
+ - The pull request process is the same as in the ```Frontend and Backend Common Workflow``` section.
+ - We do not have a deployment process yet.
+ - We plan on using AWS to deploy our app, and we plan on setting up auto-deployment to trigger upon pushing to master.
+ - For now, we're using jest to house a set of simple unittests until we can either add more jest tests or replace the jest testing framework with better ones (e.g. selenimum for integration testing, cypress for end-to-end testing). 
+
+Backend-Specific Workflow
+ - Naming Convention: snake_case (Python)
+ - We have a pre-commit hook that checks for linting errors in the files we commit, so that we are consistent in our code writing style.
+ - The pull request process is the same as in the ```Frontend and Backend Common Workflow``` section, except there is a 
+ branch rule that states that at least 1 other member of the backend team must approve the pull request before we can
+ merge to master.
+ - We do not have a deployment process yet either.
+ - We plan on using AWS to deploy our app, and we plan on setting up auto-deployment to trigger upon pushing to master.
  - We will use a docker with GitHub actions to deploy to AWS as this is what is natural to us. 
 
  ## Licenses 
