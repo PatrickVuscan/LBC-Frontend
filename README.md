@@ -46,7 +46,8 @@ All tests should pass.
  * What is the problem you're trying to solve?
  * Is there any context required to understand **why** the application solves this problem? -->
 
-- Our LBC app attempts to arm BIPOC (Black, Indigenous, and People of Color) youth ages 6 - 16 with resources that will allow them to stand up for social justice issues that matter most to them.
+- Our LBC app attempts to arm BIPOC (Black, Indigenous, and People of Color) youth ages 6 - 16 with various empowerment
+and mental health resources that will allow them to feel safe, welcome, and healthy.
 
 ## Key Features
  <!-- * Describe the key features in the application that the user can access.
@@ -54,11 +55,14 @@ All tests should pass.
  * This section will be used to assess the value of the features built. -->
 
 - Users can create accounts and log in (but cannot yet reset their password).
-- Users can see a timeline of posts related to social justice.
-- Users can create posts for the timeline with a title, and delete these posts.
+- Users can read posts written by other LBC users.
+- Users can create posts for the timeline with a title under their username or as an anonymous user, and delete their
+own posts.
 - Users can comment on other people's posts as well as their own.
 - Users can view articles related to social justice.
-- Users can view helpful resources, like URLs, email addresses, and phone numbers of police center websites.
+- Users can report hate crimes that occur at work, school, in private, or in public to authorities with the given contact
+info (e.g. URLs, email addresses, and phone numbers), access mental health resources, read empowerment articles, and stories 
+from other LBC users.
 
 ## Instructions
  <!-- * Clear instructions for how to use the application from the end-user's perspective
@@ -66,27 +70,40 @@ All tests should pass.
  * Provide clear steps for using each feature described above
  * This section is critical to testing your application and must be done carefully and thoughtfully -->
 
-- If you're a new user, you must first create a new account by tapping the "Create New Account" button
-on the login page before you can log in.
+<!-- - If you're a new user, you must first create a new account by tapping the "Create New Account" button
+on the login page before you can log in. -->
 
 <!-- (TODO: Insert picture of create new account page) -->
-
-- If you have an existing account, you can simply log in by entering your credentials and then tapping
-"Log In." Once you've logged in, you are taken to your timeline.
-
-<!-- (TODO: Insert picture of log in page) -->
 
 <!-- - If you've forgotten your password, you can reset it by tapping the "Reset Password" button. -->
 <!-- Just enter in an existing username, and a new password. -->
 
 <!-- (TODO: Insert picture of password reset page) -->
 
-- You can view timeline posts in the "Timeline" page. In order to create a new post click the "New Post" button. From here you can add a title and content and click the "Post" button to post. If you want to remain anonymous, you can click the "Anonymous" button before you post. 
-- In order to comment on posts, you can click on the comment button on the bottom left of each post. From this screen you can leave a comment with the text box and the "Add Comment" button. 
+- If you have an existing account, you can simply log in by entering your credentials and then tapping the 
+```Log In``` button. Once you've logged in, you are taken to the ```Timeline``` page.
 
-<!-- (TODO: Insert picture of timeline page) -->
+![Log In Page](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/README.md/readme_images/login_page.png)
 
-- In order to view articles, you can click on the articles button on the bottom navigator. This applies to resources as well for getting in contact with local officials. 
+Currently, there is no option to create a new account or reset your password.
+
+- You can view timeline posts in the ```Timeline``` page. In order to create a new post click the ```New Post``` button. From there, you can add a title and content and click the ```Post``` button to post. If you want to remain anonymous, you can click the ```Anonymous``` button on the bottom left of the screen before you post.
+
+![Timeline Page with No Personal Posts](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/README.md/readme_images/timeline_page_no_personal_posts.png)
+![Timeline Page with Personal Posts](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/README.md/readme_images/timeline_page_with_personal_posts.png)
+
+- In order to comment on posts, you can click on the comment button on the bottom left of each post. From this screen, you can leave a comment with the text box and then click the ```Add Comment``` button to post a comment. 
+
+![Create New Post Page](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/README.md/readme_images/create_new_post.png)
+
+- In order to view articles, you can click on the ```Article``` button on the bottom navigator. Initially, you'll see a list of article cards, but you can view the full article by clicking on the ```View the Full Article``` button.
+
+![Start of Article Page](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/README.md/readme_images/articles_page.png)
+![Sample Article from Article Page](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/README.md/readme_images/sample_lbc_article.png)
+
+- In order to view resources, you can click on the ```Resources``` button on the bottom navigator. On this page, you can view the contact info of various local officials.
+
+![Resources Page](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/README.md/readme_images/resources_page.png)
  
  ## Development requirements
  <!-- * If a developer were to set this up on their machine or a remote server, what are the technical requirements (e.g. OS, libraries, etc.)?
