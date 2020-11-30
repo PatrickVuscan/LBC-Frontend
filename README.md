@@ -103,6 +103,8 @@ Currently, there is no option to create a new account or reset your password.
 
 - In order to view resources, you can click on the ```Resources``` button on the bottom navigator. On this page, you can view the contact info of various local officials.
 
+If we have time in Deliverable 3 or 4, we will add buttons in the ```Resources``` page that let you select which resource you want to access -- mental health resource, ability to report emergencies and non-emergencies, whether they occur at school, work, in public, or in private.
+
 ![Resources Page](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/README.md/readme_images/resources_page.png)
  
  ## Development requirements
