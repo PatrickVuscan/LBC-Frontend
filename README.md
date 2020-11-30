@@ -16,7 +16,8 @@ Our git commits obey these coding standards:
 
 Since LBC is a non-profit, we are currently in the middle of registering LBC as a non-profit to
 take advantage of non-profit AWS deployment pricing.
-As such, there is currently no URL to our deployed React Native app for Deliverable 2.
+As such, there is currently no URL to our deployed React Native app for Deliverable 2. It may not be
+ready until about a month after the Fall 2020 semester ends.
 
 <!-- ## ✨ Here's the URL to our deployed React Native App:  [Our Demo](example.com) -->
 <!-- (TODO: Insert deployed react native app here) -->
@@ -42,7 +43,7 @@ All tests should pass.
 ![All Passing Tests](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/README.md/readme_images/all_passing_tests.png)
 
 ## Description 
- <!-- * Provide a high-level description of your application and it's value from an end-user's perspective
+ <!-- * Provide a high-level description of your application and its value from an end-user's perspective
  * What is the problem you're trying to solve?
  * Is there any context required to understand **why** the application solves this problem? -->
 
@@ -83,18 +84,28 @@ on the login page before you can log in. -->
 - If you have an existing account, you can simply log in by entering your credentials and then tapping the 
 ```Log In``` button. Once you've logged in, you are taken to the ```Timeline``` page.
 
+For the purposes of deliverable 2, the credentials are:
+
+Username: user
+Password: user
+
+In deliverable 2, there is no option to create a new account or reset your password.
+
 ![Log In Page](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/README.md/readme_images/login_page.png)
 
-Currently, there is no option to create a new account or reset your password.
-
-- You can view timeline posts in the ```Timeline``` page. In order to create a new post click the ```New Post``` button. From there, you can add a title and content and click the ```Post``` button to post. If you want to remain anonymous, you can click the ```Anonymous``` button on the bottom left of the screen before you post.
+- You can view timeline posts in the ```Timeline``` page, with the most recent post displayed first. In order to create a new post click the ```New Post``` button on the top right of the screen. 
 
 ![Timeline Page with No Personal Posts](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/README.md/readme_images/timeline_page_no_personal_posts.png)
 ![Timeline Page with Personal Posts](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/README.md/readme_images/timeline_page_with_personal_posts.png)
 
-- In order to comment on posts, you can click on the comment button on the bottom left of each post. From this screen, you can leave a comment with the text box and then click the ```Add Comment``` button to post a comment. 
+From there, you can add a title and content and click the ```Post``` button to post. If you want to remain anonymous, you can click the ```Anonymous``` button on the bottom left of the screen before you post.
 
 ![Create New Post Page](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/README.md/readme_images/create_new_post.png)
+
+- In order to comment on posts, you can click on the comment icon on the bottom left of each post to add a new comment.
+On the ```Write a New Post!``` page, you can leave a comment with the text box and then click the ```Add Comment``` button to post a comment.
+
+<!-- ![Create New Comment Page]() -->
 
 - In order to view articles, you can click on the ```Article``` button on the bottom navigator. Initially, you'll see a list of article cards, but you can view the full article by clicking on the ```View the Full Article``` button.
 
