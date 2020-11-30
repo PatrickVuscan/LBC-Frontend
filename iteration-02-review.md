@@ -6,6 +6,10 @@
 
 
 ## Iteration 2 - Review & Retrospect
+<!-- TODO: Fill in the last demo meeting before the D2 deadline. 
+Ideally this is the time before your team introspective meeting. -->
+<!-- TODO: Though if you do have meeting minutes from your partner meetings, 
+that could be something good to link to from one of the documents! -->
 
  * When: November 24, 2020
  * Where: Online
@@ -33,7 +37,7 @@ and the team would exchange successful productive work strategies.
 
 iii) We remembered to submit pull requests before merging to the master branch.
 - We wanted to practice submitting pull requests for our future internship or research position.
-- We had an easily time learning how to submit pull requests, and consistently submitted pull requests.
+- We had an easy time learning how to submit pull requests, and consistently submitted pull requests.
 - The rest of us could eliminate bugs early and fast before they could grow and accumulate in the master branch.
 
 iv) We set up a GitHub Actions CI and a small test suite early.
@@ -72,11 +76,19 @@ ii) We required our group to submit work regularly.
 - Team members occasionally had many assignments and midterms occuring at roughly the same time, so they may not be available to work on the project fully unless they have dedicated a large block of time (e.g. at least 2 hours) and they didn't have an assignment due soon.
 
 iii) We created a branch rule for master that required the approval of at least 1 team member before anyone can merge to master.
--  While ideally no one should ever commit code that has not been previously peer reviewed, enforcing this pull request rule on GitHub (in Settings > Branches) turned out to be too strict. and prevented productive members of the team from merging feature changes to master.
-- If the majority of teammates are not available, pull requests may take a long time to process, thus slowing down our entire team. 
-In the worst case, two major pull requests took about 18 hours for the team leads to process.
+-  While ideally no one should ever commit code that has not been previously peer reviewed, enforcing this pull request rule on GitHub (in Settings > Branches) turned out to be too strict. This prevented productive members of the team from merging feature changes to master.
+- If the majority of teammates are not available, pull requests may take a long time to process, thus slowing down our entire team. In the worst case, two major pull requests took about 18 hours for the team leads to process.
 - However, we still encourage our team to submit pull requests before merging to master because it is good practice for a future internship or research position.
 
+iv) We planned on religiously using the JIRA.
+- Tasks would often get lost on Discord and in Facebook Messenger.
+- Because no one updated the JIRA tasks regularly, the JIRA statuses became out
+of date. 
+- Instead, we had to ask individual team members about their progress ourselves 
+on Discord or Facebook Messenger to measure their progress, when instead team members
+could just check the JIRA to find out how a team members is progressing in their tasks.
+- In deliverable 3, we wish to see heavier use of the JIRA, instead of progress inquiries
+scattered around Facebook or Messenger.
 
 #### 3. Planned changes
 <!-- List any **process-related** (i.e. team organization and how you work) changes you are planning to make 
@@ -91,13 +103,15 @@ they can stay in close contact with one another to avoid any last-minute fronten
 
 ii) We want to set up integration and end-to-end tests after the frontend and backend people have connected their
 features together.
-- So we can be more confident that our app components and pages still work.
+- So we (and developers outside of our team) can be more confident that our app components and pages still work.
 
 iii) We could update the README.md file as we improved our features, rather than waiting until the D3 deadline to update it.
 - This will spare our team from having to scramble to assemble a README.md file.
 - It's useful to document the feature while it's still fresh in your mind.
+- Similarly, we plan on working on the presentation in smaller bursts to maximize time spent making quality slides.
 
 iv) We could add more appropriate linter checks.
+- The problem was that our linter wasn't catching the right style errors. It flags trivial style issues like "excess whitespace," and completely misses more subtle style errors like callback hell, unsimplified boolean expressions, and multiple statements per line.
 - We could add more linter checks, like max statements per line, max nested callbacks, or simplifying boolean expressions
 like "a && a" and "b || b".
 - We could also remove any linter checks that flag unreasonable prescriptive style guildelines.
@@ -111,23 +125,49 @@ like "a && a" and "b || b".
  * Were there change requests?
  * What did you learn from the demo from either a process or product perspective?
  * This section will be marked very leniently so keep it brief and just make sure the points are addressed -->
-
-- We still haven't met with LBC to demo our app yet before the D2 deadline, so
-we'll update this section after the LBC app demo.
-
-<!-- TODOs: 
+ 
+ <!-- TODOs: 
 - LBC sent Patrick a set of articles for our Sanity page, and the LBC logo.
 (TODO: Insert images of articles here)
 - Arun proposed a set of redesigned LBC logos.
 (TODO: Insert LBC original logo)
 (TODO: Insert Arun's proposed LBC logos)
 - TODO: 1. Meeting highlights with LBC.
-- TODO: 2. Partner feedback on app
+- TODO: 2. Partner feedback on app.
 - TODO: 3. Major decisions LBC wants us to implement.
 - TODO: 4. Reflect on how meetings are going, based on coversations you've had with them.
 -->
 
-<!-- TODO: Fill in the last demo meeting before the D2 deadline. 
-Ideally this is the time before your team introspective meeting. -->
-<!-- TODO: Though if you do have meeting minutes from your partner meetings, 
-that could be something good to link to from one of the documents! -->
+- Note: For more details, read the "LBC Notes" text file.
+- To prepare our demo, we decided to load the app on our iPhone emulator before the beginning of
+the app demo, and decided what each LBC demo participant would be doing. Before the presentation, we decided to iron out as 
+many errors and warnings as possible during a pair programming session, lest they interrupt the flow of our presentation.
+
+![Login Page](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/iteration-02-review.md/readme_images/login_page.png)
+![Timeline with No Personal Posts](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/iteration-02-review.md/readme_images/timeline_page_no_personal_posts.png)
+
+- Patrick talked about how Sanity Studio works, as well as the Articles and Resources page; Arun discussed the login 
+page and his new logo design; Mo talked about the data flow of our app, and I (Danny) both take notes and presented the 
+timeline on Nate's behalf.
+
+![Timeline with Personal Posts](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/iteration-02-review.md/readme_images/timeline_page_with_personal_posts.png)
+![Create New Post Page](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/iteration-02-review.md/readme_images/create_new_post.png)
+![List of Articles](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/iteration-02-review.md/readme_images/articles_page.png)
+![Sample Article from the Article Page](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/iteration-02-review.md/readme_images/sample_lbc_article.png)
+![Resources Page](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/iteration-02-review.md/readme_images/resources_page.png)
+
+- Although LBC liked Arun's proposed logo redesign, a good UX design, a good color palette, the use of a Sanity CMS,
+and its resemble to a community-based social media app like YikYak, they noticed that the Resources page needed the most improvement, since it was limited to displaying the emails, phone numbers, and websites of police stations. LBC wanted the 
+resources page to also be able to e.g. provide mental health resources, report racism at work/school/home/in public.
+
+![Original LBC Logo](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/iteration-02-review.md/readme_images/original_lbc_logo.png)
+![LBC Purple Logo Without Gradient, Without Basketball](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/iteration-02-review.md/readme_images/logo_no_ball.png)
+![LBC Purple Logo Without Gradient, With Basketball](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/iteration-02-review.md/readme_images/logo_with_ball.png)
+![LBC Purple Logo With Gradient, Without Basketball](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/iteration-02-review.md/readme_images/lbc_logo_no_ball_gradient.png)
+![LBC Purple Logo With Gradient, With Basketball](https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-frontend/blob/iteration-02-review.md/readme_images/lbc_logo_with_ball_gradient.png)
+
+- The influx of new suggested features we received from LBC throughout our app demo suggested that we should spend more 
+time during LBC meetings clarifying the app's main requirements before working on the app to prevent being blocked by having
+missing features later. After that, we can accept those images that LBC sent us. Although LBC didn't respond to our emails, 
+it's important that we follow up with them more regularly to make sure they are informed about our app's progress, any major design decisions we've made, and any features we've completed,
+regardless of how busy we and LBC are.

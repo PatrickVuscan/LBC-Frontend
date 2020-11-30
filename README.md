@@ -46,14 +46,14 @@ All tests should pass.
 - Our LBC app attempts to arm BIPOC (Black, Indigenous, and People of Color) youth ages 6 - 16 with resources that will allow them to stand up for social justice issues that matter most to them.
 
 ## Key Features
- <!-- * Described the key features in the application that the user can access
- * Provide a breakdown or detail for each feature that is most appropriate for your application
- * This section will be used to assess the value of the features built -->
+ <!-- * Describe the key features in the application that the user can access.
+ * Provide a breakdown or detail for each feature that is most appropriate for your application.
+ * This section will be used to assess the value of the features built. -->
 
-- Users can create accounts and log in (and perhaps reset their password)?
+- Users can create accounts and log in (but cannot yet reset their password).
 - Users can see a timeline of posts related to social justice.
-- Users can create posts for the timeline with a title, and delete these posts 
-- Users can comment on other people's posts as well as their own 
+- Users can create posts for the timeline with a title, and delete these posts.
+- Users can comment on other people's posts as well as their own.
 - Users can view articles related to social justice.
 - Users can view helpful resources, like URLs, email addresses, and phone numbers of police center websites.
 
@@ -74,6 +74,7 @@ on the login page before you can log in.
 <!-- (TODO: Insert picture of log in page) -->
 
 <!-- - If you've forgotten your password, you can reset it by tapping the "Reset Password" button. -->
+<!-- Just enter in an existing username, and a new password. -->
 
 <!-- (TODO: Insert picture of password reset page) -->
 
@@ -106,8 +107,11 @@ on the login page before you can log in.
  - When a major feature was done, this user would first merge master into their branch in order to check for conflicts and address them. After that, they would create a pull request for their branch to be merged with master. Another developer would review this code for style, syntax, or other errors and then confirm the changes to master if they were ready.
  
  ### Backend
+ - Naming Convention: snake_case
  - We have a pre-commit hook that checks for linting errors in the files we commit, so that we are consistent in our code writing style 
  - As tasks were divided up between the backend team based on functionality, we each used a separate branch for each functionality. Pull-requests were made with the other members as the reviewers. At least one had to review and approve it and then merge it. Merge conflicts were avoided as much as possible by working on separate files, but when they would emerge, we pair programmed to resolve it. 
+ - We do not have a deployment process yet
+ - We will use a docker with GitHub actions to deploy to AWS as this is what is natural to us. 
 
  ## Licenses 
  <!-- Keep this section as brief as possible. You may read this [Github article](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository) for a start.
