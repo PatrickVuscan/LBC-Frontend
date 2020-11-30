@@ -142,21 +142,28 @@ If we have time in Deliverable 3 or 4, we will add buttons in the ```Resources``
  * Don't forget to **briefly explain why** you chose this workflow or particular aspects of it! -->
  
  Frontend and Backend Common Workflow
- - We had each major feature worked on by one member on their own branch. This was to avoid conflicts and isolate code issues. 
- - When a major feature was done, this user would first merge master into their branch in order to check for conflicts and address them. After that, they would create a pull request for their branch to be merged with master. Another developer would review this code for style, syntax, or other errors and then confirm the changes to master if they were ready.
+ - Each teammate works on their assigned feature(s) on their own branch(es), named after the feature we are working on.
+ Although we try our best to work on different files to eliminate merge conflicts, sometimes it's possible that two or more teammates may end up making conflicting changes to the same file. Regardless, working on separate branches helps mitigate 
+ merge conflicts and isolate errors and warnings on their current branch from the master branch.
+ - When a major feature was done, we would first merge master into their branch to ensure our work was up to date
+ with master and address any conflicts that appear via pair programming. Next, we'd submit a pull request to merge all 
+ changes on our current branch to master. Another teammate would review this code for style, syntax, or other errors and then approve the changes before finally allowing us to merge to master.
  
  Frontend-Specific Workflow
- - Naming Convetion: camelCase.
+ - Naming Convetion: camelCase (React Native/Javascript)
  - We're using ESLint that checks for common linting errors. However, we don't have any branch checks or any CI set up for deliverable 2, since it doesn't make much sense to write tests for UI components; component design is subject to change.
-  - We do not have a deployment process yet
-  - We plan on using AWS to deploy our app, and we plan on setting up auto-deployment to trigger upon pushing to master.
-  - For now, we're using jest to house a set of simple unittests until we can either add more jest tests or replace the jest testing framework with better ones (e.g. selenimum for integration testing, cypress for end-to-end testing). 
+ - The pull request process is the same as in the ```Frontend and Backend Common Workflow``` section.
+ - We do not have a deployment process yet.
+ - We plan on using AWS to deploy our app, and we plan on setting up auto-deployment to trigger upon pushing to master.
+ - For now, we're using jest to house a set of simple unittests until we can either add more jest tests or replace the jest testing framework with better ones (e.g. selenimum for integration testing, cypress for end-to-end testing). 
 
 Backend-Specific Workflow
- - Naming Convention: snake_case
- - We have a pre-commit hook that checks for linting errors in the files we commit, so that we are consistent in our code writing style 
- - As tasks were divided up between the backend team based on functionality, we each used a separate branch for each functionality. Pull-requests were made with the other members as the reviewers. At least one had to review and approve it and then merge it. Merge conflicts were avoided as much as possible by working on separate files, but when they would emerge, we pair programmed to resolve it. 
- - We do not have a deployment process yet either
+ - Naming Convention: snake_case (Python)
+ - We have a pre-commit hook that checks for linting errors in the files we commit, so that we are consistent in our code writing style.
+ - The pull request process is the same as in the ```Frontend and Backend Common Workflow``` section, except there is a 
+ branch rule that states that at least 1 other member of the backend team must approve the pull request before we can
+ merge to master.
+ - We do not have a deployment process yet either.
  - We plan on using AWS to deploy our app, and we plan on setting up auto-deployment to trigger upon pushing to master.
  - We will use a docker with GitHub actions to deploy to AWS as this is what is natural to us. 
 
