@@ -106,7 +106,7 @@ From there, you can add a title and content and click the ```Post``` button to p
 - In order to comment on posts, you can click on the comment icon on the bottom left of each post to add a new comment.
 On the ```Write a New Post!``` page, you can leave a comment with the text box and then click the ```Add Comment``` button to post a comment.
 
-<!-- ![Create New Comment Page]() -->
+<!-- (TODO: Insert picture of new comment page) -->
 
 - In order to view articles, you can click on the ```Article``` button on the bottom navigator. Initially, you'll see a list of article cards, but you can view the full article by clicking on the ```View the Full Article``` button.
 
@@ -129,7 +129,7 @@ If we have time in Deliverable 3 or 4, we will add buttons in the ```Resources``
  3) See ```Run tests``` section at the top.
 
  ### Backend 
- 1) Navigate to the target directory
+ 1) Navigate to the target directory.
  2) Enter ```git clone https://github.com/csc301-fall-2020/team-project-13-lady-ballers-camp-backend.git``` into your terminal.
  3) Follow the instructions written in ```setup.md```.
  

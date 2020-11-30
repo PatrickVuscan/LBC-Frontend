@@ -1,0 +1,71 @@
+Name: Danny Chen
+Date: November 26, 2020
+
+
+Before the LBC demo started...
+- I asked what diffuser scent everyone in the call liked. Eva likes eucalyptus scent, Arun likes sweet orange. I wonder what the rest of the team's favourite diffuser scent are. 🤔
+- Eva (pronounced E-va, like from wall-e) arrived first, and apologized for being late. Eva mentions that she's taking care of her daughter lately, and haven't been responding to emails lately. After a few minutes passed without Toyo, Eva was able to call Toyo's family to get her to come. About 30 minutes into the presentation, Toyo was able to come out, and mentioned that she just got back from a meeting. She has been very busy taking care of her family and running a non-profit at the same time. From the team to her, we hope Eva and Toyo's families are doing well right now.
+- Patrick offered to take screenshots along the way and send them to LBC and to everyone on our team. We're glad you did this, Patrick! 😇
+
+
+First, Patrick demoed the content management system sanity studio to LBC, especially slugs which are "unique identifiers". This includes the article, author, article, article category, call to action, call to action category, resource, and resource category pages. 
+- Toyo likes the slugs, and the resource images. (e.g. Toronto Police Services)
+- Patrick also showed LBC how to create own content on Sanity in a staging environment.
+- Toyo asked what the difference between between staging and production environment, and Patrick explained that the staging environment is for LBC only to develop content, and the production environment is accessible to all users including LBC.
+- LBC asks whether users can post anything they want on sanity in the production environment. Patrick says that sanity is made to filter out posts, so users can only post relevant content.
+- Patrick presented to Eva and Toyo: Alternative text for accessibility, like screen readers.
+- Patrick presented the H1-H2-H3-quote thing, and showed LBC how to add links and upload images to Sanity. LBC thought it was impressive.
+
+Next, Arun demoed the logo, login page, color scheme.
+- Arun explained to LBC that he chose purple cause it's the original LBC colors, and gold to look like 
+the Los Angeles Lakers. He figured since LBC was rebranding that redesigning the logo was a good idea.
+- Eva liked the purple-gold color scheme, especially the gradation/gradient of the logo. Toyo argued that it's clean and sleek.
+- Arun also commented that he'd connect with the backend to figure out how users can create accounts and log in with their own accounts, instead of using our single test account with username "user" and password "user." Eva liked this idea.
+
+After that, Danny presented the timeline page.
+- We had a black footer background and a purple highlight for extra aesthetic.
+- Eva asks: can we upload documents (more difficult to handle), images/photos? 
+Patrick says not yet. It's more difficult to render images and documents than plain text, but this can be a new feature for D3/D4.
+- I explained that when users create new posts, there's a black bar to identify user's own posts, even if they're anonymous. Eva likes that users can see a black post header so that users can always identify their own posts.
+- Eva asks: can people have interactive conversations?  I was just about to show them that, and I demoed the comments section. Eva likes the comment section.
+- Toyo asks: on the timeline, when a user logs in, can they follow other users? Patrick said that the app is modeled after Yikyak where the "following user" functionality is absent, the timeline page is more like a community page. Toyo was glad to hear to hear that since followers/followee relationship tend to cause social media anxiety.
+- LBC suggested calling the timeline page "connect", articles = "educate", call to action = "reach out", resources page = "???"
+
+Patrick demoed the articles page he made 45 mins before the LBC demo, with clickable links.
+- Toyo likes how you have a list of articles that you can open.
+- Patrick showed an example article, and compared it side-by-side with the same article created in Sanity. Eva likes it!
+- Patrick also presented the "Accessibility feature" in sanity. Eva thought it was useful for users with accessibility needs and those who require screen readers.
+- Patrick pointed out an issue with how bullets are rendered, and how he'd get someone on the team to fix it.
+- Patrick presented the clickable links. Both Eva and Toyo liked them. In particular, Eva likes how it's easy to navigate the articles page and click links.
+Patrick pointed out that if Danny could figure out how to use the React library to render telephone numbers and emails, that'd be great.
+- Patrick presented the "quoted blocks," and LBC liked it also.
+- Overall LBC liked the articles page, and thinks that adding clickable telephone numbers and emails would add a lot of value to the articles page.
+
+Patrick presented the call to action page.
+- Patrick will work on making the links prettier, and improving the style.
+- Patrick told LBC that Danny found a library that lets us create new emails and start phone calls. They were impressed that this is even possible!
+- LBC could create template of words needed for emailing representatives, but geotagging representations isn't required (but nice to have). This is a possible new feature!
+- Adding in the cc, bcc, filling in default content inside email messages is also a new feature!
+
+Patrick demoed the resources page.
+- Eva likes it.
+- Patrick and Eva agreed that it's a good idea to update the resources page to be able to select resources that target different kinds of hate crime, emergency, less urgent ones like work, school, public, healthcare. This will make "reporting incidents" a central part of our app.
+
+After the LBC demo ended...
+- LBC appreciate our good effort! They didn't notice any apparent bugs or warnings, they liked our emphasis on security and accessibility.
+- LBC liked the redesigned logo as well as our layout design, and our attempt to maintain a good user interface.
+- Patrick offered to reach out the Eva about exchanging resources, and any other resources to facilitate the handoff process. LBC shared polished "reach out and connect."
+- Patrick and Mo remarked that deploying to the App Store might take some extra time, perhaps well into December to gain certification as a non-profit, and that if at least one team member was interested in participating in the handoff process they'd greatly appreciate it.
+- Eva and Toyo aren't comfortable with sending content to backend, Patrick offers to provide documentation around sanity and how to use it. (LBC would write articles in word, and Patrick et al can help).
+- Lastly, Patrick talked about how the team might proceed with D3: we'd build out the core features first, and then add smaller features later.
+The "call to action" page is the lowest priority. (Patrick, you'll have to confirm this too)
+
+
+LBC's App Suggestions at the End of Presentation:
+- LBC said that our user experience, however, could be improved.
+- Patrick planned on updating the footers to icons. e.g. mental health = brain icon. The upside is that visuals are easier to understand than words.
+- Toyo asks Eva -> how detailed is content for each option (e.g. report hate crime at school, work, in public, at home, etc.)
+- Eva/Toyo suggested putting the "reach out" and "connect" content on the same page. 
+- Toyo was worried that even having 4 categories in the footer of the app could make it too crowded, and wondered whether the content in the "take action" page could go into the "educate" page. Ultimately, Patrick and LBC agreed that 4 categories is good. (Patrick, you'll have to confirm)
+- Patrick mentioned that we couldn't do background images, and LBC offered to send it in word? (Patrick, you'll have to confirm this too)
+- In the "reach out" page we could have 3 buttons? (Patrick, can you clarify?)
