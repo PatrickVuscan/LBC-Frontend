@@ -33,7 +33,7 @@ and the team would exchange successful productive work strategies.
 
 iii) We remembered to submit pull requests before merging to the master branch.
 - We wanted to practice submitting pull requests for our future internship or research position.
-- We had an easily time learning how to submit pull requests, and consistently submitted pull requests.
+- We had an easy time learning how to submit pull requests, and consistently submitted pull requests.
 - The rest of us could eliminate bugs early and fast before they could grow and accumulate in the master branch.
 
 iv) We set up a GitHub Actions CI and a small test suite early.
@@ -72,11 +72,19 @@ ii) We required our group to submit work regularly.
 - Team members occasionally had many assignments and midterms occuring at roughly the same time, so they may not be available to work on the project fully unless they have dedicated a large block of time (e.g. at least 2 hours) and they didn't have an assignment due soon.
 
 iii) We created a branch rule for master that required the approval of at least 1 team member before anyone can merge to master.
--  While ideally no one should ever commit code that has not been previously peer reviewed, enforcing this pull request rule on GitHub (in Settings > Branches) turned out to be too strict. and prevented productive members of the team from merging feature changes to master.
-- If the majority of teammates are not available, pull requests may take a long time to process, thus slowing down our entire team. 
-In the worst case, two major pull requests took about 18 hours for the team leads to process.
+-  While ideally no one should ever commit code that has not been previously peer reviewed, enforcing this pull request rule on GitHub (in Settings > Branches) turned out to be too strict. This prevented productive members of the team from merging feature changes to master.
+- If the majority of teammates are not available, pull requests may take a long time to process, thus slowing down our entire team. In the worst case, two major pull requests took about 18 hours for the team leads to process.
 - However, we still encourage our team to submit pull requests before merging to master because it is good practice for a future internship or research position.
 
+iv) We planned on religiously using the JIRA.
+- Tasks would often get lost on Discord and in Facebook Messenger.
+- Because no one updated the JIRA tasks regularly, the JIRA statuses became out
+of date. 
+- Instead, we had to ask individual team members about their progress ourselves 
+on Discord or Facebook Messenger to measure their progress, when instead team members
+could just check the JIRA to find out how a team members is progressing in their tasks.
+- In deliverable 3, we wish to see heavier use of the JIRA, instead of progress inquiries
+scattered around Facebook or Messenger.
 
 #### 3. Planned changes
 <!-- List any **process-related** (i.e. team organization and how you work) changes you are planning to make 
@@ -91,13 +99,15 @@ they can stay in close contact with one another to avoid any last-minute fronten
 
 ii) We want to set up integration and end-to-end tests after the frontend and backend people have connected their
 features together.
-- So we can be more confident that our app components and pages still work.
+- So we (and developers outside of our team) can be more confident that our app components and pages still work.
 
 iii) We could update the README.md file as we improved our features, rather than waiting until the D3 deadline to update it.
 - This will spare our team from having to scramble to assemble a README.md file.
 - It's useful to document the feature while it's still fresh in your mind.
+- Similarly, we plan on working on the presentation in smaller bursts to maximize time spent making quality slides.
 
 iv) We could add more appropriate linter checks.
+- The problem was that our linter wasn't catching the right style errors. It flags trivial style issues like "excess whitespace," and completely misses more subtle style errors like callback hell, unsimplified boolean expressions, and multiple statements per line.
 - We could add more linter checks, like max statements per line, max nested callbacks, or simplifying boolean expressions
 like "a && a" and "b || b".
 - We could also remove any linter checks that flag unreasonable prescriptive style guildelines.
