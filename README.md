@@ -125,14 +125,24 @@ If we have time in Deliverable 3 or 4, we will add buttons in the ```Resources``
  * What deployment tool(s) are you using and how
  * Don't forget to **briefly explain why** you chose this workflow or particular aspects of it! -->
  
+ Frontend and Backend Common Workflow
  - We had each major feature worked on by one member on their own branch. This was to avoid conflicts and isolate code issues. 
  - When a major feature was done, this user would first merge master into their branch in order to check for conflicts and address them. After that, they would create a pull request for their branch to be merged with master. Another developer would review this code for style, syntax, or other errors and then confirm the changes to master if they were ready.
  
- ### Backend
+ Frontend-Specific Workflow
+ - Naming Convetion: camelCase.
+ - We're using ESLint that checks for common linting errors. However, we don't have any branch checks or any CI set up for deliverable 2, since it doesn't make much sense to write tests for UI components; component design is subject to change.
+  - We do not have a deployment process yet
+  - We plan on using AWS to deploy our app, and we plan on setting up auto-deployment to trigger upon pushing to master.
+  - For now, we're using jest to house a set of simple unittests until we can either add more jest tests or replace the jest testing framework with better ones (e.g. selenimum for integration testing, cypress for end-to-end testing). 
+
+
+Backend-Specific Workflow
  - Naming Convention: snake_case
  - We have a pre-commit hook that checks for linting errors in the files we commit, so that we are consistent in our code writing style 
  - As tasks were divided up between the backend team based on functionality, we each used a separate branch for each functionality. Pull-requests were made with the other members as the reviewers. At least one had to review and approve it and then merge it. Merge conflicts were avoided as much as possible by working on separate files, but when they would emerge, we pair programmed to resolve it. 
- - We do not have a deployment process yet
+ - We do not have a deployment process yet either
+ - We plan on using AWS to deploy our app, and we plan on setting up auto-deployment to trigger upon pushing to master.
  - We will use a docker with GitHub actions to deploy to AWS as this is what is natural to us. 
 
  ## Licenses 
