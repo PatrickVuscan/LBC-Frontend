@@ -44,7 +44,7 @@ iv) We set up a GitHub Actions CI and a small test suite early.
 - Using CI prevented us from committing code that failed to compile.
 - We could run tests automatically after each commit, rather than remember to run tests manually.
 
-v) Though we had separate repositories between the frontend and the backend, we made progress announcements general.
+<!-- v) Though we had separate repositories between the frontend and the backend, we made progress announcements general.
 - The frontend and backend could stay up to date about each others' progress and plan out how they will connect
 their corresponding features together.
 - General announcements often guided the discussion for that week's team meetings.
@@ -52,9 +52,9 @@ their corresponding features together.
 vi) We shared resources that helped simplify our project.
 - Other members of the team could learn more about the technology that they were using.
 - Reduced development and research time for other members.
-- Working with and reviewing each others' code doesn't require having to learn how their imported technologies work.
+- Working with and reviewing each others' code doesn't require having to learn how their imported technologies work. -->
 
-vii) Instead of requiring consistent work submission, we required finishing our assigned tasks a few days before the next team meeting.
+v) Instead of requiring consistent work submission, we required finishing our assigned tasks a few days before the next team meeting.
 - The first few days after D2 began, we asked everyone to spend as much time as possible working on their assigned features.
 As the D2 deadline approached, we agreed to set more strict deadlines, oftentimes the day of the next team meeting.
 - It was difficult to expect everyone to consistently produce work towards D2 since it's possible for some team members to have multiple
