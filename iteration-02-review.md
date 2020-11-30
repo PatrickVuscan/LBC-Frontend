@@ -6,6 +6,10 @@
 
 
 ## Iteration 2 - Review & Retrospect
+<!-- TODO: Fill in the last demo meeting before the D2 deadline. 
+Ideally this is the time before your team introspective meeting. -->
+<!-- TODO: Though if you do have meeting minutes from your partner meetings, 
+that could be something good to link to from one of the documents! -->
 
  * When: November 24, 2020
  * Where: Online
@@ -122,8 +126,25 @@ like "a && a" and "b || b".
  * What did you learn from the demo from either a process or product perspective?
  * This section will be marked very leniently so keep it brief and just make sure the points are addressed -->
 
-- We still haven't met with LBC to demo our app yet before the D2 deadline, so
-we'll update this section after the LBC app demo.
+- Note: For more details, read the "LBC Notes" text file.
+- To prepare our demo, we decided to load the app on our iPhone emulator before the beginning of
+the app demo, and decided what each LBC demo participant would be doing. Before the presentation, we decided to iron out as 
+many errors and warnings as possible during a pair programming session, lest they interrupt the flow of our presentation.
+- Patrick talked about how Sanity Studio works, as well as the Articles and Resources page; Arun discussed the login 
+page and his new logo design; Mo talked about the data flow of our app, and I (Danny) both take notes and presented the 
+timeline on Nate's behalf.
+- Although LBC liked Arun's proposed logo redesign, a good UX design, a good color palette, the use of a Sanity CMS,
+and its resemble to a community-based social media app like YikYak, they noticed that the Resources page needed the most improvement, since it was limited to displaying the emails, phone numbers, and websites of police stations. LBC wanted the 
+resources page to also be able to e.g. provide mental health resources, report racism at work/school/home/in public.
+- The influx of new suggested features we received from LBC throughout our app demo suggested that we should spend more 
+time during LBC meetings clarifying the app's main requirements before working on the app to prevent being blocked by having
+missing features later. After that, we can accept those images that LBC sent us. Although LBC didn't respond to our emails, 
+it's important that we follow up with them more regularly to make sure they are informed about our app's progress, any major design decisions we've made, and any features we've completed,
+regardless of how busy we and LBC are.
+
+(TODO: Insert 2 - 3 of Arun's logo redesigns here, and LBC's original logo)
+(TODO: Insert images of articles here)
+
 
 <!-- TODOs: 
 - LBC sent Patrick a set of articles for our Sanity page, and the LBC logo.
@@ -132,12 +153,7 @@ we'll update this section after the LBC app demo.
 (TODO: Insert LBC original logo)
 (TODO: Insert Arun's proposed LBC logos)
 - TODO: 1. Meeting highlights with LBC.
-- TODO: 2. Partner feedback on app
+- TODO: 2. Partner feedback on app.
 - TODO: 3. Major decisions LBC wants us to implement.
 - TODO: 4. Reflect on how meetings are going, based on coversations you've had with them.
 -->
-
-<!-- TODO: Fill in the last demo meeting before the D2 deadline. 
-Ideally this is the time before your team introspective meeting. -->
-<!-- TODO: Though if you do have meeting minutes from your partner meetings, 
-that could be something good to link to from one of the documents! -->
