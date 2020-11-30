@@ -14,8 +14,11 @@ Our git commits obey these coding standards:
 
 ## Viewing our Deployed React Native App
 
-Here's the URL to our deployed React Native App: <!-- ## ✨ [Our Demo](example.com) -->
+Since LBC is a non-profit, we are currently in the middle of registering LBC as a non-profit to
+take advantage of non-profit AWS deployment pricing.
+As such, there is currently no URL to our deployed React Native app for Deliverable 2.
 
+<!-- ## ✨ Here's the URL to our deployed React Native App:  [Our Demo](example.com) -->
 <!-- (TODO: Insert deployed react native app here) -->
 
 ## Install
