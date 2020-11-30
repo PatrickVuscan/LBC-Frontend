@@ -80,7 +80,7 @@ iii) We created a branch rule for master that required the approval of at least 
 - If the majority of teammates are not available, pull requests may take a long time to process, thus slowing down our entire team. In the worst case, two major pull requests took about 18 hours for the team leads to process.
 - However, we still encourage our team to submit pull requests before merging to master because it is good practice for a future internship or research position.
 
-iv) We planned on religiously using the JIRA.
+iv) We wanted to religiously use the JIRA.
 - Tasks would often get lost on Discord and in Facebook Messenger.
 - Because no one updated the JIRA tasks regularly, the JIRA statuses became out
 of date. 
@@ -111,10 +111,9 @@ iii) We could update the README.md file as we improved our features, rather than
 - Similarly, we plan on working on the presentation in smaller bursts to maximize time spent making quality slides.
 
 iv) We could add more appropriate linter checks.
-- The problem was that our linter wasn't catching the right style errors. It flags trivial style issues like "excess whitespace," and completely misses more subtle style errors like callback hell, unsimplified boolean expressions, and multiple statements per line.
+- The problem was that our linter wasn't catching the right style errors. It flags trivial style issues like "excess whitespace," and completely misses more subtle style errors like callback hell, unsimplified boolean expressions, multiple statements per line, and statements with no effect.
 - We could add more linter checks, like max statements per line, max nested callbacks, or simplifying boolean expressions
-like "a && a" and "b || b".
-- We could also remove any linter checks that flag unreasonable prescriptive style guildelines.
+like "a && a" and "b || b", and also remove any linter checks that flag unreasonable prescriptive style violations.
 
 ## Product - Review
 
@@ -138,7 +137,7 @@ like "a && a" and "b || b".
 - TODO: 4. Reflect on how meetings are going, based on coversations you've had with them.
 -->
 
-- Note: For more details, read the "LBC Notes" text file.
+- Note: For more details, go to the ```lbc app demo feedback``` folder and view the ```CSC301H1 -- LBC Demo Feedback.txt``` file.
 - To prepare our demo, we decided to load the app on our iPhone emulator before the beginning of
 the app demo, and decided what each LBC demo participant would be doing. Before the presentation, we decided to iron out as 
 many errors and warnings as possible during a pair programming session, lest they interrupt the flow of our presentation.
