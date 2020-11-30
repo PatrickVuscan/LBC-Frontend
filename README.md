@@ -56,11 +56,11 @@ and mental health resources that will allow them to feel safe, welcome, and heal
  * This section will be used to assess the value of the features built. -->
 
 - Users can create accounts and log in (but cannot yet reset their password).
-- Users can read posts written by other LBC users.
-- Users can create posts for the timeline with a title under their username or as an anonymous user, and delete their
-own posts.
-- Users can comment on other people's posts as well as their own.
-- Users can view articles related to social justice.
+- Users can read posts written by all LBC users, including ones they wrote.
+- Users can create posts for the timeline with a title under their username or as an anonymous user.
+- Users can delete their own posts.
+- Users can comment on all posts, including ones they wrote.
+- Users can view a preview of a list of articles related to social justice, and then opt to read the full article.
 - Users can report hate crimes that occur at work, school, in private, or in public to authorities with the given contact
 info (e.g. URLs, email addresses, and phone numbers), access mental health resources, read empowerment articles, and stories 
 from other LBC users.
