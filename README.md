@@ -5,7 +5,7 @@
 ![Version](https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000)
 ![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)
 
-> This is a mobile app for Lady Ballers Camp (https://ladyballerscamp.org/) made with React Native.
+> This is a React Native mobile app for Lady Ballers Camp (https://ladyballerscamp.org/).
 
 ## Git Commit Standards
 
@@ -16,8 +16,9 @@ Our git commits obey these coding standards:
 
 Since LBC is a non-profit, we are currently in the middle of registering LBC as a non-profit to
 take advantage of non-profit AWS deployment pricing.
-As such, there is currently no URL to our deployed React Native app for Deliverable 2. It may not be
-ready to deploy until about a month after the Fall 2020 semester ends.
+As such, there is currently no URL to our deployed React Native app for Deliverable 2.
+The LBC app may not be ready to deploy until about a month after the Fall 2020 semester ends,
+due to the lengthy non-profit AWS non-profit approval process.
 
 <!-- ## ✨ Here's the URL to our deployed React Native App:  [Our Demo](example.com) -->
 <!-- (TODO: Insert deployed react native app here) -->
@@ -47,9 +48,13 @@ All tests should pass.
  * What is the problem you're trying to solve?
  * Is there any context required to understand **why** the application solves this problem? -->
 
-- Our LBC app attempts to arm BIPOC (Black, Indigenous, and People of Color) youth ages 6 - 16 with resources related to 
-improving their mental health, as well as reporting and preventing violence and assault (whether it's an emergency or not). 
-LBC empowers girls in marginalized communities to feel safe, strong, independent, and healthy.
+- Toyo Ajibolade founded the charity LBC in 2012 as a way to give back to the BIPOC (Black, Indigenous, and People of Color) female community after her family experienced financial hardships during her time playing competitive basketball in her youth.
+- She found that sports involvement begins declining at age 7 for young girls due to poor self-esteem and social pressures, lack of support, or finanical hardship (from either their families or underfunded female sports programs), and that 13-year-old girls drop out of sports at twice the rate of 13-year-old boys (https://torontofoundation.ca/in-conversation-with-toyo-ajibolade/).
+<!-- - The unique part about LBC is that it's the "only program in the GTA that serves 100% radicalized and marginzalied children and youth in sports and other leadership and empowerment programs. (https://supportblackcharities.org/lady-ballers-camp/) -->
+- Although LBC started out as a basketball camp for BIPOC girls ages 6 - 16 free, equitable access to its programs, LBC expanded its basketball program to include other activities that promote physical, emotional, mental health, and educational development to all members regardless of their socioeconomic status (https://supportblackcharities.org/lady-ballers-camp/).
+- In effect, LBC aims to break the barriers surrounding sports involvement by providing BIPOC girls ages 6 - 16 free, equitable access to its programs.
+- LBC wishes to provide its members a brave space where they can make friends, keep fit, learn valuable soft skills (e.g. leadership, teamwork, grit, compassion), and have fun (https://ladyballerscamp.org/ and https://supportblackcharities.org/lady-ballers-camp/), empowering girls to feel safe, strong, independent, and healthy.
+- Our LBC app attempts to complement LBC's website (https://ladyballerscamp.org/) and arm vulnerable, low-income, BIPOC (Black, Indigenous, and People of Color) youth ages 6 - 16 with resources related to improving their mental health, as well as reporting and preventing violence and assault (whether it's an emergency or not).
 
 ## Key Features
  <!-- * Describe the key features in the application that the user can access.
@@ -87,8 +92,8 @@ on the login page before you can log in. -->
 
 For the purposes of deliverable 2, the credentials are:
 
-Username: user
-Password: user
+- Username: user
+- Password: user
 
 In deliverable 2, there is no option to create a new account or reset your password.
 
