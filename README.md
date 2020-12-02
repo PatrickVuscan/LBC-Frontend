@@ -5,7 +5,7 @@
 ![Version](https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000)
 ![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)
 
-> This is a mobile app for Lady Ballers Camp (https://ladyballerscamp.org/) made with React Native.
+> This is a React Native mobile app for Lady Ballers Camp (https://ladyballerscamp.org/).
 
 ## Git Commit Standards
 
@@ -16,8 +16,9 @@ Our git commits obey these coding standards:
 
 Since LBC is a non-profit, we are currently in the middle of registering LBC as a non-profit to
 take advantage of non-profit AWS deployment pricing.
-As such, there is currently no URL to our deployed React Native app for Deliverable 2. It may not be
-ready to deploy until about a month after the Fall 2020 semester ends.
+As such, there is currently no URL to our deployed React Native app for Deliverable 2.
+The LBC app may not be ready to deploy until about a month after the Fall 2020 semester ends,
+due to the lengthy non-profit AWS non-profit approval process.
 
 <!-- ## ✨ Here's the URL to our deployed React Native App:  [Our Demo](example.com) -->
 <!-- (TODO: Insert deployed react native app here) -->
