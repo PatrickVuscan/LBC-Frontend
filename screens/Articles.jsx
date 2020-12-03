@@ -35,6 +35,9 @@ const Articles = () => {
         </View>
       </View>
 
+      {/* We have to create a filter thing here, to select from different
+      categories and only display articles filtered from that category */}
+
       {/* Articles */}
       <View
         style={{
@@ -50,6 +53,7 @@ const Articles = () => {
         {/* Has to be a cardlist here */}
         {!loading && !error && articles && (
           <FlatList
+            style={styles.flatlist}
             data={articles}
             renderItem={({ item }) => {
               return (
@@ -68,14 +72,15 @@ const Articles = () => {
 };
 
 const styles = StyleSheet.create({
-  //
   innerContainer: {
     marginHorizontal: 25,
     marginVertical: 15,
   },
-  // Used for providing background color
   outerContainer: {
     backgroundColor: colours.purple,
+  },
+  flatlist: {
+    marginBottom: 15,
   },
 });
 
