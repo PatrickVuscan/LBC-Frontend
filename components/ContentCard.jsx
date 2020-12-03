@@ -9,8 +9,6 @@ import { colours } from '../theme/theme';
 const ContentCard = ({ content, navigateTo }) => {
   const navigation = useNavigation();
 
-  console.log('content', content);
-
   return (
     <TouchableOpacity
       onPress={() => {
