@@ -10,7 +10,6 @@ import {
 } from 'native-base';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
 import { theme } from '../theme/theme';
 
 const ScreenBase = ({
@@ -38,21 +37,12 @@ const ScreenBase = ({
           </Right>
         </Header>
       )}
-      <ScrollView
-        automaticallyAdjustContentInsets
-        contentContainerStyle={{
-          flexGrow: 1,
-          justifyContent: 'space-between',
-        }}
-        // endFillColor="black"
+      <Content
+        padder={padder}
+        contentContainerStyle={{ flex: 1 }}
       >
-        <Content
-          padder={padder}
-          contentContainerStyle={{ flex: 1 }}
-        >
-          {children}
-        </Content>
-      </ScrollView>
+        {children}
+      </Content>
     </Container>
   );
 };

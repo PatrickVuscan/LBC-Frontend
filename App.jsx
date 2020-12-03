@@ -144,7 +144,7 @@ export default class App extends React.Component {
                   component={Educate}
                 />
                 <Tab.Screen
-                  name="Call to Action"
+                  name="Take Action"
                   component={CTAs}
                 />
                 <Tab.Screen

@@ -28,17 +28,19 @@ const Articles = () => {
 
   return (
     <>
+      {/* Header */}
       <View style={styles.outerContainer}>
         <View style={styles.innerContainer}>
-          <Title title="Check out all our articles for you!" />
+          <Title title="Content curated by the LBC team!" />
         </View>
       </View>
+
+      {/* Articles */}
       <View
         style={{
           alignItems: 'center', justifyContent: 'center', flex: 1,
         }}
       >
-
         {loading && (
           <Spinner color={colours.purple} />
         )}
@@ -69,11 +71,10 @@ const styles = StyleSheet.create({
   //
   innerContainer: {
     marginHorizontal: 25,
-    marginVertical: 25,
+    marginVertical: 15,
   },
   // Used for providing background color
   outerContainer: {
-    margin: -10,
     backgroundColor: colours.purple,
   },
 });

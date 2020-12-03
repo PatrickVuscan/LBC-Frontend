@@ -1,5 +1,6 @@
 import { Spinner, View } from 'native-base';
 import React, { useEffect, useState } from 'react';
+import { ScrollView } from 'react-native-gesture-handler';
 import { QUERY_CTAS } from '../api/queries/cta';
 import CTA from '../components/CTA';
 import ErrorMessage from '../components/ErrorMessage';
@@ -28,17 +29,25 @@ const CTAs = () => {
       header="Call To Action!"
       padder
     >
-      <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
-        {loading && (
-          <Spinner color={colours.purple} />
-        )}
-        {error && (
-          <ErrorMessage error={error} />
-        )}
-        {!loading && !error && ctas && (
-          <CTA ctaID={ctas[0]._id} />
-        )}
-      </View>
+      <ScrollView
+        automaticallyAdjustContentInsets
+        contentContainerStyle={{
+          flexGrow: 1,
+          justifyContent: 'space-between',
+        }}
+      >
+        <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+          {loading && (
+            <Spinner color={colours.purple} />
+          )}
+          {error && (
+            <ErrorMessage error={error} />
+          )}
+          {!loading && !error && ctas && (
+            <CTA ctaID={ctas[0]._id} />
+          )}
+        </View>
+      </ScrollView>
     </ScreenBase>
   );
 };

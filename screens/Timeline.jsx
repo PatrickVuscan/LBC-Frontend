@@ -6,6 +6,7 @@ import {
 } from 'native-base';
 import React, { useState } from 'react';
 import { View } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import CreatePost from '../components/CreatePost';
 import ScreenBase from '../components/ScreenBase';
 import TimelinePost from '../components/TimelinePost';
@@ -108,33 +109,41 @@ const Timeline = () => {
         </Button>
       )}
     >
-      {allPosts.map((item, index) => {
-        return (
+      <ScrollView
+        automaticallyAdjustContentInsets
+        contentContainerStyle={{
+          flexGrow: 1,
+          justifyContent: 'space-between',
+        }}
+      >
+        {allPosts.map((item, index) => {
+          return (
+            <TimelinePost
+              post={item}
+              // Temp disable until dynamic content
+              // eslint-disable-next-line react/no-array-index-key
+              key={index}
+              deletePost={deletePostFromAllPosts}
+              setViewPost={setViewPost}
+              setCurrViewedPost={setCurrViewedPost}
+            />
+          );
+        })}
+        <View>
           <TimelinePost
-            post={item}
-            // Temp disable until dynamic content
-            // eslint-disable-next-line react/no-array-index-key
-            key={index}
+            post={exampleUser}
             deletePost={deletePostFromAllPosts}
             setViewPost={setViewPost}
             setCurrViewedPost={setCurrViewedPost}
           />
-        );
-      })}
-      <View>
-        <TimelinePost
-          post={exampleUser}
-          deletePost={deletePostFromAllPosts}
-          setViewPost={setViewPost}
-          setCurrViewedPost={setCurrViewedPost}
-        />
-        <TimelinePost
-          post={exampleUser2}
-          deletePost={deletePostFromAllPosts}
-          setViewPost={setViewPost}
-          setCurrViewedPost={setCurrViewedPost}
-        />
-      </View>
+          <TimelinePost
+            post={exampleUser2}
+            deletePost={deletePostFromAllPosts}
+            setViewPost={setViewPost}
+            setCurrViewedPost={setCurrViewedPost}
+          />
+        </View>
+      </ScrollView>
     </ScreenBase>
   );
 };
