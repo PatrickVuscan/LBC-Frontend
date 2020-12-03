@@ -10,11 +10,11 @@ import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colours } from './theme/theme';
 import Educate from './screens/Educate';
-import CTAs from './screens/CTAs';
 import ReportIt from './screens/ReportIt';
 import Timeline from './screens/Timeline';
 import Login from './screens/Login';
 import store from './state/store';
+import TakeAction from './screens/TakeAction';
 
 const Tab = createBottomTabNavigator();
 const userBase = { user: 'user' }; //! This is for frontend mock login only
@@ -145,7 +145,7 @@ export default class App extends React.Component {
                 />
                 <Tab.Screen
                   name="Take Action"
-                  component={CTAs}
+                  component={TakeAction}
                 />
                 <Tab.Screen
                   name="Report It"

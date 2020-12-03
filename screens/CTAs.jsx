@@ -30,11 +30,11 @@ const CTAs = () => {
       {/* Header */}
       <View style={styles.outerContainer}>
         <View style={styles.innerContainer}>
-          <Title title="Content curated by the LBC team!" />
+          <Title title="Take action in your community!" />
         </View>
       </View>
 
-      {/* Articles */}
+      {/* Calls To Action */}
       <View
         style={{
           alignItems: 'center', justifyContent: 'center', flex: 1,
@@ -49,11 +49,12 @@ const CTAs = () => {
         {/* Has to be a cardlist here */}
         {!loading && !error && ctas && (
           <FlatList
+            style={styles.flatlist}
             data={ctas}
             renderItem={({ item }) => {
               return (
                 <ContentCard
-                  navigateTo="Article"
+                  navigateTo="CTA"
                   content={item}
                 />
               );
@@ -67,15 +68,15 @@ const CTAs = () => {
 };
 
 const styles = StyleSheet.create({
-  //
   innerContainer: {
     marginHorizontal: 25,
     marginVertical: 15,
   },
-  // Used for providing background color
   outerContainer: {
     backgroundColor: colours.purple,
   },
+  flatlist: {
+    width: '100%',
+  },
 });
-
 export default CTAs;

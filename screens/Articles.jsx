@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     backgroundColor: colours.purple,
   },
   flatlist: {
-    marginBottom: 15,
+    width: '100%',
   },
 });
 
