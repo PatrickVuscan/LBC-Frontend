@@ -3,7 +3,7 @@ import { Dimensions, Image } from 'react-native';
 import { Spinner } from 'native-base';
 import { colours } from '../theme/theme';
 
-const DynamicImage = ({ url, alt }) => {
+const FullWidthImage = ({ url, alt }) => {
   const [dimensions, setDimensions] = useState();
 
   useEffect(() => {
@@ -32,4 +32,4 @@ const DynamicImage = ({ url, alt }) => {
   );
 };
 
-export default DynamicImage;
+export default FullWidthImage;

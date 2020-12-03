@@ -9,7 +9,7 @@ import ErrorMessage from './ErrorMessage';
 import Header from './Header';
 
 const Article = ({ route }) => {
-  const { articleID } = route.params;
+  const { id } = route.params;
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -30,7 +30,7 @@ const Article = ({ route }) => {
   useEffect(() => {
     !loading && setLoading(true);
     error && setError(false);
-    client.fetch(QUERY_ARTICLE, { id: articleID })
+    client.fetch(QUERY_ARTICLE, { id })
       .then(res => {
         setLoading(false);
         setArticle(res[0]);
@@ -39,7 +39,7 @@ const Article = ({ route }) => {
         setError(e);
       });
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [articleID]);
+  }, [id]);
 
   return (
     <ScrollView

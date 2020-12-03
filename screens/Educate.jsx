@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 import { QUERY_ARTICLES } from '../api/queries/article';
 import Article from '../components/Article';
+import ContentCard from '../components/ContentCard';
 import ErrorMessage from '../components/ErrorMessage';
 import ScreenBase from '../components/ScreenBase';
 import Subtitle from '../components/Subtitle';
@@ -16,7 +17,7 @@ import { colours } from '../theme/theme';
 
 const Stack = createStackNavigator();
 
-const Articles = () => {
+const Educate = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [articles, setArticles] = useState();
@@ -31,34 +32,6 @@ const Articles = () => {
         setError(e);
       });
   }, []);
-
-  const renderArticleCard = ({ item }, navigation) => {
-    return (
-      <View
-        style={{
-          backgroundColor: '#666',
-          padding: 20,
-          marginTop: 20,
-          borderRadius: 10,
-          width: '100%',
-        }}
-      >
-        <Title title={item.title} />
-        <Subtitle subtitle={item.subtitle} />
-
-        <Button
-          style={{ alignSelf: 'center', marginTop: 10 }}
-          onPress={() => {
-            navigation.navigate('Article', { articleID: item._id });
-          }}
-        >
-          <Text>
-            View the full article
-          </Text>
-        </Button>
-      </View>
-    );
-  };
 
   return (
     <ScreenBase
@@ -99,16 +72,17 @@ const Articles = () => {
                     <ErrorMessage error={error} />
                   )}
                   {/* Has to be a cardlist here */}
-                  {/* {!loading && !error && articles && (
-                    <Article articleID={articles[0]._id} />
-                  )} */}
-                  {/* {!loading && !error && articles && (
-                  <Article articleID={articles[0]._id} />
-                )} */}
                   {!loading && !error && articles && (
                     <FlatList
                       data={articles}
-                      renderItem={item => { return renderArticleCard(item, p.navigation); }}
+                      renderItem={({ item }) => {
+                        return (
+                          <ContentCard
+                            navigateTo="Article"
+                            content={item}
+                          />
+                        );
+                      }}
                       keyExtractor={item => { return item._id; }}
                     />
                   )}
@@ -139,4 +113,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Articles;
+export default Educate;

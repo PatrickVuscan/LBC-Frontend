@@ -1,13 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import DynamicImage from './DynamicImage';
+import FullWidthImage from './FullWidthImage';
 
 const CaptionedImage = ({
   url, caption, alt,
 }) => {
   return (
     <View>
-      <DynamicImage
+      <FullWidthImage
         url={url}
         alt={alt}
       />

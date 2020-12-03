@@ -3,7 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import Block from './Block';
 import CaptionedImage from './CaptionedImage';
 
-// This is the actual Body Component, which renders the body of an article or cta, or blahblahblah
+// * This is used in the rendering of Sanity content *
+// This is the actual Body Component, which renders the body of sanity content
 const Body = ({ body }) => {
   const bodyRenderer = blocks => {
     const allComponents = [];

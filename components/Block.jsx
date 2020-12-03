@@ -1,6 +1,7 @@
 import React from 'react';
 import Span from './Span';
 
+// * This is used for rendering text blocks from Sanity *
 // This wonderful hunk of code takes a block from the body array, and loops
 // through the children, rendering the inner spans
 const Block = ({

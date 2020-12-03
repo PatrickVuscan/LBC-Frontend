@@ -9,9 +9,9 @@ import { Spinner, View } from 'native-base';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colours } from './theme/theme';
-import Articles from './screens/Articles';
+import Educate from './screens/Educate';
 import CTAs from './screens/CTAs';
-import Resources from './screens/Resources';
+import ReportIt from './screens/ReportIt';
 import Timeline from './screens/Timeline';
 import Login from './screens/Login';
 import store from './state/store';
@@ -136,20 +136,20 @@ export default class App extends React.Component {
                 // sceneContainerStyle={{ backgroundColor: 'black' }}
               >
                 <Tab.Screen
-                  name="Timeline"
+                  name="Connect"
                   component={Timeline}
                 />
                 <Tab.Screen
-                  name="Articles"
-                  component={Articles}
+                  name="Educate"
+                  component={Educate}
                 />
                 <Tab.Screen
-                  name="CTA"
+                  name="Call to Action"
                   component={CTAs}
                 />
                 <Tab.Screen
-                  name="Resources"
-                  component={Resources}
+                  name="Report It"
+                  component={ReportIt}
                 />
               </Tab.Navigator>
             </NavigationContainer>
