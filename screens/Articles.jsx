@@ -1,13 +1,13 @@
 // @ts-check
 import { Spinner, View } from 'native-base';
 import React, { useEffect, useState } from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import { FlatList } from 'react-native';
 import { QUERY_ARTICLES } from '../api/queries/article';
 import ContentCard from '../components/ContentCard';
 import ErrorMessage from '../components/ErrorMessage';
 import Title from '../components/Title';
 import client from '../sanity/client';
-import { colours } from '../theme/theme';
+import { colours, theme } from '../theme/theme';
 
 const Articles = () => {
   const [loading, setLoading] = useState(true);
@@ -29,8 +29,8 @@ const Articles = () => {
   return (
     <>
       {/* Header */}
-      <View style={styles.outerContainer}>
-        <View style={styles.innerContainer}>
+      <View style={theme.sanityHeaderOuter}>
+        <View style={theme.sanityHeaderInner}>
           <Title title="Content curated by the LBC team!" />
         </View>
       </View>
@@ -53,7 +53,7 @@ const Articles = () => {
         {/* Has to be a cardlist here */}
         {!loading && !error && articles && (
           <FlatList
-            style={styles.flatlist}
+            style={theme.sanityCardList}
             data={articles}
             renderItem={({ item }) => {
               return (
@@ -70,18 +70,5 @@ const Articles = () => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  innerContainer: {
-    marginHorizontal: 25,
-    marginVertical: 15,
-  },
-  outerContainer: {
-    backgroundColor: colours.purple,
-  },
-  flatlist: {
-    width: '100%',
-  },
-});
 
 export default Articles;

@@ -6,7 +6,7 @@ import ContentCard from '../components/ContentCard';
 import ErrorMessage from '../components/ErrorMessage';
 import Title from '../components/Title';
 import client from '../sanity/client';
-import { colours } from '../theme/theme';
+import { colours, theme } from '../theme/theme';
 
 const CTAs = () => {
   const [loading, setLoading] = useState(true);
@@ -28,8 +28,8 @@ const CTAs = () => {
   return (
     <>
       {/* Header */}
-      <View style={styles.outerContainer}>
-        <View style={styles.innerContainer}>
+      <View style={theme.sanityHeaderOuter}>
+        <View style={theme.sanityHeaderInner}>
           <Title title="Take action in your community!" />
         </View>
       </View>
@@ -49,7 +49,7 @@ const CTAs = () => {
         {/* Has to be a cardlist here */}
         {!loading && !error && ctas && (
           <FlatList
-            style={styles.flatlist}
+            style={theme.sanityCardList}
             data={ctas}
             renderItem={({ item }) => {
               return (
@@ -67,16 +67,4 @@ const CTAs = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  innerContainer: {
-    marginHorizontal: 25,
-    marginVertical: 15,
-  },
-  outerContainer: {
-    backgroundColor: colours.purple,
-  },
-  flatlist: {
-    width: '100%',
-  },
-});
 export default CTAs;
