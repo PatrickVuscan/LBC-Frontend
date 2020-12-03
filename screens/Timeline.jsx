@@ -5,13 +5,16 @@ import {
   Text,
 } from 'native-base';
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { View, Image} from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import { ScrollView } from 'react-native-gesture-handler';
 import CreatePost from '../components/CreatePost';
 import ScreenBase from '../components/ScreenBase';
 import TimelinePost from '../components/TimelinePost';
 import ViewPost from '../components/ViewPost';
 import { colours } from '../theme/theme';
+
+const brain = require('../assets/brain.png');
 
 // Citation: I used https://startreact.com/themes/twitter-clone-app/ as a reference for styling Timeline components
 
@@ -43,6 +46,7 @@ const Timeline = () => {
     anon: null,
     comments: [],
   });
+  const Drawer = createDrawerNavigator();
 
   function deletePostFromAllPosts(post) {
     const newPostsList = [...allPosts];
@@ -97,8 +101,7 @@ const Timeline = () => {
 
   return (
     <ScreenBase
-      header="Timeline"
-      right={(
+      left={(
         <Button
           style={{ alignSelf: 'flex-end', marginLeft: 'auto', backgroundColor: colours.gold }}
           onPress={() => { return setNewPostScreen(true); }}
@@ -108,7 +111,26 @@ const Timeline = () => {
           </Text>
         </Button>
       )}
+      header=""
+      right={(
+        <Button style={{ backgroundColor: colours.gold, width: 75, height: 50 }}>
+          <Image
+            source={brain}
+            style={{ width: 60, height: 48 }}
+          />
+        </Button>
+      )}
     >
+      {/* }
+      <Drawer.Navigator
+        openByDefault
+      >
+        <Drawer.Screen
+          name="Home"
+          component={CreatePost}
+        />
+      </Drawer.Navigator>
+      { */}
       <ScrollView
         automaticallyAdjustContentInsets
         contentContainerStyle={{
