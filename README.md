@@ -182,5 +182,5 @@ Backend-Specific Workflow
 LBC already has a website, so they want a mobile app instead.
 We chose React Native, and Facebook announced as of February 2018 that all React products are under the MIT License.
 (https://www.asapdevelopers.com/react-native-update-to-mit-license/#:~:text=In%20September%202017%2C%20Facebook%20announced,Native%2C%20Metro%2C%20and%20Yoga.)
-MIT licenses offer permissions to distribute this software freely provided that we include the MIT license text at the beginning of our app.
+MIT licenses offer permissions to freely distribute and modify this software provided that we include the MIT license text at the beginning of our app.
 (https://www.quora.com/What-are-the-pros-and-cons-of-the-MIT-license)
