@@ -9,7 +9,6 @@ import { View, Image } from 'react-native';
 import Timeline from '../screens/Timeline';
 import { colours } from '../theme/theme';
 import MyPosts from './MyPosts';
-import Login from '../screens/Login';
 
 const Drawer = createDrawerNavigator();
 const lbcLogo = require('../assets/lbc_logo_w_ball_gradient.png');
@@ -46,10 +45,6 @@ export default function DrawerNav() {
         <Drawer.Screen
           name="My Posts"
           component={MyPosts}
-        />
-        <Drawer.Screen
-          name="Log Out"
-          component={Login}
         />
       </Drawer.Navigator>
     </Container>
