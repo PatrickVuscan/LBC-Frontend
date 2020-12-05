@@ -15,6 +15,7 @@ import ReportIt from './screens/ReportIt';
 import Timeline from './screens/Timeline';
 import Login from './screens/Login';
 import store from './state/store';
+import DrawerNav from './components/DrawerNavigator'; 
 
 const Tab = createBottomTabNavigator();
 const userBase = { user: 'user' }; //! This is for frontend mock login only
@@ -137,7 +138,7 @@ export default class App extends React.Component {
               >
                 <Tab.Screen
                   name="Connect"
-                  component={Timeline}
+                  component={DrawerNav}
                 />
                 <Tab.Screen
                   name="Educate"

@@ -5,13 +5,13 @@ import {
   Text,
 } from 'native-base';
 import React, { useState } from 'react';
-import { View, Image} from 'react-native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { View, Image } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import CreatePost from '../components/CreatePost';
 import ScreenBase from '../components/ScreenBase';
 import TimelinePost from '../components/TimelinePost';
 import ViewPost from '../components/ViewPost';
+import Articles from './Articles';
 import { colours } from '../theme/theme';
 
 const brain = require('../assets/brain.png');
@@ -46,7 +46,6 @@ const Timeline = () => {
     anon: null,
     comments: [],
   });
-  const Drawer = createDrawerNavigator();
 
   function deletePostFromAllPosts(post) {
     const newPostsList = [...allPosts];
@@ -121,16 +120,6 @@ const Timeline = () => {
         </Button>
       )}
     >
-      {/* }
-      <Drawer.Navigator
-        openByDefault
-      >
-        <Drawer.Screen
-          name="Home"
-          component={CreatePost}
-        />
-      </Drawer.Navigator>
-      { */}
       <ScrollView
         automaticallyAdjustContentInsets
         contentContainerStyle={{
