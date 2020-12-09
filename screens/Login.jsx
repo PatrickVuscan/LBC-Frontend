@@ -30,16 +30,14 @@ const Login = props => {
           body: JSON.stringify({ 'username': usernameValue, 'password': passwordValue }),
         },
       );
-
-      console.log(res.status); // TODO for testing
       
-      try {
-        if (res.json().message === 'Username already exists') {
-          return 2;
-        }
-      } catch {
-        return 0;
+      const jsonBody = await res.json();
+
+      if (jsonBody.message === 'Username already exists') {
+        return 2;
       }
+
+      return 0;
     } catch (err) {
       return 1;
     }
@@ -115,29 +113,24 @@ const Login = props => {
           bordered 
           style={styles.button}
           onPress={() => {
-            let signUpRes = -1;
             signUp().then(response => {
-              console.log(response);
-              signUpRes = response;
+              switch (response) {
+              case 0:
+                props.createAlert('Successful Sign Up', 'New account created');
+                break;
+
+              case 1:
+                props.createAlert('Unsuccessful Sign Up', 'Server response error');
+                break;
+              
+              case 2:
+                props.createAlert('Unsuccessful Sign Up', 'User already exists');
+                break;
+
+              default:
+                break;
+              }
             });
-
-            console.log(`got to switch statement ${signUpRes}`);
-            switch (signUpRes) {
-            case 0:
-              props.createAlert('Successful Sign Up', 'New account created');
-              break;
-
-            case 1:
-              props.createAlert('Unsuccessful Sign Up', 'Server response error');
-              break;
-            
-            case 2:
-              props.createAlert('Unsuccessful Sign Up', 'User already exists');
-              break;
-
-            default:
-              break;
-            }
           }}  
         >
           <Text style={styles.buttonText}>
