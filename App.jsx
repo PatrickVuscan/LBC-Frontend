@@ -24,7 +24,8 @@ export default class App extends React.Component {
     this.state = {
       isReady: false,
       loggedIn: false,
-      access_token: '',
+      accessToken: '',
+      tokenType: '',
     };
   }
 
@@ -58,37 +59,29 @@ export default class App extends React.Component {
     );
   }
 
-  logIn = async (username, password) => {
-    // TODO Commented out code is for future backend calls
+  logIn = async (usernameVal, passwordVal) => {
     try {
       const res = await fetch(
-        'http://10.0.2.2:5000/users/login',
+        'https://lbc-backend-fxp5s3idfq-nn.a.run.app/users/login',
         {
           method: 'POST',
-          body: JSON.stringify({ username, password }),
+          body: JSON.stringify({ username: usernameVal, password: passwordVal }),
         },
       );
 
       if (res.status === 200) {
-        const token = JSON.parse(res.json()).access_token;
+        const token = res.json().access_token;
+        const type = res.json().token_type;
         console.log(token); //! for testing only
 
-        this.setState({ loggedIn: true, access_token: token });
+        this.setState({ loggedIn: true, accessToken: token, tokenType: type });
         return true;
       }
-      this.createAlert('Failed Log In', 'Something went wrong on our end :(');
+      this.createAlert('Failed Log In', 'Something went wrong on our end :( return');
     } catch {
-      this.createAlert('Failed Log In', 'Something went wrong on our end :(');
+      this.createAlert('Failed Log In', 'Something went wrong on our end :( catch');
       return false;
     }
-
-    /* try {
-      const loggedInBool = userBase[username] === password;
-      this.setState({ loggedIn: loggedInBool });
-      return loggedInBool;
-    } catch (err) {
-      return false;
-    } */
   }
 
   render() {
