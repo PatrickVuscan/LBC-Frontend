@@ -4,13 +4,25 @@ import {
   Container,
   Text,
 } from 'native-base';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TimelinePost from './TimelinePost';
 import ViewPost from './ViewPost';
 
+const url = 'https://lbc-backend-fxp5s3idfq-nn.a.run.app';
 // This page will be for notifications/user's posts
-const myPosts = () => {
-  // pull users's posts from database
+const MyPosts = () => {
+  const [allPosts, setAllPosts] = useState([]);
+  const [viewPost, setViewPost] = useState(false); 
+
+  useEffect(() => {
+    fetch(`${url}/posts/user/user`)
+      .then(res => { return res.json(); })
+      .then(data => {
+        setAllPosts(data);
+      });
+  });
+
+
   return (
     <ScrollView
       automaticallyAdjustContentInsets
@@ -19,7 +31,6 @@ const myPosts = () => {
         justifyContent: 'space-between',
       }}
     >
-      {/* }
       {allPosts.map((item, index) => {
         return (
           <TimelinePost
@@ -27,15 +38,12 @@ const myPosts = () => {
             // Temp disable until dynamic content
             // eslint-disable-next-line react/no-array-index-key
             key={index}
-            deletePost={deletePostFromAllPosts}
             setViewPost={setViewPost}
-            setCurrViewedPost={setCurrViewedPost}
           />
         );
       })}
-    < */}
     </ScrollView>
   );
 };
 
-export default myPosts;
+export default MyPosts;

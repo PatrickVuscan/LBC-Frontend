@@ -75,7 +75,17 @@ const Timeline = props => {
     });
 
     setAllPosts(newPostsList);
-    // add api request to patch/delete posts, this post must be deleted from the api
+    try {
+      fetch(
+        `https://lbc-backend-fxp5s3idfq-nn.a.run.app/posts/${post.post_id}`,
+        {
+          method: 'DELETE',
+          body: JSON.stringify({username: post.username}),
+        },
+      );
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   // const updateCurrViewedPost = commentValue => {
