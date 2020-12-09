@@ -1,21 +1,22 @@
 import { Spinner } from 'native-base';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 import { QUERY_CTA } from '../api/queries/cta';
 import client from '../sanity/client';
+import { colours } from '../theme/theme';
 import Body from './Body';
 import CaptionedImage from './CaptionedImage';
 import ErrorMessage from './ErrorMessage';
 import Header from './Header';
-import { colours } from '../theme/theme';
 
-const CTA = ({ ctaID }) => {
+const CTA = ({ route }) => {
+  const { id } = route.params;
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [cta, setCta] = useState({});
 
   const {
-    _id: id,
     title,
     subtitle,
     publishedAt,
@@ -30,7 +31,7 @@ const CTA = ({ ctaID }) => {
   useEffect(() => {
     !loading && setLoading(true);
     error && setError(false);
-    client.fetch(QUERY_CTA, { id: ctaID })
+    client.fetch(QUERY_CTA, { id })
       .then(res => {
         setLoading(false);
         setCta(res[0]);
@@ -39,10 +40,13 @@ const CTA = ({ ctaID }) => {
         setError(e);
       });
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ctaID]);
+  }, [id]);
 
   return (
-    <View style={styles.outerContainer}>
+    <ScrollView
+      automaticallyAdjustContentInsets
+      contentContainerStyle={styles.scroll}
+    >
       {loading && (
         <Spinner color={colours.purple} />
       )}
@@ -67,14 +71,14 @@ const CTA = ({ ctaID }) => {
           <Body body={body} />
         </>
       )}
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  outerContainer: {
-    flex: 1,
+  scroll: {
     flexGrow: 1,
+    justifyContent: 'space-between',
   },
 });
 
