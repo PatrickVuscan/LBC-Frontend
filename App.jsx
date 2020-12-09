@@ -129,6 +129,11 @@ export default class App extends React.Component {
                 // https://icons.expo.fyi/ but not all icons are compatible.
                 // Also, google searching 10.2.1 icons doesn't work because
                 // it takes me to 12.0.1 icons.
+                //
+                // My code comes from https://stackoverflow.com/questions/60169964/icons-dont-show-up-in-react-navigation-v5
+                // I used https://reactnavigation.org/docs/tab-based-navigation/#add-badges-to-icons and
+                // https://snack.expo.io/?platform=android&name=Tab%20navigation%20%7C%20React%20Navigation&dependencies=%40expo%2Fvector-icons%40*%2C%40react-native-community%2Fmasked-view%40*%2C%40react-navigation%2Fbottom-tabs%40%5E5.8.0%2C%40react-navigation%2Fdrawer%40%5E5.9.0%2C%40react-navigation%2Fmaterial-bottom-tabs%40%5E5.2.16%2C%40react-navigation%2Fmaterial-top-tabs%40%5E5.2.16%2C%40react-navigation%2Fnative%40%5E5.7.3%2C%40react-navigation%2Fstack%40%5E5.9.0%2Creact-native-paper%40%5E4.0.1%2Creact-native-reanimated%40*%2Creact-native-safe-area-context%40*%2Creact-native-gesture-handler%40*%2Creact-native-screens%40*%2Creact-native-tab-view%40%5E2.15.1&sourceUrl=https%3A%2F%2Freactnavigation.org%2Fexamples%2F5.x%2Ftab-based-navigation-badges.js
+                // to render icons.
                 screenOptions={({ route }) => {
                   return {
                     tabBarIcon: ({ focused, color, size }) => {

@@ -1,9 +1,11 @@
 // @ts-check
 import { Spinner, View } from 'native-base';
 import React, { useEffect, useState } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
+import { Chevron } from 'react-native-shapes';
 import { QUERY_ARTICLES } from '../api/queries/article';
 import ContentCard from '../components/ContentCard';
+import DropdownMenu from '../components/DropdownMenu';
 import ErrorMessage from '../components/ErrorMessage';
 import Title from '../components/Title';
 import client from '../sanity/client';
@@ -13,6 +15,8 @@ const Articles = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [articles, setArticles] = useState();
+  // TODO: add a new state for article category, and retrieve category.
+  const [selectedCategory, setSelectedCategory] = useState();
 
   // const [category, setCategory] = useState();
 
@@ -73,6 +77,31 @@ const Articles = () => {
       }}
 
       */}
+      {/* A dropdown menu to filter articles by category. */}
+      <View style={styles.innerContainer}>
+        <DropdownMenu
+          header="Filter Articles by Category"
+          placeholder={{
+            label: 'Select an article category...',
+            value: null,
+          }}
+          items={[
+            { label: 'Mental Health', value: 'mental health' },
+            { label: 'Social Justice', value: 'social justice' },
+            { label: 'Education', value: 'education' },
+          ]}
+          value={selectedCategory}
+          icon={() => {
+            return (
+              <Chevron
+                size={1.5}
+                color="gray"
+              />
+            );
+          }}
+          onValueChange={value => { setSelectedCategory(value); }}
+        />
+      </View>
 
       {/* Articles */}
       <View
@@ -106,5 +135,18 @@ const Articles = () => {
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  innerContainer: {
+    marginHorizontal: 25,
+    marginVertical: 15,
+  },
+  outerContainer: {
+    backgroundColor: colours.purple,
+  },
+  flatlist: {
+    marginBottom: 15,
+  },
+});
 
 export default Articles;
