@@ -14,7 +14,7 @@ const Articles = () => {
   const [error, setError] = useState(false);
   const [articles, setArticles] = useState();
 
-  const [category, setCategory] = useState();
+  // const [category, setCategory] = useState();
 
   // Query the articles from Sanity
   useEffect(() => {

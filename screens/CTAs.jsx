@@ -1,6 +1,6 @@
 import { Spinner, View } from 'native-base';
 import React, { useEffect, useState } from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import { FlatList } from 'react-native';
 import { QUERY_CTAS } from '../api/queries/cta';
 import ContentCard from '../components/ContentCard';
 import ErrorMessage from '../components/ErrorMessage';
