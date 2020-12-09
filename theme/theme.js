@@ -76,6 +76,16 @@ const theme = StyleSheet.create({
     marginBottom: 5,
   },
   verticalCenter: { alignItems: 'center' },
+  sanityHeaderInner: {
+    marginHorizontal: 25,
+    marginVertical: 15,
+  },
+  sanityHeaderOuter: {
+    backgroundColor: colours.purple,
+  },
+  sanityCardList: {
+    width: '100%',
+  },
 });
 
 export { theme, colours };
