@@ -54,7 +54,7 @@ const Timeline = props => {
       .then(data => {
         setAllPosts(data);
       });
-  }, []);
+  });
 
   // example api fetch that has not been tested
   /*
