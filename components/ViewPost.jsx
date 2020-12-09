@@ -11,7 +11,7 @@ import { StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { colours } from '../theme/theme';
 
-let url = 'https://lbc-backend-fxp5s3idfq-nn.a.run.app';
+// let url = 'https://lbc-backend-fxp5s3idfq-nn.a.run.app';
 
 // eslint-disable-next-line no-unused-vars
 const ViewPost = ({
@@ -31,7 +31,6 @@ const ViewPost = ({
       content: commentInput,
       user_id: 1,
     };
-    
 
     const a = allComments;
     a.push(newComment);
@@ -40,23 +39,24 @@ const ViewPost = ({
 
     try {
       const res = fetch(
-        `$'https://lbc-backend-fxp5s3idfq-nn.a.run.app/posts/'${post_id}/comments`,
+        'https://lbc-backend-fxp5s3idfq-nn.a.run.app/posts/'+ post_id + '/comments',
         {
           method: 'POST',
           body: JSON.stringify(newComment),
         },
       );
 
-      return res.status == 200; 
+      return res.status == 200;
     } catch (err) {
       console.log(err);
-      return false; 
+      return false;
     }
   }
 
-  url = `${url}/posts/${post_id}/comments/`;
+  // url = `https://lbc-backend-fxp5s3idfq-nn.a.run.app/posts/1/comments/`;
+
   useEffect(() => {
-    fetch(url)
+    fetch('https://lbc-backend-fxp5s3idfq-nn.a.run.app/posts/' + post_id + '/comments/')
       .then(res => { return res.json(); })
       .then(data => {
         if (Array.isArray(data)) {

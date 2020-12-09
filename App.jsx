@@ -181,7 +181,7 @@ export default class App extends React.Component {
               >
                 <Tab.Screen
                   name="Connect"
-                  component={DrawerNav}
+                  children={() => <DrawerNav />}
                 />
                 <Tab.Screen
                   name="Educate"
