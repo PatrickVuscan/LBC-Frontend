@@ -1,13 +1,14 @@
 // @ts-check
 import { Spinner, View } from 'native-base';
 import React, { useEffect, useState } from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet, Text } from 'react-native';
 import { QUERY_ARTICLES } from '../api/queries/article';
 import ContentCard from '../components/ContentCard';
 import ErrorMessage from '../components/ErrorMessage';
 import Title from '../components/Title';
 import client from '../sanity/client';
 import { colours } from '../theme/theme';
+import DropdownMenu from '../components/Dropdown';
 
 const Articles = () => {
   const [loading, setLoading] = useState(true);
@@ -37,6 +38,10 @@ const Articles = () => {
 
       {/* We have to create a filter thing here, to select from different
       categories and only display articles filtered from that category */}
+      <View style={styles.innerContainer}>
+        <Text>Filter Articles by Category</Text>
+        <DropdownMenu />
+      </View>
 
       {/* Articles */}
       <View
