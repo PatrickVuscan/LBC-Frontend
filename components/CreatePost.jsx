@@ -49,6 +49,31 @@ export default class CreatePost extends React.Component {
     this.props.setAllPosts(a);
 
     this.props.newPost(false);
+    /*
+    try {
+      const res = fetch(
+        'http://lbc-elb3-689738159.us-east-1.elb.amazonaws.com/docs?fbclid=IwAR1hOzDesjG8_LfRD_40wP-WgLpspwYYF6C7Dc0WC9aupEKvuR9oa4-caM0/posts/',
+        {
+          method: 'POST',
+          body: JSON.stringify(newPostContent),
+        },
+      );
+
+      return res.status == 200;
+    } catch (err) {
+      return false;
+    }
+
+    //method 2 
+    const sending_post = {
+      username: newPostContent.user, 
+      topic: newPostContent.title, 
+      post_body: newPostContent.text, 
+      anonymous: newPostContent.anon, 
+
+    }
+    const response = await fetch(url, { method: "POST", headers: {"content-type": "application/json"}, body: JSON.stringify(sending_post)});
+    */ 
   }
 
   handleTitleChange(input) {

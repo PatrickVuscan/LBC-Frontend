@@ -21,6 +21,15 @@ const ViewPost = ({
   }, setViewPost, updateCurrViewedPost,
 }) => {
   const [commentInput, setCommentInput] = useState('');
+  const [allComments, setAllComments] = useState([]); 
+
+  /* 
+  url = url + "/posts/" + post.pid + "/comments"
+  const response = await fetch(url, { method: "GET"});
+  const comments = allComments.concat(await response.json()); 
+  
+  setAllComments(comments); 
+  */ 
 
   return (
     <Container>

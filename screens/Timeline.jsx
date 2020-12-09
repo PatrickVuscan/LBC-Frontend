@@ -4,14 +4,13 @@ import {
   Container,
   Text,
 } from 'native-base';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Image } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import CreatePost from '../components/CreatePost';
 import ScreenBase from '../components/ScreenBase';
 import TimelinePost from '../components/TimelinePost';
 import ViewPost from '../components/ViewPost';
-import Articles from './Articles';
 import { colours } from '../theme/theme';
 
 const brain = require('../assets/brain.png');
@@ -19,21 +18,23 @@ const brain = require('../assets/brain.png');
 // Citation: I used https://startreact.com/themes/twitter-clone-app/ as a reference for styling Timeline components
 
 const exampleUser = {
-  text: 'This is an example post. I am posting stuff right now! Wow!',
-  user: 'Anonymous',
-  title: 'Testing',
-  anon: true,
+  post_body: 'This is an example post. I am posting stuff right now! Wow!',
+  username: 'Anonymous',
+  post_header: 'Testing',
+  anonymous: true,
   comments: [],
 
 };
 
 const exampleUser2 = {
-  text: 'Another example post. I love this app!',
-  user: 'Steve',
-  title: 'How I love this app',
-  anon: false,
+  post_body: 'Another example post. I love this app!',
+  username: 'Steve',
+  post_header: 'How I love this app',
+  anonymous: false,
   comments: [],
 };
+
+const url = 'https://lbc-backend-fxp5s3idfq-nn.a.run.app';
 
 const Timeline = () => {
   const [newPostScreen, setNewPostScreen] = useState(false);
@@ -47,6 +48,22 @@ const Timeline = () => {
     comments: [],
   });
 
+  // example api fetch that has not been tested
+  /*
+  fetch(`${url}/posts`)
+    .then(res => { return res.json; })
+    .then(data => {
+      setAllPosts(data);
+    });
+    */
+  useEffect(() => {
+    fetch(`${url}/posts`)
+      .then(res => { return res.json(); })
+      .then(data => {
+        setAllPosts(data);
+      });
+  }, []);
+
   function deletePostFromAllPosts(post) {
     const newPostsList = [...allPosts];
 
@@ -57,6 +74,7 @@ const Timeline = () => {
     });
 
     setAllPosts(newPostsList);
+    // add api request to patch/delete posts, this post must be deleted from the api
   }
 
   const updateCurrViewedPost = commentValue => {
@@ -72,6 +90,21 @@ const Timeline = () => {
     };
 
     setCurrViewedPost(newViewedPost);
+    /*
+    try {
+      const res = fetch(
+        url + "/posts/" + postid + "/comments",
+        {
+          method: 'POST',
+          body: JSON.stringify({userid: userid, content: commentValue}),
+        },
+      );
+
+      return res.status == 200;
+    } catch (err) {
+      return false;
+    }
+    */
   };
 
   if (newPostScreen === true) {

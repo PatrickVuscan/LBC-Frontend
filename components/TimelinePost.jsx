@@ -9,7 +9,7 @@ import { colours } from '../theme/theme';
 export default props => {
   let headerColor = colours.purple;
   let closingButton;
-  if (props.post.user === 'user') {
+  if (props.post.username === 'user') {
     headerColor = 'black';
     closingButton = (
       <Button
@@ -24,8 +24,8 @@ export default props => {
       </Button>
     );
   }
-  let displayedUser = props.post.user;
-  if (props.post.anon) {
+  let displayedUser = props.post.username;
+  if (props.post.anonymous) {
     displayedUser = 'Anonymous';
   }
   return (
@@ -38,7 +38,7 @@ export default props => {
         </Left>
         <Right>
           <Text style={{ color: 'white' }}>
-            {props.post.title}
+            {props.post.post_header}
           </Text>
         </Right>
       </Header>
@@ -47,7 +47,7 @@ export default props => {
         style={{ backgroundColor: 'white' }}
       >
         <Text style={{ marginTop: 10, fontSize: 18, color: '#555' }}>
-          {props.post.text}
+          {props.post.post_body}
         </Text>
       </Content>
       <View style={{ padding: 0, flexDirection: 'row', alignItems: 'flex-end' }}>
