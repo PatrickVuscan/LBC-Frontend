@@ -1,58 +1,85 @@
 import React, { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import Dropdown from 'react-native-picker-select';
 
-import { colours } from '../theme/theme';
-
-const DropdownMenu = () => {
+const DropdownMenu = props => {
+  // TODO: bring state out to articles components, so state is not stuck in
+  // dropdown, but in props (hoist state into parent, since parent need s to access
+  // this state)!
   const [selectedCategory, setSelectedCategory] = useState();
   const placeholder = {
     label: 'Select an article category...',
     value: null,
   };
+  const { header } = props;
 
   return (
-    <Dropdown
-      placeholder={placeholder}
-      items={[
-        { label: 'Featured', value: 'featured' },
-        { label: 'Baseball', value: 'baseball' },
-        { label: 'Hockey', value: 'hockey' },
-      ]}
-      Icon={() => {
-        return (
-          <Ionicons
-            name="md-arrow-down"
-            size={30}
-            color="gray"
-          />
-        );
-      }}
-      value={selectedCategory}
-      onValueChange={value => { setSelectedCategory(value); }}
-      style={{
-        inputIOS: {
-          fontSize: 20,
-        },
-        placeholder: {
-          fontSize: 20,
-        },
-      }}
-    />
+    <>
+      <Text
+        style={
+          {
+            fontSize: 18,
+            // padding: 10, // spacing inside border
+            margin: 10, // spacing outside border
+            // overlapping margins = take largest margin
+          }
+        }
+      >
+        { header }
+      </Text>
+      <Dropdown
+        // TODO: factor these remaining items out into props.
+        placeholder={placeholder}
+        items={[
+          { label: 'Mental Health', value: 'mental health' },
+          { label: 'Social Justice', value: 'social justice' },
+          { label: 'Education', value: 'education' },
+        ]}
+        value={selectedCategory}
+        onValueChange={value => { setSelectedCategory(value); }}
+        Icon={() => {
+          return (
+            <Ionicons
+              name="md-arrow-down"
+              size={30}
+              color="gray"
+            />
+          );
+        }}
+        style={{
+          ...pickerSelectStyles,
+        }}
+      />
+    </>
   );
 };
 
-const styles = StyleSheet.create({
-  innerContainer: {
-    marginHorizontal: 25,
-    marginVertical: 15,
+const pickerSelectStyles = StyleSheet.create({
+  inputIOS: {
+    fontSize: 18,
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    borderWidth: 1,
+    borderColor: 'gray',
+    borderRadius: 10,
+    color: 'black',
+    paddingRight: 30, // to ensure the text is never behind the icon
   },
-  outerContainer: {
-    backgroundColor: colours.purple,
+  inputAndroid: {
+    fontSize: 18,
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    borderWidth: 0.5,
+    borderColor: 'purple',
+    borderRadius: 10,
+    color: 'black',
+    paddingRight: 30, // to ensure the text is never behind the icon
   },
-  flatlist: {
-    marginBottom: 15,
+  iconContainer: {
+    height: '100%',
+    justifyContent: 'center',
+    paddingRight: 10,
   },
 });
 

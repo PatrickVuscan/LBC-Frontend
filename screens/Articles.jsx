@@ -14,6 +14,7 @@ const Articles = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [articles, setArticles] = useState();
+  // TODO: add a new state for article category, and retrieve category.
 
   // Query the articles from Sanity
   useEffect(() => {
@@ -39,8 +40,7 @@ const Articles = () => {
       {/* We have to create a filter thing here, to select from different
       categories and only display articles filtered from that category */}
       <View style={styles.innerContainer}>
-        <Text>Filter Articles by Category</Text>
-        <DropdownMenu />
+        <DropdownMenu header="Filter Articles by Category" />
       </View>
 
       {/* Articles */}
