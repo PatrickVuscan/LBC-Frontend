@@ -17,7 +17,6 @@ import Login from './screens/Login';
 import store from './state/store';
 
 const Tab = createBottomTabNavigator();
-const userBase = { user: 'user' }; //! This is for frontend mock login only
 
 export default class App extends React.Component {
   constructor(props) {
@@ -25,7 +24,7 @@ export default class App extends React.Component {
     this.state = {
       isReady: false,
       loggedIn: false,
-      // access_token: ""
+      access_token: '',
     };
   }
 
@@ -59,42 +58,37 @@ export default class App extends React.Component {
     );
   }
 
-  addUser = (username, password) => {
-    userBase[username] = password;
-  }
-
-  logIn = /* async */ (username, password) => {
+  logIn = async (username, password) => {
     // TODO Commented out code is for future backend calls
-    /* try{
-      const res = await fetch(
-        "http://10.0.2.2:5000/users/login",
-        {
-          method: "POST",
-          body: JSON.stringify({"username": username, "password": password})
-        }
-      )
-
-      if(res.status == 200){
-        token = JSON.parse(res.json())["access_token"]
-        console.log(token) //!for testing only
-
-        this.setState({ loggedIn: true, access_token: token})
-      }
-      else{
-        this.createAlert("Failed Log In", "Something went wrong on our end :(")
-      }
-    }
-    catch{
-      this.createAlert("Failed Log In", "Something went wrong on our end :(")
-    } */
-
     try {
+      const res = await fetch(
+        'http://10.0.2.2:5000/users/login',
+        {
+          method: 'POST',
+          body: JSON.stringify({ username, password }),
+        },
+      );
+
+      if (res.status === 200) {
+        const token = JSON.parse(res.json()).access_token;
+        console.log(token); //! for testing only
+
+        this.setState({ loggedIn: true, access_token: token });
+        return true;
+      }
+      this.createAlert('Failed Log In', 'Something went wrong on our end :(');
+    } catch {
+      this.createAlert('Failed Log In', 'Something went wrong on our end :(');
+      return false;
+    }
+
+    /* try {
       const loggedInBool = userBase[username] === password;
       this.setState({ loggedIn: loggedInBool });
       return loggedInBool;
     } catch (err) {
       return false;
-    }
+    } */
   }
 
   render() {
@@ -116,8 +110,6 @@ export default class App extends React.Component {
             <Login
               logIn={this.logIn}
               createAlert={this.createAlert}
-              addUser={this.addUser}
-              userBase={userBase}
             />
           ) : (
             <NavigationContainer>

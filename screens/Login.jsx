@@ -15,30 +15,22 @@ const Login = props => {
   const [usernameValue, onChangeUsername] = React.useState('');
   const [passwordValue, onChangePassword] = React.useState('');
 
-  const signUp = /* async */ () => {
-    // TODO Commented out code is for future backend calls
-    /* try{
-        const res = await fetch(
-            "http://10.0.2.2:5000/users/",
-            {
-                method: 'POST',
-                body: JSON.stringify({"username": usernameValue, "password": passwordValue})
-            }
-        )
-    
-        return res.status == 200
-    }
-    catch(err){
-        return false
-    } */
+  const signUp = async () => {
+    try {
+      const res = await fetch(
+        'http://99.237.154.88:5000/users/',
+        {
+          method: 'POST',
+          body: JSON.stringify({ 'username': usernameValue, 'password': passwordValue }),
+        },
+      );
 
-    if (usernameValue in props.userBase) {
+      console.log(res); //! for testing
+    
+      return res.status === 200;
+    } catch (err) {
       return false;
     }
-
-    props.addUser(usernameValue, passwordValue);
-    props.logIn(usernameValue, passwordValue);
-    return true;
   };
 
   return (
@@ -117,13 +109,14 @@ const Login = props => {
           bordered 
           style={styles.button}
           onPress={() => {
-            if (signUp()) {
+            let signUpRes;
+            signUp().then(res => { signUpRes = res; });
+
+            if (signUpRes) {
               // Do log in stuff
               props.logIn();
             } else {
-              props.createAlert('Error adding User', 'User already exists');
-              // TODO commented out code is for future backend calls
-              // props.createAlert("Server Response Error", "Something went wrong on our end!")
+              props.createAlert('Server Response Error', 'Something went wrong on our end!');
             }
           }}  
         >
