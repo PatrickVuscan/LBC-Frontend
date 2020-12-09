@@ -3,6 +3,7 @@ import {
   Button,
   Container,
   Text,
+  Icon,
 } from 'native-base';
 import React, { useState, useEffect } from 'react';
 import { View, Image } from 'react-native';
@@ -34,7 +35,7 @@ const exampleUser2 = {
 
 const url = 'https://lbc-backend-fxp5s3idfq-nn.a.run.app';
 
-const Timeline = () => {
+const Timeline = props => {
   const [newPostScreen, setNewPostScreen] = useState(false);
   const [allPosts, setAllPosts] = useState([]);
   const [viewPost, setViewPost] = useState(false);
@@ -43,9 +44,17 @@ const Timeline = () => {
     username: '',
     post_header: '',
     anonymous: null,
-    topic: '', 
-    post_id: 1, 
+    topic: '',
+    post_id: 1,
   });
+
+  useEffect(() => {
+    fetch(`${url}/posts`)
+      .then(res => { return res.json(); })
+      .then(data => {
+        setAllPosts(data);
+      });
+  }, []);
 
   // example api fetch that has not been tested
   /*
@@ -55,13 +64,6 @@ const Timeline = () => {
       setAllPosts(data);
     });
     */
-  useEffect(() => {
-    fetch(`${url}/posts`)
-      .then(res => { return res.json(); })
-      .then(data => {
-        setAllPosts(data);
-      });
-  }, []);
 
   function deletePostFromAllPosts(post) {
     const newPostsList = [...allPosts];
@@ -132,6 +134,20 @@ const Timeline = () => {
   return (
     <ScreenBase
       left={(
+        <View>
+          <Button
+            transparent
+            onPress={() => { return props.navigation.openDrawer(); }}
+          >
+            <Icon
+              style={{ color: colours.gold }}
+              name="ios-menu"
+            />
+          </Button>
+        </View>
+      )}
+      header=""
+      right={(
         <Button
           style={{ alignSelf: 'flex-end', marginLeft: 'auto', backgroundColor: colours.gold }}
           onPress={() => { return setNewPostScreen(true); }}
@@ -139,15 +155,6 @@ const Timeline = () => {
           <Text style={{ color: colours.purple }}>
             New Post
           </Text>
-        </Button>
-      )}
-      header=""
-      right={(
-        <Button style={{ backgroundColor: colours.gold, width: 75, height: 50 }}>
-          <Image
-            source={brain}
-            style={{ width: 60, height: 48 }}
-          />
         </Button>
       )}
     >
@@ -158,6 +165,12 @@ const Timeline = () => {
           justifyContent: 'space-between',
         }}
       >
+        <Button style={{ backgroundColor: colours.gold, width: 75, height: 50 }}>
+          <Image
+            source={brain}
+            style={{ width: 60, height: 48 }}
+          />
+        </Button>
         {allPosts.map((item, index) => {
           return (
             <TimelinePost

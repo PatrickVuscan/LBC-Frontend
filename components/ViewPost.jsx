@@ -39,7 +39,7 @@ const ViewPost = ({
 
     try {
       const res = fetch(
-        'https://lbc-backend-fxp5s3idfq-nn.a.run.app/posts/'+ post_id + '/comments',
+        `https://lbc-backend-fxp5s3idfq-nn.a.run.app/posts/${post_id}/comments`,
         {
           method: 'POST',
           body: JSON.stringify(newComment),
@@ -56,13 +56,17 @@ const ViewPost = ({
   // url = `https://lbc-backend-fxp5s3idfq-nn.a.run.app/posts/1/comments/`;
 
   useEffect(() => {
-    fetch('https://lbc-backend-fxp5s3idfq-nn.a.run.app/posts/' + post_id + '/comments/')
-      .then(res => { return res.json(); })
-      .then(data => {
-        if (Array.isArray(data)) {
-          setAllComments(data);
-        }
-      });
+    try {
+      fetch(`https://lbc-backend-fxp5s3idfq-nn.a.run.app/posts/${post_id}/comments/`)
+        .then(res => { return res.json(); })
+        .then(data => {
+          if (Array.isArray(data)) {
+            setAllComments(data);
+          }
+        });
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
 
   return (

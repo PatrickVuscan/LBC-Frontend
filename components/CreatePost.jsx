@@ -47,9 +47,9 @@ export default class CreatePost extends React.Component {
 
     };
 
-    const a = this.props.posts;
-    a.unshift(newPostContent);
-    this.props.setAllPosts(a);
+    //const a = this.props.posts;
+    //a.unshift(newPostContent);
+    //this.props.setAllPosts(a);
 
     this.props.newPost(false);
 
@@ -64,6 +64,7 @@ export default class CreatePost extends React.Component {
 
       return res.status == 200;
     } catch (err) {
+      console.log(err);
       return false;
     }
   }
@@ -155,7 +156,10 @@ export default class CreatePost extends React.Component {
             style={{
               backgroundColor: colours.purple, height: 40, width: 94, marginLeft: 'auto', justifyContent: 'center',
             }}
-            onPress={this.savePost}
+            onPress={() => {
+              this.savePost();
+              //this.props.pullData();}
+            }}
           >
             <Text style={{ color: 'white', textAlign: 'center' }}>Post</Text>
           </Button>

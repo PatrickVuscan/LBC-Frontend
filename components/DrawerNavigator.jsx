@@ -62,7 +62,7 @@ export default function DrawerNav() {
       >
         <Drawer.Screen
           name="Timeline"
-          children={() => <Timeline/>}
+          component = {Timeline}
         />
         <Drawer.Screen
           name="My Posts"
