@@ -8,8 +8,7 @@ import React, { useState } from 'react';
 import TimelinePost from './TimelinePost';
 import ViewPost from './ViewPost';
 
-
-//This page will be for notifications/user's posts 
+// This page will be for notifications/user's posts
 const myPosts = () => {
   // pull users's posts from database
   return (

@@ -4,8 +4,10 @@ import {
   Header, Body,
 } from 'native-base';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { DrawerNavigator } from 'react-navigation';
+import { DrawerNavigator, DrawerNavigatorItems } from 'react-navigation-drawer';
 import { View, Image } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import Timeline from '../screens/Timeline';
 import { colours } from '../theme/theme';
 import MyPosts from './MyPosts';
@@ -15,8 +17,7 @@ const lbcLogo = require('../assets/lbc_logo_w_ball_gradient.png');
 
 const img = <Image source={lbcLogo} />;
 
-/*
-//still attempting to implement images into the drawer navigator with no success so far
+// still attempting to implement images into the drawer navigator with no success so far
 const CustomDrawerNavComponent = props => {
   <View>
     <Header>
@@ -24,7 +25,27 @@ const CustomDrawerNavComponent = props => {
         <Image source={lbcLogo} />
       </Body>
     </Header>
+    <DrawerNavigatorItems {...props} />
   </View>;
+};
+
+const Stack = createStackNavigator();
+
+/*
+const DrawerNav = () => {
+  return (
+
+    <Stack.Navigator
+      initialRouteName="Timeline"
+      screenOptions={{ headerLeft: () => { return <Image source={lbcLogo} />; } }}
+    >
+      <Stack.Screen
+        name="Timeline"
+        component={Timeline}
+      />
+    </Stack.Navigator>
+
+  );
 };
 */
 
@@ -37,6 +58,7 @@ export default function DrawerNav() {
           itemStyle: { marginVertical: 5 },
         }}
         initialRouteName="Timeline"
+        contentComponent={CustomDrawerNavComponent}
       >
         <Drawer.Screen
           name="Timeline"
@@ -50,3 +72,5 @@ export default function DrawerNav() {
     </Container>
   );
 }
+
+// export default DrawerNav;
