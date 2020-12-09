@@ -72,15 +72,13 @@ export default class App extends React.Component {
       if (res.status === 200) {
         const token = res.json().access_token;
         const type = res.json().token_type;
-        console.log(token); //! for testing only
 
         this.setState({ loggedIn: true, accessToken: token, tokenType: type });
-        return true;
+      } else {
+        this.createAlert('Failed Log In', 'Incorrect username or password');
       }
-      this.createAlert('Failed Log In', 'Something went wrong on our end :( return');
     } catch {
-      this.createAlert('Failed Log In', 'Something went wrong on our end :( catch');
-      return false;
+      this.createAlert('Failed Log In', 'Something went wrong on our end :(');
     }
   }
 
