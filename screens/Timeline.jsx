@@ -22,7 +22,6 @@ const exampleUser = {
   username: 'Anonymous',
   post_header: 'Testing',
   anonymous: true,
-  comments: [],
 
 };
 
@@ -31,7 +30,6 @@ const exampleUser2 = {
   username: 'Steve',
   post_header: 'How I love this app',
   anonymous: false,
-  comments: [],
 };
 
 const url = 'https://lbc-backend-fxp5s3idfq-nn.a.run.app';
@@ -41,11 +39,12 @@ const Timeline = () => {
   const [allPosts, setAllPosts] = useState([]);
   const [viewPost, setViewPost] = useState(false);
   const [currViewedPost, setCurrViewedPost] = useState({
-    text: '',
-    user: '',
-    title: '',
-    anon: null,
-    comments: [],
+    post_body: '',
+    username: '',
+    post_header: '',
+    anonymous: null,
+    topic: '', 
+    post_id: 1, 
   });
 
   // example api fetch that has not been tested
@@ -77,35 +76,35 @@ const Timeline = () => {
     // add api request to patch/delete posts, this post must be deleted from the api
   }
 
-  const updateCurrViewedPost = commentValue => {
-    const newComments = currViewedPost.comments;
-    newComments.push(['user', commentValue]);
+  // const updateCurrViewedPost = commentValue => {
+  //   const newComments = currViewedPost.comments;
+  //   newComments.push(['user', commentValue]);
 
-    const newViewedPost = {
-      text: currViewedPost.text,
-      user: currViewedPost.user,
-      title: currViewedPost.title,
-      anon: currViewedPost.anon,
-      comments: newComments,
-    };
+  //   const newViewedPost = {
+  //     text: currViewedPost.text,
+  //     user: currViewedPost.user,
+  //     title: currViewedPost.title,
+  //     anon: currViewedPost.anon,
+  //     comments: newComments,
+  //   };
 
-    setCurrViewedPost(newViewedPost);
-    /*
-    try {
-      const res = fetch(
-        url + "/posts/" + postid + "/comments",
-        {
-          method: 'POST',
-          body: JSON.stringify({userid: userid, content: commentValue}),
-        },
-      );
+  //   setCurrViewedPost(newViewedPost);
+  //   /*
+  //   try {
+  //     const res = fetch(
+  //       url + "/posts/" + postid + "/comments",
+  //       {
+  //         method: 'POST',
+  //         body: JSON.stringify({userid: userid, content: commentValue}),
+  //       },
+  //     );
 
-      return res.status == 200;
-    } catch (err) {
-      return false;
-    }
-    */
-  };
+  //     return res.status == 200;
+  //   } catch (err) {
+  //     return false;
+  //   }
+  //   */
+  // };
 
   if (newPostScreen === true) {
     return (
@@ -125,7 +124,6 @@ const Timeline = () => {
         <ViewPost
           setViewPost={setViewPost}
           post={currViewedPost}
-          updateCurrViewedPost={updateCurrViewedPost}
         />
       </Container>
     );
