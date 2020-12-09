@@ -62,11 +62,13 @@ export default function DrawerNav() {
       >
         <Drawer.Screen
           name="Timeline"
-          component = {Timeline}
+          initialParams={{ myposts: false }}
+          component={Timeline}
         />
         <Drawer.Screen
           name="My Posts"
-          children={() => <MyPosts/>}
+          initialParams={{ myposts: true }}
+          component={Timeline}
         />
       </Drawer.Navigator>
     </Container>

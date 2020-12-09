@@ -35,7 +35,7 @@ const exampleUser2 = {
 
 const url = 'https://lbc-backend-fxp5s3idfq-nn.a.run.app';
 
-const Timeline = props => {
+const Timeline = ({ navigation, route }) => {
   const [newPostScreen, setNewPostScreen] = useState(false);
   const [allPosts, setAllPosts] = useState([]);
   const [viewPost, setViewPost] = useState(false);
@@ -49,11 +49,19 @@ const Timeline = props => {
   });
 
   useEffect(() => {
-    fetch(`${url}/posts`)
-      .then(res => { return res.json(); })
-      .then(data => {
-        setAllPosts(data);
-      });
+    if (route.params.myposts) {
+      fetch(`${url}/posts/user/user`)
+        .then(res => { return res.json(); })
+        .then(data => {
+          setAllPosts(data);
+        });
+    } else {
+      fetch(`${url}/posts`)
+        .then(res => { return res.json(); })
+        .then(data => {
+          setAllPosts(data);
+        });
+    }
   });
 
   // example api fetch that has not been tested
@@ -80,7 +88,7 @@ const Timeline = props => {
         `https://lbc-backend-fxp5s3idfq-nn.a.run.app/posts/${post.post_id}`,
         {
           method: 'DELETE',
-          body: JSON.stringify({username: post.username}),
+          body: JSON.stringify({ username: post.username }),
         },
       );
     } catch (err) {
@@ -147,7 +155,7 @@ const Timeline = props => {
         <View>
           <Button
             transparent
-            onPress={() => { return props.navigation.openDrawer(); }}
+            onPress={() => { return navigation.openDrawer(); }}
           >
             <Icon
               style={{ color: colours.gold }}
@@ -194,6 +202,7 @@ const Timeline = props => {
             />
           );
         })}
+        {/* }
         <View>
           <TimelinePost
             post={exampleUser}
@@ -208,6 +217,7 @@ const Timeline = props => {
             setCurrViewedPost={setCurrViewedPost}
           />
         </View>
+      { */}
       </ScrollView>
     </ScreenBase>
   );
