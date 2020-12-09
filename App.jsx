@@ -15,7 +15,7 @@ import ReportIt from './screens/ReportIt';
 import Timeline from './screens/Timeline';
 import Login from './screens/Login';
 import store from './state/store';
-import DrawerNav from './components/DrawerNavigator'; 
+import DrawerNav from './components/DrawerNavigator';
 
 const Tab = createBottomTabNavigator();
 const userBase = { user: 'user' }; //! This is for frontend mock login only
@@ -123,9 +123,47 @@ export default class App extends React.Component {
           ) : (
             <NavigationContainer>
               <Tab.Navigator
+                // I'm using @expo/vector-icons version 10.2.1 because it's
+                // the latest version that renders icons properly.
+                // I looked at the latest version of all of the expo icons on
+                // https://icons.expo.fyi/ but not all icons are compatible.
+                // Also, google searching 10.2.1 icons doesn't work because
+                // it takes me to 12.0.1 icons.
+                screenOptions={({ route }) => {
+                  return {
+                    tabBarIcon: ({ focused, color, size }) => {
+                      let iconName;
+                      if (route.name === 'Connect') {
+                        iconName = focused
+                          ? 'md-person'
+                          : 'md-person';
+                      } else if (route.name === 'Educate') {
+                        iconName = focused
+                          ? 'ios-list-box'
+                          : 'ios-list';
+                      } else if (route.name === 'Take Action') {
+                        iconName = focused
+                          ? 'ios-information-circle'
+                          : 'ios-information-circle-outline';
+                      } else { // route.name === "Report It"
+                        iconName = focused
+                          ? 'ios-list-box'
+                          : 'ios-list';
+                      }
+
+                      return (
+                        <Ionicons
+                          name={iconName}
+                          size={size}
+                          color={color}
+                        />
+                      );
+                    },
+                  };
+                }}
                 initialRouteName="Timeline"
                 tabBarOptions={{
-                  activeTintColor: 'white',
+                  activeTintColor: colours.gold,
                   inactiveTintColor: 'white',
                   tabStyle: {
                     justifyContent: 'center',
