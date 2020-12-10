@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Alert } from 'react-native';
 import { StoreProvider } from 'easy-peasy';
 import * as Font from 'expo-font';
-import { Spinner, View} from 'native-base';
+import { Spinner, View } from 'native-base';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colours } from './theme/theme';
@@ -70,7 +70,7 @@ export default class App extends React.Component {
         },
       );
 
-      const data = await res.json(); 
+      const data = await res.json();
 
       if (res.status === 200) {
         const token = data.access_token;
@@ -133,12 +133,12 @@ export default class App extends React.Component {
                           : 'ios-list';
                       } else if (route.name === 'Take Action') {
                         iconName = focused
-                          ? 'ios-information-circle'
-                          : 'ios-information-circle-outline';
-                      } else { // route.name === "Report It"
-                        iconName = focused
                           ? 'ios-list-box'
                           : 'ios-list';
+                      } else { // route.name === "Report It"
+                        iconName = focused
+                          ? 'ios-information-circle'
+                          : 'ios-information-circle-outline';
                       }
 
                       return (
@@ -158,7 +158,7 @@ export default class App extends React.Component {
                   tabStyle: {
                     justifyContent: 'center',
                   },
-                  activeBackgroundColor: colours.purple,
+                  activeBackgroundColor: 'black',
                   inactiveBackgroundColor: 'black',
                 }}
                 // TODO: check
@@ -167,7 +167,10 @@ export default class App extends React.Component {
                 <Tab.Screen
                   name="Connect"
                   component={DrawerNav}
-                  initialParams={{ accessToken: this.state.accessToken, tokenType: this.state.tokenType }}
+                  initialParams={{
+                    accessToken: this.state.accessToken,
+                    tokenType: this.state.tokenType,
+                  }}
                 />
                 <Tab.Screen
                   name="Educate"
