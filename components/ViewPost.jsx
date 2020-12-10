@@ -67,7 +67,7 @@ const ViewPost = ({
     } catch (err) {
       console.log(err);
     }
-  }, []);
+  });
 
   return (
     <Container>

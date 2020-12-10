@@ -72,7 +72,7 @@ const Timeline = ({ navigation, route }) => {
           setAllPosts(data);
         });
     }
-  });
+  }, [allPosts, loggedInUser.username, route.params.myposts, dummyState]);
 
   // example api fetch that has not been tested
   /*
@@ -244,5 +244,6 @@ const Timeline = ({ navigation, route }) => {
     </ScreenBase>
   );
 };
+
 
 export default Timeline;
