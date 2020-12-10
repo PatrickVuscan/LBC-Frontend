@@ -21,7 +21,7 @@ const ViewPost = ({
     anonymous,
     username,
     post_id,
-  }, setViewPost,
+  }, setViewPost
 }) => {
   const [commentInput, setCommentInput] = useState('');
   const [allComments, setAllComments] = useState([]);

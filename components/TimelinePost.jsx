@@ -9,7 +9,7 @@ import { colours } from '../theme/theme';
 export default props => {
   let headerColor = colours.purple;
   let closingButton;
-  if (props.post.username === 'user') {
+  if (props.post.username === props.loggedInUser.username) {
     headerColor = 'black';
     closingButton = (
       <Button

@@ -40,6 +40,7 @@ const Timeline = ({ navigation, route }) => {
   const [allPosts, setAllPosts] = useState([]);
   const [viewPost, setViewPost] = useState(false);
   const [dummyState, setDummyState] = useState(0);
+  const [loggedInUser, setLoggedInUser] = useState({ username: 'user' });
   const [currViewedPost, setCurrViewedPost] = useState({
     post_body: '',
     username: '',
@@ -49,9 +50,17 @@ const Timeline = ({ navigation, route }) => {
     post_id: 1,
   });
 
+  const loadUser = () => {
+    fetch(`${url}/users/me`, { headers: { Authorization: `${route.params.tokenType} ${route.params.accessToken}` } })
+      .then(res => { return res.json(); })
+      .then(data => {
+        setLoggedInUser(data);
+      });
+  };
+
   useEffect(() => {
     if (route.params.myposts) {
-      fetch(`${url}/posts/user/user`)
+      fetch(`${url}/posts/user/${loggedInUser.username}`)
         .then(res => { return res.json(); })
         .then(data => {
           setAllPosts(data);
@@ -75,7 +84,7 @@ const Timeline = ({ navigation, route }) => {
     */
 
   function deletePostFromAllPosts(post) {
-    /* 
+    /*
     const newPostsList = [...allPosts];
 
     newPostsList.forEach((p, index) => {
@@ -85,12 +94,11 @@ const Timeline = ({ navigation, route }) => {
     });
 
     setAllPosts(newPostsList);
-    */ 
+    */
     if (dummyState === 0) {
       setDummyState(1);
-    }
-    else {
-      setDummyState(0); 
+    } else {
+      setDummyState(0);
     }
     try {
       fetch(
@@ -135,6 +143,7 @@ const Timeline = ({ navigation, route }) => {
   //   */
   // };
 
+  loadUser(); 
   if (newPostScreen === true) {
     return (
       <Container>
@@ -142,6 +151,7 @@ const Timeline = ({ navigation, route }) => {
           newPost={setNewPostScreen}
           posts={allPosts}
           setAllPosts={setAllPosts}
+          loggedInUser={loggedInUser}
         />
       </Container>
     );
@@ -192,7 +202,7 @@ const Timeline = ({ navigation, route }) => {
           justifyContent: 'space-between',
         }}
       >
-        {/* 
+        {/*
         <Button style={{ backgroundColor: colours.gold, width: 75, height: 50 }}>
           <Image
             source={brain}
@@ -210,6 +220,7 @@ const Timeline = ({ navigation, route }) => {
               deletePost={deletePostFromAllPosts}
               setViewPost={setViewPost}
               setCurrViewedPost={setCurrViewedPost}
+              loggedInUser={loggedInUser}
             />
           );
         })}

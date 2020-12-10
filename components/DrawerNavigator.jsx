@@ -49,7 +49,7 @@ const DrawerNav = () => {
 };
 */
 
-export default function DrawerNav() {
+const DrawerNav = ({navigation, route}) => {
   return (
     <Container>
       <Drawer.Navigator
@@ -62,12 +62,12 @@ export default function DrawerNav() {
       >
         <Drawer.Screen
           name="Timeline"
-          initialParams={{ myposts: false }}
+          initialParams={{ myposts: false, accessToken: route.params.accessToken, tokenType: route.params.tokenType }}
           component={Timeline}
         />
         <Drawer.Screen
           name="My Posts"
-          initialParams={{ myposts: true }}
+          initialParams={{ myposts: true, accessToken: route.params.accessToken, tokenType: route.params.tokenType }}
           component={Timeline}
         />
       </Drawer.Navigator>
@@ -75,4 +75,4 @@ export default function DrawerNav() {
   );
 }
 
-// export default DrawerNav;
+export default DrawerNav;

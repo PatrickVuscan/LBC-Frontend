@@ -42,7 +42,7 @@ export default class CreatePost extends React.Component {
       post_body: this.state.postText,
       anonymous: anon,
       post_header: this.state.postTitle,
-      username: 'user',
+      username: this.props.loggedInUser.username,
       topic: 'topic', 
 
     };

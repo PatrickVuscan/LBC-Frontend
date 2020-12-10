@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Alert } from 'react-native';
 import { StoreProvider } from 'easy-peasy';
 import * as Font from 'expo-font';
-import { Spinner, View } from 'native-base';
+import { Spinner, View} from 'native-base';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colours } from './theme/theme';
@@ -70,9 +70,11 @@ export default class App extends React.Component {
         },
       );
 
+      const data = await res.json(); 
+
       if (res.status === 200) {
-        const token = res.json().access_token;
-        const type = res.json().token_type;
+        const token = data.access_token;
+        const type = data.token_type;
 
         this.setState({ loggedIn: true, accessToken: token, tokenType: type });
       } else {
@@ -164,7 +166,8 @@ export default class App extends React.Component {
               >
                 <Tab.Screen
                   name="Connect"
-                  children={() => <DrawerNav />}
+                  component={DrawerNav}
+                  initialParams={{ accessToken: this.state.accessToken, tokenType: this.state.tokenType }}
                 />
                 <Tab.Screen
                   name="Educate"

@@ -10,7 +10,7 @@ import ViewPost from './ViewPost';
 
 const url = 'https://lbc-backend-fxp5s3idfq-nn.a.run.app';
 // This page will be for notifications/user's posts
-const MyPosts = () => {
+const MyPosts = (props) => {
   const [allPosts, setAllPosts] = useState([]);
   const [viewPost, setViewPost] = useState(false); 
 
