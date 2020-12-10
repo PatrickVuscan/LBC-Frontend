@@ -1,7 +1,7 @@
 import { Spinner } from 'native-base';
 import React, { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import { QUERY_ARTICLE } from '../api/queries/article';
+import { QUERY_ARTICLE } from '../sanity/article';
 import client from '../sanity/client';
 import Body from './Body';
 import CaptionedImage from './CaptionedImage';

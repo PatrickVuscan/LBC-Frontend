@@ -3,7 +3,7 @@ import {
 } from 'native-base';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { QUERY_RESOURCE } from '../api/queries/resource';
+import { QUERY_RESOURCE } from '../sanity/resource';
 import client from '../sanity/client';
 import Body from './Body';
 import CaptionedImage from './CaptionedImage';

@@ -1,7 +1,7 @@
 import { Spinner } from 'native-base';
 import React, { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import { QUERY_CTA } from '../api/queries/cta';
+import { QUERY_CTA } from '../sanity/cta';
 import client from '../sanity/client';
 import { colours } from '../theme/theme';
 import Body from './Body';
