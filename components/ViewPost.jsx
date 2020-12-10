@@ -6,21 +6,68 @@ import {
   Input,
   Text,
 } from 'native-base';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { colours } from '../theme/theme';
 
+// let url = 'https://lbc-backend-fxp5s3idfq-nn.a.run.app';
+
 // eslint-disable-next-line no-unused-vars
 const ViewPost = ({
   post, post: {
-    text,
-    // user,
-    // anon,
-    // title,
-  }, setViewPost, updateCurrViewedPost,
+    post_body,
+    post_header,
+    anonymous,
+    username,
+    post_id,
+  }, setViewPost
 }) => {
   const [commentInput, setCommentInput] = useState('');
+  const [allComments, setAllComments] = useState([]);
+
+  function addComment() {
+    const newComment = {
+      content: commentInput,
+      user_id: 1,
+    };
+
+    const a = allComments;
+    a.push(newComment);
+    setAllComments(a);
+    setCommentInput('');
+
+    try {
+      const res = fetch(
+        `https://lbc-backend-fxp5s3idfq-nn.a.run.app/posts/${post_id}/comments`,
+        {
+          method: 'POST',
+          body: JSON.stringify(newComment),
+        },
+      );
+
+      return res.status == 200;
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
+  }
+
+  // url = `https://lbc-backend-fxp5s3idfq-nn.a.run.app/posts/1/comments/`;
+
+  useEffect(() => {
+    try {
+      fetch(`https://lbc-backend-fxp5s3idfq-nn.a.run.app/posts/${post_id}/comments/`)
+        .then(res => { return res.json(); })
+        .then(data => {
+          if (Array.isArray(data)) {
+            setAllComments(data);
+          }
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  });
 
   return (
     <Container>
@@ -41,7 +88,7 @@ const ViewPost = ({
               color: 'white', fontSize: 20, marginLeft: 'auto', marginRight: 20,
             }}
           >
-            {post.title}
+            {post_header}
           </Text>
         </Header>
         <View
@@ -66,7 +113,7 @@ const ViewPost = ({
               margin: 5,
             }}
           >
-            {text}
+            {post_body}
           </Text>
         </View>
         <Header style={{ backgroundColor: colours.purple }}>
@@ -83,25 +130,21 @@ const ViewPost = ({
             onChangeText={inputVal => {
               setCommentInput(inputVal);
             }}
-            onSubmitEditing={() => {
-              updateCurrViewedPost(commentInput);
-            }}
+            onSubmitEditing={addComment}
             style={{
               borderBottomColor: '#bbb',
               borderBottomWidth: 2,
             }}
           />
           <Button
-            onPress={() => {
-              updateCurrViewedPost(commentInput);
-            }}
+            onPress={addComment}
             style={{ backgroundColor: colours.gold }}
           >
             <Text style={{ color: colours.purple }}>Post Comment</Text>
           </Button>
         </View>
         <View>
-          {post.comments.map((item, index) => {
+          {allComments.map((item, index) => {
             return (
               <View
                 // eslint-disable-next-line react/no-array-index-key
@@ -112,18 +155,26 @@ const ViewPost = ({
                   borderBottomWidth: 2,
                 }}
               >
+                {/* }
                 <Text
                   style={{ fontSize: 22, color: colours.gold }}
                   // eslint-disable-next-line react/no-array-index-key
                 >
-                  { item[0] }
+                  {
+                    item.user_id
+                    // "user"
+                  }
                   :
                 </Text>
+                { */}
                 <Text
                   style={{ fontSize: 18 }}
                   // eslint-disable-next-line react/no-array-index-key
                 >
-                  { item[1] }
+                  {
+                    item.content
+                    // "hey"
+                  }
                 </Text>
               </View>
             );

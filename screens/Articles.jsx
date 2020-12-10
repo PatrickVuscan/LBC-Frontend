@@ -1,9 +1,10 @@
 // @ts-check
 import { Spinner, View } from 'native-base';
 import React, { useEffect, useState } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 import { QUERY_ARTICLES } from '../sanity/article';
 import ContentCard from '../components/ContentCard';
+import DropdownMenu from '../components/DropdownMenu';
 import ErrorMessage from '../components/ErrorMessage';
 import Title from '../components/Title';
 import client from '../sanity/client';
@@ -13,6 +14,8 @@ const Articles = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [articles, setArticles] = useState();
+  // TODO: add a new state for article category, and retrieve category.
+  const [selectedCategory, setSelectedCategory] = useState();
 
   // const [category, setCategory] = useState();
 
@@ -39,40 +42,23 @@ const Articles = () => {
         </View>
       </View>
 
-      {/* We have to create a filter thing here, to select from different
-      categories and only display articles filtered from that category
-      Mental Health
-      Work
-      School
-
-      Use a picker, selector, etc whatever you want (but it has to be pretty!)
-
-      valuesToDisplay={
-      [
-        {
-          name: "All",
-          id: 'all-id'
-        },
-        ... all the rest that are returned from the database, in our case until we're starting
-        to do this dynamicall, add in a few more options of your picking
-        {
-          name: "Mental Health",
-          id: '2340732895'
-        }
-      ]
-      }
-
-      value={articles}
-      onSelect={(v) => {
-        if (category="all"){
-          setCategory(null);
-        }
-        else {
-          setCategory(v.id) <- make sure its the correct one
-        }
-      }}
-
-      */}
+      {/* A dropdown menu to filter articles by category. */}
+      <View style={styles.innerContainer}>
+        <DropdownMenu
+          header="Filter Articles by Category"
+          placeholder={{
+            label: 'Select an article category...',
+            value: null,
+          }}
+          items={[
+            { label: 'Mental Health', value: 'mental health' },
+            { label: 'Social Justice', value: 'social justice' },
+            { label: 'Education', value: 'education' },
+          ]}
+          value={selectedCategory}
+          onValueChange={value => { setSelectedCategory(value); }}
+        />
+      </View>
 
       {/* Articles */}
       <View
@@ -106,5 +92,18 @@ const Articles = () => {
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  innerContainer: {
+    marginHorizontal: 25,
+    marginVertical: 15,
+  },
+  outerContainer: {
+    backgroundColor: colours.purple,
+  },
+  flatlist: {
+    marginBottom: 15,
+  },
+});
 
 export default Articles;

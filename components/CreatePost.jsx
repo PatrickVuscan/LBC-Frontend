@@ -8,6 +8,8 @@ import React from 'react';
 import { View } from 'react-native';
 import { colours, theme } from '../theme/theme';
 
+const url = 'https://lbc-backend-fxp5s3idfq-nn.a.run.app';
+
 export default class CreatePost extends React.Component {
   constructor(props) {
     super(props);
@@ -32,23 +34,35 @@ export default class CreatePost extends React.Component {
   }
 
   savePost() {
-    let anonymous = false;
+    let anon = false;
     if (this.state.anonColor === '#008000') {
-      anonymous = true;
+      anon = true;
     }
     const newPostContent = {
-      text: this.state.postText,
-      anon: anonymous,
-      title: this.state.postTitle,
-      user: 'user',
-      comments: [],
+      post_body: this.state.postText,
+      anonymous: anon,
+      post_header: this.state.postTitle,
+      username: this.props.loggedInUser.username,
+      topic: 'topic',
+
     };
 
-    const a = this.props.posts;
-    a.unshift(newPostContent);
-    this.props.setAllPosts(a);
+    this.props.newPost();
 
-    this.props.newPost(false);
+    try {
+      const res = fetch(
+        `${url}/posts`,
+        {
+          method: 'POST',
+          body: JSON.stringify(newPostContent),
+        },
+      );
+
+      return res.status === 200;
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
   }
 
   handleTitleChange(input) {
@@ -64,7 +78,7 @@ export default class CreatePost extends React.Component {
       <Container>
         <Header style={{ alignItems: 'center', backgroundColor: colours.purple }}>
           <Button
-            onPress={() => { return this.props.newPost(false); }}
+            onPress={() => { return this.props.newPost(); }}
             transparent
             // There are currently two alignSelfs here. Please choose which one you meant to have.
             // For now I believe the second one is the one used, so I left that one in.
@@ -138,7 +152,10 @@ export default class CreatePost extends React.Component {
             style={{
               backgroundColor: colours.purple, height: 40, width: 94, marginLeft: 'auto', justifyContent: 'center',
             }}
-            onPress={this.savePost}
+            onPress={() => {
+              this.savePost();
+              // this.props.pullData();}
+            }}
           >
             <Text style={{ color: 'white', textAlign: 'center' }}>Post</Text>
           </Button>

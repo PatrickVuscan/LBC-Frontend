@@ -7,13 +7,13 @@ import * as Font from 'expo-font';
 import { Spinner, View } from 'native-base';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { colours } from './theme/theme';
+import Connect from './screens/Connect';
 import Educate from './screens/Educate';
-import ReportIt from './screens/ReportIt';
-import Timeline from './screens/Timeline';
 import Login from './screens/Login';
-import store from './state/store';
+import ReportIt from './screens/ReportIt';
 import TakeAction from './screens/TakeAction';
+import store from './state/store';
+import { colours } from './theme/theme';
 import createAlert from './utils/createAlert';
 
 const Tab = createBottomTabNavigator();
@@ -56,13 +56,13 @@ export default class App extends React.Component {
         },
       );
 
-      if (res.status === 200) {
-        const json = await res.json();
+      const data = await res.json();
 
+      if (res.status === 200) {
         this.setState({
           loggedIn: true,
-          accessToken: json.access_token,
-          tokenType: json.token_type,
+          accessToken: data.access_token,
+          tokenType: data.token_type,
         });
       } else {
         createAlert('Failed Log In', 'Incorrect username or password');
@@ -73,8 +73,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { isReady } = this.state;
-    const { loggedIn } = this.state;
+    const { isReady, loggedIn } = this.state;
 
     if (!isReady) {
       return (
@@ -95,22 +94,67 @@ export default class App extends React.Component {
           ) : (
             <NavigationContainer>
               <Tab.Navigator
-                initialRouteName="Timeline"
+                // I'm using @expo/vector-icons version 10.2.1 because it's
+                // the latest version that renders icons properly.
+                // I looked at the latest version of all of the expo icons on
+                // https://icons.expo.fyi/ but not all icons are compatible.
+                // Also, google searching 10.2.1 icons doesn't work because
+                // it takes me to 12.0.1 icons.
+                //
+                // My code comes from https://stackoverflow.com/questions/60169964/icons-dont-show-up-in-react-navigation-v5
+                // I used https://reactnavigation.org/docs/tab-based-navigation/#add-badges-to-icons and
+                // https://snack.expo.io/?platform=android&name=Tab%20navigation%20%7C%20React%20Navigation&dependencies=%40expo%2Fvector-icons%40*%2C%40react-native-community%2Fmasked-view%40*%2C%40react-navigation%2Fbottom-tabs%40%5E5.8.0%2C%40react-navigation%2Fdrawer%40%5E5.9.0%2C%40react-navigation%2Fmaterial-bottom-tabs%40%5E5.2.16%2C%40react-navigation%2Fmaterial-top-tabs%40%5E5.2.16%2C%40react-navigation%2Fnative%40%5E5.7.3%2C%40react-navigation%2Fstack%40%5E5.9.0%2Creact-native-paper%40%5E4.0.1%2Creact-native-reanimated%40*%2Creact-native-safe-area-context%40*%2Creact-native-gesture-handler%40*%2Creact-native-screens%40*%2Creact-native-tab-view%40%5E2.15.1&sourceUrl=https%3A%2F%2Freactnavigation.org%2Fexamples%2F5.x%2Ftab-based-navigation-badges.js
+                // to render icons.
+                screenOptions={({ route }) => {
+                  return {
+                    tabBarIcon: ({ focused, color, size }) => {
+                      let iconName;
+                      if (route.name === 'Connect') {
+                        iconName = focused
+                          ? 'md-person'
+                          : 'md-person';
+                      } else if (route.name === 'Educate') {
+                        iconName = focused
+                          ? 'ios-list-box'
+                          : 'ios-list';
+                      } else if (route.name === 'Take Action') {
+                        iconName = focused
+                          ? 'ios-list-box'
+                          : 'ios-list';
+                      } else { // route.name === "Report It"
+                        iconName = focused
+                          ? 'ios-information-circle'
+                          : 'ios-information-circle-outline';
+                      }
+
+                      return (
+                        <Ionicons
+                          name={iconName}
+                          size={size}
+                          color={color}
+                        />
+                      );
+                    },
+                  };
+                }}
+                initialRouteName="Connect"
                 tabBarOptions={{
-                  activeTintColor: 'white',
+                  activeTintColor: colours.gold,
                   inactiveTintColor: 'white',
                   tabStyle: {
                     justifyContent: 'center',
                   },
-                  activeBackgroundColor: colours.purple,
+                  activeBackgroundColor: 'black',
                   inactiveBackgroundColor: 'black',
                 }}
-                // TODO: check
-                // sceneContainerStyle={{ backgroundColor: 'black' }}
               >
                 <Tab.Screen
                   name="Connect"
-                  component={Timeline}
+                  component={Connect}
+                  initialParams={{
+                    accessToken: this.state.accessToken,
+                    tokenType: this.state.tokenType,
+                  }}
                 />
                 <Tab.Screen
                   name="Educate"

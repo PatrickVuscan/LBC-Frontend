@@ -16,7 +16,6 @@ const ScreenBase = ({
   header = 'Default Header', children, padder = false, left = undefined, right = undefined, noHeader = false,
 }) => {
   return (
-    // TODO: style={{ backgroundColor: 'black' }}
     <Container>
       {!noHeader && (
         <Header
