@@ -43,15 +43,11 @@ export default class CreatePost extends React.Component {
       anonymous: anon,
       post_header: this.state.postTitle,
       username: this.props.loggedInUser.username,
-      topic: 'topic', 
+      topic: 'topic',
 
     };
 
-    //const a = this.props.posts;
-    //a.unshift(newPostContent);
-    //this.props.setAllPosts(a);
-
-    this.props.newPost(false);
+    this.props.newPost();
 
     try {
       const res = fetch(
@@ -62,7 +58,7 @@ export default class CreatePost extends React.Component {
         },
       );
 
-      return res.status == 200;
+      return res.status === 200;
     } catch (err) {
       console.log(err);
       return false;
@@ -82,7 +78,7 @@ export default class CreatePost extends React.Component {
       <Container>
         <Header style={{ alignItems: 'center', backgroundColor: colours.purple }}>
           <Button
-            onPress={() => { return this.props.newPost(false); }}
+            onPress={() => { return this.props.newPost(); }}
             transparent
             // There are currently two alignSelfs here. Please choose which one you meant to have.
             // For now I believe the second one is the one used, so I left that one in.
@@ -158,7 +154,7 @@ export default class CreatePost extends React.Component {
             }}
             onPress={() => {
               this.savePost();
-              //this.props.pullData();}
+              // this.props.pullData();}
             }}
           >
             <Text style={{ color: 'white', textAlign: 'center' }}>Post</Text>

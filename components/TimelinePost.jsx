@@ -80,6 +80,6 @@ const styles = StyleSheet.create({
     borderBottomColor: '#bbb',
     borderBottomWidth: StyleSheet.hairlineWidth,
     flexDirection: 'column',
-    maxHeight: 300
+    maxHeight: 300,
   },
 });

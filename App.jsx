@@ -7,14 +7,13 @@ import * as Font from 'expo-font';
 import { Spinner, View } from 'native-base';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { colours } from './theme/theme';
+import Connect from './screens/Connect';
 import Educate from './screens/Educate';
-import ReportIt from './screens/ReportIt';
-import Timeline from './screens/Timeline';
 import Login from './screens/Login';
-import store from './state/store';
-import DrawerNav from './components/DrawerNavigator';
+import ReportIt from './screens/ReportIt';
 import TakeAction from './screens/TakeAction';
+import store from './state/store';
+import { colours } from './theme/theme';
 import createAlert from './utils/createAlert';
 
 const Tab = createBottomTabNavigator();
@@ -73,8 +72,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { isReady } = this.state;
-    const { loggedIn } = this.state;
+    const { isReady, loggedIn } = this.state;
 
     if (!isReady) {
       return (
@@ -138,7 +136,7 @@ export default class App extends React.Component {
                     },
                   };
                 }}
-                initialRouteName="Timeline"
+                initialRouteName="Connect"
                 tabBarOptions={{
                   activeTintColor: colours.gold,
                   inactiveTintColor: 'white',
@@ -148,12 +146,10 @@ export default class App extends React.Component {
                   activeBackgroundColor: 'black',
                   inactiveBackgroundColor: 'black',
                 }}
-                // TODO: check
-                // sceneContainerStyle={{ backgroundColor: 'black' }}
               >
                 <Tab.Screen
                   name="Connect"
-                  component={DrawerNav}
+                  component={Connect}
                   initialParams={{
                     accessToken: this.state.accessToken,
                     tokenType: this.state.tokenType,

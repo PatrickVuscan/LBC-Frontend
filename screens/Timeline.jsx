@@ -20,10 +20,10 @@ import { colours } from '../theme/theme';
 const url = 'https://lbc-backend-fxp5s3idfq-nn.a.run.app';
 
 const Timeline = ({ navigation, route }) => {
+  // Determines whether you're on the create post screen or not
   const [newPostScreen, setNewPostScreen] = useState(false);
   const [allPosts, setAllPosts] = useState([]);
   const [viewPost, setViewPost] = useState(false);
-  const [dummyState, setDummyState] = useState(0);
   const [loggedInUser, setLoggedInUser] = useState({ username: 'user' });
   const [currViewedPost, setCurrViewedPost] = useState({
     post_body: '',
@@ -33,16 +33,25 @@ const Timeline = ({ navigation, route }) => {
     topic: '',
     post_id: 1,
   });
+  const [refreshPostToggle, setRefreshPostToggle] = useState(false);
 
-  const loadUser = () => {
+  const toggleRefresh = () => {
+    setRefreshPostToggle(!refreshPostToggle);
+  };
+
+  // On load, we get all the data about the user, to use for posts
+  useEffect(() => {
     fetch(`${url}/users/me`, { headers: { Authorization: `${route.params.tokenType} ${route.params.accessToken}` } })
       .then(res => { return res.json(); })
       .then(data => {
         setLoggedInUser(data);
       });
-  };
+  }, [route.params.accessToken, route.params.tokenType]);
 
+  // Get posts, taking into account if you're on All posts, or only "My Posts"
   useEffect(() => {
+    console.log('This is running fetch posts');
+    // If you're on the "My Posts" page, then we only display the users own posts
     if (route.params.myposts) {
       fetch(`${url}/posts/user/${loggedInUser.username}`)
         .then(res => { return res.json(); })
@@ -56,16 +65,7 @@ const Timeline = ({ navigation, route }) => {
           setAllPosts(data);
         });
     }
-  }, [allPosts, loggedInUser.username, route.params.myposts, dummyState]);
-
-  // example api fetch that has not been tested
-  /*
-  fetch(`${url}/posts`)
-    .then(res => { return res.json; })
-    .then(data => {
-      setAllPosts(data);
-    });
-    */
+  }, [route.params.myposts, loggedInUser.username, refreshPostToggle]);
 
   function deletePostFromAllPosts(post) {
     /*
@@ -79,11 +79,8 @@ const Timeline = ({ navigation, route }) => {
 
     setAllPosts(newPostsList);
     */
-    if (dummyState === 0) {
-      setDummyState(1);
-    } else {
-      setDummyState(0);
-    }
+    toggleRefresh();
+
     try {
       fetch(
         `https://lbc-backend-fxp5s3idfq-nn.a.run.app/posts/${post.post_id}`,
@@ -97,42 +94,15 @@ const Timeline = ({ navigation, route }) => {
     }
   }
 
-  // const updateCurrViewedPost = commentValue => {
-  //   const newComments = currViewedPost.comments;
-  //   newComments.push(['user', commentValue]);
-
-  //   const newViewedPost = {
-  //     text: currViewedPost.text,
-  //     user: currViewedPost.user,
-  //     title: currViewedPost.title,
-  //     anon: currViewedPost.anon,
-  //     comments: newComments,
-  //   };
-
-  //   setCurrViewedPost(newViewedPost);
-  //   /*
-  //   try {
-  //     const res = fetch(
-  //       url + "/posts/" + postid + "/comments",
-  //       {
-  //         method: 'POST',
-  //         body: JSON.stringify({userid: userid, content: commentValue}),
-  //       },
-  //     );
-
-  //     return res.status == 200;
-  //   } catch (err) {
-  //     return false;
-  //   }
-  //   */
-  // };
-
-  loadUser();
-  if (newPostScreen === true) {
+  // If creating a new post, return the Create Post screen
+  if (newPostScreen) {
     return (
       <Container>
         <CreatePost
-          newPost={setNewPostScreen}
+          newPost={() => {
+            setNewPostScreen(false);
+            toggleRefresh();
+          }}
           posts={allPosts}
           setAllPosts={setAllPosts}
           loggedInUser={loggedInUser}
@@ -141,6 +111,7 @@ const Timeline = ({ navigation, route }) => {
     );
   }
 
+  // If looking at a post, return the View Post screen
   if (viewPost) {
     return (
       <Container>
@@ -194,13 +165,11 @@ const Timeline = ({ navigation, route }) => {
           />
         </Button>
       */}
-        {allPosts.map((item, index) => {
+        {allPosts.map(item => {
           return (
             <TimelinePost
               post={item}
-              // Temp disable until dynamic content
-              // eslint-disable-next-line react/no-array-index-key
-              key={index}
+              key={item.post_id}
               deletePost={deletePostFromAllPosts}
               setViewPost={setViewPost}
               setCurrViewedPost={setCurrViewedPost}
@@ -208,26 +177,9 @@ const Timeline = ({ navigation, route }) => {
             />
           );
         })}
-        {/* }
-        <View>
-          <TimelinePost
-            post={exampleUser}
-            deletePost={deletePostFromAllPosts}
-            setViewPost={setViewPost}
-            setCurrViewedPost={setCurrViewedPost}
-          />
-          <TimelinePost
-            post={exampleUser2}
-            deletePost={deletePostFromAllPosts}
-            setViewPost={setViewPost}
-            setCurrViewedPost={setCurrViewedPost}
-          />
-        </View>
-      { */}
       </ScrollView>
     </ScreenBase>
   );
 };
-
 
 export default Timeline;
