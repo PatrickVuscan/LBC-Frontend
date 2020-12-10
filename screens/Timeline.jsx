@@ -2,11 +2,11 @@
 import {
   Button,
   Container,
-  Text,
   Icon,
+  Text,
 } from 'native-base';
-import React, { useState, useEffect } from 'react';
-import { View, Image } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import CreatePost from '../components/CreatePost';
 import ScreenBase from '../components/ScreenBase';
@@ -14,25 +14,9 @@ import TimelinePost from '../components/TimelinePost';
 import ViewPost from '../components/ViewPost';
 import { colours } from '../theme/theme';
 
-const brain = require('../assets/brain.png');
-
 // Citation: I used https://startreact.com/themes/twitter-clone-app/ as a reference for styling Timeline components
 
-const exampleUser = {
-  post_body: 'This is an example post. I am posting stuff right now! Wow!',
-  username: 'Anonymous',
-  post_header: 'Testing',
-  anonymous: true,
-
-};
-
-const exampleUser2 = {
-  post_body: 'Another example post. I love this app!',
-  username: 'Steve',
-  post_header: 'How I love this app',
-  anonymous: false,
-};
-
+// This is the current backend URL
 const url = 'https://lbc-backend-fxp5s3idfq-nn.a.run.app';
 
 const Timeline = ({ navigation, route }) => {
@@ -143,7 +127,7 @@ const Timeline = ({ navigation, route }) => {
   //   */
   // };
 
-  loadUser(); 
+  loadUser();
   if (newPostScreen === true) {
     return (
       <Container>
