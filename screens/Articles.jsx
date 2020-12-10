@@ -2,7 +2,7 @@
 import { Spinner, View } from 'native-base';
 import React, { useEffect, useState } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
-import { QUERY_ARTICLES } from '../api/queries/article';
+import { QUERY_ARTICLES } from '../sanity/article';
 import ContentCard from '../components/ContentCard';
 import DropdownMenu from '../components/DropdownMenu';
 import ErrorMessage from '../components/ErrorMessage';

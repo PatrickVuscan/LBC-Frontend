@@ -59,10 +59,11 @@ export default class App extends React.Component {
       const data = await res.json();
 
       if (res.status === 200) {
-        const token = data.access_token;
-        const type = data.token_type;
-
-        this.setState({ loggedIn: true, accessToken: token, tokenType: type });
+        this.setState({
+          loggedIn: true,
+          accessToken: data.access_token,
+          tokenType: data.token_type,
+        });
       } else {
         createAlert('Failed Log In', 'Incorrect username or password');
       }

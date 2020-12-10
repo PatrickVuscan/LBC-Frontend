@@ -3,7 +3,7 @@ import {
   View,
 } from 'native-base';
 import React, { useEffect, useState } from 'react';
-import { QUERY_RESOURCES } from '../api/queries/resource';
+import { QUERY_RESOURCES } from '../sanity/resource';
 import ErrorMessage from '../components/ErrorMessage';
 import Resource from '../components/Resource';
 import ScreenBase from '../components/ScreenBase';
