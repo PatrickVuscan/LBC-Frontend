@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text } from 'react-native';
-import Dropdown from 'react-native-picker-select';
+// import Dropdown from 'react-native-picker-select';
 import { Chevron } from 'react-native-shapes';
 
 const DropdownMenu = props => {
@@ -18,7 +18,7 @@ const DropdownMenu = props => {
       >
         { header }
       </Text>
-      <Dropdown
+      {/* <Dropdown
         placeholder={placeholder}
         items={items}
         value={selectedCategory}
@@ -34,7 +34,7 @@ const DropdownMenu = props => {
         style={{
           ...pickerSelectStyles,
         }}
-      />
+      /> */}
     </>
   );
 };
