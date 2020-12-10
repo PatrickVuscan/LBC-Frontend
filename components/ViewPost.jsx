@@ -155,6 +155,7 @@ const ViewPost = ({
                   borderBottomWidth: 2,
                 }}
               >
+                {/* }
                 <Text
                   style={{ fontSize: 22, color: colours.gold }}
                   // eslint-disable-next-line react/no-array-index-key
@@ -165,6 +166,7 @@ const ViewPost = ({
                   }
                   :
                 </Text>
+                { */}
                 <Text
                   style={{ fontSize: 18 }}
                   // eslint-disable-next-line react/no-array-index-key

@@ -39,6 +39,7 @@ const Timeline = ({ navigation, route }) => {
   const [newPostScreen, setNewPostScreen] = useState(false);
   const [allPosts, setAllPosts] = useState([]);
   const [viewPost, setViewPost] = useState(false);
+  const [dummyState, setDummyState] = useState(0);
   const [currViewedPost, setCurrViewedPost] = useState({
     post_body: '',
     username: '',
@@ -56,7 +57,7 @@ const Timeline = ({ navigation, route }) => {
           setAllPosts(data);
         });
     } else {
-      fetch(`${url}/posts`)
+      fetch(`${url}/posts/recent/0`)
         .then(res => { return res.json(); })
         .then(data => {
           setAllPosts(data);
@@ -74,6 +75,7 @@ const Timeline = ({ navigation, route }) => {
     */
 
   function deletePostFromAllPosts(post) {
+    /* 
     const newPostsList = [...allPosts];
 
     newPostsList.forEach((p, index) => {
@@ -83,6 +85,13 @@ const Timeline = ({ navigation, route }) => {
     });
 
     setAllPosts(newPostsList);
+    */ 
+    if (dummyState === 0) {
+      setDummyState(1);
+    }
+    else {
+      setDummyState(0); 
+    }
     try {
       fetch(
         `https://lbc-backend-fxp5s3idfq-nn.a.run.app/posts/${post.post_id}`,
@@ -183,12 +192,14 @@ const Timeline = ({ navigation, route }) => {
           justifyContent: 'space-between',
         }}
       >
+        {/* 
         <Button style={{ backgroundColor: colours.gold, width: 75, height: 50 }}>
           <Image
             source={brain}
             style={{ width: 60, height: 48 }}
           />
         </Button>
+      */}
         {allPosts.map((item, index) => {
           return (
             <TimelinePost
