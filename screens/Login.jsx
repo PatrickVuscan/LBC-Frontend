@@ -4,7 +4,7 @@
 import React from 'react';
 import { Dimensions, StyleSheet, Image } from 'react-native';
 import {
-  Button, Container, Text, Input, Content, Item, 
+  Button, Container, Text, Input, Content, Item,
 } from 'native-base';
 import { colours } from '../theme/theme';
 
@@ -30,7 +30,7 @@ const Login = props => {
           body: JSON.stringify({ 'username': usernameValue, 'password': passwordValue }),
         },
       );
-      
+
       const jsonBody = await res.json();
 
       if (jsonBody.message === 'Username already exists') {
@@ -45,17 +45,17 @@ const Login = props => {
 
   return (
     // #a379b3
-    <Container style={{ height: screenHeight, width: screenWidth, backgroundColor: '#000000' }}> 
+    <Container style={{ height: screenHeight, width: screenWidth, backgroundColor: '#000000' }}>
       <Content style={{ alignSelf: 'center' }}>
         <Image
           style={
-            { 
-              alignSelf: 'center', 
-              marginTop: 130, 
-              height: 210, 
-              width: 210, 
+            {
+              alignSelf: 'center',
+              marginTop: 130,
+              height: 210,
+              width: 210,
               marginBottom: 20,
-              borderWidth: 2,
+              // borderWidth: 2,
               borderColor: colours.purple,
             }
           }
@@ -95,9 +95,9 @@ const Login = props => {
           />
         </Item>
 
-        <Button 
+        <Button
           light
-          bordered 
+          bordered
           style={styles.button}
           onPress={() => {
             props.logIn(usernameValue, passwordValue);
@@ -108,9 +108,9 @@ const Login = props => {
           </Text>
         </Button>
 
-        <Button 
+        <Button
           light
-          bordered 
+          bordered
           style={styles.button}
           onPress={() => {
             signUp().then(response => {
@@ -122,7 +122,7 @@ const Login = props => {
               case 1:
                 props.createAlert('Unsuccessful Sign Up', 'Server response error');
                 break;
-              
+
               case 2:
                 props.createAlert('Unsuccessful Sign Up', 'User already exists');
                 break;
@@ -131,25 +131,25 @@ const Login = props => {
                 break;
               }
             });
-          }}  
+          }}
         >
           <Text style={styles.buttonText}>
             Create Account
           </Text>
         </Button>
-      </Content>  
+      </Content>
     </Container>
   );
 };
 
 const styles = StyleSheet.create({
-  'button': { 
+  'button': {
     // #e3ceeb
-    backgroundColor: colours.purple, 
-    width: 300, 
+    backgroundColor: colours.purple,
+    width: 300,
     height: 50,
     borderRadius: 10,
-    marginBottom: 20,
+    marginBottom: 15,
     alignSelf: 'center',
     justifyContent: 'center',
   },
@@ -163,12 +163,13 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     // #b99dc4
     backgroundColor: colours.gold, // #b99dc4
-    marginBottom: 15, 
+    marginBottom: 15,
     color: '#FFFFFF',
+    paddingLeft: 16,
   },
 
   'textInputContainer': {
-    width: 300, 
+    width: 300,
     borderColor: 'transparent',
   },
 });
