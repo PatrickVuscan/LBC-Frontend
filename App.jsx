@@ -18,7 +18,6 @@ import DrawerNav from './components/DrawerNavigator';
 import TakeAction from './screens/TakeAction';
 
 const Tab = createBottomTabNavigator();
-const userBase = { user: 'user' }; //! This is for frontend mock login only
 
 export default class App extends React.Component {
   constructor(props) {
@@ -26,7 +25,8 @@ export default class App extends React.Component {
     this.state = {
       isReady: false,
       loggedIn: false,
-      // access_token: ""
+      accessToken: '',
+      tokenType: '',
     };
   }
 
@@ -60,41 +60,26 @@ export default class App extends React.Component {
     );
   }
 
-  addUser = (username, password) => {
-    userBase[username] = password;
-  }
-
-  logIn = /* async */ (username, password) => {
-    // TODO Commented out code is for future backend calls
-    /* try{
-      const res = await fetch(
-        "http://10.0.2.2:5000/users/login",
-        {
-          method: "POST",
-          body: JSON.stringify({"username": username, "password": password})
-        }
-      )
-
-      if(res.status == 200){
-        token = JSON.parse(res.json())["access_token"]
-        console.log(token) //!for testing only
-
-        this.setState({ loggedIn: true, access_token: token})
-      }
-      else{
-        this.createAlert("Failed Log In", "Something went wrong on our end :(")
-      }
-    }
-    catch{
-      this.createAlert("Failed Log In", "Something went wrong on our end :(")
-    } */
-
+  logIn = async (usernameVal, passwordVal) => {
     try {
-      const loggedInBool = userBase[username] === password;
-      this.setState({ loggedIn: loggedInBool });
-      return loggedInBool;
-    } catch (err) {
-      return false;
+      const res = await fetch(
+        'https://lbc-backend-fxp5s3idfq-nn.a.run.app/users/login',
+        {
+          method: 'POST',
+          body: JSON.stringify({ username: usernameVal, password: passwordVal }),
+        },
+      );
+
+      if (res.status === 200) {
+        const token = res.json().access_token;
+        const type = res.json().token_type;
+
+        this.setState({ loggedIn: true, accessToken: token, tokenType: type });
+      } else {
+        this.createAlert('Failed Log In', 'Incorrect username or password');
+      }
+    } catch {
+      this.createAlert('Failed Log In', 'Something went wrong on our end :(');
     }
   }
 
@@ -117,8 +102,6 @@ export default class App extends React.Component {
             <Login
               logIn={this.logIn}
               createAlert={this.createAlert}
-              addUser={this.addUser}
-              userBase={userBase}
             />
           ) : (
             <NavigationContainer>

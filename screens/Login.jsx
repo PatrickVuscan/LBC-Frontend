@@ -15,30 +15,32 @@ const Login = props => {
   const [usernameValue, onChangeUsername] = React.useState('');
   const [passwordValue, onChangePassword] = React.useState('');
 
-  const signUp = /* async */ () => {
-    // TODO Commented out code is for future backend calls
-    /* try{
-        const res = await fetch(
-            "http://10.0.2.2:5000/users/",
-            {
-                method: 'POST',
-                body: JSON.stringify({"username": usernameValue, "password": passwordValue})
-            }
-        )
-    
-        return res.status == 200
-    }
-    catch(err){
-        return false
-    } */
+  /*
+    return values:
+      0 => successful sign up
+      1 => server response error
+      2 => user already found
+  */
+  const signUp = async () => {
+    try {
+      const res = await fetch(
+        'https://lbc-backend-fxp5s3idfq-nn.a.run.app/users',
+        {
+          method: 'POST',
+          body: JSON.stringify({ 'username': usernameValue, 'password': passwordValue }),
+        },
+      );
+      
+      const jsonBody = await res.json();
 
-    if (usernameValue in props.userBase) {
-      return false;
-    }
+      if (jsonBody.message === 'Username already exists') {
+        return 2;
+      }
 
-    props.addUser(usernameValue, passwordValue);
-    props.logIn(usernameValue, passwordValue);
-    return true;
+      return 0;
+    } catch (err) {
+      return 1;
+    }
   };
 
   return (
@@ -67,9 +69,7 @@ const Login = props => {
               onChangeUsername(text);
             }}
             onSubmitEditing={() => {
-              if (!props.logIn(usernameValue, passwordValue)) {
-                props.createAlert('Bad Log In Attempt', 'Invalid Credentials');
-              }
+              props.logIn(usernameValue, passwordValue);
             }}
             returnKeyType="go"
             style={styles.textInput}
@@ -86,9 +86,7 @@ const Login = props => {
               onChangePassword(text);
             }}
             onSubmitEditing={() => {
-              if (!props.logIn(usernameValue, passwordValue)) {
-                props.createAlert('Bad Log In Attempt', 'Invalid Credentials');
-              }
+              props.logIn(usernameValue, passwordValue);
             }}
             returnKeyType="go"
             style={styles.textInput}
@@ -102,9 +100,7 @@ const Login = props => {
           bordered 
           style={styles.button}
           onPress={() => {
-            if (!props.logIn(usernameValue, passwordValue)) {
-              props.createAlert('Bad Log In Attempt', 'Invalid Credentials');
-            }
+            props.logIn(usernameValue, passwordValue);
           }}
         >
           <Text style={styles.buttonText}>
@@ -117,14 +113,24 @@ const Login = props => {
           bordered 
           style={styles.button}
           onPress={() => {
-            if (signUp()) {
-              // Do log in stuff
-              props.logIn();
-            } else {
-              props.createAlert('Error adding User', 'User already exists');
-              // TODO commented out code is for future backend calls
-              // props.createAlert("Server Response Error", "Something went wrong on our end!")
-            }
+            signUp().then(response => {
+              switch (response) {
+              case 0:
+                props.createAlert('Successful Sign Up', 'New account created');
+                break;
+
+              case 1:
+                props.createAlert('Unsuccessful Sign Up', 'Server response error');
+                break;
+              
+              case 2:
+                props.createAlert('Unsuccessful Sign Up', 'User already exists');
+                break;
+
+              default:
+                break;
+              }
+            });
           }}  
         >
           <Text style={styles.buttonText}>
