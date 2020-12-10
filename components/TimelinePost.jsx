@@ -1,9 +1,10 @@
 // @ts-check
 import {
-  Button, Container, Content, Header, Icon, Left, Right, Text,
+  Button, Container, Content, Header, Left, Right, Text,
 } from 'native-base';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { colours } from '../theme/theme';
 
 export default props => {
@@ -17,9 +18,14 @@ export default props => {
         style={{ flexDirection: 'row', marginLeft: 'auto' }}
         onPress={() => { return props.deletePost(props.post); }}
       >
-        <Icon
+        <Ionicons
           name="close"
-          style={{ alignItems: 'center', color: headerColor }}
+          size={24}
+          style={{
+            alignItems: 'center',
+            color: headerColor,
+            paddingRight: 5,
+          }}
         />
       </Button>
     );
@@ -58,10 +64,11 @@ export default props => {
             props.setViewPost(true);
           }}
         >
-          <Icon
+          <Ionicons
             color={colours.purple}
-            name="ios-chatboxes"
-            style={{ flexDirection: 'row', color: headerColor }}
+            name="chatbox"
+            size={24}
+            style={{ flexDirection: 'row', color: headerColor, paddingLeft: 5 }}
           />
         </Button>
         {closingButton}

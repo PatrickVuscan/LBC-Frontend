@@ -1,12 +1,12 @@
+import { Ionicons } from '@expo/vector-icons';
 import {
   Button,
   Container,
   Header,
-  Icon,
   Input,
   Text,
 } from 'native-base';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { colours } from '../theme/theme';
@@ -21,7 +21,7 @@ const ViewPost = ({
     anonymous,
     username,
     post_id,
-  }, setViewPost
+  }, setViewPost,
 }) => {
   const [commentInput, setCommentInput] = useState('');
   const [allComments, setAllComments] = useState([]);
@@ -78,8 +78,10 @@ const ViewPost = ({
             transparent
             style={{ alignSelf: 'center' }}
           >
-            <Icon
+            <Ionicons
               name="close"
+              size={30}
+              color={colours.gold}
               style={{ flexDirection: 'row' }}
             />
           </Button>

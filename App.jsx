@@ -115,11 +115,11 @@ export default class App extends React.Component {
                           : 'md-person';
                       } else if (route.name === 'Educate') {
                         iconName = focused
-                          ? 'ios-list-box'
+                          ? 'ios-list'
                           : 'ios-list';
                       } else if (route.name === 'Take Action') {
                         iconName = focused
-                          ? 'ios-list-box'
+                          ? 'ios-list'
                           : 'ios-list';
                       } else { // route.name === "Report It"
                         iconName = focused
