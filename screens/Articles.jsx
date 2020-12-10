@@ -2,7 +2,6 @@
 import { Spinner, View } from 'native-base';
 import React, { useEffect, useState } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
-import { Chevron } from 'react-native-shapes';
 import { QUERY_ARTICLES } from '../api/queries/article';
 import ContentCard from '../components/ContentCard';
 import DropdownMenu from '../components/DropdownMenu';
@@ -43,40 +42,6 @@ const Articles = () => {
         </View>
       </View>
 
-      {/* We have to create a filter thing here, to select from different
-      categories and only display articles filtered from that category
-      Mental Health
-      Work
-      School
-
-      Use a picker, selector, etc whatever you want (but it has to be pretty!)
-
-      valuesToDisplay={
-      [
-        {
-          name: "All",
-          id: 'all-id'
-        },
-        ... all the rest that are returned from the database, in our case until we're starting
-        to do this dynamicall, add in a few more options of your picking
-        {
-          name: "Mental Health",
-          id: '2340732895'
-        }
-      ]
-      }
-
-      value={articles}
-      onSelect={(v) => {
-        if (category="all"){
-          setCategory(null);
-        }
-        else {
-          setCategory(v.id) <- make sure its the correct one
-        }
-      }}
-
-      */}
       {/* A dropdown menu to filter articles by category. */}
       <View style={styles.innerContainer}>
         <DropdownMenu
@@ -91,14 +56,6 @@ const Articles = () => {
             { label: 'Education', value: 'education' },
           ]}
           value={selectedCategory}
-          icon={() => {
-            return (
-              <Chevron
-                size={1.5}
-                color="gray"
-              />
-            );
-          }}
           onValueChange={value => { setSelectedCategory(value); }}
         />
       </View>

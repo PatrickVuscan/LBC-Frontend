@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 import Dropdown from 'react-native-picker-select';
+import { Chevron } from 'react-native-shapes';
 
 const DropdownMenu = props => {
   const {
-    header, placeholder, items, selectedCategory, icon, onValueChange,
+    header, placeholder, items, selectedCategory, onValueChange,
   } = props;
 
   return (
@@ -21,7 +22,14 @@ const DropdownMenu = props => {
         placeholder={placeholder}
         items={items}
         value={selectedCategory}
-        Icon={icon}
+        Icon={() => {
+          return (
+            <Chevron
+              size={1.5}
+              color="gray"
+            />
+          );
+        }}
         onValueChange={onValueChange}
         style={{
           ...pickerSelectStyles,
