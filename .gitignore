@@ -9,6 +9,8 @@ nohup.out
 # Coverage from Running npm test
 coverage
 
+cypress
+
 # ignore DS_Store files from mac
 .DS_Store
 
