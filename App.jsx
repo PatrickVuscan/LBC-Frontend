@@ -2,7 +2,6 @@
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { Alert } from 'react-native';
 import { StoreProvider } from 'easy-peasy';
 import * as Font from 'expo-font';
 import { Spinner, View } from 'native-base';
@@ -16,6 +15,7 @@ import Login from './screens/Login';
 import store from './state/store';
 import DrawerNav from './components/DrawerNavigator';
 import TakeAction from './screens/TakeAction';
+import createAlert from './utils/createAlert';
 
 const Tab = createBottomTabNavigator();
 
@@ -47,19 +47,6 @@ export default class App extends React.Component {
     this.setState({ isReady: true });
   }
 
-  createAlert = (title, msg) => {
-    Alert.alert(
-      title,
-      msg,
-      [
-        {
-          text: 'OK',
-        },
-      ],
-      { cancelable: false },
-    );
-  }
-
   logIn = async (usernameVal, passwordVal) => {
     try {
       const res = await fetch(
@@ -78,10 +65,10 @@ export default class App extends React.Component {
 
         this.setState({ loggedIn: true, accessToken: token, tokenType: type });
       } else {
-        this.createAlert('Failed Log In', 'Incorrect username or password');
+        createAlert('Failed Log In', 'Incorrect username or password');
       }
     } catch {
-      this.createAlert('Failed Log In', 'Something went wrong on our end :(');
+      createAlert('Failed Log In', 'Something went wrong on our end :(');
     }
   }
 
@@ -103,7 +90,7 @@ export default class App extends React.Component {
           {!loggedIn ? (
             <Login
               logIn={this.logIn}
-              createAlert={this.createAlert}
+              createAlert={createAlert}
             />
           ) : (
             <NavigationContainer>
