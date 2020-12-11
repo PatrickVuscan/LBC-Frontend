@@ -50,7 +50,6 @@ const Timeline = ({ navigation, route }) => {
 
   // Get posts, taking into account if you're on All posts, or only "My Posts"
   useEffect(() => {
-    console.log('This is running fetch posts');
     // If you're on the "My Posts" page, then we only display the users own posts
     if (route.params.myposts) {
       fetch(`${url}/posts/user/${loggedInUser.username}`)

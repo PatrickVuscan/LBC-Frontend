@@ -31,8 +31,6 @@ const Articles = () => {
       });
   }, []);
 
-  console.log(articles);
-
   return (
     <>
       {/* Header */}
