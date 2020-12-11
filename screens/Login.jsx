@@ -153,11 +153,9 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
   },
-
   'buttonText': {
     color: '#FFFFFF',
   },
-
   'textInput': {
     // opacity: 0.2,
     borderRadius: 10,
@@ -167,7 +165,6 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     paddingLeft: 16,
   },
-
   'textInputContainer': {
     width: 300,
     borderColor: 'transparent',
