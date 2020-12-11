@@ -40,7 +40,7 @@ const EducateArticles = () => {
       </View>
 
       {/* A dropdown menu to filter articles by category. */}
-      <View style={styles.innerContainer}>
+      {/* <View style={styles.innerContainer}>
         <DropdownMenu
           header="Filter Articles by Category"
           placeholder={{
@@ -55,7 +55,7 @@ const EducateArticles = () => {
           value={selectedCategory}
           onValueChange={value => { setSelectedCategory(value); }}
         />
-      </View>
+      </View> */}
 
       {/* Articles */}
       <View
