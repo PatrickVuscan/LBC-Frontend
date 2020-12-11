@@ -53,8 +53,9 @@ const QUERY_ARTICLES = (offset = 0, limit = 10) => {
   } [${offset}...${offset + limit}]`;
 };
 
-const QUERY_ARTICLE = groq`
-  * [_type=="article"] {
+const QUERY_ARTICLE = id => {
+  return groq`
+  * [_type=="educateArticle" && _id=="${id}"] {
     _id,
     title,
     subtitle,
@@ -85,6 +86,7 @@ const QUERY_ARTICLE = groq`
       }
     }
   }`;
+};
 
 export {
   QUERY_ARTICLES_FULL,

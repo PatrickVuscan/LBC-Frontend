@@ -18,7 +18,7 @@ const Article = ({ route }) => {
   const {
     title,
     subtitle,
-    publishedAt,
+    publishDateTime,
     authorName,
     authorImageURL,
     mainImageAlt,
@@ -30,7 +30,8 @@ const Article = ({ route }) => {
   useEffect(() => {
     !loading && setLoading(true);
     error && setError(false);
-    client.fetch(QUERY_ARTICLE, { id })
+
+    client.fetch(QUERY_ARTICLE(id))
       .then(res => {
         setLoading(false);
         setArticle(res[0]);
@@ -59,7 +60,7 @@ const Article = ({ route }) => {
             subtitle={subtitle}
             authorName={authorName}
             authorImageURL={authorImageURL}
-            date={publishedAt}
+            date={publishDateTime}
           />
           <CaptionedImage
             caption={mainImageCaption}

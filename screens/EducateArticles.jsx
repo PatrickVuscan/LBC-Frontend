@@ -70,7 +70,8 @@ const Articles = () => {
         {error && (
           <ErrorMessage error={error} />
         )}
-        {/* Has to be a cardlist here */}
+
+        {/* Article Cards */}
         {!loading && !error && articles && (
           <FlatList
             style={theme.sanityCardList}
