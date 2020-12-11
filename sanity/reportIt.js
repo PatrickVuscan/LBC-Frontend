@@ -1,11 +1,9 @@
 // @ts-check
 import groq from 'groq';
 
-// Note that TAA stands for Take Action Article
-
-const QUERY_TAAS_FULL = (offset = 0, limit = 10) => {
+const QUERY_RESOURCES_FULL = (offset = 0, limit = 10) => {
   return groq`
-  * [_type=="takeActionArticle"] {
+  * [_type=="reportItResource"] {
     _id,
     title,
     subtitle,
@@ -41,9 +39,9 @@ const QUERY_TAAS_FULL = (offset = 0, limit = 10) => {
   } [${offset}...${offset + limit}]`;
 };
 
-const QUERY_TAAS = (offset = 0, limit = 10) => {
+const QUERY_RESOURCES = (offset = 0, limit = 10) => {
   return groq`
-  *[_type=="takeActionArticle"] {
+  *[_type=="reportItResource"] {
     _id,
     title,
     subtitle,
@@ -59,9 +57,9 @@ const QUERY_TAAS = (offset = 0, limit = 10) => {
   } [${offset}...${offset + limit}]`;
 };
 
-const QUERY_TAA = id => {
+const QUERY_RESOURCE = id => {
   return groq`
-  * [_type=="takeActionArticle" && _id=="${id}"] {
+  * [_type=="reportItResource" && _id=="${id}"] {
     _id,
     title,
     subtitle,
@@ -97,7 +95,7 @@ const QUERY_TAA = id => {
 };
 
 export {
-  QUERY_TAAS_FULL,
-  QUERY_TAAS,
-  QUERY_TAA,
+  QUERY_RESOURCES_FULL,
+  QUERY_RESOURCES,
+  QUERY_RESOURCE,
 };
