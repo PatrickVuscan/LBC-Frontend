@@ -28,7 +28,7 @@ const ReportItResources = ({ route, navigation }) => {
       .catch(e => {
         setError(e);
       });
-  }, []);
+  }, [categoryName, categoryID]);
 
   return (
     <>
