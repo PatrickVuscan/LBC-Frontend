@@ -16,7 +16,7 @@ const ContentCard = ({ content, navigateTo }) => {
       }}
     >
       <View
-        style={[styles.card, { backgroundColor: content.featured ? colours.purple : null }]}
+        style={[styles.card, { backgroundColor: content.featured ? colours.purple : 'black' }]}
       >
         {content.featured && (
           <Text style={styles.featured}>

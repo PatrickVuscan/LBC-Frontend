@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import Article from '../components/Article';
 import ScreenBase from '../components/ScreenBase';
-import Articles from './Articles';
+import EducateArticles from './EducateArticles';
 
 const Stack = createStackNavigator();
 
@@ -26,7 +26,7 @@ const Educate = () => {
       >
         <Stack.Screen
           name="Articles"
-          component={Articles}
+          component={EducateArticles}
         />
         <Stack.Screen
           name="Article"
