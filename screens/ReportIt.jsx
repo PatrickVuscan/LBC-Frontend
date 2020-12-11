@@ -1,19 +1,19 @@
-// @ts-check
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import Content from '../components/Content';
 import ScreenBase from '../components/ScreenBase';
-import EducateArticles from './EducateArticles';
+import ReportItCategories from './ReportItCategories';
+import ReportItResources from './ReportItResources';
 
 const Stack = createStackNavigator();
 
-const Educate = () => {
+const ReportIt = () => {
   return (
     <ScreenBase
       noHeader
     >
       <Stack.Navigator
-        initialRouteName="Articles"
+        initialRouteName="Report It"
         screenOptions={{
           headerStyle: {
             backgroundColor: 'black',
@@ -25,11 +25,16 @@ const Educate = () => {
         }}
       >
         <Stack.Screen
-          name="Educate"
-          component={EducateArticles}
+          name="Report It"
+          component={ReportItCategories}
         />
         <Stack.Screen
-          name="Article"
+          name="ReportItResources"
+          component={ReportItResources}
+          options={{ title: 'Resources' }}
+        />
+        <Stack.Screen
+          name="Resource"
           component={Content}
         />
       </Stack.Navigator>
@@ -37,4 +42,4 @@ const Educate = () => {
   );
 };
 
-export default Educate;
+export default ReportIt;

@@ -10,10 +10,10 @@ import Title from '../components/Title';
 import client from '../sanity/client';
 import { colours, theme } from '../theme/theme';
 
-const Articles = () => {
+const EducateArticles = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [articles, setArticles] = useState();
+  const [educateArticles, setEducateArticles] = useState();
 
   // TODO: add a new state for article category, and retrieve category.
   const [selectedCategory, setSelectedCategory] = useState();
@@ -23,7 +23,7 @@ const Articles = () => {
     client.fetch(QUERY_ARTICLES())
       .then(res => {
         setLoading(false);
-        setArticles(res);
+        setEducateArticles(res);
       })
       .catch(e => {
         setError(e);
@@ -71,10 +71,10 @@ const Articles = () => {
         )}
 
         {/* Article Cards */}
-        {!loading && !error && articles && (
+        {!loading && !error && educateArticles && (
           <FlatList
             style={theme.sanityCardList}
-            data={articles}
+            data={educateArticles}
             renderItem={({ item }) => {
               return (
                 <ContentCard
@@ -105,4 +105,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Articles;
+export default EducateArticles;

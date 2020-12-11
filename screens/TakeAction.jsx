@@ -27,12 +27,10 @@ const TakeAction = () => {
         <Stack.Screen
           name="Take Action"
           component={TakeActionArticles}
-          options={{ title: 'Take Action' }}
         />
         <Stack.Screen
           name="Article"
           component={Content}
-          options={{ title: 'Article' }}
         />
       </Stack.Navigator>
     </ScreenBase>
