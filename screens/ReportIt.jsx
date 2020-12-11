@@ -1,49 +1,45 @@
-import {
-  Spinner,
-  View,
-} from 'native-base';
-import React, { useEffect, useState } from 'react';
-import { QUERY_RESOURCES } from '../sanity/resource';
-import ErrorMessage from '../components/ErrorMessage';
-import Resource from '../components/Resource';
+import { createStackNavigator } from '@react-navigation/stack';
+import React from 'react';
+import Content from '../components/Content';
 import ScreenBase from '../components/ScreenBase';
-import client from '../sanity/client';
-import { colours } from '../theme/theme';
+import ReportItCategories from './ReportItCategories';
+import ReportItResources from './ReportItResources';
 
-const Resources = () => {
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const [resources, setResources] = useState();
+const Stack = createStackNavigator();
 
-  useEffect(() => {
-    client.fetch(QUERY_RESOURCES())
-      .then(res => {
-        setLoading(false);
-        setResources(res);
-      })
-      .catch(e => {
-        setError(e);
-      });
-  }, []);
-
+const ReportIt = () => {
   return (
     <ScreenBase
-      header="Resources"
-      padder
+      noHeader
     >
-      <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
-        {loading && (
-          <Spinner color={colours.purple} />
-        )}
-        {error && (
-          <ErrorMessage error={error} />
-        )}
-        {!loading && !error && resources && (
-          <Resource resourceID={resources[0]._id} />
-        )}
-      </View>
+      <Stack.Navigator
+        initialRouteName="Report It"
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: 'black',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontSize: 20,
+          },
+        }}
+      >
+        <Stack.Screen
+          name="Report It"
+          component={ReportItCategories}
+        />
+        <Stack.Screen
+          name="ReportItResources"
+          component={ReportItResources}
+          options={{ title: 'Resources' }}
+        />
+        <Stack.Screen
+          name="Resource"
+          component={Content}
+        />
+      </Stack.Navigator>
     </ScreenBase>
   );
 };
 
-export default Resources;
+export default ReportIt;

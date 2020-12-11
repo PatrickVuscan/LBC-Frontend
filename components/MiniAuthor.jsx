@@ -5,34 +5,52 @@ import dateConvert from '../utils/dateConvert';
 import { colours } from '../theme/theme';
 
 const MiniAuthor = ({ name, url, date }) => {
-  return (
-    <View style={styles.container}>
-      <Thumbnail
-        source={{ uri: url }}
-        style={styles.image}
-      />
-      {date ? (
-        <View style={styles.textWrapper}>
-          <Text>
-            <Text style={styles.by}>By </Text>
-            <Text style={styles.author}>
-              {name}
-            </Text>
-          </Text>
-          <Text>
-            <Text style={styles.by}>
-              {`Posted on ${dateConvert(date)}`}
-            </Text>
-          </Text>
-        </View>
-      ) : (
+  let textComponent = null;
+
+  if (date && name) {
+    textComponent = (
+      <View style={styles.textWrapper}>
         <Text>
           <Text style={styles.by}>By </Text>
           <Text style={styles.author}>
             {name}
           </Text>
         </Text>
+        <Text>
+          <Text style={styles.by}>
+            {`Posted on ${dateConvert(date)}`}
+          </Text>
+        </Text>
+      </View>
+    );
+  } else if (date) {
+    textComponent = (
+      <Text>
+        <Text style={styles.by}>
+          {`Posted on ${dateConvert(date)}`}
+        </Text>
+      </Text>
+    );
+  } else if (name) {
+    textComponent = (
+      <Text>
+        <Text style={styles.by}>By </Text>
+        <Text style={styles.author}>
+          {name}
+        </Text>
+      </Text>
+    );
+  }
+
+  return (
+    <View style={styles.container}>
+      {url && (
+        <Thumbnail
+          source={{ uri: url }}
+          style={styles.image}
+        />
       )}
+      {textComponent}
 
     </View>
   );

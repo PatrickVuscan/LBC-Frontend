@@ -2,7 +2,7 @@
 import { Spinner, View } from 'native-base';
 import React, { useEffect, useState } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
-import { QUERY_ARTICLES } from '../sanity/article';
+import { QUERY_ARTICLE, QUERY_ARTICLES } from '../sanity/educateArticle';
 import ContentCard from '../components/ContentCard';
 import DropdownMenu from '../components/DropdownMenu';
 import ErrorMessage from '../components/ErrorMessage';
@@ -10,21 +10,20 @@ import Title from '../components/Title';
 import client from '../sanity/client';
 import { colours, theme } from '../theme/theme';
 
-const Articles = () => {
+const EducateArticles = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [articles, setArticles] = useState();
+  const [educateArticles, setEducateArticles] = useState();
+
   // TODO: add a new state for article category, and retrieve category.
   const [selectedCategory, setSelectedCategory] = useState();
-
-  // const [category, setCategory] = useState();
 
   // Query the articles from Sanity
   useEffect(() => {
     client.fetch(QUERY_ARTICLES())
       .then(res => {
         setLoading(false);
-        setArticles(res);
+        setEducateArticles(res);
       })
       .catch(e => {
         setError(e);
@@ -41,7 +40,7 @@ const Articles = () => {
       </View>
 
       {/* A dropdown menu to filter articles by category. */}
-      <View style={styles.innerContainer}>
+      {/* <View style={styles.innerContainer}>
         <DropdownMenu
           header="Filter Articles by Category"
           placeholder={{
@@ -56,7 +55,7 @@ const Articles = () => {
           value={selectedCategory}
           onValueChange={value => { setSelectedCategory(value); }}
         />
-      </View>
+      </View> */}
 
       {/* Articles */}
       <View
@@ -70,16 +69,18 @@ const Articles = () => {
         {error && (
           <ErrorMessage error={error} />
         )}
-        {/* Has to be a cardlist here */}
-        {!loading && !error && articles && (
+
+        {/* Article Cards */}
+        {!loading && !error && educateArticles && (
           <FlatList
             style={theme.sanityCardList}
-            data={articles}
+            data={educateArticles}
             renderItem={({ item }) => {
               return (
                 <ContentCard
                   navigateTo="Article"
                   content={item}
+                  queryContent={QUERY_ARTICLE}
                 />
               );
             }}
@@ -104,4 +105,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Articles;
+export default EducateArticles;

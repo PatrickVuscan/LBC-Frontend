@@ -1,9 +1,9 @@
 // @ts-check
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import Article from '../components/Article';
+import Content from '../components/Content';
 import ScreenBase from '../components/ScreenBase';
-import Articles from './Articles';
+import EducateArticles from './EducateArticles';
 
 const Stack = createStackNavigator();
 
@@ -13,7 +13,7 @@ const Educate = () => {
       noHeader
     >
       <Stack.Navigator
-        initialRouteName="Articles"
+        initialRouteName="Educate"
         screenOptions={{
           headerStyle: {
             backgroundColor: 'black',
@@ -25,12 +25,12 @@ const Educate = () => {
         }}
       >
         <Stack.Screen
-          name="Articles"
-          component={Articles}
+          name="Educate"
+          component={EducateArticles}
         />
         <Stack.Screen
           name="Article"
-          component={Article}
+          component={Content}
         />
       </Stack.Navigator>
     </ScreenBase>

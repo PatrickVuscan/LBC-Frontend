@@ -7,6 +7,7 @@ import * as Font from 'expo-font';
 import { Spinner, View } from 'native-base';
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { LogBox } from 'react-native';
 import Connect from './screens/Connect';
 import Educate from './screens/Educate';
 import Login from './screens/Login';
@@ -15,6 +16,11 @@ import TakeAction from './screens/TakeAction';
 import store from './state/store';
 import { colours } from './theme/theme';
 import createAlert from './utils/createAlert';
+
+// Ignoring certain errors... for now at least
+LogBox.ignoreLogs([
+  'Non-serializable values were found in the navigation state',
+]);
 
 const Tab = createBottomTabNavigator();
 

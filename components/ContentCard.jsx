@@ -6,17 +6,20 @@ import { Image, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { colours } from '../theme/theme';
 
-const ContentCard = ({ content, navigateTo }) => {
+const ContentCard = ({ content, navigateTo, queryContent }) => {
   const navigation = useNavigation();
 
   return (
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate(navigateTo, { id: content._id });
+        navigation.navigate(navigateTo, {
+          id: content._id,
+          queryContent,
+        });
       }}
     >
       <View
-        style={[styles.card, { backgroundColor: content.featured ? colours.purple : null }]}
+        style={[styles.card, { backgroundColor: content.featured ? colours.purple : 'black' }]}
       >
         {content.featured && (
           <Text style={styles.featured}>

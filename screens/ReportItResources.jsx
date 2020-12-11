@@ -1,24 +1,29 @@
+// @ts-check
 import { Spinner, View } from 'native-base';
 import React, { useEffect, useState } from 'react';
 import { FlatList } from 'react-native';
-import { QUERY_CTAS } from '../sanity/cta';
 import ContentCard from '../components/ContentCard';
 import ErrorMessage from '../components/ErrorMessage';
 import Title from '../components/Title';
 import client from '../sanity/client';
+import { QUERY_RESOURCE } from '../sanity/reportIt';
 import { colours, theme } from '../theme/theme';
 
-const CTAs = () => {
+const ReportItResources = ({ route, navigation }) => {
+  const { categoryID, categoryName, queryCategory } = route.params;
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [ctas, setCtas] = useState();
+  const [reportItResources, setReportItResources] = useState();
 
-  // Query the articles from Sanity
   useEffect(() => {
-    client.fetch(QUERY_CTAS())
+    // Set the header title for this category!
+    navigation.setOptions({ title: categoryName });
+
+    // Query the resources from Sanity, dependent on the category chosen
+    client.fetch(queryCategory(categoryID))
       .then(res => {
         setLoading(false);
-        setCtas(res);
+        setReportItResources(res);
       })
       .catch(e => {
         setError(e);
@@ -47,15 +52,16 @@ const CTAs = () => {
           <ErrorMessage error={error} />
         )}
         {/* Has to be a cardlist here */}
-        {!loading && !error && ctas && (
+        {!loading && !error && reportItResources && (
           <FlatList
             style={theme.sanityCardList}
-            data={ctas}
+            data={reportItResources}
             renderItem={({ item }) => {
               return (
                 <ContentCard
-                  navigateTo="CTA"
+                  navigateTo="Resource"
                   content={item}
+                  queryContent={QUERY_RESOURCE}
                 />
               );
             }}
@@ -67,4 +73,4 @@ const CTAs = () => {
   );
 };
 
-export default CTAs;
+export default ReportItResources;
