@@ -5,15 +5,19 @@ import FullWidthImage from './FullWidthImage';
 const CaptionedImage = ({
   url, caption, alt,
 }) => {
+  if (!url) return null;
+
   return (
     <View>
       <FullWidthImage
         url={url}
         alt={alt}
       />
-      <Text style={styles.caption}>
-        {caption}
-      </Text>
+      {caption ? (
+        <Text style={styles.caption}>
+          {caption}
+        </Text>
+      ) : <View style={styles.spacer} />}
     </View>
   );
 };
@@ -23,6 +27,9 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     fontSize: 16,
     margin: 10,
+  },
+  spacer: {
+    margin: 5,
   },
 });
 

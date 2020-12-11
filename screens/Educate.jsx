@@ -25,7 +25,7 @@ const Educate = () => {
         }}
       >
         <Stack.Screen
-          name="Articles"
+          name="Educate"
           component={EducateArticles}
         />
         <Stack.Screen
