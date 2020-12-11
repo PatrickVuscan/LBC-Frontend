@@ -1,13 +1,15 @@
 import { Spinner } from 'native-base';
 import React, { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import { QUERY_CTA } from '../sanity/cta';
+import { QUERY_CTA } from '../sanity/takeAction';
 import client from '../sanity/client';
 import { colours } from '../theme/theme';
 import Body from './Body';
 import CaptionedImage from './CaptionedImage';
 import ErrorMessage from './ErrorMessage';
 import Header from './Header';
+import PhoneNumber from './PhoneNumber';
+import Email from './Email';
 
 const CTA = ({ route }) => {
   const { id } = route.params;
@@ -19,9 +21,11 @@ const CTA = ({ route }) => {
   const {
     title,
     subtitle,
-    publishedAt,
+    publishDateTime,
     authorName,
     authorImageURL,
+    email,
+    phoneNumber,
     mainImageAlt,
     mainImageCaption,
     mainImageURL,
@@ -31,7 +35,7 @@ const CTA = ({ route }) => {
   useEffect(() => {
     !loading && setLoading(true);
     error && setError(false);
-    client.fetch(QUERY_CTA, { id })
+    client.fetch(QUERY_CTA(id))
       .then(res => {
         setLoading(false);
         setCta(res[0]);
@@ -60,7 +64,7 @@ const CTA = ({ route }) => {
             subtitle={subtitle}
             authorName={authorName}
             authorImageURL={authorImageURL}
-            date={publishedAt}
+            date={publishDateTime}
           />
           <CaptionedImage
             key={id}
@@ -68,6 +72,12 @@ const CTA = ({ route }) => {
             alt={mainImageAlt}
             url={mainImageURL}
           />
+          {phoneNumber && (
+            <PhoneNumber phoneNumber={phoneNumber} />
+          )}
+          {email && (
+            <Email email={email} />
+          )}
           <Body body={body} />
         </>
       )}

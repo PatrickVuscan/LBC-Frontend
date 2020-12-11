@@ -14,10 +14,9 @@ const Articles = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [articles, setArticles] = useState();
+
   // TODO: add a new state for article category, and retrieve category.
   const [selectedCategory, setSelectedCategory] = useState();
-
-  // const [category, setCategory] = useState();
 
   // Query the articles from Sanity
   useEffect(() => {

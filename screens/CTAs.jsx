@@ -1,7 +1,7 @@
 import { Spinner, View } from 'native-base';
 import React, { useEffect, useState } from 'react';
 import { FlatList } from 'react-native';
-import { QUERY_CTAS } from '../sanity/cta';
+import { QUERY_CTAS } from '../sanity/takeAction';
 import ContentCard from '../components/ContentCard';
 import ErrorMessage from '../components/ErrorMessage';
 import Title from '../components/Title';

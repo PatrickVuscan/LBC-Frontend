@@ -32,7 +32,7 @@ const TakeAction = () => {
         <Stack.Screen
           name="CTA"
           component={CTA}
-          options={{ title: 'Take Action', headerBackTitle: 'Back' }}
+          options={{ title: 'Article' }}
         />
       </Stack.Navigator>
     </ScreenBase>
