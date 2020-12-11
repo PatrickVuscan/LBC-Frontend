@@ -1,9 +1,9 @@
 // @ts-check
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import CTA from '../components/CTA';
+import Content from '../components/Content';
 import ScreenBase from '../components/ScreenBase';
-import CTAs from './CTAs';
+import TakeActionArticles from './TakeActionArticles';
 
 const Stack = createStackNavigator();
 
@@ -13,7 +13,7 @@ const TakeAction = () => {
       noHeader
     >
       <Stack.Navigator
-        initialRouteName="CTAs"
+        initialRouteName="Take Action"
         screenOptions={{
           headerStyle: {
             backgroundColor: 'black',
@@ -25,13 +25,13 @@ const TakeAction = () => {
         }}
       >
         <Stack.Screen
-          name="CTAs"
-          component={CTAs}
+          name="Take Action"
+          component={TakeActionArticles}
           options={{ title: 'Take Action' }}
         />
         <Stack.Screen
-          name="CTA"
-          component={CTA}
+          name="Article"
+          component={Content}
           options={{ title: 'Article' }}
         />
       </Stack.Navigator>

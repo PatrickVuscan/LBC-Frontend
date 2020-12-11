@@ -1,24 +1,24 @@
 import { Spinner, View } from 'native-base';
 import React, { useEffect, useState } from 'react';
 import { FlatList } from 'react-native';
-import { QUERY_CTAS } from '../sanity/takeAction';
 import ContentCard from '../components/ContentCard';
 import ErrorMessage from '../components/ErrorMessage';
 import Title from '../components/Title';
 import client from '../sanity/client';
+import { QUERY_TAA, QUERY_TAAS } from '../sanity/takeAction';
 import { colours, theme } from '../theme/theme';
 
-const CTAs = () => {
+const TakeActionArticles = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [ctas, setCtas] = useState();
+  const [takeActionArticles, setTakeActionArticles] = useState();
 
   // Query the articles from Sanity
   useEffect(() => {
-    client.fetch(QUERY_CTAS())
+    client.fetch(QUERY_TAAS())
       .then(res => {
         setLoading(false);
-        setCtas(res);
+        setTakeActionArticles(res);
       })
       .catch(e => {
         setError(e);
@@ -47,15 +47,16 @@ const CTAs = () => {
           <ErrorMessage error={error} />
         )}
         {/* Has to be a cardlist here */}
-        {!loading && !error && ctas && (
+        {!loading && !error && takeActionArticles && (
           <FlatList
             style={theme.sanityCardList}
-            data={ctas}
+            data={takeActionArticles}
             renderItem={({ item }) => {
               return (
                 <ContentCard
-                  navigateTo="CTA"
+                  navigateTo="Article"
                   content={item}
+                  queryContent={QUERY_TAA}
                 />
               );
             }}
@@ -67,4 +68,4 @@ const CTAs = () => {
   );
 };
 
-export default CTAs;
+export default TakeActionArticles;

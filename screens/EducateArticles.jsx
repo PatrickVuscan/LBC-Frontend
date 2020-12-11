@@ -2,7 +2,7 @@
 import { Spinner, View } from 'native-base';
 import React, { useEffect, useState } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
-import { QUERY_ARTICLES } from '../sanity/educateArticle';
+import { QUERY_ARTICLE, QUERY_ARTICLES } from '../sanity/educateArticle';
 import ContentCard from '../components/ContentCard';
 import DropdownMenu from '../components/DropdownMenu';
 import ErrorMessage from '../components/ErrorMessage';
@@ -80,6 +80,7 @@ const Articles = () => {
                 <ContentCard
                   navigateTo="Article"
                   content={item}
+                  queryContent={QUERY_ARTICLE}
                 />
               );
             }}
