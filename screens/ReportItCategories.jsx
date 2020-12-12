@@ -34,8 +34,6 @@ const ReportItCategories = () => {
       });
   }, []);
 
-  // console.log(reportItCategories);
-
   return (
     <>
       {/* Header */}

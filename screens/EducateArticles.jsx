@@ -1,4 +1,3 @@
-// @ts-check
 import { Spinner, View, Text } from 'native-base';
 import React, { useEffect, useState } from 'react';
 import { FlatList } from 'react-native';
@@ -66,6 +65,7 @@ const EducateArticles = () => {
         </View>
       </View>
 
+      {/* Category Picker and Articles */}
       <View
         style={{
           alignItems: 'center', justifyContent: 'center', flex: 1,
@@ -80,6 +80,7 @@ const EducateArticles = () => {
 
         {!loading && !error && (
           <>
+            {/* Category Picker */}
             <DropdownMenu
               text="Category"
               placeholder="Select a Category"

@@ -3,6 +3,12 @@ import groq from 'groq';
 
 // Note that TAA stands for Take Action Article
 
+const QUERY_CATEGORIES = groq`
+  *[_type=="takeActionCategory"] {
+    _id,
+    name,
+  }`;
+
 const QUERY_TAAS_FULL = (offset = 0, limit = 10) => {
   return groq`
   * [_type=="takeActionArticle"] {
@@ -59,6 +65,24 @@ const QUERY_TAAS = (offset = 0, limit = 10) => {
   } [${offset}...${offset + limit}]`;
 };
 
+const QUERY_TAAS_BY_CATEGORY = (categoryID, offset = 0, limit = 10) => {
+  return groq`
+  *[_type=="takeActionArticle" && category._ref=="${categoryID}"] {
+    _id,
+    title,
+    subtitle,
+    publishDateTime,
+    featured,
+    email,
+    phoneNumber,
+    "authorName": author->name,
+    "mainImageURL": mainImage.asset->url,
+    "category": category->name,
+    "categoryId": category->_id,
+    "slug": slug.current
+  } [${offset}...${offset + limit}]`;
+};
+
 const QUERY_TAA = id => {
   return groq`
   * [_type=="takeActionArticle" && _id=="${id}"] {
@@ -97,7 +121,9 @@ const QUERY_TAA = id => {
 };
 
 export {
+  QUERY_CATEGORIES,
   QUERY_TAAS_FULL,
   QUERY_TAAS,
+  QUERY_TAAS_BY_CATEGORY,
   QUERY_TAA,
 };
