@@ -1,16 +1,16 @@
-import { Spinner, View, Text } from 'native-base';
+import { Spinner, View } from 'native-base';
 import React, { useEffect, useState } from 'react';
 import { FlatList } from 'react-native';
 import ContentCard from '../components/ContentCard';
 import DropdownMenu from '../components/DropdownMenu';
 import ErrorMessage from '../components/ErrorMessage';
+import TextSpanner from '../components/TextSpanner';
 import Title from '../components/Title';
 import client from '../sanity/client';
 import {
-  QUERY_TAA,
+  QUERY_CATEGORIES, QUERY_TAA,
   QUERY_TAAS,
   QUERY_TAAS_BY_CATEGORY,
-  QUERY_CATEGORIES,
 } from '../sanity/takeAction';
 import { colours, theme } from '../theme/theme';
 
@@ -107,18 +107,7 @@ const TakeActionArticles = () => {
                 keyExtractor={item => { return item._id; }}
               />
             ) : (
-              <View style={{ flex: 1, justifyContent: 'center', padding: '15%' }}>
-                <Text
-                  style={{
-                    textAlign: 'center',
-                    color: colours.purple,
-                    fontSize: 18,
-                    fontWeight: '500',
-                  }}
-                >
-                  Unfortunately there is nothing here yet... Check back soon!
-                </Text>
-              </View>
+              <TextSpanner text="Unfortunately there is nothing here yet... Check back soon!" />
             )}
           </>
         )}

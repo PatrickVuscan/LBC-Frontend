@@ -1,5 +1,4 @@
-// @ts-check
-import { Spinner, View, Text } from 'native-base';
+import { Spinner, View } from 'native-base';
 import React, { useEffect, useState } from 'react';
 import { FlatList } from 'react-native';
 import ContentCard from '../components/ContentCard';
@@ -8,6 +7,7 @@ import Title from '../components/Title';
 import client from '../sanity/client';
 import { QUERY_RESOURCE } from '../sanity/reportIt';
 import { colours, theme } from '../theme/theme';
+import TextSpanner from '../components/TextSpanner';
 
 const ReportItResources = ({ route, navigation }) => {
   const { categoryID, categoryName, queryCategory } = route.params;
@@ -68,18 +68,7 @@ const ReportItResources = ({ route, navigation }) => {
             keyExtractor={item => { return item._id; }}
           />
         ) : (
-          <View style={{ flex: 1, justifyContent: 'center', padding: '15%' }}>
-            <Text
-              style={{
-                textAlign: 'center',
-                color: colours.purple,
-                fontSize: 18,
-                fontWeight: '500',
-              }}
-            >
-              Unfortunately there is nothing here yet... Check back soon!
-            </Text>
-          </View>
+          <TextSpanner text="Unfortunately there is nothing here yet... Check back soon!" />
         )}
       </View>
     </>
