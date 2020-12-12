@@ -1,5 +1,5 @@
 // @ts-check
-import { Spinner, View } from 'native-base';
+import { Spinner, View, Text } from 'native-base';
 import React, { useEffect, useState } from 'react';
 import { FlatList } from 'react-native';
 import ContentCard from '../components/ContentCard';
@@ -13,7 +13,7 @@ const ReportItResources = ({ route, navigation }) => {
   const { categoryID, categoryName, queryCategory } = route.params;
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [reportItResources, setReportItResources] = useState();
+  const [reportItResources, setReportItResources] = useState([]);
 
   useEffect(() => {
     // Set the header title for this category!
@@ -39,7 +39,7 @@ const ReportItResources = ({ route, navigation }) => {
         </View>
       </View>
 
-      {/* Calls To Action */}
+      {/* Report It Resources */}
       <View
         style={{
           alignItems: 'center', justifyContent: 'center', flex: 1,
@@ -51,14 +51,14 @@ const ReportItResources = ({ route, navigation }) => {
         {error && (
           <ErrorMessage error={error} />
         )}
-        {/* Has to be a cardlist here */}
-        {!loading && !error && reportItResources && (
+        {!loading && !error && reportItResources.length > 0 ? (
           <FlatList
             style={theme.sanityCardList}
             data={reportItResources}
-            renderItem={({ item }) => {
+            renderItem={({ item, index }) => {
               return (
                 <ContentCard
+                  index={index}
                   navigateTo="Resource"
                   content={item}
                   queryContent={QUERY_RESOURCE}
@@ -67,6 +67,19 @@ const ReportItResources = ({ route, navigation }) => {
             }}
             keyExtractor={item => { return item._id; }}
           />
+        ) : (
+          <View style={{ flex: 1, justifyContent: 'center', padding: '15%' }}>
+            <Text
+              style={{
+                textAlign: 'center',
+                color: colours.purple,
+                fontSize: 18,
+                fontWeight: '500',
+              }}
+            >
+              Unfortunately there is nothing here yet... Check back soon!
+            </Text>
+          </View>
         )}
       </View>
     </>

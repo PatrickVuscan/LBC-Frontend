@@ -95,11 +95,10 @@ const EducateArticles = () => {
               <FlatList
                 style={theme.sanityCardList}
                 data={educateArticles}
-                renderItem={({ item, index }) => {
+                renderItem={({ item }) => {
                   return (
                     // Article Cards
                     <ContentCard
-                      index={index}
                       navigateTo="Article"
                       content={item}
                       queryContent={QUERY_ARTICLE}

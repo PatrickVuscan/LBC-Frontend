@@ -94,11 +94,10 @@ const TakeActionArticles = () => {
               <FlatList
                 style={theme.sanityCardList}
                 data={takeActionArticles}
-                renderItem={({ item, index }) => {
+                renderItem={({ item }) => {
                   return (
                     // Article Cards
                     <ContentCard
-                      index={index}
                       navigateTo="Article"
                       content={item}
                       queryContent={QUERY_TAA}
