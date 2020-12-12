@@ -7,7 +7,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { QUERY_RESOURCES_BY_CATEGORY } from '../sanity/reportIt';
 
 // Used specifically in Report It
-const ContentCard = ({ category, navigateTo }) => {
+const CategoryCard = ({ category, navigateTo }) => {
   const navigation = useNavigation();
 
   return (
@@ -31,7 +31,7 @@ const ContentCard = ({ category, navigateTo }) => {
   );
 };
 
-export default ContentCard;
+export default CategoryCard;
 
 const styles = StyleSheet.create({
   emergencyCard: {

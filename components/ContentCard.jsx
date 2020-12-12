@@ -6,7 +6,12 @@ import { Image, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { colours } from '../theme/theme';
 
-const ContentCard = ({ content, navigateTo, queryContent }) => {
+const ContentCard = ({
+  content,
+  navigateTo,
+  queryContent,
+  index,
+}) => {
   const navigation = useNavigation();
 
   return (
@@ -19,7 +24,13 @@ const ContentCard = ({ content, navigateTo, queryContent }) => {
       }}
     >
       <View
-        style={[styles.card, { backgroundColor: content.featured ? colours.purple : 'black' }]}
+        style={
+          [
+            styles.card,
+            { backgroundColor: content.featured ? colours.purple : 'black' },
+            { marginTop: index === 0 ? 15 : 0 },
+          ]
+        }
       >
         {content.featured && (
           <Text style={styles.featured}>
@@ -58,7 +69,7 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: '#666',
     padding: 20,
-    marginTop: 15,
+    marginBottom: 15,
     marginHorizontal: 15,
     borderRadius: 10,
     alignSelf: 'stretch',

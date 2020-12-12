@@ -1,6 +1,12 @@
 // @ts-check
 import groq from 'groq';
 
+const QUERY_CATEGORIES = groq`
+  *[_type=="educateCategory"] {
+    _id,
+    name,
+  }`;
+
 const QUERY_ARTICLES_FULL = (offset = 0, limit = 10) => {
   return groq`
   * [_type=="educateArticle"] {
@@ -57,6 +63,24 @@ const QUERY_ARTICLES = (offset = 0, limit = 10) => {
   } [${offset}...${offset + limit}]`;
 };
 
+const QUERY_ARTICLES_BY_CATEGORY = (categoryID, offset = 0, limit = 10) => {
+  return groq`
+  *[_type=="educateArticle" && category._ref=="${categoryID}"] {
+    _id,
+    title,
+    subtitle,
+    publishDateTime,
+    featured,
+    email,
+    phoneNumber,
+    "authorName": author->name,
+    "mainImageURL": mainImage.asset->url,
+    "category": category->name,
+    "categoryId": category->_id,
+    "slug": slug.current
+  } [${offset}...${offset + limit}]`;
+};
+
 const QUERY_ARTICLE = id => {
   return groq`
   * [_type=="educateArticle" && _id=="${id}"] {
@@ -95,7 +119,9 @@ const QUERY_ARTICLE = id => {
 };
 
 export {
+  QUERY_CATEGORIES,
   QUERY_ARTICLES_FULL,
   QUERY_ARTICLES,
+  QUERY_ARTICLES_BY_CATEGORY,
   QUERY_ARTICLE,
 };
