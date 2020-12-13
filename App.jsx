@@ -75,6 +75,12 @@ const App = () => {
     }
   };
 
+  const logOut = () => {
+    setLoggedIn(false);
+    setTokenType('');
+    setAccessToken('');
+  };
+
   if (!isReady) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -154,6 +160,7 @@ const App = () => {
                 initialParams={{
                   accessToken,
                   tokenType,
+                  logOut,
                 }}
               />
               <Tab.Screen

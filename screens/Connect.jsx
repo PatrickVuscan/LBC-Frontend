@@ -2,10 +2,8 @@
 import {
   createDrawerNavigator, DrawerContentScrollView, DrawerItem, DrawerItemList,
 } from '@react-navigation/drawer';
-import { Body, Header, Text } from 'native-base';
 import * as React from 'react';
 import { Image, Linking, View } from 'react-native';
-import { DrawerNavigatorItems } from 'react-navigation-drawer';
 import Content from '../components/Content';
 import ScreenBase from '../components/ScreenBase';
 import { colours } from '../theme/theme';
@@ -20,7 +18,7 @@ const lbcLogo = require('../assets/lbc_logo_w_ball_gradient.png');
 
 // still attempting to implement images into the drawer navigator with no success so far
 const CustomDrawerNavComponent = props => {
-  const { state, ...rest } = props;
+  const { state, logOut, ...rest } = props;
   const newState = { ...state };
   newState.routes = newState.routes.filter(
     item => { return !['Reach Out Resources', 'Reach Out Resource'].includes(item.name); },
@@ -39,6 +37,10 @@ const CustomDrawerNavComponent = props => {
         label="Lady Ballers Camp"
         onPress={() => { return Linking.openURL('https://ladyballerscamp.org'); }}
       />
+      <DrawerItem
+        label="Log Out"
+        onPress={() => { logOut(); }}
+      />
     </DrawerContentScrollView>
   );
 };
@@ -54,7 +56,14 @@ const Connect = ({ route }) => {
           itemStyle: { marginVertical: 5 },
         }}
         initialRouteName="Timeline"
-        drawerContent={props => { return (<CustomDrawerNavComponent {...props} />); }}
+        drawerContent={props => {
+          return (
+            <CustomDrawerNavComponent
+              logOut={route.params.logOut}
+              {...props}
+            />
+          );
+        }}
       >
         <Drawer.Screen
           name="Timeline"
