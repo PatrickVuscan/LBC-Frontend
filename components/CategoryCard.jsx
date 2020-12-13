@@ -4,10 +4,9 @@ import { Text, View } from 'native-base';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { QUERY_RESOURCES_BY_CATEGORY } from '../sanity/reportIt';
 
 // Used specifically in Report It
-const CategoryCard = ({ category, navigateTo }) => {
+const CategoryCard = ({ category, navigateTo, queryCategory }) => {
   const navigation = useNavigation();
 
   return (
@@ -16,7 +15,7 @@ const CategoryCard = ({ category, navigateTo }) => {
         navigation.navigate(navigateTo, {
           categoryID: category._id,
           categoryName: category.name,
-          queryCategory: QUERY_RESOURCES_BY_CATEGORY,
+          queryCategory,
         });
       }}
     >

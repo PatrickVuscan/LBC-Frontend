@@ -29,7 +29,7 @@ const ReportIt = () => {
           component={ReportItCategories}
         />
         <Stack.Screen
-          name="ReportItResources"
+          name="Report It Resources"
           component={ReportItResources}
           options={{ title: 'Resources' }}
         />
