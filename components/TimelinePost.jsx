@@ -1,10 +1,10 @@
 // @ts-check
+import { Ionicons } from '@expo/vector-icons';
 import {
-  Button, Container, Content, Header, Left, Right, Text,
+  Button, Content, Text,
 } from 'native-base';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 import { colours } from '../theme/theme';
 
 export default props => {
@@ -30,28 +30,38 @@ export default props => {
   ) : null;
 
   return (
-    <Container style={styles.postContainer}>
-      <Header style={{ backgroundColor: headerColor }}>
-        <Left>
-          <Text style={{ color: colours.gold }}>
-            {displayedUser}
-          </Text>
-        </Left>
-        <Right>
-          <Text style={{ color: 'white' }}>
-            {props.post.post_header}
-          </Text>
-        </Right>
-      </Header>
-      <Content
-        contentContainerStyle={{ justifyContent: 'space-between' }}
-        style={{ backgroundColor: 'white' }}
-      >
-        <Text style={{ marginTop: 10, fontSize: 18, color: '#555' }}>
+    <View style={styles.postContainer}>
+      {/* Header */}
+      <View style={[styles.header, { backgroundColor: headerColor }]}>
+        {/* Username */}
+        <Text style={styles.username}>
+          {displayedUser}
+        </Text>
+
+        {/* Post Title */}
+        <Text style={{ color: 'white' }}>
+          {props.post.post_header}
+        </Text>
+      </View>
+
+      {/* Post Text */}
+      <View>
+        <Text
+          style={{
+            margin: 10,
+            marginBottom: 0,
+            fontSize: 18,
+            color: '#555',
+          }}
+        >
           {props.post.post_body}
         </Text>
-      </Content>
-      <View style={{ padding: 0, flexDirection: 'row', alignItems: 'flex-end' }}>
+      </View>
+
+      {/* Buttons at bottom */}
+      <View
+        style={{ flexDirection: 'row', paddingHorizontal: 10 }}
+      >
         <Button
           transparent
           onPress={() => {
@@ -63,25 +73,36 @@ export default props => {
             color={colours.purple}
             name="chatbox"
             size={24}
-            style={{ flexDirection: 'row', color: headerColor, paddingLeft: 5 }}
           />
         </Button>
         {closingButton}
       </View>
-    </Container>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   postContainer: {
-    paddingTop: 20,
-    paddingBottom: 5,
-    paddingLeft: 10,
-    paddingRight: 10,
-    height: 250,
-    borderBottomColor: '#bbb',
-    borderBottomWidth: StyleSheet.hairlineWidth,
+    marginTop: 20,
+    marginBottom: 5,
+    marginLeft: 10,
+    marginRight: 10,
     flexDirection: 'column',
     maxHeight: 300,
+    backgroundColor: 'white',
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: colours.purple,
+  },
+  header: {
+    height: 50,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 15,
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
+  },
+  username: {
+    color: colours.gold,
   },
 });

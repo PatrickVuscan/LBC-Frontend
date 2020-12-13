@@ -155,6 +155,7 @@ const Timeline = ({ navigation, route }) => {
           flexGrow: 1,
           justifyContent: 'space-between',
         }}
+        style={{ backgroundColor: '#eee' }}
       >
         {/*
         <Button style={{ backgroundColor: colours.gold, width: 75, height: 50 }}>
