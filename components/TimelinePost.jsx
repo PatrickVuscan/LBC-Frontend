@@ -1,7 +1,7 @@
 // @ts-check
 import { Ionicons } from '@expo/vector-icons';
 import {
-  Button, Content, Text,
+  Button, Text,
 } from 'native-base';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';

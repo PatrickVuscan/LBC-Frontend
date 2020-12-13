@@ -4,6 +4,7 @@ import { Text, View } from 'native-base';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { colours } from '../theme/theme';
 
 // Used specifically in Report It
 const CategoryCard = ({ category, navigateTo, queryCategory }) => {
@@ -38,13 +39,11 @@ const styles = StyleSheet.create({
   emergencyCard: {
     backgroundColor: 'white',
     borderColor: 'red',
-    borderWidth: 5,
+    borderWidth: 2,
     color: 'red',
-    paddingVertical: 50,
+    paddingVertical: 20,
     textAlign: 'center',
     alignItems: 'center',
-    padding: 20,
-    marginTop: 15,
     marginHorizontal: 15,
     borderRadius: 10,
     alignSelf: 'stretch',
@@ -55,7 +54,7 @@ const styles = StyleSheet.create({
     color: 'red',
   },
   card: {
-    backgroundColor: 'black',
+    backgroundColor: colours.purple,
     padding: 10,
     marginTop: 15,
     marginHorizontal: 15,

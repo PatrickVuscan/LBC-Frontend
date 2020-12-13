@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { StoreProvider } from 'easy-peasy';
@@ -40,6 +40,7 @@ const App = () => {
           Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
           ...Ionicons.font,
           ...MaterialIcons.font,
+          ...MaterialCommunityIcons.font,
         });
       } catch (error) {
         console.log(error);

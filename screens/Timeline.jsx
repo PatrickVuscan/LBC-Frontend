@@ -1,12 +1,14 @@
 // @ts-check
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import {
   Button,
   Container,
   Icon,
   Text,
+  View,
 } from 'native-base';
 import React, { useEffect, useState } from 'react';
-import { View } from 'react-native';
+import { TouchableOpacity, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import CreatePost from '../components/CreatePost';
 import ScreenBase from '../components/ScreenBase';
@@ -125,27 +127,30 @@ const Timeline = ({ navigation, route }) => {
   return (
     <ScreenBase
       left={(
-        <View>
-          <Button
-            transparent
-            onPress={() => { return navigation.openDrawer(); }}
-          >
-            <Icon
-              style={{ color: colours.gold }}
-              name="ios-menu"
-            />
-          </Button>
-        </View>
+        <Button
+          transparent
+          iconLeft
+          onPress={() => { return navigation.openDrawer(); }}
+        >
+          <Icon
+            name="ios-menu"
+            style={{ color: colours.gold }}
+          />
+        </Button>
       )}
-      header=""
+      header="Connect"
       right={(
         <Button
-          style={{ alignSelf: 'flex-end', marginLeft: 'auto', backgroundColor: colours.gold }}
-          onPress={() => { return setNewPostScreen(true); }}
+          transparent
+          iconRight
+          onPress={() => { navigation.navigate('Reach Out Categories'); }}
         >
-          <Text style={{ color: colours.purple }}>
-            New Post
-          </Text>
+          <MaterialCommunityIcons
+            name="brain"
+            size={34}
+            color={colours.gold}
+            style={{ paddingRight: 15 }}
+          />
         </Button>
       )}
     >
@@ -157,14 +162,14 @@ const Timeline = ({ navigation, route }) => {
         }}
         style={{ backgroundColor: '#eee' }}
       >
-        {/*
-        <Button style={{ backgroundColor: colours.gold, width: 75, height: 50 }}>
-          <Image
-            source={brain}
-            style={{ width: 60, height: 48 }}
-          />
-        </Button>
-      */}
+        {/* Create a post */}
+        <TouchableOpacity onPress={() => { return setNewPostScreen(true); }}>
+          <View style={styles.createPost}>
+            <Text style={styles.createPostText}>Create a new post</Text>
+          </View>
+        </TouchableOpacity>
+
+        {/* Posts */}
         {allPosts.map(item => {
           return (
             <TimelinePost
@@ -181,5 +186,24 @@ const Timeline = ({ navigation, route }) => {
     </ScreenBase>
   );
 };
+
+const styles = StyleSheet.create({
+  createPost: {
+    marginHorizontal: 10,
+    marginTop: 20,
+    marginBottom: 5,
+    padding: 10,
+    borderRadius: 100,
+    borderWidth: 2,
+    borderColor: colours.gold,
+    backgroundColor: colours.purple,
+  },
+  createPostText: {
+    color: 'white',
+    fontSize: 20,
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+});
 
 export default Timeline;
