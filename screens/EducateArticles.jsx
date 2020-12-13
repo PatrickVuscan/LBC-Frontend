@@ -1,11 +1,11 @@
 import { Spinner, View } from 'native-base';
 import React, { useEffect, useState } from 'react';
 import { FlatList } from 'react-native';
+import ArticleScreenHeader from '../components/ArticleScreenHeader';
 import ContentCard from '../components/ContentCard';
 import DropdownMenu from '../components/DropdownMenu';
 import ErrorMessage from '../components/ErrorMessage';
 import TextSpanner from '../components/TextSpanner';
-import Title from '../components/Title';
 import client from '../sanity/client';
 import {
   QUERY_ARTICLE,
@@ -60,11 +60,7 @@ const EducateArticles = () => {
   return (
     <>
       {/* Header */}
-      <View style={theme.sanityHeaderOuter}>
-        <View style={theme.sanityHeaderInner}>
-          <Title title="Content curated by the LBC team!" />
-        </View>
-      </View>
+      <ArticleScreenHeader text="Content curated by the LBC team!" />
 
       {/* Category Picker and Articles */}
       <View

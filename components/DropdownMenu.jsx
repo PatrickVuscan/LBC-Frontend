@@ -35,7 +35,6 @@ const DropdownMenu = props => {
         placeholderIconColor={colours.purple}
         iosIcon={(
           <Chevron
-            style={{ alignSelf: 'center' }}
             size={1.5}
             color={colours.purple}
           />

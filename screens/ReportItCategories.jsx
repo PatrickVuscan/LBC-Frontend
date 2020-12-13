@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { FlatList } from 'react-native';
 import CategoryCard from '../components/CategoryCard';
 import ErrorMessage from '../components/ErrorMessage';
-import Title from '../components/Title';
+import ArticleScreenHeader from '../components/ArticleScreenHeader';
 import client from '../sanity/client';
 import { QUERY_EMERGENCY_CATEGORY, QUERY_OTHER_CATEGORIES } from '../sanity/reportIt';
 import { colours, theme } from '../theme/theme';
@@ -37,11 +37,7 @@ const ReportItCategories = () => {
   return (
     <>
       {/* Header */}
-      <View style={theme.sanityHeaderOuter}>
-        <View style={theme.sanityHeaderInner}>
-          <Title title="Where are you facing racism?" />
-        </View>
-      </View>
+      <ArticleScreenHeader text="Where are you facing racism?" />
 
       {/* Calls To Action */}
       <View

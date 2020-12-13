@@ -5,7 +5,7 @@ import ContentCard from '../components/ContentCard';
 import DropdownMenu from '../components/DropdownMenu';
 import ErrorMessage from '../components/ErrorMessage';
 import TextSpanner from '../components/TextSpanner';
-import Title from '../components/Title';
+import ArticleScreenHeader from '../components/ArticleScreenHeader';
 import client from '../sanity/client';
 import {
   QUERY_CATEGORIES, QUERY_TAA,
@@ -59,11 +59,7 @@ const TakeActionArticles = () => {
   return (
     <>
       {/* Header */}
-      <View style={theme.sanityHeaderOuter}>
-        <View style={theme.sanityHeaderInner}>
-          <Title title="Take action in your community!" />
-        </View>
-      </View>
+      <ArticleScreenHeader text="Take action in your community!" />
 
       {/* Category Picker and Articles */}
       <View

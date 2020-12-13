@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { FlatList } from 'react-native';
 import ContentCard from '../components/ContentCard';
 import ErrorMessage from '../components/ErrorMessage';
-import Title from '../components/Title';
+import ArticleScreenHeader from '../components/ArticleScreenHeader';
 import client from '../sanity/client';
 import { QUERY_RESOURCE } from '../sanity/reportIt';
 import { colours, theme } from '../theme/theme';
@@ -33,11 +33,7 @@ const ReportItResources = ({ route, navigation }) => {
   return (
     <>
       {/* Header */}
-      <View style={theme.sanityHeaderOuter}>
-        <View style={theme.sanityHeaderInner}>
-          <Title title="Take action in your community!" />
-        </View>
-      </View>
+      <ArticleScreenHeader text={`Resources on reporting injustice in the ${categoryName} environment!`} />
 
       {/* Report It Resources */}
       <View
