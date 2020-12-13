@@ -55,7 +55,7 @@ const ReachOutResources = ({ route, navigation }) => {
               return (
                 <ContentCard
                   index={index}
-                  navigateTo="Resource"
+                  navigateTo="Reach Out Resource"
                   content={item}
                   queryContent={QUERY_RESOURCE}
                 />

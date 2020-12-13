@@ -1,8 +1,10 @@
 // @ts-check
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { Body, Header } from 'native-base';
+import {
+  createDrawerNavigator, DrawerContentScrollView, DrawerItem, DrawerItemList,
+} from '@react-navigation/drawer';
+import { Body, Header, Text } from 'native-base';
 import * as React from 'react';
-import { Image, View } from 'react-native';
+import { Image, Linking, View } from 'react-native';
 import { DrawerNavigatorItems } from 'react-navigation-drawer';
 import Content from '../components/Content';
 import ScreenBase from '../components/ScreenBase';
@@ -18,14 +20,27 @@ const lbcLogo = require('../assets/lbc_logo_w_ball_gradient.png');
 
 // still attempting to implement images into the drawer navigator with no success so far
 const CustomDrawerNavComponent = props => {
-  <View>
-    <Header>
-      <Body>
+  const { state, ...rest } = props;
+  const newState = { ...state };
+  newState.routes = newState.routes.filter(
+    item => { return !['Reach Out Resources', 'Reach Out Resource'].includes(item.name); },
+  );
+
+  return (
+    <DrawerContentScrollView {...props}>
+      <View style={{ alignItems: 'center', marginVertical: 10 }}>
         <Image source={lbcLogo} />
-      </Body>
-    </Header>
-    <DrawerNavigatorItems {...props} />
-  </View>;
+      </View>
+      <DrawerItemList
+        state={newState}
+        {...rest}
+      />
+      <DrawerItem
+        label="Lady Ballers Camp"
+        onPress={() => { return Linking.openURL('https://ladyballerscamp.org'); }}
+      />
+    </DrawerContentScrollView>
+  );
 };
 
 const Connect = ({ route }) => {
@@ -39,7 +54,7 @@ const Connect = ({ route }) => {
           itemStyle: { marginVertical: 5 },
         }}
         initialRouteName="Timeline"
-        contentComponent={CustomDrawerNavComponent}
+        drawerContent={props => { return (<CustomDrawerNavComponent {...props} />); }}
       >
         <Drawer.Screen
           name="Timeline"
@@ -63,9 +78,7 @@ const Connect = ({ route }) => {
           name="Reach Out Categories"
           component={ReachOutCategories}
           options={{
-            drawerLabel: () => { return null; },
-            title: null,
-            drawerIcon: () => { return null; },
+            title: 'Reach Out',
           }}
         />
         <Drawer.Screen
@@ -78,7 +91,7 @@ const Connect = ({ route }) => {
           }}
         />
         <Drawer.Screen
-          name="Reach Out Article"
+          name="Reach Out Resource"
           component={Content}
           options={{
             drawerLabel: () => { return null; },
