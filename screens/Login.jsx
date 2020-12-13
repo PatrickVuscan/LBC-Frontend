@@ -45,17 +45,23 @@ const Login = props => {
 
   return (
     // #a379b3
-    <Container style={{ height: screenHeight, width: screenWidth, backgroundColor: '#000000' }}>
-      <Content style={{ alignSelf: 'center' }}>
+    <Container style={{ flex: 1, backgroundColor: '#000000' }}>
+      <Content
+        scrollEnabled={false}
+        style={{ alignSelf: 'stretch' }}
+        contentContainerStyle={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
         <Image
           style={
             {
               alignSelf: 'center',
-              marginTop: 130,
               height: 210,
               width: 210,
               marginBottom: 20,
-              // borderWidth: 2,
               borderColor: colours.purple,
             }
           }
@@ -111,7 +117,7 @@ const Login = props => {
         <Button
           light
           bordered
-          style={styles.button}
+          style={[styles.button, { marginBottom: '30%' }]}
           onPress={() => {
             signUp().then(response => {
               switch (response) {

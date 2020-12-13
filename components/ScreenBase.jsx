@@ -13,7 +13,13 @@ import { StyleSheet } from 'react-native';
 import { theme } from '../theme/theme';
 
 const ScreenBase = ({
-  header = 'Default Header', children, padder = false, left = undefined, right = undefined, noHeader = false,
+  header = 'Default Header',
+  scrollEnabled = false,
+  children,
+  padder = false,
+  left = undefined,
+  right = undefined,
+  noHeader = false,
 }) => {
   return (
     <Container>
@@ -37,6 +43,7 @@ const ScreenBase = ({
         </Header>
       )}
       <Content
+        scrollEnabled={scrollEnabled}
         padder={padder}
         contentContainerStyle={{ flex: 1 }}
       >
