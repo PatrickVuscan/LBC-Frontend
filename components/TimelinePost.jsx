@@ -8,32 +8,27 @@ import { Ionicons } from '@expo/vector-icons';
 import { colours } from '../theme/theme';
 
 export default props => {
-  let headerColor = colours.purple;
-  let closingButton;
-  if (props.post.username === props.loggedInUser.username) {
-    headerColor = 'black';
-    closingButton = (
-      <Button
-        transparent
-        style={{ flexDirection: 'row', marginLeft: 'auto' }}
-        onPress={() => { return props.deletePost(props.post); }}
-      >
-        <Ionicons
-          name="close"
-          size={24}
-          style={{
-            alignItems: 'center',
-            color: headerColor,
-            paddingRight: 5,
-          }}
-        />
-      </Button>
-    );
-  }
-  let displayedUser = props.post.username;
-  if (props.post.anonymous) {
-    displayedUser = 'Anonymous';
-  }
+  const currentUsersPost = props.post.username === props.loggedInUser.username;
+  const headerColor = currentUsersPost ? 'black' : colours.purple;
+  const displayedUser = props.post.anonymous ? 'Anonymous' : props.post.username;
+  const closingButton = currentUsersPost ? (
+    <Button
+      transparent
+      style={{ flexDirection: 'row', marginLeft: 'auto' }}
+      onPress={() => { return props.deletePost(props.post); }}
+    >
+      <Ionicons
+        name="close"
+        size={24}
+        style={{
+          alignItems: 'center',
+          color: headerColor,
+          paddingRight: 5,
+        }}
+      />
+    </Button>
+  ) : null;
+
   return (
     <Container style={styles.postContainer}>
       <Header style={{ backgroundColor: headerColor }}>
