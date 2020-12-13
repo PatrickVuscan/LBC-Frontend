@@ -67,7 +67,6 @@ export default ContentCard;
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#666',
     padding: 20,
     marginBottom: 15,
     marginHorizontal: 15,

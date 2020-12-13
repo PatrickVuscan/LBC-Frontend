@@ -1,6 +1,6 @@
 import { Picker, View } from 'native-base';
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 import { Chevron } from 'react-native-shapes';
 import { colours } from '../theme/theme';
 
@@ -12,23 +12,15 @@ const DropdownMenu = props => {
 
   return (
     <View
-      style={{
-        alignSelf: 'stretch',
-        marginHorizontal: 20,
-        height: 60,
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-      }}
+      style={styles.container}
     >
-      <Text style={{ fontSize: 20 }}>
+      <Text style={styles.text}>
         {`${text}: `}
       </Text>
       <Picker
         mode="dropdown"
+        textStyle={styles.text}
         placeholder={placeholder}
-        textStyle={{ fontSize: 20 }}
         headerStyle={{ backgroundColor: colours.purple }}
         headerBackButtonTextStyle={{ color: 'white' }}
         headerTitleStyle={{ color: 'white' }}
@@ -85,6 +77,24 @@ const DropdownMenu = props => {
   //   </>
   // );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    alignSelf: 'stretch',
+    marginHorizontal: 15,
+    padding: 15,
+    marginBottom: 15,
+    height: 60,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: colours.gold,
+  },
+  text: {
+    fontSize: 20,
+  },
+});
 
 // const pickerSelectStyles = StyleSheet.create({
 //   inputIOS: {
