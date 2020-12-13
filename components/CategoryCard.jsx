@@ -21,9 +21,11 @@ const CategoryCard = ({ category, navigateTo }) => {
       }}
     >
       <View
-        style={[styles.card, category.name === 'Emergency' ? styles.emergencyCard : {}]}
+        style={[category.name === 'Emergency' ? styles.emergencyCard : styles.card]}
       >
-        <Text style={styles.name}>
+        <Text
+          style={[category.name === 'Emergency' ? styles.emergencyName : styles.name]}
+        >
           {category.name}
         </Text>
       </View>
@@ -35,14 +37,27 @@ export default CategoryCard;
 
 const styles = StyleSheet.create({
   emergencyCard: {
-    backgroundColor: 'red',
+    backgroundColor: 'white',
+    borderColor: 'red',
+    borderWidth: 5,
+    color: 'red',
     paddingVertical: 50,
     textAlign: 'center',
     alignItems: 'center',
+    padding: 20,
+    marginTop: 15,
+    marginHorizontal: 15,
+    borderRadius: 10,
+    alignSelf: 'stretch',
+  },
+  emergencyName: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: 'red',
   },
   card: {
     backgroundColor: 'black',
-    padding: 20,
+    padding: 10,
     marginTop: 15,
     marginHorizontal: 15,
     borderRadius: 10,
