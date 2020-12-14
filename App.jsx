@@ -122,16 +122,21 @@ const App = () => {
                         : 'md-person';
                     } else if (route.name === 'Educate') {
                       iconName = focused
-                        ? 'ios-list'
-                        : 'ios-list';
+                        ? 'book'
+                        : 'book-outline';
+                      // 'school', 'school-outline'
                     } else if (route.name === 'Take Action') {
                       iconName = focused
-                        ? 'ios-list'
-                        : 'ios-list';
+                        ? 'megaphone'
+                        : 'megaphone-outline';
+                      // 'earth-sharp', 'earth-outline';
+                      // "bulb-sharp", "bulb-outline"
+                      // 'rocket', 'rocket-outline'
+                      // 'ios-earth', 'ios-earth-outline'
                     } else { // route.name === "Report It"
                       iconName = focused
-                        ? 'ios-information-circle'
-                        : 'ios-information-circle-outline';
+                        ? 'flag-sharp' : 'flag-outline';
+                      // 'shield-sharp', 'shield-outline'
                     }
 
                     return (

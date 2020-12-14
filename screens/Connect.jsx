@@ -14,9 +14,6 @@ import Timeline from './Timeline';
 const Drawer = createDrawerNavigator();
 const lbcLogo = require('../assets/lbc_logo_w_ball_gradient.png');
 
-// const img = <Image source={lbcLogo} />;
-
-// still attempting to implement images into the drawer navigator with no success so far
 const CustomDrawerNavComponent = props => {
   const { state, logOut, ...rest } = props;
   const newState = { ...state };
