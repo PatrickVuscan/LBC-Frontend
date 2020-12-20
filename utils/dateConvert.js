@@ -1,6 +1,8 @@
 import 'intl';
 import 'intl/locale-data/jsonp/en';
 
+// This is used for transforming ISODate strings from a ms value into a string we display
+
 const isoToLocale = isoDate => {
   const intl = new Intl.DateTimeFormat('default', {
     weekday: 'long',

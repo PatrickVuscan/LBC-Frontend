@@ -1,6 +1,10 @@
 /* eslint-disable object-shorthand */
 import { StyleSheet } from 'react-native';
 
+/* This file contains most of the styling which was more generalized across the application
+   Note that not all of these are used, and some refactoring may be necessary in future to
+   ensure that consistent styling is applied across the Connect screen and the other screens */
+
 const colours = {
   purple: '#7E54C6',
   gold: '#fdb927',
