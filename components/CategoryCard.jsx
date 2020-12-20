@@ -6,7 +6,7 @@ import { StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { colours } from '../theme/theme';
 
-// Used specifically in Report It
+// Used in Report It and Reach Out, for rendering the different categories as buttons
 const CategoryCard = ({ category, navigateTo, queryCategory }) => {
   const navigation = useNavigation();
 

@@ -4,6 +4,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import dateConvert from '../utils/dateConvert';
 import { colours } from '../theme/theme';
 
+// Inside of content like articles or resources from Sanity, this will
+// render the Author image and date of posting inside of the header component
 const MiniAuthor = ({ name, url, date }) => {
   let textComponent = null;
 

@@ -5,6 +5,9 @@ import MiniAuthor from './MiniAuthor';
 import Subtitle from './Subtitle';
 import Title from './Title';
 
+// Inside of content like articles or resources from Sanity, this will render the header
+// Title and subtitle get rendered in the first componentes, and MiniAuthor handles the
+// Author image and date of posting
 const Header = ({
   title, subtitle, authorName, authorImageURL, date,
 }) => {

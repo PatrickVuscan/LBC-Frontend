@@ -6,7 +6,11 @@ import {
   View,
 } from 'react-native';
 
-const Email = ({ phoneNumber }) => {
+// Renders the phone number given, but adds an onclick url which brings them
+// to the phone application if available
+// Note that this doesn't handle errors too well, a better solution for error
+// handling may be needed in the future
+const PhoneNumber = ({ phoneNumber }) => {
   const [digits, setDigits] = useState('');
 
   useEffect(() => {
@@ -47,4 +51,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Email;
+export default PhoneNumber;

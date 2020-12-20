@@ -5,6 +5,8 @@ import CaptionedImage from './CaptionedImage';
 
 // * This is used in the rendering of Sanity content *
 // This is the actual Body Component, which renders the body of sanity content
+// It makes use of calls to Block.jsx to handle more of the rendering, in a sense, to
+// make the overall structure of how its being rendered, slightly clearer
 const Body = ({ body }) => {
   const bodyRenderer = blocks => {
     const allComponents = [];

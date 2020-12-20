@@ -5,6 +5,7 @@ import { Chevron } from 'react-native-shapes';
 import { colours } from '../theme/theme';
 
 // Requires the below, with each item having a _id for the key, and name for the label
+// This is used for dropdown categories and filtering inside of the Educate and Take Action pages
 const DropdownMenu = props => {
   const {
     text, placeholder, items, selectedItem, onValueChange,

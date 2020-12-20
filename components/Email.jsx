@@ -6,6 +6,14 @@ import {
   View,
 } from 'react-native';
 
+/* Displays an email, with an onclick to open to an email
+! IMPORTANT FOR FUTURE IMPROVEMENT:
+We found out that it is possible to extend the `mailto...` thing below, to also include the
+Subject line, and body text to fill it with.
+This could mean that this could be extended, to provide LBC the ability to create an
+email template on Sanity Studio, and import that content here, so that by clicking this Email link,
+it not only opens the mail application, but furthermore, also enters their default text and subject!
+*/
 const Email = ({ email }) => {
   return (
     <View style={styles.container}>

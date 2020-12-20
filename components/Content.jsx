@@ -9,6 +9,9 @@ import ErrorMessage from './ErrorMessage';
 import Header from './Header';
 import PhoneNumber from './PhoneNumber';
 
+// This renders content from Sanity's API for all screens that need it
+// Very customizable, but the pinpoint of amazingness in here, is the Body component used below,
+// which actually does the hard work of displaying the content
 const Content = ({ route }) => {
   const { id, queryContent } = route.params;
 

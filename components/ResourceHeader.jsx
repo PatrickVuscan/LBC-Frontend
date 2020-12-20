@@ -4,6 +4,11 @@ import Subtitle from './Subtitle';
 import Title from './Title';
 import { colours } from '../theme/theme';
 
+// This is like the Header component somewhat, but specifically meant for resources,
+// because it also adds emails and phoneNumbers
+// However, after refactoring Sanity Studio a lot for LBC, it is now possible for them to
+// add emails and emails for both resources and articles. This should be merged with Header
+// and refactored where needed
 const ResourceHeader = ({
   name, subtitle, email, phoneNumber,
 }) => {

@@ -10,6 +10,7 @@ import { colours, theme } from '../theme/theme';
 
 const url = 'https://lbc-backend-fxp5s3idfq-nn.a.run.app';
 
+// This screen is used for creating a post
 export default class CreatePost extends React.Component {
   constructor(props) {
     super(props);

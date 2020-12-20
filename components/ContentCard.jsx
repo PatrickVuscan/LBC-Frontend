@@ -6,6 +6,10 @@ import { Image, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { colours } from '../theme/theme';
 
+// Used for rendering short cards for Content, which when clicked brings the user to the
+// actual article / resource on a new page
+// It displays the title, subtitle, and image for now
+// Could be extended as wanted, to show more or less!
 const ContentCard = ({
   content,
   navigateTo,

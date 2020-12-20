@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import FullWidthImage from './FullWidthImage';
 
+// Using a full width image, this renders a passed image and provides caption text below it
 const CaptionedImage = ({
   url, caption, alt,
 }) => {

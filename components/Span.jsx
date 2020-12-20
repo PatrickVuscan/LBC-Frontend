@@ -3,6 +3,7 @@ import {
   Linking, StyleSheet, Text,
 } from 'react-native';
 
+// ! This is specifically used for displaying Sanity API content
 // This wonderful component renders a span element, i.e. text, with all the different
 // stylings applied as needed to it
 const Span = ({

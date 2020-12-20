@@ -7,6 +7,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { colours } from '../theme/theme';
 
+// A post in the timeline
 export default props => {
   const currentUsersPost = props.post.username === props.loggedInUser.username;
   const headerColor = currentUsersPost ? 'black' : colours.purple;
