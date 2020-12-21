@@ -53,6 +53,11 @@ const App = () => {
     loadFonts();
   }, []);
 
+  /*
+    Makes call to backend for log in with given credentials,
+    and sets relevant state variables if successful; otherwise
+    creates dialog explaining error.
+  */
   const logIn = async (usernameVal, passwordVal) => {
     try {
       const res = await fetch(
@@ -76,6 +81,7 @@ const App = () => {
     }
   };
 
+  // Sets credential state variables to default value
   const logOut = () => {
     setLoggedIn(false);
     setTokenType('');

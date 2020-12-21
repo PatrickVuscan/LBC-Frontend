@@ -16,6 +16,8 @@ const Login = props => {
   const [passwordValue, onChangePassword] = React.useState('');
 
   /*
+    Queries backend to register new user with new credentials.
+
     return values:
       0 => successful sign up
       1 => server response error
@@ -53,7 +55,7 @@ const Login = props => {
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
-        }}
+        }} 
       >
         <Image
           style={
@@ -119,6 +121,10 @@ const Login = props => {
           bordered
           style={[styles.button, { marginBottom: '30%' }]}
           onPress={() => {
+            /* 
+              Sign up response logic covers successful sign up, server error,
+              and duplicate user errors and creates relevant dialogs for each.
+            */
             signUp().then(response => {
               switch (response) {
               case 0:
@@ -148,6 +154,7 @@ const Login = props => {
   );
 };
 
+// Styles for components used
 const styles = StyleSheet.create({
   'button': {
     // #e3ceeb
